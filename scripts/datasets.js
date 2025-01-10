@@ -100,7 +100,7 @@ const dappscan_refs = [
         "excerpt":"The selected security weaknesses are classified according to the SWC registry, which provides a standardized method for identifying and categorizing smart contract weaknesses [18]."
     },
     {
-        "title":"*Building a Database for Evaluating Smart Contract Vulnerabilities Detection Tools",
+        "title":"Building a Database for Evaluating Smart Contract Vulnerabilities Detection Tools",
         "excerpt":"..Side Functions: The DAPPScan [27] work pointed out that that many of the test"
     },
     {
