@@ -6,6 +6,9 @@ const map_volume = (list, volume) =>
 
 export async function init () {
 
+    const data566 = map_volume((await axios.get("./data/papers/acm-surveys/56-6.json")).data, '56-6');
+    const data567 = map_volume((await axios.get("./data/papers/acm-surveys/56-7.json")).data, '56-7');
+    const data568 = map_volume((await axios.get("./data/papers/acm-surveys/56-8.json")).data, '56-8');
     const data569 = map_volume((await axios.get("./data/papers/acm-surveys/56-9.json")).data, '56-9');
     const data5610 = map_volume((await axios.get("./data/papers/acm-surveys/56-10.json")).data, '56-10');
     const data5611 = map_volume((await axios.get("./data/papers/acm-surveys/56-11.json")).data, '56-11');
@@ -16,7 +19,8 @@ export async function init () {
     const data573 = map_volume((await axios.get("./data/papers/acm-surveys/57-3.json")).data, '57-3');
 
 
-    const data = data571.concat(data572,data573, data569, data5610, data5611,data5612);
+    var data = data571.concat(data572,data573, data566,data567,data568,data569, data5610, data5611,data5612);
+    data = _.map(data, d => d.topics? d : Object.assign(d, {topics:[]}) );
 
     const topics = _.chain(data).map("topics").compact().flatten().uniq().value();
     console.log(topics);
