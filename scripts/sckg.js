@@ -5,6 +5,6 @@ export async function init () {
     let table = new DataTable('#papers_table', {
         pageLength:1000,
         data,
-        columns:[ {data:'title'}, {data:'year'} ]
+        columns:[ {data:'title'}, {data:'notes'}, {data:'year'} ]
     });
 }
