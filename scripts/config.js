@@ -12,7 +12,8 @@ export const graphStyle = [
             'line-color': '#555',
             'target-arrow-color': '#444',
             'target-arrow-shape': 'triangle',
-            'curve-style': 'bezier'
+            'curve-style': 'bezier',
+            "label":"data(name)"
         }
     }
 ]
