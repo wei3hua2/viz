@@ -1,0 +1,3727 @@
+[
+ {
+  "path": "/home/jameschong/Projects/audits-kd/workspace/datasets/DAppSCAN/DAppSCAN-source/contracts/Hacken-Kyte.One/kyte-core-contracts-d5685ad1298cafe91bed5d96f34496ec93c50b3c/TokenVesting.sol",
+  "ast": {
+   "type": "SourceUnit",
+   "children": [
+    {
+     "type": "PragmaDirective",
+     "name": "solidity",
+     "value": "^0.8.0"
+    },
+    {
+     "type": "ImportDirective",
+     "path": "@openzeppelin/contracts/token/ERC20/IERC20.sol",
+     "pathLiteral": {
+      "type": "StringLiteral",
+      "value": "@openzeppelin/contracts/token/ERC20/IERC20.sol",
+      "parts": [
+       "@openzeppelin/contracts/token/ERC20/IERC20.sol"
+      ],
+      "isUnicode": [
+       false
+      ]
+     },
+     "unitAlias": null,
+     "unitAliasIdentifier": null,
+     "symbolAliases": null,
+     "symbolAliasesIdentifiers": null
+    },
+    {
+     "type": "ImportDirective",
+     "path": "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol",
+     "pathLiteral": {
+      "type": "StringLiteral",
+      "value": "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol",
+      "parts": [
+       "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol"
+      ],
+      "isUnicode": [
+       false
+      ]
+     },
+     "unitAlias": null,
+     "unitAliasIdentifier": null,
+     "symbolAliases": null,
+     "symbolAliasesIdentifiers": null
+    },
+    {
+     "type": "ImportDirective",
+     "path": "@openzeppelin/contracts/security/ReentrancyGuard.sol",
+     "pathLiteral": {
+      "type": "StringLiteral",
+      "value": "@openzeppelin/contracts/security/ReentrancyGuard.sol",
+      "parts": [
+       "@openzeppelin/contracts/security/ReentrancyGuard.sol"
+      ],
+      "isUnicode": [
+       false
+      ]
+     },
+     "unitAlias": null,
+     "unitAliasIdentifier": null,
+     "symbolAliases": null,
+     "symbolAliasesIdentifiers": null
+    },
+    {
+     "type": "ImportDirective",
+     "path": "@openzeppelin/contracts/access/Ownable.sol",
+     "pathLiteral": {
+      "type": "StringLiteral",
+      "value": "@openzeppelin/contracts/access/Ownable.sol",
+      "parts": [
+       "@openzeppelin/contracts/access/Ownable.sol"
+      ],
+      "isUnicode": [
+       false
+      ]
+     },
+     "unitAlias": null,
+     "unitAliasIdentifier": null,
+     "symbolAliases": null,
+     "symbolAliasesIdentifiers": null
+    },
+    {
+     "type": "ImportDirective",
+     "path": "@openzeppelin/contracts/utils/math/SafeMath.sol",
+     "pathLiteral": {
+      "type": "StringLiteral",
+      "value": "@openzeppelin/contracts/utils/math/SafeMath.sol",
+      "parts": [
+       "@openzeppelin/contracts/utils/math/SafeMath.sol"
+      ],
+      "isUnicode": [
+       false
+      ]
+     },
+     "unitAlias": null,
+     "unitAliasIdentifier": null,
+     "symbolAliases": null,
+     "symbolAliasesIdentifiers": null
+    },
+    {
+     "type": "ImportDirective",
+     "path": "./ITokenVesting.sol",
+     "pathLiteral": {
+      "type": "StringLiteral",
+      "value": "./ITokenVesting.sol",
+      "parts": [
+       "./ITokenVesting.sol"
+      ],
+      "isUnicode": [
+       false
+      ]
+     },
+     "unitAlias": null,
+     "unitAliasIdentifier": null,
+     "symbolAliases": null,
+     "symbolAliasesIdentifiers": null
+    },
+    {
+     "type": "ContractDefinition",
+     "name": "TokenVesting",
+     "baseContracts": [
+      {
+       "type": "InheritanceSpecifier",
+       "baseName": {
+        "type": "UserDefinedTypeName",
+        "namePath": "ITokenVesting"
+       },
+       "arguments": []
+      },
+      {
+       "type": "InheritanceSpecifier",
+       "baseName": {
+        "type": "UserDefinedTypeName",
+        "namePath": "Ownable"
+       },
+       "arguments": []
+      },
+      {
+       "type": "InheritanceSpecifier",
+       "baseName": {
+        "type": "UserDefinedTypeName",
+        "namePath": "ReentrancyGuard"
+       },
+       "arguments": []
+      }
+     ],
+     "subNodes": [
+      {
+       "type": "UsingForDeclaration",
+       "isGlobal": false,
+       "typeName": {
+        "type": "ElementaryTypeName",
+        "name": "uint256",
+        "stateMutability": null
+       },
+       "libraryName": "SafeMath",
+       "functions": [],
+       "operators": []
+      },
+      {
+       "type": "UsingForDeclaration",
+       "isGlobal": false,
+       "typeName": {
+        "type": "UserDefinedTypeName",
+        "namePath": "IERC20"
+       },
+       "libraryName": "SafeERC20",
+       "functions": [],
+       "operators": []
+      },
+      {
+       "type": "StateVariableDeclaration",
+       "variables": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "UserDefinedTypeName",
+          "namePath": "IERC20"
+         },
+         "name": "token",
+         "identifier": {
+          "type": "Identifier",
+          "name": "token"
+         },
+         "expression": null,
+         "visibility": "public",
+         "isStateVar": true,
+         "isDeclaredConst": false,
+         "isIndexed": false,
+         "isImmutable": true,
+         "override": null,
+         "storageLocation": null
+        }
+       ],
+       "initialValue": null
+      },
+      {
+       "type": "StateVariableDeclaration",
+       "variables": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ArrayTypeName",
+          "baseTypeName": {
+           "type": "ElementaryTypeName",
+           "name": "bytes32",
+           "stateMutability": null
+          },
+          "length": null
+         },
+         "name": "vestingSchedulesIds",
+         "identifier": {
+          "type": "Identifier",
+          "name": "vestingSchedulesIds"
+         },
+         "expression": null,
+         "visibility": "private",
+         "isStateVar": true,
+         "isDeclaredConst": false,
+         "isIndexed": false,
+         "isImmutable": false,
+         "override": null,
+         "storageLocation": null
+        }
+       ],
+       "initialValue": null
+      },
+      {
+       "type": "StateVariableDeclaration",
+       "variables": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "Mapping",
+          "keyType": {
+           "type": "ElementaryTypeName",
+           "name": "bytes32",
+           "stateMutability": null
+          },
+          "keyName": null,
+          "valueType": {
+           "type": "UserDefinedTypeName",
+           "namePath": "VestingSchedule"
+          },
+          "valueName": null
+         },
+         "name": "vestingSchedules",
+         "identifier": {
+          "type": "Identifier",
+          "name": "vestingSchedules"
+         },
+         "expression": null,
+         "visibility": "public",
+         "isStateVar": true,
+         "isDeclaredConst": false,
+         "isIndexed": false,
+         "isImmutable": false,
+         "override": null,
+         "storageLocation": null
+        }
+       ],
+       "initialValue": null
+      },
+      {
+       "type": "StateVariableDeclaration",
+       "variables": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint256",
+          "stateMutability": null
+         },
+         "name": "vestingSchedulesTotalAmount",
+         "identifier": {
+          "type": "Identifier",
+          "name": "vestingSchedulesTotalAmount"
+         },
+         "expression": null,
+         "visibility": "public",
+         "isStateVar": true,
+         "isDeclaredConst": false,
+         "isIndexed": false,
+         "isImmutable": false,
+         "override": null,
+         "storageLocation": null
+        }
+       ],
+       "initialValue": null
+      },
+      {
+       "type": "StateVariableDeclaration",
+       "variables": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "Mapping",
+          "keyType": {
+           "type": "ElementaryTypeName",
+           "name": "address",
+           "stateMutability": null
+          },
+          "keyName": null,
+          "valueType": {
+           "type": "ElementaryTypeName",
+           "name": "uint256",
+           "stateMutability": null
+          },
+          "valueName": null
+         },
+         "name": "holdersVestingCount",
+         "identifier": {
+          "type": "Identifier",
+          "name": "holdersVestingCount"
+         },
+         "expression": null,
+         "visibility": "public",
+         "isStateVar": true,
+         "isDeclaredConst": false,
+         "isIndexed": false,
+         "isImmutable": false,
+         "override": null,
+         "storageLocation": null
+        }
+       ],
+       "initialValue": null
+      },
+      {
+       "type": "ModifierDefinition",
+       "name": "onlyIfVestingScheduleExists",
+       "parameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "bytes32",
+          "stateMutability": null
+         },
+         "name": "vestingScheduleId",
+         "identifier": {
+          "type": "Identifier",
+          "name": "vestingScheduleId"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "body": {
+        "type": "Block",
+        "statements": [
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "Identifier",
+            "name": "require"
+           },
+           "arguments": [
+            {
+             "type": "MemberAccess",
+             "expression": {
+              "type": "IndexAccess",
+              "base": {
+               "type": "Identifier",
+               "name": "vestingSchedules"
+              },
+              "index": {
+               "type": "Identifier",
+               "name": "vestingScheduleId"
+              }
+             },
+             "memberName": "initialized"
+            },
+            {
+             "type": "StringLiteral",
+             "value": "invalid-vesting-schedule",
+             "parts": [
+              "invalid-vesting-schedule"
+             ],
+             "isUnicode": [
+              false
+             ]
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         },
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "Identifier",
+           "name": "_"
+          }
+         }
+        ]
+       },
+       "isVirtual": false,
+       "override": null
+      },
+      {
+       "type": "ModifierDefinition",
+       "name": "onlyIfVestingScheduleNotRevoked",
+       "parameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "bytes32",
+          "stateMutability": null
+         },
+         "name": "vestingScheduleId",
+         "identifier": {
+          "type": "Identifier",
+          "name": "vestingScheduleId"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "body": {
+        "type": "Block",
+        "statements": [
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "Identifier",
+            "name": "require"
+           },
+           "arguments": [
+            {
+             "type": "MemberAccess",
+             "expression": {
+              "type": "IndexAccess",
+              "base": {
+               "type": "Identifier",
+               "name": "vestingSchedules"
+              },
+              "index": {
+               "type": "Identifier",
+               "name": "vestingScheduleId"
+              }
+             },
+             "memberName": "initialized"
+            },
+            {
+             "type": "StringLiteral",
+             "value": "vesting-schedule-not-initialized",
+             "parts": [
+              "vesting-schedule-not-initialized"
+             ],
+             "isUnicode": [
+              false
+             ]
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         },
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "Identifier",
+            "name": "require"
+           },
+           "arguments": [
+            {
+             "type": "UnaryOperation",
+             "operator": "!",
+             "subExpression": {
+              "type": "MemberAccess",
+              "expression": {
+               "type": "IndexAccess",
+               "base": {
+                "type": "Identifier",
+                "name": "vestingSchedules"
+               },
+               "index": {
+                "type": "Identifier",
+                "name": "vestingScheduleId"
+               }
+              },
+              "memberName": "revoked"
+             },
+             "isPrefix": true
+            },
+            {
+             "type": "StringLiteral",
+             "value": "vesting-schedule-revoked",
+             "parts": [
+              "vesting-schedule-revoked"
+             ],
+             "isUnicode": [
+              false
+             ]
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         },
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "Identifier",
+           "name": "_"
+          }
+         }
+        ]
+       },
+       "isVirtual": false,
+       "override": null
+      },
+      {
+       "type": "FunctionDefinition",
+       "name": null,
+       "parameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "address",
+          "stateMutability": null
+         },
+         "name": "token_",
+         "identifier": {
+          "type": "Identifier",
+          "name": "token_"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "returnParameters": null,
+       "body": {
+        "type": "Block",
+        "statements": [
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "Identifier",
+            "name": "require"
+           },
+           "arguments": [
+            {
+             "type": "BinaryOperation",
+             "operator": "!=",
+             "left": {
+              "type": "Identifier",
+              "name": "token_"
+             },
+             "right": {
+              "type": "FunctionCall",
+              "expression": {
+               "type": "Identifier",
+               "name": "address"
+              },
+              "arguments": [
+               {
+                "type": "NumberLiteral",
+                "number": "0x0",
+                "subdenomination": null
+               }
+              ],
+              "names": [],
+              "identifiers": []
+             }
+            },
+            {
+             "type": "StringLiteral",
+             "value": "invalid-token-address",
+             "parts": [
+              "invalid-token-address"
+             ],
+             "isUnicode": [
+              false
+             ]
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         },
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "BinaryOperation",
+           "operator": "=",
+           "left": {
+            "type": "Identifier",
+            "name": "token"
+           },
+           "right": {
+            "type": "FunctionCall",
+            "expression": {
+             "type": "Identifier",
+             "name": "IERC20"
+            },
+            "arguments": [
+             {
+              "type": "Identifier",
+              "name": "token_"
+             }
+            ],
+            "names": [],
+            "identifiers": []
+           }
+          }
+         }
+        ]
+       },
+       "visibility": "default",
+       "modifiers": [],
+       "override": null,
+       "isConstructor": true,
+       "isReceiveEther": false,
+       "isFallback": false,
+       "isVirtual": false,
+       "stateMutability": null
+      },
+      {
+       "type": "FunctionDefinition",
+       "name": null,
+       "parameters": [],
+       "returnParameters": null,
+       "body": {
+        "type": "Block",
+        "statements": []
+       },
+       "visibility": "external",
+       "modifiers": [],
+       "override": null,
+       "isConstructor": false,
+       "isReceiveEther": true,
+       "isFallback": false,
+       "isVirtual": false,
+       "stateMutability": "payable"
+      },
+      {
+       "type": "FunctionDefinition",
+       "name": null,
+       "parameters": [],
+       "returnParameters": null,
+       "body": {
+        "type": "Block",
+        "statements": []
+       },
+       "visibility": "external",
+       "modifiers": [],
+       "override": null,
+       "isConstructor": false,
+       "isReceiveEther": false,
+       "isFallback": true,
+       "isVirtual": false,
+       "stateMutability": "payable"
+      },
+      {
+       "type": "FunctionDefinition",
+       "name": "createVestingSchedule",
+       "parameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "address",
+          "stateMutability": null
+         },
+         "name": "_beneficiary",
+         "identifier": {
+          "type": "Identifier",
+          "name": "_beneficiary"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint256",
+          "stateMutability": null
+         },
+         "name": "_start",
+         "identifier": {
+          "type": "Identifier",
+          "name": "_start"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint256",
+          "stateMutability": null
+         },
+         "name": "_cliff",
+         "identifier": {
+          "type": "Identifier",
+          "name": "_cliff"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint256",
+          "stateMutability": null
+         },
+         "name": "_duration",
+         "identifier": {
+          "type": "Identifier",
+          "name": "_duration"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint256",
+          "stateMutability": null
+         },
+         "name": "_slicePeriodSeconds",
+         "identifier": {
+          "type": "Identifier",
+          "name": "_slicePeriodSeconds"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "bool",
+          "stateMutability": null
+         },
+         "name": "_revocable",
+         "identifier": {
+          "type": "Identifier",
+          "name": "_revocable"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint256",
+          "stateMutability": null
+         },
+         "name": "_amount",
+         "identifier": {
+          "type": "Identifier",
+          "name": "_amount"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint256",
+          "stateMutability": null
+         },
+         "name": "_upFront",
+         "identifier": {
+          "type": "Identifier",
+          "name": "_upFront"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "returnParameters": null,
+       "body": {
+        "type": "Block",
+        "statements": [
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "Identifier",
+            "name": "require"
+           },
+           "arguments": [
+            {
+             "type": "BinaryOperation",
+             "operator": ">=",
+             "left": {
+              "type": "FunctionCall",
+              "expression": {
+               "type": "MemberAccess",
+               "expression": {
+                "type": "Identifier",
+                "name": "this"
+               },
+               "memberName": "getWithdrawableAmount"
+              },
+              "arguments": [],
+              "names": [],
+              "identifiers": []
+             },
+             "right": {
+              "type": "Identifier",
+              "name": "_amount"
+             }
+            },
+            {
+             "type": "StringLiteral",
+             "value": "insufficient-tokens",
+             "parts": [
+              "insufficient-tokens"
+             ],
+             "isUnicode": [
+              false
+             ]
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         },
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "Identifier",
+            "name": "require"
+           },
+           "arguments": [
+            {
+             "type": "BinaryOperation",
+             "operator": ">",
+             "left": {
+              "type": "Identifier",
+              "name": "_duration"
+             },
+             "right": {
+              "type": "NumberLiteral",
+              "number": "0",
+              "subdenomination": null
+             }
+            },
+            {
+             "type": "StringLiteral",
+             "value": "invalid-duration",
+             "parts": [
+              "invalid-duration"
+             ],
+             "isUnicode": [
+              false
+             ]
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         },
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "Identifier",
+            "name": "require"
+           },
+           "arguments": [
+            {
+             "type": "BinaryOperation",
+             "operator": ">",
+             "left": {
+              "type": "Identifier",
+              "name": "_amount"
+             },
+             "right": {
+              "type": "NumberLiteral",
+              "number": "0",
+              "subdenomination": null
+             }
+            },
+            {
+             "type": "StringLiteral",
+             "value": "invalid-amount",
+             "parts": [
+              "invalid-amount"
+             ],
+             "isUnicode": [
+              false
+             ]
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         },
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "Identifier",
+            "name": "require"
+           },
+           "arguments": [
+            {
+             "type": "BinaryOperation",
+             "operator": ">=",
+             "left": {
+              "type": "Identifier",
+              "name": "_slicePeriodSeconds"
+             },
+             "right": {
+              "type": "NumberLiteral",
+              "number": "1",
+              "subdenomination": null
+             }
+            },
+            {
+             "type": "StringLiteral",
+             "value": "invalid-slice-period",
+             "parts": [
+              "invalid-slice-period"
+             ],
+             "isUnicode": [
+              false
+             ]
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         },
+         {
+          "type": "VariableDeclarationStatement",
+          "variables": [
+           {
+            "type": "VariableDeclaration",
+            "typeName": {
+             "type": "ElementaryTypeName",
+             "name": "bytes32",
+             "stateMutability": null
+            },
+            "name": "vestingScheduleId",
+            "identifier": {
+             "type": "Identifier",
+             "name": "vestingScheduleId"
+            },
+            "storageLocation": null,
+            "isStateVar": false,
+            "isIndexed": false,
+            "expression": null
+           }
+          ],
+          "initialValue": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "MemberAccess",
+            "expression": {
+             "type": "Identifier",
+             "name": "this"
+            },
+            "memberName": "computeNextVestingScheduleIdForHolder"
+           },
+           "arguments": [
+            {
+             "type": "Identifier",
+             "name": "_beneficiary"
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         },
+         {
+          "type": "VariableDeclarationStatement",
+          "variables": [
+           {
+            "type": "VariableDeclaration",
+            "typeName": {
+             "type": "ElementaryTypeName",
+             "name": "uint256",
+             "stateMutability": null
+            },
+            "name": "cliff",
+            "identifier": {
+             "type": "Identifier",
+             "name": "cliff"
+            },
+            "storageLocation": null,
+            "isStateVar": false,
+            "isIndexed": false,
+            "expression": null
+           }
+          ],
+          "initialValue": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "MemberAccess",
+            "expression": {
+             "type": "Identifier",
+             "name": "_start"
+            },
+            "memberName": "add"
+           },
+           "arguments": [
+            {
+             "type": "Identifier",
+             "name": "_cliff"
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         },
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "BinaryOperation",
+           "operator": "=",
+           "left": {
+            "type": "IndexAccess",
+            "base": {
+             "type": "Identifier",
+             "name": "vestingSchedules"
+            },
+            "index": {
+             "type": "Identifier",
+             "name": "vestingScheduleId"
+            }
+           },
+           "right": {
+            "type": "FunctionCall",
+            "expression": {
+             "type": "Identifier",
+             "name": "VestingSchedule"
+            },
+            "arguments": [
+             {
+              "type": "BooleanLiteral",
+              "value": true
+             },
+             {
+              "type": "Identifier",
+              "name": "_beneficiary"
+             },
+             {
+              "type": "Identifier",
+              "name": "cliff"
+             },
+             {
+              "type": "Identifier",
+              "name": "_start"
+             },
+             {
+              "type": "Identifier",
+              "name": "_duration"
+             },
+             {
+              "type": "Identifier",
+              "name": "_slicePeriodSeconds"
+             },
+             {
+              "type": "Identifier",
+              "name": "_revocable"
+             },
+             {
+              "type": "Identifier",
+              "name": "_amount"
+             },
+             {
+              "type": "NumberLiteral",
+              "number": "0",
+              "subdenomination": null
+             },
+             {
+              "type": "BooleanLiteral",
+              "value": false
+             },
+             {
+              "type": "Identifier",
+              "name": "_upFront"
+             }
+            ],
+            "names": [],
+            "identifiers": []
+           }
+          }
+         },
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "BinaryOperation",
+           "operator": "=",
+           "left": {
+            "type": "Identifier",
+            "name": "vestingSchedulesTotalAmount"
+           },
+           "right": {
+            "type": "FunctionCall",
+            "expression": {
+             "type": "MemberAccess",
+             "expression": {
+              "type": "Identifier",
+              "name": "vestingSchedulesTotalAmount"
+             },
+             "memberName": "add"
+            },
+            "arguments": [
+             {
+              "type": "Identifier",
+              "name": "_amount"
+             }
+            ],
+            "names": [],
+            "identifiers": []
+           }
+          }
+         },
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "MemberAccess",
+            "expression": {
+             "type": "Identifier",
+             "name": "vestingSchedulesIds"
+            },
+            "memberName": "push"
+           },
+           "arguments": [
+            {
+             "type": "Identifier",
+             "name": "vestingScheduleId"
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         },
+         {
+          "type": "VariableDeclarationStatement",
+          "variables": [
+           {
+            "type": "VariableDeclaration",
+            "typeName": {
+             "type": "ElementaryTypeName",
+             "name": "uint256",
+             "stateMutability": null
+            },
+            "name": "currentVestingCount",
+            "identifier": {
+             "type": "Identifier",
+             "name": "currentVestingCount"
+            },
+            "storageLocation": null,
+            "isStateVar": false,
+            "isIndexed": false,
+            "expression": null
+           }
+          ],
+          "initialValue": {
+           "type": "IndexAccess",
+           "base": {
+            "type": "Identifier",
+            "name": "holdersVestingCount"
+           },
+           "index": {
+            "type": "Identifier",
+            "name": "_beneficiary"
+           }
+          }
+         },
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "BinaryOperation",
+           "operator": "=",
+           "left": {
+            "type": "IndexAccess",
+            "base": {
+             "type": "Identifier",
+             "name": "holdersVestingCount"
+            },
+            "index": {
+             "type": "Identifier",
+             "name": "_beneficiary"
+            }
+           },
+           "right": {
+            "type": "FunctionCall",
+            "expression": {
+             "type": "MemberAccess",
+             "expression": {
+              "type": "Identifier",
+              "name": "currentVestingCount"
+             },
+             "memberName": "add"
+            },
+            "arguments": [
+             {
+              "type": "NumberLiteral",
+              "number": "1",
+              "subdenomination": null
+             }
+            ],
+            "names": [],
+            "identifiers": []
+           }
+          }
+         },
+         {
+          "type": "IfStatement",
+          "condition": {
+           "type": "BinaryOperation",
+           "operator": ">",
+           "left": {
+            "type": "Identifier",
+            "name": "_upFront"
+           },
+           "right": {
+            "type": "NumberLiteral",
+            "number": "0",
+            "subdenomination": null
+           }
+          },
+          "trueBody": {
+           "type": "Block",
+           "statements": [
+            {
+             "type": "ExpressionStatement",
+             "expression": {
+              "type": "FunctionCall",
+              "expression": {
+               "type": "MemberAccess",
+               "expression": {
+                "type": "Identifier",
+                "name": "token"
+               },
+               "memberName": "safeTransfer"
+              },
+              "arguments": [
+               {
+                "type": "Identifier",
+                "name": "_beneficiary"
+               },
+               {
+                "type": "Identifier",
+                "name": "_upFront"
+               }
+              ],
+              "names": [],
+              "identifiers": []
+             }
+            },
+            {
+             "type": "EmitStatement",
+             "eventCall": {
+              "type": "FunctionCall",
+              "expression": {
+               "type": "Identifier",
+               "name": "UpfrontTokenTransfer"
+              },
+              "arguments": [
+               {
+                "type": "Identifier",
+                "name": "vestingScheduleId"
+               },
+               {
+                "type": "Identifier",
+                "name": "_beneficiary"
+               },
+               {
+                "type": "Identifier",
+                "name": "_upFront"
+               }
+              ],
+              "names": [],
+              "identifiers": []
+             }
+            }
+           ]
+          },
+          "falseBody": null
+         },
+         {
+          "type": "EmitStatement",
+          "eventCall": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "Identifier",
+            "name": "AddVestingSchedule"
+           },
+           "arguments": [
+            {
+             "type": "Identifier",
+             "name": "vestingScheduleId"
+            },
+            {
+             "type": "Identifier",
+             "name": "_beneficiary"
+            },
+            {
+             "type": "Identifier",
+             "name": "cliff"
+            },
+            {
+             "type": "Identifier",
+             "name": "_start"
+            },
+            {
+             "type": "Identifier",
+             "name": "_duration"
+            },
+            {
+             "type": "Identifier",
+             "name": "_slicePeriodSeconds"
+            },
+            {
+             "type": "Identifier",
+             "name": "_revocable"
+            },
+            {
+             "type": "Identifier",
+             "name": "_amount"
+            },
+            {
+             "type": "NumberLiteral",
+             "number": "0",
+             "subdenomination": null
+            },
+            {
+             "type": "BooleanLiteral",
+             "value": false
+            },
+            {
+             "type": "Identifier",
+             "name": "_upFront"
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         }
+        ]
+       },
+       "visibility": "public",
+       "modifiers": [
+        {
+         "type": "ModifierInvocation",
+         "name": "onlyOwner",
+         "arguments": null
+        }
+       ],
+       "override": null,
+       "isConstructor": false,
+       "isReceiveEther": false,
+       "isFallback": false,
+       "isVirtual": false,
+       "stateMutability": null
+      },
+      {
+       "type": "FunctionDefinition",
+       "name": "revoke",
+       "parameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "bytes32",
+          "stateMutability": null
+         },
+         "name": "vestingScheduleId",
+         "identifier": {
+          "type": "Identifier",
+          "name": "vestingScheduleId"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "returnParameters": null,
+       "body": {
+        "type": "Block",
+        "statements": [
+         {
+          "type": "VariableDeclarationStatement",
+          "variables": [
+           {
+            "type": "VariableDeclaration",
+            "typeName": {
+             "type": "UserDefinedTypeName",
+             "namePath": "VestingSchedule"
+            },
+            "name": "vestingSchedule",
+            "identifier": {
+             "type": "Identifier",
+             "name": "vestingSchedule"
+            },
+            "storageLocation": "storage",
+            "isStateVar": false,
+            "isIndexed": false,
+            "expression": null
+           }
+          ],
+          "initialValue": {
+           "type": "IndexAccess",
+           "base": {
+            "type": "Identifier",
+            "name": "vestingSchedules"
+           },
+           "index": {
+            "type": "Identifier",
+            "name": "vestingScheduleId"
+           }
+          }
+         },
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "Identifier",
+            "name": "require"
+           },
+           "arguments": [
+            {
+             "type": "BinaryOperation",
+             "operator": "==",
+             "left": {
+              "type": "MemberAccess",
+              "expression": {
+               "type": "Identifier",
+               "name": "vestingSchedule"
+              },
+              "memberName": "revocable"
+             },
+             "right": {
+              "type": "BooleanLiteral",
+              "value": true
+             }
+            },
+            {
+             "type": "StringLiteral",
+             "value": "not-revocable",
+             "parts": [
+              "not-revocable"
+             ],
+             "isUnicode": [
+              false
+             ]
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         },
+         {
+          "type": "VariableDeclarationStatement",
+          "variables": [
+           {
+            "type": "VariableDeclaration",
+            "typeName": {
+             "type": "ElementaryTypeName",
+             "name": "uint256",
+             "stateMutability": null
+            },
+            "name": "vestedAmount",
+            "identifier": {
+             "type": "Identifier",
+             "name": "vestedAmount"
+            },
+            "storageLocation": null,
+            "isStateVar": false,
+            "isIndexed": false,
+            "expression": null
+           }
+          ],
+          "initialValue": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "Identifier",
+            "name": "_computeReleasableAmount"
+           },
+           "arguments": [
+            {
+             "type": "Identifier",
+             "name": "vestingSchedule"
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         },
+         {
+          "type": "IfStatement",
+          "condition": {
+           "type": "BinaryOperation",
+           "operator": ">",
+           "left": {
+            "type": "Identifier",
+            "name": "vestedAmount"
+           },
+           "right": {
+            "type": "NumberLiteral",
+            "number": "0",
+            "subdenomination": null
+           }
+          },
+          "trueBody": {
+           "type": "Block",
+           "statements": [
+            {
+             "type": "ExpressionStatement",
+             "expression": {
+              "type": "FunctionCall",
+              "expression": {
+               "type": "Identifier",
+               "name": "release"
+              },
+              "arguments": [
+               {
+                "type": "Identifier",
+                "name": "vestingScheduleId"
+               },
+               {
+                "type": "Identifier",
+                "name": "vestedAmount"
+               }
+              ],
+              "names": [],
+              "identifiers": []
+             }
+            }
+           ]
+          },
+          "falseBody": null
+         },
+         {
+          "type": "VariableDeclarationStatement",
+          "variables": [
+           {
+            "type": "VariableDeclaration",
+            "typeName": {
+             "type": "ElementaryTypeName",
+             "name": "uint256",
+             "stateMutability": null
+            },
+            "name": "unreleased",
+            "identifier": {
+             "type": "Identifier",
+             "name": "unreleased"
+            },
+            "storageLocation": null,
+            "isStateVar": false,
+            "isIndexed": false,
+            "expression": null
+           }
+          ],
+          "initialValue": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "MemberAccess",
+            "expression": {
+             "type": "MemberAccess",
+             "expression": {
+              "type": "Identifier",
+              "name": "vestingSchedule"
+             },
+             "memberName": "amountTotal"
+            },
+            "memberName": "sub"
+           },
+           "arguments": [
+            {
+             "type": "MemberAccess",
+             "expression": {
+              "type": "Identifier",
+              "name": "vestingSchedule"
+             },
+             "memberName": "released"
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         },
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "BinaryOperation",
+           "operator": "=",
+           "left": {
+            "type": "Identifier",
+            "name": "vestingSchedulesTotalAmount"
+           },
+           "right": {
+            "type": "FunctionCall",
+            "expression": {
+             "type": "MemberAccess",
+             "expression": {
+              "type": "Identifier",
+              "name": "vestingSchedulesTotalAmount"
+             },
+             "memberName": "sub"
+            },
+            "arguments": [
+             {
+              "type": "Identifier",
+              "name": "unreleased"
+             }
+            ],
+            "names": [],
+            "identifiers": []
+           }
+          }
+         },
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "BinaryOperation",
+           "operator": "=",
+           "left": {
+            "type": "MemberAccess",
+            "expression": {
+             "type": "Identifier",
+             "name": "vestingSchedule"
+            },
+            "memberName": "revoked"
+           },
+           "right": {
+            "type": "BooleanLiteral",
+            "value": true
+           }
+          }
+         },
+         {
+          "type": "EmitStatement",
+          "eventCall": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "Identifier",
+            "name": "RevokeVestingShedule"
+           },
+           "arguments": [
+            {
+             "type": "Identifier",
+             "name": "vestingScheduleId"
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         }
+        ]
+       },
+       "visibility": "public",
+       "modifiers": [
+        {
+         "type": "ModifierInvocation",
+         "name": "onlyOwner",
+         "arguments": null
+        },
+        {
+         "type": "ModifierInvocation",
+         "name": "onlyIfVestingScheduleNotRevoked",
+         "arguments": [
+          {
+           "type": "Identifier",
+           "name": "vestingScheduleId"
+          }
+         ]
+        }
+       ],
+       "override": null,
+       "isConstructor": false,
+       "isReceiveEther": false,
+       "isFallback": false,
+       "isVirtual": false,
+       "stateMutability": null
+      },
+      {
+       "type": "FunctionDefinition",
+       "name": "withdraw",
+       "parameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint256",
+          "stateMutability": null
+         },
+         "name": "amount",
+         "identifier": {
+          "type": "Identifier",
+          "name": "amount"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "returnParameters": null,
+       "body": {
+        "type": "Block",
+        "statements": [
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "Identifier",
+            "name": "require"
+           },
+           "arguments": [
+            {
+             "type": "BinaryOperation",
+             "operator": ">=",
+             "left": {
+              "type": "FunctionCall",
+              "expression": {
+               "type": "MemberAccess",
+               "expression": {
+                "type": "Identifier",
+                "name": "this"
+               },
+               "memberName": "getWithdrawableAmount"
+              },
+              "arguments": [],
+              "names": [],
+              "identifiers": []
+             },
+             "right": {
+              "type": "Identifier",
+              "name": "amount"
+             }
+            },
+            {
+             "type": "StringLiteral",
+             "value": "insufficient-withdrawable-funds",
+             "parts": [
+              "insufficient-withdrawable-funds"
+             ],
+             "isUnicode": [
+              false
+             ]
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         },
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "MemberAccess",
+            "expression": {
+             "type": "Identifier",
+             "name": "token"
+            },
+            "memberName": "safeTransfer"
+           },
+           "arguments": [
+            {
+             "type": "FunctionCall",
+             "expression": {
+              "type": "Identifier",
+              "name": "owner"
+             },
+             "arguments": [],
+             "names": [],
+             "identifiers": []
+            },
+            {
+             "type": "Identifier",
+             "name": "amount"
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         }
+        ]
+       },
+       "visibility": "public",
+       "modifiers": [
+        {
+         "type": "ModifierInvocation",
+         "name": "nonReentrant",
+         "arguments": null
+        },
+        {
+         "type": "ModifierInvocation",
+         "name": "onlyOwner",
+         "arguments": null
+        }
+       ],
+       "override": null,
+       "isConstructor": false,
+       "isReceiveEther": false,
+       "isFallback": false,
+       "isVirtual": false,
+       "stateMutability": null
+      },
+      {
+       "type": "FunctionDefinition",
+       "name": "releaseAllVested",
+       "parameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "bytes32",
+          "stateMutability": null
+         },
+         "name": "vestingScheduleId",
+         "identifier": {
+          "type": "Identifier",
+          "name": "vestingScheduleId"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "returnParameters": null,
+       "body": {
+        "type": "Block",
+        "statements": [
+         {
+          "type": "VariableDeclarationStatement",
+          "variables": [
+           {
+            "type": "VariableDeclaration",
+            "typeName": {
+             "type": "UserDefinedTypeName",
+             "namePath": "VestingSchedule"
+            },
+            "name": "vestingSchedule",
+            "identifier": {
+             "type": "Identifier",
+             "name": "vestingSchedule"
+            },
+            "storageLocation": "storage",
+            "isStateVar": false,
+            "isIndexed": false,
+            "expression": null
+           }
+          ],
+          "initialValue": {
+           "type": "IndexAccess",
+           "base": {
+            "type": "Identifier",
+            "name": "vestingSchedules"
+           },
+           "index": {
+            "type": "Identifier",
+            "name": "vestingScheduleId"
+           }
+          }
+         },
+         {
+          "type": "VariableDeclarationStatement",
+          "variables": [
+           {
+            "type": "VariableDeclaration",
+            "typeName": {
+             "type": "ElementaryTypeName",
+             "name": "uint256",
+             "stateMutability": null
+            },
+            "name": "vestedAmount",
+            "identifier": {
+             "type": "Identifier",
+             "name": "vestedAmount"
+            },
+            "storageLocation": null,
+            "isStateVar": false,
+            "isIndexed": false,
+            "expression": null
+           }
+          ],
+          "initialValue": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "Identifier",
+            "name": "_computeReleasableAmount"
+           },
+           "arguments": [
+            {
+             "type": "Identifier",
+             "name": "vestingSchedule"
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         },
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "Identifier",
+            "name": "release"
+           },
+           "arguments": [
+            {
+             "type": "Identifier",
+             "name": "vestingScheduleId"
+            },
+            {
+             "type": "Identifier",
+             "name": "vestedAmount"
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         }
+        ]
+       },
+       "visibility": "public",
+       "modifiers": [
+        {
+         "type": "ModifierInvocation",
+         "name": "nonReentrant",
+         "arguments": null
+        },
+        {
+         "type": "ModifierInvocation",
+         "name": "onlyIfVestingScheduleNotRevoked",
+         "arguments": [
+          {
+           "type": "Identifier",
+           "name": "vestingScheduleId"
+          }
+         ]
+        }
+       ],
+       "override": null,
+       "isConstructor": false,
+       "isReceiveEther": false,
+       "isFallback": false,
+       "isVirtual": false,
+       "stateMutability": null
+      },
+      {
+       "type": "FunctionDefinition",
+       "name": "release",
+       "parameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "bytes32",
+          "stateMutability": null
+         },
+         "name": "vestingScheduleId",
+         "identifier": {
+          "type": "Identifier",
+          "name": "vestingScheduleId"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint256",
+          "stateMutability": null
+         },
+         "name": "amount",
+         "identifier": {
+          "type": "Identifier",
+          "name": "amount"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "returnParameters": null,
+       "body": {
+        "type": "Block",
+        "statements": [
+         {
+          "type": "VariableDeclarationStatement",
+          "variables": [
+           {
+            "type": "VariableDeclaration",
+            "typeName": {
+             "type": "UserDefinedTypeName",
+             "namePath": "VestingSchedule"
+            },
+            "name": "vestingSchedule",
+            "identifier": {
+             "type": "Identifier",
+             "name": "vestingSchedule"
+            },
+            "storageLocation": "storage",
+            "isStateVar": false,
+            "isIndexed": false,
+            "expression": null
+           }
+          ],
+          "initialValue": {
+           "type": "IndexAccess",
+           "base": {
+            "type": "Identifier",
+            "name": "vestingSchedules"
+           },
+           "index": {
+            "type": "Identifier",
+            "name": "vestingScheduleId"
+           }
+          }
+         },
+         {
+          "type": "VariableDeclarationStatement",
+          "variables": [
+           {
+            "type": "VariableDeclaration",
+            "typeName": {
+             "type": "ElementaryTypeName",
+             "name": "bool",
+             "stateMutability": null
+            },
+            "name": "isBeneficiary",
+            "identifier": {
+             "type": "Identifier",
+             "name": "isBeneficiary"
+            },
+            "storageLocation": null,
+            "isStateVar": false,
+            "isIndexed": false,
+            "expression": null
+           }
+          ],
+          "initialValue": {
+           "type": "BinaryOperation",
+           "operator": "==",
+           "left": {
+            "type": "MemberAccess",
+            "expression": {
+             "type": "Identifier",
+             "name": "msg"
+            },
+            "memberName": "sender"
+           },
+           "right": {
+            "type": "MemberAccess",
+            "expression": {
+             "type": "Identifier",
+             "name": "vestingSchedule"
+            },
+            "memberName": "beneficiary"
+           }
+          }
+         },
+         {
+          "type": "VariableDeclarationStatement",
+          "variables": [
+           {
+            "type": "VariableDeclaration",
+            "typeName": {
+             "type": "ElementaryTypeName",
+             "name": "bool",
+             "stateMutability": null
+            },
+            "name": "isOwner",
+            "identifier": {
+             "type": "Identifier",
+             "name": "isOwner"
+            },
+            "storageLocation": null,
+            "isStateVar": false,
+            "isIndexed": false,
+            "expression": null
+           }
+          ],
+          "initialValue": {
+           "type": "BinaryOperation",
+           "operator": "==",
+           "left": {
+            "type": "MemberAccess",
+            "expression": {
+             "type": "Identifier",
+             "name": "msg"
+            },
+            "memberName": "sender"
+           },
+           "right": {
+            "type": "FunctionCall",
+            "expression": {
+             "type": "Identifier",
+             "name": "owner"
+            },
+            "arguments": [],
+            "names": [],
+            "identifiers": []
+           }
+          }
+         },
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "Identifier",
+            "name": "require"
+           },
+           "arguments": [
+            {
+             "type": "BinaryOperation",
+             "operator": "||",
+             "left": {
+              "type": "Identifier",
+              "name": "isBeneficiary"
+             },
+             "right": {
+              "type": "Identifier",
+              "name": "isOwner"
+             }
+            },
+            {
+             "type": "StringLiteral",
+             "value": "not-authorised",
+             "parts": [
+              "not-authorised"
+             ],
+             "isUnicode": [
+              false
+             ]
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         },
+         {
+          "type": "VariableDeclarationStatement",
+          "variables": [
+           {
+            "type": "VariableDeclaration",
+            "typeName": {
+             "type": "ElementaryTypeName",
+             "name": "uint256",
+             "stateMutability": null
+            },
+            "name": "vestedAmount",
+            "identifier": {
+             "type": "Identifier",
+             "name": "vestedAmount"
+            },
+            "storageLocation": null,
+            "isStateVar": false,
+            "isIndexed": false,
+            "expression": null
+           }
+          ],
+          "initialValue": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "Identifier",
+            "name": "_computeReleasableAmount"
+           },
+           "arguments": [
+            {
+             "type": "Identifier",
+             "name": "vestingSchedule"
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         },
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "Identifier",
+            "name": "require"
+           },
+           "arguments": [
+            {
+             "type": "BinaryOperation",
+             "operator": ">=",
+             "left": {
+              "type": "Identifier",
+              "name": "vestedAmount"
+             },
+             "right": {
+              "type": "Identifier",
+              "name": "amount"
+             }
+            },
+            {
+             "type": "StringLiteral",
+             "value": "insufficient-vested-token",
+             "parts": [
+              "insufficient-vested-token"
+             ],
+             "isUnicode": [
+              false
+             ]
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         },
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "BinaryOperation",
+           "operator": "=",
+           "left": {
+            "type": "MemberAccess",
+            "expression": {
+             "type": "Identifier",
+             "name": "vestingSchedule"
+            },
+            "memberName": "released"
+           },
+           "right": {
+            "type": "FunctionCall",
+            "expression": {
+             "type": "MemberAccess",
+             "expression": {
+              "type": "MemberAccess",
+              "expression": {
+               "type": "Identifier",
+               "name": "vestingSchedule"
+              },
+              "memberName": "released"
+             },
+             "memberName": "add"
+            },
+            "arguments": [
+             {
+              "type": "Identifier",
+              "name": "amount"
+             }
+            ],
+            "names": [],
+            "identifiers": []
+           }
+          }
+         },
+         {
+          "type": "VariableDeclarationStatement",
+          "variables": [
+           {
+            "type": "VariableDeclaration",
+            "typeName": {
+             "type": "ElementaryTypeName",
+             "name": "address",
+             "stateMutability": "payable"
+            },
+            "name": "beneficiaryPayable",
+            "identifier": {
+             "type": "Identifier",
+             "name": "beneficiaryPayable"
+            },
+            "storageLocation": null,
+            "isStateVar": false,
+            "isIndexed": false,
+            "expression": null
+           }
+          ],
+          "initialValue": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "Identifier",
+            "name": "payable"
+           },
+           "arguments": [
+            {
+             "type": "MemberAccess",
+             "expression": {
+              "type": "Identifier",
+              "name": "vestingSchedule"
+             },
+             "memberName": "beneficiary"
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         },
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "BinaryOperation",
+           "operator": "=",
+           "left": {
+            "type": "Identifier",
+            "name": "vestingSchedulesTotalAmount"
+           },
+           "right": {
+            "type": "FunctionCall",
+            "expression": {
+             "type": "MemberAccess",
+             "expression": {
+              "type": "Identifier",
+              "name": "vestingSchedulesTotalAmount"
+             },
+             "memberName": "sub"
+            },
+            "arguments": [
+             {
+              "type": "Identifier",
+              "name": "amount"
+             }
+            ],
+            "names": [],
+            "identifiers": []
+           }
+          }
+         },
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "MemberAccess",
+            "expression": {
+             "type": "Identifier",
+             "name": "token"
+            },
+            "memberName": "safeTransfer"
+           },
+           "arguments": [
+            {
+             "type": "Identifier",
+             "name": "beneficiaryPayable"
+            },
+            {
+             "type": "Identifier",
+             "name": "amount"
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         },
+         {
+          "type": "EmitStatement",
+          "eventCall": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "Identifier",
+            "name": "ReleaseVestedToken"
+           },
+           "arguments": [
+            {
+             "type": "Identifier",
+             "name": "vestingScheduleId"
+            },
+            {
+             "type": "Identifier",
+             "name": "beneficiaryPayable"
+            },
+            {
+             "type": "Identifier",
+             "name": "vestedAmount"
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         }
+        ]
+       },
+       "visibility": "public",
+       "modifiers": [
+        {
+         "type": "ModifierInvocation",
+         "name": "nonReentrant",
+         "arguments": null
+        },
+        {
+         "type": "ModifierInvocation",
+         "name": "onlyIfVestingScheduleNotRevoked",
+         "arguments": [
+          {
+           "type": "Identifier",
+           "name": "vestingScheduleId"
+          }
+         ]
+        }
+       ],
+       "override": null,
+       "isConstructor": false,
+       "isReceiveEther": false,
+       "isFallback": false,
+       "isVirtual": false,
+       "stateMutability": null
+      },
+      {
+       "type": "FunctionDefinition",
+       "name": "getVestingSchedulesCount",
+       "parameters": [],
+       "returnParameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint256",
+          "stateMutability": null
+         },
+         "name": null,
+         "identifier": null,
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "body": {
+        "type": "Block",
+        "statements": [
+         {
+          "type": "ReturnStatement",
+          "expression": {
+           "type": "MemberAccess",
+           "expression": {
+            "type": "Identifier",
+            "name": "vestingSchedulesIds"
+           },
+           "memberName": "length"
+          }
+         }
+        ]
+       },
+       "visibility": "public",
+       "modifiers": [],
+       "override": null,
+       "isConstructor": false,
+       "isReceiveEther": false,
+       "isFallback": false,
+       "isVirtual": false,
+       "stateMutability": "view"
+      },
+      {
+       "type": "FunctionDefinition",
+       "name": "computeReleasableAmount",
+       "parameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "bytes32",
+          "stateMutability": null
+         },
+         "name": "vestingScheduleId",
+         "identifier": {
+          "type": "Identifier",
+          "name": "vestingScheduleId"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "returnParameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint256",
+          "stateMutability": null
+         },
+         "name": null,
+         "identifier": null,
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "body": {
+        "type": "Block",
+        "statements": [
+         {
+          "type": "VariableDeclarationStatement",
+          "variables": [
+           {
+            "type": "VariableDeclaration",
+            "typeName": {
+             "type": "UserDefinedTypeName",
+             "namePath": "VestingSchedule"
+            },
+            "name": "vestingSchedule",
+            "identifier": {
+             "type": "Identifier",
+             "name": "vestingSchedule"
+            },
+            "storageLocation": "storage",
+            "isStateVar": false,
+            "isIndexed": false,
+            "expression": null
+           }
+          ],
+          "initialValue": {
+           "type": "IndexAccess",
+           "base": {
+            "type": "Identifier",
+            "name": "vestingSchedules"
+           },
+           "index": {
+            "type": "Identifier",
+            "name": "vestingScheduleId"
+           }
+          }
+         },
+         {
+          "type": "ReturnStatement",
+          "expression": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "Identifier",
+            "name": "_computeReleasableAmount"
+           },
+           "arguments": [
+            {
+             "type": "Identifier",
+             "name": "vestingSchedule"
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         }
+        ]
+       },
+       "visibility": "public",
+       "modifiers": [
+        {
+         "type": "ModifierInvocation",
+         "name": "onlyIfVestingScheduleNotRevoked",
+         "arguments": [
+          {
+           "type": "Identifier",
+           "name": "vestingScheduleId"
+          }
+         ]
+        }
+       ],
+       "override": null,
+       "isConstructor": false,
+       "isReceiveEther": false,
+       "isFallback": false,
+       "isVirtual": false,
+       "stateMutability": "view"
+      },
+      {
+       "type": "FunctionDefinition",
+       "name": "getVestingSchedule",
+       "parameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "bytes32",
+          "stateMutability": null
+         },
+         "name": "vestingScheduleId",
+         "identifier": {
+          "type": "Identifier",
+          "name": "vestingScheduleId"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "returnParameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "UserDefinedTypeName",
+          "namePath": "VestingSchedule"
+         },
+         "name": null,
+         "identifier": null,
+         "storageLocation": "memory",
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "body": {
+        "type": "Block",
+        "statements": [
+         {
+          "type": "ReturnStatement",
+          "expression": {
+           "type": "IndexAccess",
+           "base": {
+            "type": "Identifier",
+            "name": "vestingSchedules"
+           },
+           "index": {
+            "type": "Identifier",
+            "name": "vestingScheduleId"
+           }
+          }
+         }
+        ]
+       },
+       "visibility": "public",
+       "modifiers": [],
+       "override": null,
+       "isConstructor": false,
+       "isReceiveEther": false,
+       "isFallback": false,
+       "isVirtual": false,
+       "stateMutability": "view"
+      },
+      {
+       "type": "FunctionDefinition",
+       "name": "getWithdrawableAmount",
+       "parameters": [],
+       "returnParameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint256",
+          "stateMutability": null
+         },
+         "name": null,
+         "identifier": null,
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "body": {
+        "type": "Block",
+        "statements": [
+         {
+          "type": "ReturnStatement",
+          "expression": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "MemberAccess",
+            "expression": {
+             "type": "FunctionCall",
+             "expression": {
+              "type": "MemberAccess",
+              "expression": {
+               "type": "Identifier",
+               "name": "token"
+              },
+              "memberName": "balanceOf"
+             },
+             "arguments": [
+              {
+               "type": "FunctionCall",
+               "expression": {
+                "type": "Identifier",
+                "name": "address"
+               },
+               "arguments": [
+                {
+                 "type": "Identifier",
+                 "name": "this"
+                }
+               ],
+               "names": [],
+               "identifiers": []
+              }
+             ],
+             "names": [],
+             "identifiers": []
+            },
+            "memberName": "sub"
+           },
+           "arguments": [
+            {
+             "type": "Identifier",
+             "name": "vestingSchedulesTotalAmount"
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         }
+        ]
+       },
+       "visibility": "public",
+       "modifiers": [],
+       "override": null,
+       "isConstructor": false,
+       "isReceiveEther": false,
+       "isFallback": false,
+       "isVirtual": false,
+       "stateMutability": "view"
+      },
+      {
+       "type": "FunctionDefinition",
+       "name": "computeNextVestingScheduleIdForHolder",
+       "parameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "address",
+          "stateMutability": null
+         },
+         "name": "holder",
+         "identifier": {
+          "type": "Identifier",
+          "name": "holder"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "returnParameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "bytes32",
+          "stateMutability": null
+         },
+         "name": null,
+         "identifier": null,
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "body": {
+        "type": "Block",
+        "statements": [
+         {
+          "type": "ReturnStatement",
+          "expression": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "Identifier",
+            "name": "_computeVestingScheduleIdForAddressAndIndex"
+           },
+           "arguments": [
+            {
+             "type": "Identifier",
+             "name": "holder"
+            },
+            {
+             "type": "IndexAccess",
+             "base": {
+              "type": "Identifier",
+              "name": "holdersVestingCount"
+             },
+             "index": {
+              "type": "Identifier",
+              "name": "holder"
+             }
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         }
+        ]
+       },
+       "visibility": "public",
+       "modifiers": [],
+       "override": null,
+       "isConstructor": false,
+       "isReceiveEther": false,
+       "isFallback": false,
+       "isVirtual": false,
+       "stateMutability": "view"
+      },
+      {
+       "type": "FunctionDefinition",
+       "name": "getAllVestingScheduleForHolder",
+       "parameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "address",
+          "stateMutability": null
+         },
+         "name": "holder",
+         "identifier": {
+          "type": "Identifier",
+          "name": "holder"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "returnParameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ArrayTypeName",
+          "baseTypeName": {
+           "type": "UserDefinedTypeName",
+           "namePath": "VestingSchedule"
+          },
+          "length": null
+         },
+         "name": null,
+         "identifier": null,
+         "storageLocation": "memory",
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "body": {
+        "type": "Block",
+        "statements": [
+         {
+          "type": "VariableDeclarationStatement",
+          "variables": [
+           {
+            "type": "VariableDeclaration",
+            "typeName": {
+             "type": "ElementaryTypeName",
+             "name": "uint256",
+             "stateMutability": null
+            },
+            "name": "holderTotalCounts",
+            "identifier": {
+             "type": "Identifier",
+             "name": "holderTotalCounts"
+            },
+            "storageLocation": null,
+            "isStateVar": false,
+            "isIndexed": false,
+            "expression": null
+           }
+          ],
+          "initialValue": {
+           "type": "IndexAccess",
+           "base": {
+            "type": "Identifier",
+            "name": "holdersVestingCount"
+           },
+           "index": {
+            "type": "Identifier",
+            "name": "holder"
+           }
+          }
+         },
+         {
+          "type": "VariableDeclarationStatement",
+          "variables": [
+           {
+            "type": "VariableDeclaration",
+            "typeName": {
+             "type": "ArrayTypeName",
+             "baseTypeName": {
+              "type": "UserDefinedTypeName",
+              "namePath": "VestingSchedule"
+             },
+             "length": null
+            },
+            "name": "holderVestingSchedules",
+            "identifier": {
+             "type": "Identifier",
+             "name": "holderVestingSchedules"
+            },
+            "storageLocation": "memory",
+            "isStateVar": false,
+            "isIndexed": false,
+            "expression": null
+           }
+          ],
+          "initialValue": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "NewExpression",
+            "typeName": {
+             "type": "ArrayTypeName",
+             "baseTypeName": {
+              "type": "UserDefinedTypeName",
+              "namePath": "VestingSchedule"
+             },
+             "length": null
+            }
+           },
+           "arguments": [
+            {
+             "type": "Identifier",
+             "name": "holderTotalCounts"
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         },
+         {
+          "type": "ForStatement",
+          "initExpression": {
+           "type": "VariableDeclarationStatement",
+           "variables": [
+            {
+             "type": "VariableDeclaration",
+             "typeName": {
+              "type": "ElementaryTypeName",
+              "name": "uint256",
+              "stateMutability": null
+             },
+             "name": "i",
+             "identifier": {
+              "type": "Identifier",
+              "name": "i"
+             },
+             "storageLocation": null,
+             "isStateVar": false,
+             "isIndexed": false,
+             "expression": null
+            }
+           ],
+           "initialValue": {
+            "type": "NumberLiteral",
+            "number": "0",
+            "subdenomination": null
+           }
+          },
+          "conditionExpression": {
+           "type": "BinaryOperation",
+           "operator": "<",
+           "left": {
+            "type": "Identifier",
+            "name": "i"
+           },
+           "right": {
+            "type": "Identifier",
+            "name": "holderTotalCounts"
+           }
+          },
+          "loopExpression": {
+           "type": "ExpressionStatement",
+           "expression": {
+            "type": "UnaryOperation",
+            "operator": "++",
+            "subExpression": {
+             "type": "Identifier",
+             "name": "i"
+            },
+            "isPrefix": false
+           }
+          },
+          "body": {
+           "type": "Block",
+           "statements": [
+            {
+             "type": "ExpressionStatement",
+             "expression": {
+              "type": "BinaryOperation",
+              "operator": "=",
+              "left": {
+               "type": "IndexAccess",
+               "base": {
+                "type": "Identifier",
+                "name": "holderVestingSchedules"
+               },
+               "index": {
+                "type": "Identifier",
+                "name": "i"
+               }
+              },
+              "right": {
+               "type": "FunctionCall",
+               "expression": {
+                "type": "Identifier",
+                "name": "getVestingSchedule"
+               },
+               "arguments": [
+                {
+                 "type": "FunctionCall",
+                 "expression": {
+                  "type": "Identifier",
+                  "name": "_computeVestingScheduleIdForAddressAndIndex"
+                 },
+                 "arguments": [
+                  {
+                   "type": "Identifier",
+                   "name": "holder"
+                  },
+                  {
+                   "type": "Identifier",
+                   "name": "i"
+                  }
+                 ],
+                 "names": [],
+                 "identifiers": []
+                }
+               ],
+               "names": [],
+               "identifiers": []
+              }
+             }
+            }
+           ]
+          }
+         },
+         {
+          "type": "ReturnStatement",
+          "expression": {
+           "type": "Identifier",
+           "name": "holderVestingSchedules"
+          }
+         }
+        ]
+       },
+       "visibility": "public",
+       "modifiers": [],
+       "override": null,
+       "isConstructor": false,
+       "isReceiveEther": false,
+       "isFallback": false,
+       "isVirtual": false,
+       "stateMutability": "view"
+      },
+      {
+       "type": "FunctionDefinition",
+       "name": "_computeVestingScheduleIdForAddressAndIndex",
+       "parameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "address",
+          "stateMutability": null
+         },
+         "name": "holder",
+         "identifier": {
+          "type": "Identifier",
+          "name": "holder"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint256",
+          "stateMutability": null
+         },
+         "name": "index",
+         "identifier": {
+          "type": "Identifier",
+          "name": "index"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "returnParameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "bytes32",
+          "stateMutability": null
+         },
+         "name": null,
+         "identifier": null,
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "body": {
+        "type": "Block",
+        "statements": [
+         {
+          "type": "ReturnStatement",
+          "expression": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "Identifier",
+            "name": "keccak256"
+           },
+           "arguments": [
+            {
+             "type": "FunctionCall",
+             "expression": {
+              "type": "MemberAccess",
+              "expression": {
+               "type": "Identifier",
+               "name": "abi"
+              },
+              "memberName": "encodePacked"
+             },
+             "arguments": [
+              {
+               "type": "Identifier",
+               "name": "holder"
+              },
+              {
+               "type": "Identifier",
+               "name": "index"
+              }
+             ],
+             "names": [],
+             "identifiers": []
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         }
+        ]
+       },
+       "visibility": "internal",
+       "modifiers": [],
+       "override": null,
+       "isConstructor": false,
+       "isReceiveEther": false,
+       "isFallback": false,
+       "isVirtual": false,
+       "stateMutability": "pure"
+      },
+      {
+       "type": "FunctionDefinition",
+       "name": "_computeReleasableAmount",
+       "parameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "UserDefinedTypeName",
+          "namePath": "VestingSchedule"
+         },
+         "name": "vestingSchedule",
+         "identifier": {
+          "type": "Identifier",
+          "name": "vestingSchedule"
+         },
+         "storageLocation": "memory",
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "returnParameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint256",
+          "stateMutability": null
+         },
+         "name": null,
+         "identifier": null,
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "body": {
+        "type": "Block",
+        "statements": [
+         {
+          "type": "VariableDeclarationStatement",
+          "variables": [
+           {
+            "type": "VariableDeclaration",
+            "typeName": {
+             "type": "ElementaryTypeName",
+             "name": "uint256",
+             "stateMutability": null
+            },
+            "name": "currentTime",
+            "identifier": {
+             "type": "Identifier",
+             "name": "currentTime"
+            },
+            "storageLocation": null,
+            "isStateVar": false,
+            "isIndexed": false,
+            "expression": null
+           }
+          ],
+          "initialValue": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "Identifier",
+            "name": "_blockTimestamp"
+           },
+           "arguments": [],
+           "names": [],
+           "identifiers": []
+          }
+         },
+         {
+          "type": "IfStatement",
+          "condition": {
+           "type": "BinaryOperation",
+           "operator": "||",
+           "left": {
+            "type": "TupleExpression",
+            "components": [
+             {
+              "type": "BinaryOperation",
+              "operator": "<",
+              "left": {
+               "type": "Identifier",
+               "name": "currentTime"
+              },
+              "right": {
+               "type": "MemberAccess",
+               "expression": {
+                "type": "Identifier",
+                "name": "vestingSchedule"
+               },
+               "memberName": "cliff"
+              }
+             }
+            ],
+            "isArray": false
+           },
+           "right": {
+            "type": "BinaryOperation",
+            "operator": "==",
+            "left": {
+             "type": "MemberAccess",
+             "expression": {
+              "type": "Identifier",
+              "name": "vestingSchedule"
+             },
+             "memberName": "revoked"
+            },
+            "right": {
+             "type": "BooleanLiteral",
+             "value": true
+            }
+           }
+          },
+          "trueBody": {
+           "type": "Block",
+           "statements": [
+            {
+             "type": "ReturnStatement",
+             "expression": {
+              "type": "NumberLiteral",
+              "number": "0",
+              "subdenomination": null
+             }
+            }
+           ]
+          },
+          "falseBody": {
+           "type": "IfStatement",
+           "condition": {
+            "type": "BinaryOperation",
+            "operator": ">=",
+            "left": {
+             "type": "Identifier",
+             "name": "currentTime"
+            },
+            "right": {
+             "type": "FunctionCall",
+             "expression": {
+              "type": "MemberAccess",
+              "expression": {
+               "type": "MemberAccess",
+               "expression": {
+                "type": "Identifier",
+                "name": "vestingSchedule"
+               },
+               "memberName": "start"
+              },
+              "memberName": "add"
+             },
+             "arguments": [
+              {
+               "type": "MemberAccess",
+               "expression": {
+                "type": "Identifier",
+                "name": "vestingSchedule"
+               },
+               "memberName": "duration"
+              }
+             ],
+             "names": [],
+             "identifiers": []
+            }
+           },
+           "trueBody": {
+            "type": "Block",
+            "statements": [
+             {
+              "type": "ReturnStatement",
+              "expression": {
+               "type": "FunctionCall",
+               "expression": {
+                "type": "MemberAccess",
+                "expression": {
+                 "type": "MemberAccess",
+                 "expression": {
+                  "type": "Identifier",
+                  "name": "vestingSchedule"
+                 },
+                 "memberName": "amountTotal"
+                },
+                "memberName": "sub"
+               },
+               "arguments": [
+                {
+                 "type": "MemberAccess",
+                 "expression": {
+                  "type": "Identifier",
+                  "name": "vestingSchedule"
+                 },
+                 "memberName": "released"
+                }
+               ],
+               "names": [],
+               "identifiers": []
+              }
+             }
+            ]
+           },
+           "falseBody": {
+            "type": "Block",
+            "statements": [
+             {
+              "type": "VariableDeclarationStatement",
+              "variables": [
+               {
+                "type": "VariableDeclaration",
+                "typeName": {
+                 "type": "ElementaryTypeName",
+                 "name": "uint256",
+                 "stateMutability": null
+                },
+                "name": "timeFromStart",
+                "identifier": {
+                 "type": "Identifier",
+                 "name": "timeFromStart"
+                },
+                "storageLocation": null,
+                "isStateVar": false,
+                "isIndexed": false,
+                "expression": null
+               }
+              ],
+              "initialValue": {
+               "type": "FunctionCall",
+               "expression": {
+                "type": "MemberAccess",
+                "expression": {
+                 "type": "Identifier",
+                 "name": "currentTime"
+                },
+                "memberName": "sub"
+               },
+               "arguments": [
+                {
+                 "type": "MemberAccess",
+                 "expression": {
+                  "type": "Identifier",
+                  "name": "vestingSchedule"
+                 },
+                 "memberName": "start"
+                }
+               ],
+               "names": [],
+               "identifiers": []
+              }
+             },
+             {
+              "type": "VariableDeclarationStatement",
+              "variables": [
+               {
+                "type": "VariableDeclaration",
+                "typeName": {
+                 "type": "ElementaryTypeName",
+                 "name": "uint256",
+                 "stateMutability": null
+                },
+                "name": "secondsPerSlice",
+                "identifier": {
+                 "type": "Identifier",
+                 "name": "secondsPerSlice"
+                },
+                "storageLocation": null,
+                "isStateVar": false,
+                "isIndexed": false,
+                "expression": null
+               }
+              ],
+              "initialValue": {
+               "type": "MemberAccess",
+               "expression": {
+                "type": "Identifier",
+                "name": "vestingSchedule"
+               },
+               "memberName": "slicePeriodSeconds"
+              }
+             },
+             {
+              "type": "VariableDeclarationStatement",
+              "variables": [
+               {
+                "type": "VariableDeclaration",
+                "typeName": {
+                 "type": "ElementaryTypeName",
+                 "name": "uint256",
+                 "stateMutability": null
+                },
+                "name": "vestedSlicePeriods",
+                "identifier": {
+                 "type": "Identifier",
+                 "name": "vestedSlicePeriods"
+                },
+                "storageLocation": null,
+                "isStateVar": false,
+                "isIndexed": false,
+                "expression": null
+               }
+              ],
+              "initialValue": {
+               "type": "FunctionCall",
+               "expression": {
+                "type": "MemberAccess",
+                "expression": {
+                 "type": "Identifier",
+                 "name": "timeFromStart"
+                },
+                "memberName": "div"
+               },
+               "arguments": [
+                {
+                 "type": "Identifier",
+                 "name": "secondsPerSlice"
+                }
+               ],
+               "names": [],
+               "identifiers": []
+              }
+             },
+             {
+              "type": "VariableDeclarationStatement",
+              "variables": [
+               {
+                "type": "VariableDeclaration",
+                "typeName": {
+                 "type": "ElementaryTypeName",
+                 "name": "uint256",
+                 "stateMutability": null
+                },
+                "name": "vestedSeconds",
+                "identifier": {
+                 "type": "Identifier",
+                 "name": "vestedSeconds"
+                },
+                "storageLocation": null,
+                "isStateVar": false,
+                "isIndexed": false,
+                "expression": null
+               }
+              ],
+              "initialValue": {
+               "type": "FunctionCall",
+               "expression": {
+                "type": "MemberAccess",
+                "expression": {
+                 "type": "Identifier",
+                 "name": "vestedSlicePeriods"
+                },
+                "memberName": "mul"
+               },
+               "arguments": [
+                {
+                 "type": "Identifier",
+                 "name": "secondsPerSlice"
+                }
+               ],
+               "names": [],
+               "identifiers": []
+              }
+             },
+             {
+              "type": "VariableDeclarationStatement",
+              "variables": [
+               {
+                "type": "VariableDeclaration",
+                "typeName": {
+                 "type": "ElementaryTypeName",
+                 "name": "uint256",
+                 "stateMutability": null
+                },
+                "name": "vestedAmount",
+                "identifier": {
+                 "type": "Identifier",
+                 "name": "vestedAmount"
+                },
+                "storageLocation": null,
+                "isStateVar": false,
+                "isIndexed": false,
+                "expression": null
+               }
+              ],
+              "initialValue": {
+               "type": "FunctionCall",
+               "expression": {
+                "type": "MemberAccess",
+                "expression": {
+                 "type": "FunctionCall",
+                 "expression": {
+                  "type": "MemberAccess",
+                  "expression": {
+                   "type": "MemberAccess",
+                   "expression": {
+                    "type": "Identifier",
+                    "name": "vestingSchedule"
+                   },
+                   "memberName": "amountTotal"
+                  },
+                  "memberName": "mul"
+                 },
+                 "arguments": [
+                  {
+                   "type": "Identifier",
+                   "name": "vestedSeconds"
+                  }
+                 ],
+                 "names": [],
+                 "identifiers": []
+                },
+                "memberName": "div"
+               },
+               "arguments": [
+                {
+                 "type": "MemberAccess",
+                 "expression": {
+                  "type": "Identifier",
+                  "name": "vestingSchedule"
+                 },
+                 "memberName": "duration"
+                }
+               ],
+               "names": [],
+               "identifiers": []
+              }
+             },
+             {
+              "type": "ExpressionStatement",
+              "expression": {
+               "type": "BinaryOperation",
+               "operator": "=",
+               "left": {
+                "type": "Identifier",
+                "name": "vestedAmount"
+               },
+               "right": {
+                "type": "FunctionCall",
+                "expression": {
+                 "type": "MemberAccess",
+                 "expression": {
+                  "type": "Identifier",
+                  "name": "vestedAmount"
+                 },
+                 "memberName": "sub"
+                },
+                "arguments": [
+                 {
+                  "type": "MemberAccess",
+                  "expression": {
+                   "type": "Identifier",
+                   "name": "vestingSchedule"
+                  },
+                  "memberName": "released"
+                 }
+                ],
+                "names": [],
+                "identifiers": []
+               }
+              }
+             },
+             {
+              "type": "ReturnStatement",
+              "expression": {
+               "type": "Identifier",
+               "name": "vestedAmount"
+              }
+             }
+            ]
+           }
+          }
+         }
+        ]
+       },
+       "visibility": "internal",
+       "modifiers": [],
+       "override": null,
+       "isConstructor": false,
+       "isReceiveEther": false,
+       "isFallback": false,
+       "isVirtual": false,
+       "stateMutability": "view"
+      },
+      {
+       "type": "FunctionDefinition",
+       "name": "_blockTimestamp",
+       "parameters": [],
+       "returnParameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint256",
+          "stateMutability": null
+         },
+         "name": null,
+         "identifier": null,
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "body": {
+        "type": "Block",
+        "statements": [
+         {
+          "type": "ReturnStatement",
+          "expression": {
+           "type": "MemberAccess",
+           "expression": {
+            "type": "Identifier",
+            "name": "block"
+           },
+           "memberName": "timestamp"
+          }
+         }
+        ]
+       },
+       "visibility": "internal",
+       "modifiers": [],
+       "override": null,
+       "isConstructor": false,
+       "isReceiveEther": false,
+       "isFallback": false,
+       "isVirtual": true,
+       "stateMutability": "view"
+      }
+     ],
+     "kind": "contract"
+    }
+   ]
+  }
+ }
+]

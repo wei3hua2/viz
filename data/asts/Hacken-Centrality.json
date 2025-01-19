@@ -1,0 +1,2313 @@
+[
+ {
+  "path": "/home/jameschong/Projects/audits-kd/workspace/datasets/DAppSCAN/DAppSCAN-source/contracts/Hacken-Centrality/bridge-contracts-047cecbfc86f10cdc3310c6ebb399de2e7c737a3/CENNZnetBridge.sol",
+  "ast": {
+   "type": "SourceUnit",
+   "children": [
+    {
+     "type": "PragmaDirective",
+     "name": "solidity",
+     "value": "^0.8.0"
+    },
+    {
+     "type": "ImportDirective",
+     "path": "@openzeppelin/contracts/access/Ownable.sol",
+     "pathLiteral": {
+      "type": "StringLiteral",
+      "value": "@openzeppelin/contracts/access/Ownable.sol",
+      "parts": [
+       "@openzeppelin/contracts/access/Ownable.sol"
+      ],
+      "isUnicode": [
+       false
+      ]
+     },
+     "unitAlias": null,
+     "unitAliasIdentifier": null,
+     "symbolAliases": null,
+     "symbolAliasesIdentifiers": null
+    },
+    {
+     "type": "StructDefinition",
+     "name": "CENNZnetEventProof",
+     "members": [
+      {
+       "type": "VariableDeclaration",
+       "typeName": {
+        "type": "ElementaryTypeName",
+        "name": "uint256",
+        "stateMutability": null
+       },
+       "name": "eventId",
+       "identifier": {
+        "type": "Identifier",
+        "name": "eventId"
+       },
+       "storageLocation": null,
+       "isStateVar": false,
+       "isIndexed": false,
+       "expression": null
+      },
+      {
+       "type": "VariableDeclaration",
+       "typeName": {
+        "type": "ElementaryTypeName",
+        "name": "uint32",
+        "stateMutability": null
+       },
+       "name": "validatorSetId",
+       "identifier": {
+        "type": "Identifier",
+        "name": "validatorSetId"
+       },
+       "storageLocation": null,
+       "isStateVar": false,
+       "isIndexed": false,
+       "expression": null
+      },
+      {
+       "type": "VariableDeclaration",
+       "typeName": {
+        "type": "ArrayTypeName",
+        "baseTypeName": {
+         "type": "ElementaryTypeName",
+         "name": "uint8",
+         "stateMutability": null
+        },
+        "length": null
+       },
+       "name": "v",
+       "identifier": {
+        "type": "Identifier",
+        "name": "v"
+       },
+       "storageLocation": null,
+       "isStateVar": false,
+       "isIndexed": false,
+       "expression": null
+      },
+      {
+       "type": "VariableDeclaration",
+       "typeName": {
+        "type": "ArrayTypeName",
+        "baseTypeName": {
+         "type": "ElementaryTypeName",
+         "name": "bytes32",
+         "stateMutability": null
+        },
+        "length": null
+       },
+       "name": "r",
+       "identifier": {
+        "type": "Identifier",
+        "name": "r"
+       },
+       "storageLocation": null,
+       "isStateVar": false,
+       "isIndexed": false,
+       "expression": null
+      },
+      {
+       "type": "VariableDeclaration",
+       "typeName": {
+        "type": "ArrayTypeName",
+        "baseTypeName": {
+         "type": "ElementaryTypeName",
+         "name": "bytes32",
+         "stateMutability": null
+        },
+        "length": null
+       },
+       "name": "s",
+       "identifier": {
+        "type": "Identifier",
+        "name": "s"
+       },
+       "storageLocation": null,
+       "isStateVar": false,
+       "isIndexed": false,
+       "expression": null
+      }
+     ]
+    },
+    {
+     "type": "ContractDefinition",
+     "name": "CENNZnetBridge",
+     "baseContracts": [
+      {
+       "type": "InheritanceSpecifier",
+       "baseName": {
+        "type": "UserDefinedTypeName",
+        "namePath": "Ownable"
+       },
+       "arguments": []
+      }
+     ],
+     "subNodes": [
+      {
+       "type": "StateVariableDeclaration",
+       "variables": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "Mapping",
+          "keyType": {
+           "type": "ElementaryTypeName",
+           "name": "uint",
+           "stateMutability": null
+          },
+          "keyName": null,
+          "valueType": {
+           "type": "ArrayTypeName",
+           "baseTypeName": {
+            "type": "ElementaryTypeName",
+            "name": "address",
+            "stateMutability": null
+           },
+           "length": null
+          },
+          "valueName": null
+         },
+         "name": "validators",
+         "identifier": {
+          "type": "Identifier",
+          "name": "validators"
+         },
+         "expression": null,
+         "visibility": "public",
+         "isStateVar": true,
+         "isDeclaredConst": false,
+         "isIndexed": false,
+         "isImmutable": false,
+         "override": null,
+         "storageLocation": null
+        }
+       ],
+       "initialValue": null
+      },
+      {
+       "type": "StateVariableDeclaration",
+       "variables": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint32",
+          "stateMutability": null
+         },
+         "name": "activeValidatorSetId",
+         "identifier": {
+          "type": "Identifier",
+          "name": "activeValidatorSetId"
+         },
+         "expression": null,
+         "visibility": "public",
+         "isStateVar": true,
+         "isDeclaredConst": false,
+         "isIndexed": false,
+         "isImmutable": false,
+         "override": null,
+         "storageLocation": null
+        }
+       ],
+       "initialValue": null
+      },
+      {
+       "type": "StateVariableDeclaration",
+       "variables": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "Mapping",
+          "keyType": {
+           "type": "ElementaryTypeName",
+           "name": "uint",
+           "stateMutability": null
+          },
+          "keyName": null,
+          "valueType": {
+           "type": "ElementaryTypeName",
+           "name": "bool",
+           "stateMutability": null
+          },
+          "valueName": null
+         },
+         "name": "eventIds",
+         "identifier": {
+          "type": "Identifier",
+          "name": "eventIds"
+         },
+         "expression": null,
+         "visibility": "public",
+         "isStateVar": true,
+         "isDeclaredConst": false,
+         "isIndexed": false,
+         "isImmutable": false,
+         "override": null,
+         "storageLocation": null
+        }
+       ],
+       "initialValue": null
+      },
+      {
+       "type": "StateVariableDeclaration",
+       "variables": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint",
+          "stateMutability": null
+         },
+         "name": "verificationFee",
+         "identifier": {
+          "type": "Identifier",
+          "name": "verificationFee"
+         },
+         "expression": {
+          "type": "NumberLiteral",
+          "number": "1e15",
+          "subdenomination": null
+         },
+         "visibility": "public",
+         "isStateVar": true,
+         "isDeclaredConst": false,
+         "isIndexed": false,
+         "isImmutable": false,
+         "override": null,
+         "storageLocation": null
+        }
+       ],
+       "initialValue": {
+        "type": "NumberLiteral",
+        "number": "1e15",
+        "subdenomination": null
+       }
+      },
+      {
+       "type": "StateVariableDeclaration",
+       "variables": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint",
+          "stateMutability": null
+         },
+         "name": "thresholdPercent",
+         "identifier": {
+          "type": "Identifier",
+          "name": "thresholdPercent"
+         },
+         "expression": {
+          "type": "NumberLiteral",
+          "number": "61",
+          "subdenomination": null
+         },
+         "visibility": "public",
+         "isStateVar": true,
+         "isDeclaredConst": false,
+         "isIndexed": false,
+         "isImmutable": false,
+         "override": null,
+         "storageLocation": null
+        }
+       ],
+       "initialValue": {
+        "type": "NumberLiteral",
+        "number": "61",
+        "subdenomination": null
+       }
+      },
+      {
+       "type": "StateVariableDeclaration",
+       "variables": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint",
+          "stateMutability": null
+         },
+         "name": "proofTTL",
+         "identifier": {
+          "type": "Identifier",
+          "name": "proofTTL"
+         },
+         "expression": {
+          "type": "NumberLiteral",
+          "number": "3",
+          "subdenomination": null
+         },
+         "visibility": "public",
+         "isStateVar": true,
+         "isDeclaredConst": false,
+         "isIndexed": false,
+         "isImmutable": false,
+         "override": null,
+         "storageLocation": null
+        }
+       ],
+       "initialValue": {
+        "type": "NumberLiteral",
+        "number": "3",
+        "subdenomination": null
+       }
+      },
+      {
+       "type": "StateVariableDeclaration",
+       "variables": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "bool",
+          "stateMutability": null
+         },
+         "name": "active",
+         "identifier": {
+          "type": "Identifier",
+          "name": "active"
+         },
+         "expression": {
+          "type": "BooleanLiteral",
+          "value": true
+         },
+         "visibility": "public",
+         "isStateVar": true,
+         "isDeclaredConst": false,
+         "isIndexed": false,
+         "isImmutable": false,
+         "override": null,
+         "storageLocation": null
+        }
+       ],
+       "initialValue": {
+        "type": "BooleanLiteral",
+        "value": true
+       }
+      },
+      {
+       "type": "EventDefinition",
+       "name": "SetValidators",
+       "parameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ArrayTypeName",
+          "baseTypeName": {
+           "type": "ElementaryTypeName",
+           "name": "address",
+           "stateMutability": null
+          },
+          "length": null
+         },
+         "name": null,
+         "identifier": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "storageLocation": null,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint",
+          "stateMutability": null
+         },
+         "name": "reward",
+         "identifier": {
+          "type": "Identifier",
+          "name": "reward"
+         },
+         "isStateVar": false,
+         "isIndexed": false,
+         "storageLocation": null,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint32",
+          "stateMutability": null
+         },
+         "name": "validatorSetId",
+         "identifier": {
+          "type": "Identifier",
+          "name": "validatorSetId"
+         },
+         "isStateVar": false,
+         "isIndexed": false,
+         "storageLocation": null,
+         "expression": null
+        }
+       ],
+       "isAnonymous": false
+      },
+      {
+       "type": "FunctionDefinition",
+       "name": "verifyMessage",
+       "parameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "bytes",
+          "stateMutability": null
+         },
+         "name": "message",
+         "identifier": {
+          "type": "Identifier",
+          "name": "message"
+         },
+         "storageLocation": "memory",
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "UserDefinedTypeName",
+          "namePath": "CENNZnetEventProof"
+         },
+         "name": "proof",
+         "identifier": {
+          "type": "Identifier",
+          "name": "proof"
+         },
+         "storageLocation": "memory",
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "returnParameters": null,
+       "body": {
+        "type": "Block",
+        "statements": [
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "Identifier",
+            "name": "require"
+           },
+           "arguments": [
+            {
+             "type": "Identifier",
+             "name": "active"
+            },
+            {
+             "type": "StringLiteral",
+             "value": "bridge inactive",
+             "parts": [
+              "bridge inactive"
+             ],
+             "isUnicode": [
+              false
+             ]
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         },
+         {
+          "type": "VariableDeclarationStatement",
+          "variables": [
+           {
+            "type": "VariableDeclaration",
+            "typeName": {
+             "type": "ElementaryTypeName",
+             "name": "uint256",
+             "stateMutability": null
+            },
+            "name": "eventId",
+            "identifier": {
+             "type": "Identifier",
+             "name": "eventId"
+            },
+            "storageLocation": null,
+            "isStateVar": false,
+            "isIndexed": false,
+            "expression": null
+           }
+          ],
+          "initialValue": {
+           "type": "MemberAccess",
+           "expression": {
+            "type": "Identifier",
+            "name": "proof"
+           },
+           "memberName": "eventId"
+          }
+         },
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "Identifier",
+            "name": "require"
+           },
+           "arguments": [
+            {
+             "type": "UnaryOperation",
+             "operator": "!",
+             "subExpression": {
+              "type": "IndexAccess",
+              "base": {
+               "type": "Identifier",
+               "name": "eventIds"
+              },
+              "index": {
+               "type": "Identifier",
+               "name": "eventId"
+              }
+             },
+             "isPrefix": true
+            },
+            {
+             "type": "StringLiteral",
+             "value": "eventId replayed",
+             "parts": [
+              "eventId replayed"
+             ],
+             "isUnicode": [
+              false
+             ]
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         },
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "Identifier",
+            "name": "require"
+           },
+           "arguments": [
+            {
+             "type": "BinaryOperation",
+             "operator": "||",
+             "left": {
+              "type": "BinaryOperation",
+              "operator": ">=",
+              "left": {
+               "type": "MemberAccess",
+               "expression": {
+                "type": "Identifier",
+                "name": "msg"
+               },
+               "memberName": "value"
+              },
+              "right": {
+               "type": "Identifier",
+               "name": "verificationFee"
+              }
+             },
+             "right": {
+              "type": "BinaryOperation",
+              "operator": "==",
+              "left": {
+               "type": "MemberAccess",
+               "expression": {
+                "type": "Identifier",
+                "name": "msg"
+               },
+               "memberName": "sender"
+              },
+              "right": {
+               "type": "FunctionCall",
+               "expression": {
+                "type": "Identifier",
+                "name": "address"
+               },
+               "arguments": [
+                {
+                 "type": "Identifier",
+                 "name": "this"
+                }
+               ],
+               "names": [],
+               "identifiers": []
+              }
+             }
+            },
+            {
+             "type": "StringLiteral",
+             "value": "must supply verification fee",
+             "parts": [
+              "must supply verification fee"
+             ],
+             "isUnicode": [
+              false
+             ]
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         },
+         {
+          "type": "VariableDeclarationStatement",
+          "variables": [
+           {
+            "type": "VariableDeclaration",
+            "typeName": {
+             "type": "ElementaryTypeName",
+             "name": "uint32",
+             "stateMutability": null
+            },
+            "name": "validatorSetId",
+            "identifier": {
+             "type": "Identifier",
+             "name": "validatorSetId"
+            },
+            "storageLocation": null,
+            "isStateVar": false,
+            "isIndexed": false,
+            "expression": null
+           }
+          ],
+          "initialValue": {
+           "type": "MemberAccess",
+           "expression": {
+            "type": "Identifier",
+            "name": "proof"
+           },
+           "memberName": "validatorSetId"
+          }
+         },
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "Identifier",
+            "name": "require"
+           },
+           "arguments": [
+            {
+             "type": "BinaryOperation",
+             "operator": "<=",
+             "left": {
+              "type": "Identifier",
+              "name": "validatorSetId"
+             },
+             "right": {
+              "type": "Identifier",
+              "name": "activeValidatorSetId"
+             }
+            },
+            {
+             "type": "StringLiteral",
+             "value": "future validator set",
+             "parts": [
+              "future validator set"
+             ],
+             "isUnicode": [
+              false
+             ]
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         },
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "Identifier",
+            "name": "require"
+           },
+           "arguments": [
+            {
+             "type": "BinaryOperation",
+             "operator": "<=",
+             "left": {
+              "type": "BinaryOperation",
+              "operator": "-",
+              "left": {
+               "type": "Identifier",
+               "name": "activeValidatorSetId"
+              },
+              "right": {
+               "type": "Identifier",
+               "name": "validatorSetId"
+              }
+             },
+             "right": {
+              "type": "Identifier",
+              "name": "proofTTL"
+             }
+            },
+            {
+             "type": "StringLiteral",
+             "value": "expired proof",
+             "parts": [
+              "expired proof"
+             ],
+             "isUnicode": [
+              false
+             ]
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         },
+         {
+          "type": "VariableDeclarationStatement",
+          "variables": [
+           {
+            "type": "VariableDeclaration",
+            "typeName": {
+             "type": "ArrayTypeName",
+             "baseTypeName": {
+              "type": "ElementaryTypeName",
+              "name": "address",
+              "stateMutability": null
+             },
+             "length": null
+            },
+            "name": "_validators",
+            "identifier": {
+             "type": "Identifier",
+             "name": "_validators"
+            },
+            "storageLocation": "memory",
+            "isStateVar": false,
+            "isIndexed": false,
+            "expression": null
+           }
+          ],
+          "initialValue": {
+           "type": "IndexAccess",
+           "base": {
+            "type": "Identifier",
+            "name": "validators"
+           },
+           "index": {
+            "type": "Identifier",
+            "name": "validatorSetId"
+           }
+          }
+         },
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "Identifier",
+            "name": "require"
+           },
+           "arguments": [
+            {
+             "type": "BinaryOperation",
+             "operator": ">",
+             "left": {
+              "type": "MemberAccess",
+              "expression": {
+               "type": "Identifier",
+               "name": "_validators"
+              },
+              "memberName": "length"
+             },
+             "right": {
+              "type": "NumberLiteral",
+              "number": "0",
+              "subdenomination": null
+             }
+            },
+            {
+             "type": "StringLiteral",
+             "value": "invalid validator set",
+             "parts": [
+              "invalid validator set"
+             ],
+             "isUnicode": [
+              false
+             ]
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         },
+         {
+          "type": "VariableDeclarationStatement",
+          "variables": [
+           {
+            "type": "VariableDeclaration",
+            "typeName": {
+             "type": "ElementaryTypeName",
+             "name": "bytes32",
+             "stateMutability": null
+            },
+            "name": "digest",
+            "identifier": {
+             "type": "Identifier",
+             "name": "digest"
+            },
+            "storageLocation": null,
+            "isStateVar": false,
+            "isIndexed": false,
+            "expression": null
+           }
+          ],
+          "initialValue": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "Identifier",
+            "name": "keccak256"
+           },
+           "arguments": [
+            {
+             "type": "Identifier",
+             "name": "message"
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         },
+         {
+          "type": "VariableDeclarationStatement",
+          "variables": [
+           {
+            "type": "VariableDeclaration",
+            "typeName": {
+             "type": "ElementaryTypeName",
+             "name": "uint",
+             "stateMutability": null
+            },
+            "name": "acceptanceTreshold",
+            "identifier": {
+             "type": "Identifier",
+             "name": "acceptanceTreshold"
+            },
+            "storageLocation": null,
+            "isStateVar": false,
+            "isIndexed": false,
+            "expression": null
+           }
+          ],
+          "initialValue": {
+           "type": "TupleExpression",
+           "components": [
+            {
+             "type": "BinaryOperation",
+             "operator": "/",
+             "left": {
+              "type": "BinaryOperation",
+              "operator": "*",
+              "left": {
+               "type": "MemberAccess",
+               "expression": {
+                "type": "Identifier",
+                "name": "_validators"
+               },
+               "memberName": "length"
+              },
+              "right": {
+               "type": "Identifier",
+               "name": "thresholdPercent"
+              }
+             },
+             "right": {
+              "type": "NumberLiteral",
+              "number": "100",
+              "subdenomination": null
+             }
+            }
+           ],
+           "isArray": false
+          }
+         },
+         {
+          "type": "VariableDeclarationStatement",
+          "variables": [
+           {
+            "type": "VariableDeclaration",
+            "typeName": {
+             "type": "ElementaryTypeName",
+             "name": "uint",
+             "stateMutability": null
+            },
+            "name": "witnessCount",
+            "identifier": {
+             "type": "Identifier",
+             "name": "witnessCount"
+            },
+            "storageLocation": null,
+            "isStateVar": false,
+            "isIndexed": false,
+            "expression": null
+           }
+          ],
+          "initialValue": null
+         },
+         {
+          "type": "VariableDeclarationStatement",
+          "variables": [
+           {
+            "type": "VariableDeclaration",
+            "typeName": {
+             "type": "ElementaryTypeName",
+             "name": "bytes32",
+             "stateMutability": null
+            },
+            "name": "ommited",
+            "identifier": {
+             "type": "Identifier",
+             "name": "ommited"
+            },
+            "storageLocation": null,
+            "isStateVar": false,
+            "isIndexed": false,
+            "expression": null
+           }
+          ],
+          "initialValue": null
+         },
+         {
+          "type": "ForStatement",
+          "initExpression": {
+           "type": "VariableDeclarationStatement",
+           "variables": [
+            {
+             "type": "VariableDeclaration",
+             "typeName": {
+              "type": "ElementaryTypeName",
+              "name": "uint",
+              "stateMutability": null
+             },
+             "name": "i",
+             "identifier": {
+              "type": "Identifier",
+              "name": "i"
+             },
+             "storageLocation": null,
+             "isStateVar": false,
+             "isIndexed": false,
+             "expression": null
+            }
+           ],
+           "initialValue": null
+          },
+          "conditionExpression": {
+           "type": "BinaryOperation",
+           "operator": "<",
+           "left": {
+            "type": "Identifier",
+            "name": "i"
+           },
+           "right": {
+            "type": "MemberAccess",
+            "expression": {
+             "type": "Identifier",
+             "name": "_validators"
+            },
+            "memberName": "length"
+           }
+          },
+          "loopExpression": {
+           "type": "ExpressionStatement",
+           "expression": {
+            "type": "UnaryOperation",
+            "operator": "++",
+            "subExpression": {
+             "type": "Identifier",
+             "name": "i"
+            },
+            "isPrefix": false
+           }
+          },
+          "body": {
+           "type": "Block",
+           "statements": [
+            {
+             "type": "IfStatement",
+             "condition": {
+              "type": "BinaryOperation",
+              "operator": "!=",
+              "left": {
+               "type": "IndexAccess",
+               "base": {
+                "type": "MemberAccess",
+                "expression": {
+                 "type": "Identifier",
+                 "name": "proof"
+                },
+                "memberName": "r"
+               },
+               "index": {
+                "type": "Identifier",
+                "name": "i"
+               }
+              },
+              "right": {
+               "type": "Identifier",
+               "name": "ommited"
+              }
+             },
+             "trueBody": {
+              "type": "Block",
+              "statements": [
+               {
+                "type": "ExpressionStatement",
+                "expression": {
+                 "type": "FunctionCall",
+                 "expression": {
+                  "type": "Identifier",
+                  "name": "require"
+                 },
+                 "arguments": [
+                  {
+                   "type": "BinaryOperation",
+                   "operator": "==",
+                   "left": {
+                    "type": "IndexAccess",
+                    "base": {
+                     "type": "Identifier",
+                     "name": "_validators"
+                    },
+                    "index": {
+                     "type": "Identifier",
+                     "name": "i"
+                    }
+                   },
+                   "right": {
+                    "type": "FunctionCall",
+                    "expression": {
+                     "type": "Identifier",
+                     "name": "ecrecover"
+                    },
+                    "arguments": [
+                     {
+                      "type": "Identifier",
+                      "name": "digest"
+                     },
+                     {
+                      "type": "IndexAccess",
+                      "base": {
+                       "type": "MemberAccess",
+                       "expression": {
+                        "type": "Identifier",
+                        "name": "proof"
+                       },
+                       "memberName": "v"
+                      },
+                      "index": {
+                       "type": "Identifier",
+                       "name": "i"
+                      }
+                     },
+                     {
+                      "type": "IndexAccess",
+                      "base": {
+                       "type": "MemberAccess",
+                       "expression": {
+                        "type": "Identifier",
+                        "name": "proof"
+                       },
+                       "memberName": "r"
+                      },
+                      "index": {
+                       "type": "Identifier",
+                       "name": "i"
+                      }
+                     },
+                     {
+                      "type": "IndexAccess",
+                      "base": {
+                       "type": "MemberAccess",
+                       "expression": {
+                        "type": "Identifier",
+                        "name": "proof"
+                       },
+                       "memberName": "s"
+                      },
+                      "index": {
+                       "type": "Identifier",
+                       "name": "i"
+                      }
+                     }
+                    ],
+                    "names": [],
+                    "identifiers": []
+                   }
+                  },
+                  {
+                   "type": "StringLiteral",
+                   "value": "signature invalid",
+                   "parts": [
+                    "signature invalid"
+                   ],
+                   "isUnicode": [
+                    false
+                   ]
+                  }
+                 ],
+                 "names": [],
+                 "identifiers": []
+                }
+               },
+               {
+                "type": "ExpressionStatement",
+                "expression": {
+                 "type": "BinaryOperation",
+                 "operator": "+=",
+                 "left": {
+                  "type": "Identifier",
+                  "name": "witnessCount"
+                 },
+                 "right": {
+                  "type": "NumberLiteral",
+                  "number": "1",
+                  "subdenomination": null
+                 }
+                }
+               },
+               {
+                "type": "IfStatement",
+                "condition": {
+                 "type": "BinaryOperation",
+                 "operator": ">=",
+                 "left": {
+                  "type": "Identifier",
+                  "name": "witnessCount"
+                 },
+                 "right": {
+                  "type": "Identifier",
+                  "name": "acceptanceTreshold"
+                 }
+                },
+                "trueBody": {
+                 "type": "Block",
+                 "statements": [
+                  {
+                   "type": "BreakStatement"
+                  }
+                 ]
+                },
+                "falseBody": null
+               }
+              ]
+             },
+             "falseBody": null
+            }
+           ]
+          }
+         },
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "Identifier",
+            "name": "require"
+           },
+           "arguments": [
+            {
+             "type": "BinaryOperation",
+             "operator": ">=",
+             "left": {
+              "type": "Identifier",
+              "name": "witnessCount"
+             },
+             "right": {
+              "type": "Identifier",
+              "name": "acceptanceTreshold"
+             }
+            },
+            {
+             "type": "StringLiteral",
+             "value": "not enough signatures",
+             "parts": [
+              "not enough signatures"
+             ],
+             "isUnicode": [
+              false
+             ]
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         },
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "BinaryOperation",
+           "operator": "=",
+           "left": {
+            "type": "IndexAccess",
+            "base": {
+             "type": "Identifier",
+             "name": "eventIds"
+            },
+            "index": {
+             "type": "Identifier",
+             "name": "eventId"
+            }
+           },
+           "right": {
+            "type": "BooleanLiteral",
+            "value": true
+           }
+          }
+         }
+        ]
+       },
+       "visibility": "external",
+       "modifiers": [],
+       "override": null,
+       "isConstructor": false,
+       "isReceiveEther": false,
+       "isFallback": false,
+       "isVirtual": false,
+       "stateMutability": "payable"
+      },
+      {
+       "type": "FunctionDefinition",
+       "name": "setValidators",
+       "parameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ArrayTypeName",
+          "baseTypeName": {
+           "type": "ElementaryTypeName",
+           "name": "address",
+           "stateMutability": null
+          },
+          "length": null
+         },
+         "name": "newValidators",
+         "identifier": {
+          "type": "Identifier",
+          "name": "newValidators"
+         },
+         "storageLocation": "memory",
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint32",
+          "stateMutability": null
+         },
+         "name": "newValidatorSetId",
+         "identifier": {
+          "type": "Identifier",
+          "name": "newValidatorSetId"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "UserDefinedTypeName",
+          "namePath": "CENNZnetEventProof"
+         },
+         "name": "proof",
+         "identifier": {
+          "type": "Identifier",
+          "name": "proof"
+         },
+         "storageLocation": "memory",
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "returnParameters": null,
+       "body": {
+        "type": "Block",
+        "statements": [
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "Identifier",
+            "name": "require"
+           },
+           "arguments": [
+            {
+             "type": "BinaryOperation",
+             "operator": ">",
+             "left": {
+              "type": "MemberAccess",
+              "expression": {
+               "type": "Identifier",
+               "name": "newValidators"
+              },
+              "memberName": "length"
+             },
+             "right": {
+              "type": "NumberLiteral",
+              "number": "0",
+              "subdenomination": null
+             }
+            },
+            {
+             "type": "StringLiteral",
+             "value": "empty validator set",
+             "parts": [
+              "empty validator set"
+             ],
+             "isUnicode": [
+              false
+             ]
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         },
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "Identifier",
+            "name": "require"
+           },
+           "arguments": [
+            {
+             "type": "BinaryOperation",
+             "operator": ">",
+             "left": {
+              "type": "Identifier",
+              "name": "newValidatorSetId"
+             },
+             "right": {
+              "type": "Identifier",
+              "name": "activeValidatorSetId"
+             }
+            },
+            {
+             "type": "StringLiteral",
+             "value": "validator set id replayed",
+             "parts": [
+              "validator set id replayed"
+             ],
+             "isUnicode": [
+              false
+             ]
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         },
+         {
+          "type": "VariableDeclarationStatement",
+          "variables": [
+           {
+            "type": "VariableDeclaration",
+            "typeName": {
+             "type": "ElementaryTypeName",
+             "name": "bytes",
+             "stateMutability": null
+            },
+            "name": "message",
+            "identifier": {
+             "type": "Identifier",
+             "name": "message"
+            },
+            "storageLocation": "memory",
+            "isStateVar": false,
+            "isIndexed": false,
+            "expression": null
+           }
+          ],
+          "initialValue": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "MemberAccess",
+            "expression": {
+             "type": "Identifier",
+             "name": "abi"
+            },
+            "memberName": "encode"
+           },
+           "arguments": [
+            {
+             "type": "Identifier",
+             "name": "newValidators"
+            },
+            {
+             "type": "Identifier",
+             "name": "newValidatorSetId"
+            },
+            {
+             "type": "MemberAccess",
+             "expression": {
+              "type": "Identifier",
+              "name": "proof"
+             },
+             "memberName": "validatorSetId"
+            },
+            {
+             "type": "MemberAccess",
+             "expression": {
+              "type": "Identifier",
+              "name": "proof"
+             },
+             "memberName": "eventId"
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         },
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "MemberAccess",
+            "expression": {
+             "type": "Identifier",
+             "name": "this"
+            },
+            "memberName": "verifyMessage"
+           },
+           "arguments": [
+            {
+             "type": "Identifier",
+             "name": "message"
+            },
+            {
+             "type": "Identifier",
+             "name": "proof"
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         },
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "BinaryOperation",
+           "operator": "=",
+           "left": {
+            "type": "IndexAccess",
+            "base": {
+             "type": "Identifier",
+             "name": "validators"
+            },
+            "index": {
+             "type": "Identifier",
+             "name": "newValidatorSetId"
+            }
+           },
+           "right": {
+            "type": "Identifier",
+            "name": "newValidators"
+           }
+          }
+         },
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "BinaryOperation",
+           "operator": "=",
+           "left": {
+            "type": "Identifier",
+            "name": "activeValidatorSetId"
+           },
+           "right": {
+            "type": "Identifier",
+            "name": "newValidatorSetId"
+           }
+          }
+         },
+         {
+          "type": "VariableDeclarationStatement",
+          "variables": [
+           {
+            "type": "VariableDeclaration",
+            "typeName": {
+             "type": "ElementaryTypeName",
+             "name": "uint",
+             "stateMutability": null
+            },
+            "name": "reward",
+            "identifier": {
+             "type": "Identifier",
+             "name": "reward"
+            },
+            "storageLocation": null,
+            "isStateVar": false,
+            "isIndexed": false,
+            "expression": null
+           }
+          ],
+          "initialValue": {
+           "type": "MemberAccess",
+           "expression": {
+            "type": "FunctionCall",
+            "expression": {
+             "type": "Identifier",
+             "name": "address"
+            },
+            "arguments": [
+             {
+              "type": "Identifier",
+              "name": "this"
+             }
+            ],
+            "names": [],
+            "identifiers": []
+           },
+           "memberName": "balance"
+          }
+         },
+         {
+          "type": "VariableDeclarationStatement",
+          "variables": [
+           {
+            "type": "VariableDeclaration",
+            "name": "sent",
+            "identifier": {
+             "type": "Identifier",
+             "name": "sent"
+            },
+            "typeName": {
+             "type": "ElementaryTypeName",
+             "name": "bool",
+             "stateMutability": null
+            },
+            "storageLocation": null,
+            "isStateVar": false,
+            "isIndexed": false,
+            "expression": null
+           },
+           null
+          ],
+          "initialValue": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "NameValueExpression",
+            "expression": {
+             "type": "MemberAccess",
+             "expression": {
+              "type": "MemberAccess",
+              "expression": {
+               "type": "Identifier",
+               "name": "msg"
+              },
+              "memberName": "sender"
+             },
+             "memberName": "call"
+            },
+            "arguments": {
+             "type": "NameValueList",
+             "names": [
+              "value"
+             ],
+             "identifiers": [
+              {
+               "type": "Identifier",
+               "name": "value"
+              }
+             ],
+             "arguments": [
+              {
+               "type": "Identifier",
+               "name": "reward"
+              }
+             ]
+            }
+           },
+           "arguments": [
+            {
+             "type": "StringLiteral",
+             "value": "",
+             "parts": [
+              ""
+             ],
+             "isUnicode": [
+              false
+             ]
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         },
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "Identifier",
+            "name": "require"
+           },
+           "arguments": [
+            {
+             "type": "Identifier",
+             "name": "sent"
+            },
+            {
+             "type": "StringLiteral",
+             "value": "Failed to send Ether",
+             "parts": [
+              "Failed to send Ether"
+             ],
+             "isUnicode": [
+              false
+             ]
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         },
+         {
+          "type": "EmitStatement",
+          "eventCall": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "Identifier",
+            "name": "SetValidators"
+           },
+           "arguments": [
+            {
+             "type": "Identifier",
+             "name": "newValidators"
+            },
+            {
+             "type": "Identifier",
+             "name": "reward"
+            },
+            {
+             "type": "Identifier",
+             "name": "newValidatorSetId"
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         }
+        ]
+       },
+       "visibility": "external",
+       "modifiers": [],
+       "override": null,
+       "isConstructor": false,
+       "isReceiveEther": false,
+       "isFallback": false,
+       "isVirtual": false,
+       "stateMutability": "payable"
+      },
+      {
+       "type": "FunctionDefinition",
+       "name": "forceActiveValidatorSet",
+       "parameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ArrayTypeName",
+          "baseTypeName": {
+           "type": "ElementaryTypeName",
+           "name": "address",
+           "stateMutability": null
+          },
+          "length": null
+         },
+         "name": "_validators",
+         "identifier": {
+          "type": "Identifier",
+          "name": "_validators"
+         },
+         "storageLocation": "memory",
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint32",
+          "stateMutability": null
+         },
+         "name": "validatorSetId",
+         "identifier": {
+          "type": "Identifier",
+          "name": "validatorSetId"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "returnParameters": null,
+       "body": {
+        "type": "Block",
+        "statements": [
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "Identifier",
+            "name": "require"
+           },
+           "arguments": [
+            {
+             "type": "BinaryOperation",
+             "operator": ">",
+             "left": {
+              "type": "MemberAccess",
+              "expression": {
+               "type": "Identifier",
+               "name": "_validators"
+              },
+              "memberName": "length"
+             },
+             "right": {
+              "type": "NumberLiteral",
+              "number": "0",
+              "subdenomination": null
+             }
+            },
+            {
+             "type": "StringLiteral",
+             "value": "empty validator set",
+             "parts": [
+              "empty validator set"
+             ],
+             "isUnicode": [
+              false
+             ]
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         },
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "Identifier",
+            "name": "require"
+           },
+           "arguments": [
+            {
+             "type": "BinaryOperation",
+             "operator": ">=",
+             "left": {
+              "type": "Identifier",
+              "name": "validatorSetId"
+             },
+             "right": {
+              "type": "Identifier",
+              "name": "activeValidatorSetId"
+             }
+            },
+            {
+             "type": "StringLiteral",
+             "value": "set is historic",
+             "parts": [
+              "set is historic"
+             ],
+             "isUnicode": [
+              false
+             ]
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         },
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "BinaryOperation",
+           "operator": "=",
+           "left": {
+            "type": "IndexAccess",
+            "base": {
+             "type": "Identifier",
+             "name": "validators"
+            },
+            "index": {
+             "type": "Identifier",
+             "name": "validatorSetId"
+            }
+           },
+           "right": {
+            "type": "Identifier",
+            "name": "_validators"
+           }
+          }
+         },
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "BinaryOperation",
+           "operator": "=",
+           "left": {
+            "type": "Identifier",
+            "name": "activeValidatorSetId"
+           },
+           "right": {
+            "type": "Identifier",
+            "name": "validatorSetId"
+           }
+          }
+         }
+        ]
+       },
+       "visibility": "external",
+       "modifiers": [
+        {
+         "type": "ModifierInvocation",
+         "name": "onlyOwner",
+         "arguments": null
+        }
+       ],
+       "override": null,
+       "isConstructor": false,
+       "isReceiveEther": false,
+       "isFallback": false,
+       "isVirtual": false,
+       "stateMutability": null
+      },
+      {
+       "type": "FunctionDefinition",
+       "name": "forceHistoricValidatorSet",
+       "parameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ArrayTypeName",
+          "baseTypeName": {
+           "type": "ElementaryTypeName",
+           "name": "address",
+           "stateMutability": null
+          },
+          "length": null
+         },
+         "name": "_validators",
+         "identifier": {
+          "type": "Identifier",
+          "name": "_validators"
+         },
+         "storageLocation": "memory",
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint32",
+          "stateMutability": null
+         },
+         "name": "validatorSetId",
+         "identifier": {
+          "type": "Identifier",
+          "name": "validatorSetId"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "returnParameters": null,
+       "body": {
+        "type": "Block",
+        "statements": [
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "Identifier",
+            "name": "require"
+           },
+           "arguments": [
+            {
+             "type": "BinaryOperation",
+             "operator": ">",
+             "left": {
+              "type": "MemberAccess",
+              "expression": {
+               "type": "Identifier",
+               "name": "_validators"
+              },
+              "memberName": "length"
+             },
+             "right": {
+              "type": "NumberLiteral",
+              "number": "0",
+              "subdenomination": null
+             }
+            },
+            {
+             "type": "StringLiteral",
+             "value": "empty validator set",
+             "parts": [
+              "empty validator set"
+             ],
+             "isUnicode": [
+              false
+             ]
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         },
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "Identifier",
+            "name": "require"
+           },
+           "arguments": [
+            {
+             "type": "BinaryOperation",
+             "operator": ">",
+             "left": {
+              "type": "BinaryOperation",
+              "operator": "+",
+              "left": {
+               "type": "Identifier",
+               "name": "validatorSetId"
+              },
+              "right": {
+               "type": "Identifier",
+               "name": "proofTTL"
+              }
+             },
+             "right": {
+              "type": "Identifier",
+              "name": "activeValidatorSetId"
+             }
+            },
+            {
+             "type": "StringLiteral",
+             "value": "set is inactive",
+             "parts": [
+              "set is inactive"
+             ],
+             "isUnicode": [
+              false
+             ]
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         },
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "BinaryOperation",
+           "operator": "=",
+           "left": {
+            "type": "IndexAccess",
+            "base": {
+             "type": "Identifier",
+             "name": "validators"
+            },
+            "index": {
+             "type": "Identifier",
+             "name": "validatorSetId"
+            }
+           },
+           "right": {
+            "type": "Identifier",
+            "name": "_validators"
+           }
+          }
+         }
+        ]
+       },
+       "visibility": "external",
+       "modifiers": [
+        {
+         "type": "ModifierInvocation",
+         "name": "onlyOwner",
+         "arguments": null
+        }
+       ],
+       "override": null,
+       "isConstructor": false,
+       "isReceiveEther": false,
+       "isFallback": false,
+       "isVirtual": false,
+       "stateMutability": null
+      },
+      {
+       "type": "FunctionDefinition",
+       "name": "setProofTTL",
+       "parameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint",
+          "stateMutability": null
+         },
+         "name": "newTTL",
+         "identifier": {
+          "type": "Identifier",
+          "name": "newTTL"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "returnParameters": null,
+       "body": {
+        "type": "Block",
+        "statements": [
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "BinaryOperation",
+           "operator": "=",
+           "left": {
+            "type": "Identifier",
+            "name": "proofTTL"
+           },
+           "right": {
+            "type": "Identifier",
+            "name": "newTTL"
+           }
+          }
+         }
+        ]
+       },
+       "visibility": "external",
+       "modifiers": [
+        {
+         "type": "ModifierInvocation",
+         "name": "onlyOwner",
+         "arguments": null
+        }
+       ],
+       "override": null,
+       "isConstructor": false,
+       "isReceiveEther": false,
+       "isFallback": false,
+       "isVirtual": false,
+       "stateMutability": null
+      },
+      {
+       "type": "FunctionDefinition",
+       "name": "setVerificationFee",
+       "parameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint",
+          "stateMutability": null
+         },
+         "name": "newFee",
+         "identifier": {
+          "type": "Identifier",
+          "name": "newFee"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "returnParameters": null,
+       "body": {
+        "type": "Block",
+        "statements": [
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "BinaryOperation",
+           "operator": "=",
+           "left": {
+            "type": "Identifier",
+            "name": "verificationFee"
+           },
+           "right": {
+            "type": "Identifier",
+            "name": "newFee"
+           }
+          }
+         }
+        ]
+       },
+       "visibility": "external",
+       "modifiers": [
+        {
+         "type": "ModifierInvocation",
+         "name": "onlyOwner",
+         "arguments": null
+        }
+       ],
+       "override": null,
+       "isConstructor": false,
+       "isReceiveEther": false,
+       "isFallback": false,
+       "isVirtual": false,
+       "stateMutability": null
+      },
+      {
+       "type": "FunctionDefinition",
+       "name": "setThreshold",
+       "parameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint",
+          "stateMutability": null
+         },
+         "name": "newThresholdPercent",
+         "identifier": {
+          "type": "Identifier",
+          "name": "newThresholdPercent"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "returnParameters": null,
+       "body": {
+        "type": "Block",
+        "statements": [
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "BinaryOperation",
+           "operator": "=",
+           "left": {
+            "type": "Identifier",
+            "name": "thresholdPercent"
+           },
+           "right": {
+            "type": "Identifier",
+            "name": "newThresholdPercent"
+           }
+          }
+         }
+        ]
+       },
+       "visibility": "external",
+       "modifiers": [
+        {
+         "type": "ModifierInvocation",
+         "name": "onlyOwner",
+         "arguments": null
+        }
+       ],
+       "override": null,
+       "isConstructor": false,
+       "isReceiveEther": false,
+       "isFallback": false,
+       "isVirtual": false,
+       "stateMutability": null
+      },
+      {
+       "type": "FunctionDefinition",
+       "name": "setActive",
+       "parameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "bool",
+          "stateMutability": null
+         },
+         "name": "active_",
+         "identifier": {
+          "type": "Identifier",
+          "name": "active_"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "returnParameters": null,
+       "body": {
+        "type": "Block",
+        "statements": [
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "BinaryOperation",
+           "operator": "=",
+           "left": {
+            "type": "Identifier",
+            "name": "active"
+           },
+           "right": {
+            "type": "Identifier",
+            "name": "active_"
+           }
+          }
+         }
+        ]
+       },
+       "visibility": "external",
+       "modifiers": [
+        {
+         "type": "ModifierInvocation",
+         "name": "onlyOwner",
+         "arguments": null
+        }
+       ],
+       "override": null,
+       "isConstructor": false,
+       "isReceiveEther": false,
+       "isFallback": false,
+       "isVirtual": false,
+       "stateMutability": null
+      }
+     ],
+     "kind": "contract"
+    }
+   ]
+  }
+ }
+]

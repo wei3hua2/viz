@@ -1,0 +1,2338 @@
+[
+ {
+  "path": "/home/jameschong/Projects/audits-kd/workspace/datasets/DAppSCAN/DAppSCAN-source/contracts/Trail_of_Bits-ampleforth/market-oracle-888fccaf05786f3f7f49e18ff040f911d44906f4/contracts/MarketSourceFactory.sol",
+  "ast": {
+   "type": "SourceUnit",
+   "children": [
+    {
+     "type": "PragmaDirective",
+     "name": "solidity",
+     "value": "0.4.24"
+    },
+    {
+     "type": "ImportDirective",
+     "path": "./MarketSource.sol",
+     "pathLiteral": {
+      "type": "StringLiteral",
+      "value": "./MarketSource.sol",
+      "parts": [
+       "./MarketSource.sol"
+      ],
+      "isUnicode": [
+       false
+      ]
+     },
+     "unitAlias": null,
+     "unitAliasIdentifier": null,
+     "symbolAliases": null,
+     "symbolAliasesIdentifiers": null
+    },
+    {
+     "type": "ContractDefinition",
+     "name": "MarketSourceFactory",
+     "baseContracts": [],
+     "subNodes": [
+      {
+       "type": "EventDefinition",
+       "name": "LogSourceCreated",
+       "parameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "address",
+          "stateMutability": null
+         },
+         "name": "owner",
+         "identifier": {
+          "type": "Identifier",
+          "name": "owner"
+         },
+         "isStateVar": false,
+         "isIndexed": false,
+         "storageLocation": null,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "UserDefinedTypeName",
+          "namePath": "MarketSource"
+         },
+         "name": "source",
+         "identifier": {
+          "type": "Identifier",
+          "name": "source"
+         },
+         "isStateVar": false,
+         "isIndexed": false,
+         "storageLocation": null,
+         "expression": null
+        }
+       ],
+       "isAnonymous": false
+      },
+      {
+       "type": "FunctionDefinition",
+       "name": "createSource",
+       "parameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "string",
+          "stateMutability": null
+         },
+         "name": "name",
+         "identifier": {
+          "type": "Identifier",
+          "name": "name"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint64",
+          "stateMutability": null
+         },
+         "name": "reportExpirationTimeSec",
+         "identifier": {
+          "type": "Identifier",
+          "name": "reportExpirationTimeSec"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "returnParameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "UserDefinedTypeName",
+          "namePath": "MarketSource"
+         },
+         "name": null,
+         "identifier": null,
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "body": {
+        "type": "Block",
+        "statements": [
+         {
+          "type": "VariableDeclarationStatement",
+          "variables": [
+           {
+            "type": "VariableDeclaration",
+            "typeName": {
+             "type": "UserDefinedTypeName",
+             "namePath": "MarketSource"
+            },
+            "name": "source",
+            "identifier": {
+             "type": "Identifier",
+             "name": "source"
+            },
+            "storageLocation": null,
+            "isStateVar": false,
+            "isIndexed": false,
+            "expression": null
+           }
+          ],
+          "initialValue": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "NewExpression",
+            "typeName": {
+             "type": "UserDefinedTypeName",
+             "namePath": "MarketSource"
+            }
+           },
+           "arguments": [
+            {
+             "type": "Identifier",
+             "name": "name"
+            },
+            {
+             "type": "Identifier",
+             "name": "reportExpirationTimeSec"
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         },
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "MemberAccess",
+            "expression": {
+             "type": "Identifier",
+             "name": "source"
+            },
+            "memberName": "transferOwnership"
+           },
+           "arguments": [
+            {
+             "type": "MemberAccess",
+             "expression": {
+              "type": "Identifier",
+              "name": "msg"
+             },
+             "memberName": "sender"
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         },
+         {
+          "type": "EmitStatement",
+          "eventCall": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "Identifier",
+            "name": "LogSourceCreated"
+           },
+           "arguments": [
+            {
+             "type": "MemberAccess",
+             "expression": {
+              "type": "Identifier",
+              "name": "msg"
+             },
+             "memberName": "sender"
+            },
+            {
+             "type": "Identifier",
+             "name": "source"
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         },
+         {
+          "type": "ReturnStatement",
+          "expression": {
+           "type": "Identifier",
+           "name": "source"
+          }
+         }
+        ]
+       },
+       "visibility": "public",
+       "modifiers": [],
+       "override": null,
+       "isConstructor": false,
+       "isReceiveEther": false,
+       "isFallback": false,
+       "isVirtual": false,
+       "stateMutability": null
+      }
+     ],
+     "kind": "contract"
+    }
+   ]
+  }
+ },
+ {
+  "path": "/home/jameschong/Projects/audits-kd/workspace/datasets/DAppSCAN/DAppSCAN-source/contracts/Trail_of_Bits-ampleforth/market-oracle-888fccaf05786f3f7f49e18ff040f911d44906f4/contracts/MarketSource.sol",
+  "ast": {
+   "type": "SourceUnit",
+   "children": [
+    {
+     "type": "PragmaDirective",
+     "name": "solidity",
+     "value": "0.4.24"
+    },
+    {
+     "type": "ImportDirective",
+     "path": "openzeppelin-solidity/contracts/lifecycle/Destructible.sol",
+     "pathLiteral": {
+      "type": "StringLiteral",
+      "value": "openzeppelin-solidity/contracts/lifecycle/Destructible.sol",
+      "parts": [
+       "openzeppelin-solidity/contracts/lifecycle/Destructible.sol"
+      ],
+      "isUnicode": [
+       false
+      ]
+     },
+     "unitAlias": null,
+     "unitAliasIdentifier": null,
+     "symbolAliases": null,
+     "symbolAliasesIdentifiers": null
+    },
+    {
+     "type": "ImportDirective",
+     "path": "openzeppelin-solidity/contracts/math/SafeMath.sol",
+     "pathLiteral": {
+      "type": "StringLiteral",
+      "value": "openzeppelin-solidity/contracts/math/SafeMath.sol",
+      "parts": [
+       "openzeppelin-solidity/contracts/math/SafeMath.sol"
+      ],
+      "isUnicode": [
+       false
+      ]
+     },
+     "unitAlias": null,
+     "unitAliasIdentifier": null,
+     "symbolAliases": null,
+     "symbolAliasesIdentifiers": null
+    },
+    {
+     "type": "ContractDefinition",
+     "name": "MarketSource",
+     "baseContracts": [
+      {
+       "type": "InheritanceSpecifier",
+       "baseName": {
+        "type": "UserDefinedTypeName",
+        "namePath": "Destructible"
+       },
+       "arguments": []
+      }
+     ],
+     "subNodes": [
+      {
+       "type": "UsingForDeclaration",
+       "isGlobal": false,
+       "typeName": {
+        "type": "ElementaryTypeName",
+        "name": "uint256",
+        "stateMutability": null
+       },
+       "libraryName": "SafeMath",
+       "functions": [],
+       "operators": []
+      },
+      {
+       "type": "EventDefinition",
+       "name": "LogExchangeRateReported",
+       "parameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint128",
+          "stateMutability": null
+         },
+         "name": "exchangeRate",
+         "identifier": {
+          "type": "Identifier",
+          "name": "exchangeRate"
+         },
+         "isStateVar": false,
+         "isIndexed": false,
+         "storageLocation": null,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint128",
+          "stateMutability": null
+         },
+         "name": "volume24hrs",
+         "identifier": {
+          "type": "Identifier",
+          "name": "volume24hrs"
+         },
+         "isStateVar": false,
+         "isIndexed": false,
+         "storageLocation": null,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint64",
+          "stateMutability": null
+         },
+         "name": "timestampSec",
+         "identifier": {
+          "type": "Identifier",
+          "name": "timestampSec"
+         },
+         "isStateVar": false,
+         "isIndexed": true,
+         "storageLocation": null,
+         "expression": null
+        }
+       ],
+       "isAnonymous": false
+      },
+      {
+       "type": "StateVariableDeclaration",
+       "variables": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "string",
+          "stateMutability": null
+         },
+         "name": "_name",
+         "identifier": {
+          "type": "Identifier",
+          "name": "_name"
+         },
+         "expression": null,
+         "visibility": "public",
+         "isStateVar": true,
+         "isDeclaredConst": false,
+         "isIndexed": false,
+         "isImmutable": false,
+         "override": null,
+         "storageLocation": null
+        }
+       ],
+       "initialValue": null
+      },
+      {
+       "type": "StateVariableDeclaration",
+       "variables": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint128",
+          "stateMutability": null
+         },
+         "name": "_exchangeRate",
+         "identifier": {
+          "type": "Identifier",
+          "name": "_exchangeRate"
+         },
+         "expression": null,
+         "visibility": "private",
+         "isStateVar": true,
+         "isDeclaredConst": false,
+         "isIndexed": false,
+         "isImmutable": false,
+         "override": null,
+         "storageLocation": null
+        }
+       ],
+       "initialValue": null
+      },
+      {
+       "type": "StateVariableDeclaration",
+       "variables": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint128",
+          "stateMutability": null
+         },
+         "name": "_volume24hrs",
+         "identifier": {
+          "type": "Identifier",
+          "name": "_volume24hrs"
+         },
+         "expression": null,
+         "visibility": "private",
+         "isStateVar": true,
+         "isDeclaredConst": false,
+         "isIndexed": false,
+         "isImmutable": false,
+         "override": null,
+         "storageLocation": null
+        }
+       ],
+       "initialValue": null
+      },
+      {
+       "type": "StateVariableDeclaration",
+       "variables": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint64",
+          "stateMutability": null
+         },
+         "name": "_timestampSec",
+         "identifier": {
+          "type": "Identifier",
+          "name": "_timestampSec"
+         },
+         "expression": null,
+         "visibility": "private",
+         "isStateVar": true,
+         "isDeclaredConst": false,
+         "isIndexed": false,
+         "isImmutable": false,
+         "override": null,
+         "storageLocation": null
+        }
+       ],
+       "initialValue": null
+      },
+      {
+       "type": "StateVariableDeclaration",
+       "variables": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint64",
+          "stateMutability": null
+         },
+         "name": "_reportExpirationTimeSec",
+         "identifier": {
+          "type": "Identifier",
+          "name": "_reportExpirationTimeSec"
+         },
+         "expression": null,
+         "visibility": "public",
+         "isStateVar": true,
+         "isDeclaredConst": false,
+         "isIndexed": false,
+         "isImmutable": false,
+         "override": null,
+         "storageLocation": null
+        }
+       ],
+       "initialValue": null
+      },
+      {
+       "type": "FunctionDefinition",
+       "name": null,
+       "parameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "string",
+          "stateMutability": null
+         },
+         "name": "name",
+         "identifier": {
+          "type": "Identifier",
+          "name": "name"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint64",
+          "stateMutability": null
+         },
+         "name": "reportExpirationTimeSec",
+         "identifier": {
+          "type": "Identifier",
+          "name": "reportExpirationTimeSec"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "returnParameters": null,
+       "body": {
+        "type": "Block",
+        "statements": [
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "BinaryOperation",
+           "operator": "=",
+           "left": {
+            "type": "Identifier",
+            "name": "_name"
+           },
+           "right": {
+            "type": "Identifier",
+            "name": "name"
+           }
+          }
+         },
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "BinaryOperation",
+           "operator": "=",
+           "left": {
+            "type": "Identifier",
+            "name": "_reportExpirationTimeSec"
+           },
+           "right": {
+            "type": "Identifier",
+            "name": "reportExpirationTimeSec"
+           }
+          }
+         }
+        ]
+       },
+       "visibility": "public",
+       "modifiers": [],
+       "override": null,
+       "isConstructor": true,
+       "isReceiveEther": false,
+       "isFallback": false,
+       "isVirtual": false,
+       "stateMutability": null
+      },
+      {
+       "type": "FunctionDefinition",
+       "name": "reportRate",
+       "parameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint128",
+          "stateMutability": null
+         },
+         "name": "exchangeRate",
+         "identifier": {
+          "type": "Identifier",
+          "name": "exchangeRate"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint128",
+          "stateMutability": null
+         },
+         "name": "volume24hrs",
+         "identifier": {
+          "type": "Identifier",
+          "name": "volume24hrs"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint64",
+          "stateMutability": null
+         },
+         "name": "timestampSec",
+         "identifier": {
+          "type": "Identifier",
+          "name": "timestampSec"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "returnParameters": null,
+       "body": {
+        "type": "Block",
+        "statements": [
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "Identifier",
+            "name": "require"
+           },
+           "arguments": [
+            {
+             "type": "BinaryOperation",
+             "operator": ">",
+             "left": {
+              "type": "Identifier",
+              "name": "exchangeRate"
+             },
+             "right": {
+              "type": "NumberLiteral",
+              "number": "0",
+              "subdenomination": null
+             }
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         },
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "Identifier",
+            "name": "require"
+           },
+           "arguments": [
+            {
+             "type": "BinaryOperation",
+             "operator": ">",
+             "left": {
+              "type": "Identifier",
+              "name": "volume24hrs"
+             },
+             "right": {
+              "type": "NumberLiteral",
+              "number": "0",
+              "subdenomination": null
+             }
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         },
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "BinaryOperation",
+           "operator": "=",
+           "left": {
+            "type": "Identifier",
+            "name": "_exchangeRate"
+           },
+           "right": {
+            "type": "Identifier",
+            "name": "exchangeRate"
+           }
+          }
+         },
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "BinaryOperation",
+           "operator": "=",
+           "left": {
+            "type": "Identifier",
+            "name": "_volume24hrs"
+           },
+           "right": {
+            "type": "Identifier",
+            "name": "volume24hrs"
+           }
+          }
+         },
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "BinaryOperation",
+           "operator": "=",
+           "left": {
+            "type": "Identifier",
+            "name": "_timestampSec"
+           },
+           "right": {
+            "type": "Identifier",
+            "name": "timestampSec"
+           }
+          }
+         },
+         {
+          "type": "EmitStatement",
+          "eventCall": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "Identifier",
+            "name": "LogExchangeRateReported"
+           },
+           "arguments": [
+            {
+             "type": "Identifier",
+             "name": "exchangeRate"
+            },
+            {
+             "type": "Identifier",
+             "name": "volume24hrs"
+            },
+            {
+             "type": "Identifier",
+             "name": "timestampSec"
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         }
+        ]
+       },
+       "visibility": "external",
+       "modifiers": [
+        {
+         "type": "ModifierInvocation",
+         "name": "onlyOwner",
+         "arguments": null
+        }
+       ],
+       "override": null,
+       "isConstructor": false,
+       "isReceiveEther": false,
+       "isFallback": false,
+       "isVirtual": false,
+       "stateMutability": null
+      },
+      {
+       "type": "FunctionDefinition",
+       "name": "getReport",
+       "parameters": [],
+       "returnParameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "bool",
+          "stateMutability": null
+         },
+         "name": null,
+         "identifier": null,
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint256",
+          "stateMutability": null
+         },
+         "name": null,
+         "identifier": null,
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint256",
+          "stateMutability": null
+         },
+         "name": null,
+         "identifier": null,
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "body": {
+        "type": "Block",
+        "statements": [
+         {
+          "type": "VariableDeclarationStatement",
+          "variables": [
+           {
+            "type": "VariableDeclaration",
+            "typeName": {
+             "type": "ElementaryTypeName",
+             "name": "bool",
+             "stateMutability": null
+            },
+            "name": "isFresh",
+            "identifier": {
+             "type": "Identifier",
+             "name": "isFresh"
+            },
+            "storageLocation": null,
+            "isStateVar": false,
+            "isIndexed": false,
+            "expression": null
+           }
+          ],
+          "initialValue": {
+           "type": "TupleExpression",
+           "components": [
+            {
+             "type": "BinaryOperation",
+             "operator": ">",
+             "left": {
+              "type": "FunctionCall",
+              "expression": {
+               "type": "MemberAccess",
+               "expression": {
+                "type": "FunctionCall",
+                "expression": {
+                 "type": "ElementaryTypeName",
+                 "name": "uint256",
+                 "stateMutability": null
+                },
+                "arguments": [
+                 {
+                  "type": "Identifier",
+                  "name": "_timestampSec"
+                 }
+                ],
+                "names": [],
+                "identifiers": []
+               },
+               "memberName": "add"
+              },
+              "arguments": [
+               {
+                "type": "Identifier",
+                "name": "_reportExpirationTimeSec"
+               }
+              ],
+              "names": [],
+              "identifiers": []
+             },
+             "right": {
+              "type": "Identifier",
+              "name": "now"
+             }
+            }
+           ],
+           "isArray": false
+          }
+         },
+         {
+          "type": "ReturnStatement",
+          "expression": {
+           "type": "TupleExpression",
+           "components": [
+            {
+             "type": "Identifier",
+             "name": "isFresh"
+            },
+            {
+             "type": "FunctionCall",
+             "expression": {
+              "type": "ElementaryTypeName",
+              "name": "uint256",
+              "stateMutability": null
+             },
+             "arguments": [
+              {
+               "type": "Identifier",
+               "name": "_exchangeRate"
+              }
+             ],
+             "names": [],
+             "identifiers": []
+            },
+            {
+             "type": "FunctionCall",
+             "expression": {
+              "type": "ElementaryTypeName",
+              "name": "uint256",
+              "stateMutability": null
+             },
+             "arguments": [
+              {
+               "type": "Identifier",
+               "name": "_volume24hrs"
+              }
+             ],
+             "names": [],
+             "identifiers": []
+            }
+           ],
+           "isArray": false
+          }
+         }
+        ]
+       },
+       "visibility": "public",
+       "modifiers": [],
+       "override": null,
+       "isConstructor": false,
+       "isReceiveEther": false,
+       "isFallback": false,
+       "isVirtual": false,
+       "stateMutability": "view"
+      }
+     ],
+     "kind": "contract"
+    }
+   ]
+  }
+ },
+ {
+  "path": "/home/jameschong/Projects/audits-kd/workspace/datasets/DAppSCAN/DAppSCAN-source/contracts/Trail_of_Bits-ampleforth/market-oracle-888fccaf05786f3f7f49e18ff040f911d44906f4/contracts/MarketOracle.sol",
+  "ast": {
+   "type": "SourceUnit",
+   "children": [
+    {
+     "type": "PragmaDirective",
+     "name": "solidity",
+     "value": "0.4.24"
+    },
+    {
+     "type": "ImportDirective",
+     "path": "openzeppelin-solidity/contracts/math/SafeMath.sol",
+     "pathLiteral": {
+      "type": "StringLiteral",
+      "value": "openzeppelin-solidity/contracts/math/SafeMath.sol",
+      "parts": [
+       "openzeppelin-solidity/contracts/math/SafeMath.sol"
+      ],
+      "isUnicode": [
+       false
+      ]
+     },
+     "unitAlias": null,
+     "unitAliasIdentifier": null,
+     "symbolAliases": null,
+     "symbolAliasesIdentifiers": null
+    },
+    {
+     "type": "ImportDirective",
+     "path": "openzeppelin-solidity/contracts/ownership/Ownable.sol",
+     "pathLiteral": {
+      "type": "StringLiteral",
+      "value": "openzeppelin-solidity/contracts/ownership/Ownable.sol",
+      "parts": [
+       "openzeppelin-solidity/contracts/ownership/Ownable.sol"
+      ],
+      "isUnicode": [
+       false
+      ]
+     },
+     "unitAlias": null,
+     "unitAliasIdentifier": null,
+     "symbolAliases": null,
+     "symbolAliasesIdentifiers": null
+    },
+    {
+     "type": "ImportDirective",
+     "path": "./MarketSource.sol",
+     "pathLiteral": {
+      "type": "StringLiteral",
+      "value": "./MarketSource.sol",
+      "parts": [
+       "./MarketSource.sol"
+      ],
+      "isUnicode": [
+       false
+      ]
+     },
+     "unitAlias": null,
+     "unitAliasIdentifier": null,
+     "symbolAliases": null,
+     "symbolAliasesIdentifiers": null
+    },
+    {
+     "type": "ContractDefinition",
+     "name": "MarketOracle",
+     "baseContracts": [
+      {
+       "type": "InheritanceSpecifier",
+       "baseName": {
+        "type": "UserDefinedTypeName",
+        "namePath": "Ownable"
+       },
+       "arguments": []
+      }
+     ],
+     "subNodes": [
+      {
+       "type": "UsingForDeclaration",
+       "isGlobal": false,
+       "typeName": {
+        "type": "ElementaryTypeName",
+        "name": "uint256",
+        "stateMutability": null
+       },
+       "libraryName": "SafeMath",
+       "functions": [],
+       "operators": []
+      },
+      {
+       "type": "StateVariableDeclaration",
+       "variables": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ArrayTypeName",
+          "baseTypeName": {
+           "type": "UserDefinedTypeName",
+           "namePath": "MarketSource"
+          },
+          "length": null
+         },
+         "name": "_whitelist",
+         "identifier": {
+          "type": "Identifier",
+          "name": "_whitelist"
+         },
+         "expression": null,
+         "visibility": "public",
+         "isStateVar": true,
+         "isDeclaredConst": false,
+         "isIndexed": false,
+         "isImmutable": false,
+         "override": null,
+         "storageLocation": null
+        }
+       ],
+       "initialValue": null
+      },
+      {
+       "type": "EventDefinition",
+       "name": "LogSourceAdded",
+       "parameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "UserDefinedTypeName",
+          "namePath": "MarketSource"
+         },
+         "name": "source",
+         "identifier": {
+          "type": "Identifier",
+          "name": "source"
+         },
+         "isStateVar": false,
+         "isIndexed": false,
+         "storageLocation": null,
+         "expression": null
+        }
+       ],
+       "isAnonymous": false
+      },
+      {
+       "type": "EventDefinition",
+       "name": "LogSourceRemoved",
+       "parameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "UserDefinedTypeName",
+          "namePath": "MarketSource"
+         },
+         "name": "source",
+         "identifier": {
+          "type": "Identifier",
+          "name": "source"
+         },
+         "isStateVar": false,
+         "isIndexed": false,
+         "storageLocation": null,
+         "expression": null
+        }
+       ],
+       "isAnonymous": false
+      },
+      {
+       "type": "EventDefinition",
+       "name": "LogSourceExpired",
+       "parameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "UserDefinedTypeName",
+          "namePath": "MarketSource"
+         },
+         "name": "source",
+         "identifier": {
+          "type": "Identifier",
+          "name": "source"
+         },
+         "isStateVar": false,
+         "isIndexed": false,
+         "storageLocation": null,
+         "expression": null
+        }
+       ],
+       "isAnonymous": false
+      },
+      {
+       "type": "FunctionDefinition",
+       "name": "getPriceAnd24HourVolume",
+       "parameters": [],
+       "returnParameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint256",
+          "stateMutability": null
+         },
+         "name": null,
+         "identifier": null,
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint256",
+          "stateMutability": null
+         },
+         "name": null,
+         "identifier": null,
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "body": {
+        "type": "Block",
+        "statements": [
+         {
+          "type": "VariableDeclarationStatement",
+          "variables": [
+           {
+            "type": "VariableDeclaration",
+            "typeName": {
+             "type": "ElementaryTypeName",
+             "name": "uint256",
+             "stateMutability": null
+            },
+            "name": "volumeWeightedSum",
+            "identifier": {
+             "type": "Identifier",
+             "name": "volumeWeightedSum"
+            },
+            "storageLocation": null,
+            "isStateVar": false,
+            "isIndexed": false,
+            "expression": null
+           }
+          ],
+          "initialValue": {
+           "type": "NumberLiteral",
+           "number": "0",
+           "subdenomination": null
+          }
+         },
+         {
+          "type": "VariableDeclarationStatement",
+          "variables": [
+           {
+            "type": "VariableDeclaration",
+            "typeName": {
+             "type": "ElementaryTypeName",
+             "name": "uint256",
+             "stateMutability": null
+            },
+            "name": "volumeSum",
+            "identifier": {
+             "type": "Identifier",
+             "name": "volumeSum"
+            },
+            "storageLocation": null,
+            "isStateVar": false,
+            "isIndexed": false,
+            "expression": null
+           }
+          ],
+          "initialValue": {
+           "type": "NumberLiteral",
+           "number": "0",
+           "subdenomination": null
+          }
+         },
+         {
+          "type": "VariableDeclarationStatement",
+          "variables": [
+           {
+            "type": "VariableDeclaration",
+            "typeName": {
+             "type": "ElementaryTypeName",
+             "name": "uint256",
+             "stateMutability": null
+            },
+            "name": "partialRate",
+            "identifier": {
+             "type": "Identifier",
+             "name": "partialRate"
+            },
+            "storageLocation": null,
+            "isStateVar": false,
+            "isIndexed": false,
+            "expression": null
+           }
+          ],
+          "initialValue": {
+           "type": "NumberLiteral",
+           "number": "0",
+           "subdenomination": null
+          }
+         },
+         {
+          "type": "VariableDeclarationStatement",
+          "variables": [
+           {
+            "type": "VariableDeclaration",
+            "typeName": {
+             "type": "ElementaryTypeName",
+             "name": "uint256",
+             "stateMutability": null
+            },
+            "name": "partialVolume",
+            "identifier": {
+             "type": "Identifier",
+             "name": "partialVolume"
+            },
+            "storageLocation": null,
+            "isStateVar": false,
+            "isIndexed": false,
+            "expression": null
+           }
+          ],
+          "initialValue": {
+           "type": "NumberLiteral",
+           "number": "0",
+           "subdenomination": null
+          }
+         },
+         {
+          "type": "VariableDeclarationStatement",
+          "variables": [
+           {
+            "type": "VariableDeclaration",
+            "typeName": {
+             "type": "ElementaryTypeName",
+             "name": "bool",
+             "stateMutability": null
+            },
+            "name": "isSourceFresh",
+            "identifier": {
+             "type": "Identifier",
+             "name": "isSourceFresh"
+            },
+            "storageLocation": null,
+            "isStateVar": false,
+            "isIndexed": false,
+            "expression": null
+           }
+          ],
+          "initialValue": {
+           "type": "BooleanLiteral",
+           "value": false
+          }
+         },
+         {
+          "type": "ForStatement",
+          "initExpression": {
+           "type": "VariableDeclarationStatement",
+           "variables": [
+            {
+             "type": "VariableDeclaration",
+             "typeName": {
+              "type": "ElementaryTypeName",
+              "name": "uint256",
+              "stateMutability": null
+             },
+             "name": "i",
+             "identifier": {
+              "type": "Identifier",
+              "name": "i"
+             },
+             "storageLocation": null,
+             "isStateVar": false,
+             "isIndexed": false,
+             "expression": null
+            }
+           ],
+           "initialValue": {
+            "type": "NumberLiteral",
+            "number": "0",
+            "subdenomination": null
+           }
+          },
+          "conditionExpression": {
+           "type": "BinaryOperation",
+           "operator": "<",
+           "left": {
+            "type": "Identifier",
+            "name": "i"
+           },
+           "right": {
+            "type": "MemberAccess",
+            "expression": {
+             "type": "Identifier",
+             "name": "_whitelist"
+            },
+            "memberName": "length"
+           }
+          },
+          "loopExpression": {
+           "type": "ExpressionStatement",
+           "expression": {
+            "type": "UnaryOperation",
+            "operator": "++",
+            "subExpression": {
+             "type": "Identifier",
+             "name": "i"
+            },
+            "isPrefix": false
+           }
+          },
+          "body": {
+           "type": "Block",
+           "statements": [
+            {
+             "type": "ExpressionStatement",
+             "expression": {
+              "type": "BinaryOperation",
+              "operator": "=",
+              "left": {
+               "type": "TupleExpression",
+               "components": [
+                {
+                 "type": "Identifier",
+                 "name": "isSourceFresh"
+                },
+                {
+                 "type": "Identifier",
+                 "name": "partialRate"
+                },
+                {
+                 "type": "Identifier",
+                 "name": "partialVolume"
+                }
+               ],
+               "isArray": false
+              },
+              "right": {
+               "type": "FunctionCall",
+               "expression": {
+                "type": "MemberAccess",
+                "expression": {
+                 "type": "IndexAccess",
+                 "base": {
+                  "type": "Identifier",
+                  "name": "_whitelist"
+                 },
+                 "index": {
+                  "type": "Identifier",
+                  "name": "i"
+                 }
+                },
+                "memberName": "getReport"
+               },
+               "arguments": [],
+               "names": [],
+               "identifiers": []
+              }
+             }
+            },
+            {
+             "type": "IfStatement",
+             "condition": {
+              "type": "UnaryOperation",
+              "operator": "!",
+              "subExpression": {
+               "type": "Identifier",
+               "name": "isSourceFresh"
+              },
+              "isPrefix": true
+             },
+             "trueBody": {
+              "type": "Block",
+              "statements": [
+               {
+                "type": "EmitStatement",
+                "eventCall": {
+                 "type": "FunctionCall",
+                 "expression": {
+                  "type": "Identifier",
+                  "name": "LogSourceExpired"
+                 },
+                 "arguments": [
+                  {
+                   "type": "IndexAccess",
+                   "base": {
+                    "type": "Identifier",
+                    "name": "_whitelist"
+                   },
+                   "index": {
+                    "type": "Identifier",
+                    "name": "i"
+                   }
+                  }
+                 ],
+                 "names": [],
+                 "identifiers": []
+                }
+               },
+               {
+                "type": "ContinueStatement"
+               }
+              ]
+             },
+             "falseBody": null
+            },
+            {
+             "type": "ExpressionStatement",
+             "expression": {
+              "type": "BinaryOperation",
+              "operator": "=",
+              "left": {
+               "type": "Identifier",
+               "name": "volumeWeightedSum"
+              },
+              "right": {
+               "type": "FunctionCall",
+               "expression": {
+                "type": "MemberAccess",
+                "expression": {
+                 "type": "Identifier",
+                 "name": "volumeWeightedSum"
+                },
+                "memberName": "add"
+               },
+               "arguments": [
+                {
+                 "type": "FunctionCall",
+                 "expression": {
+                  "type": "MemberAccess",
+                  "expression": {
+                   "type": "Identifier",
+                   "name": "partialRate"
+                  },
+                  "memberName": "mul"
+                 },
+                 "arguments": [
+                  {
+                   "type": "Identifier",
+                   "name": "partialVolume"
+                  }
+                 ],
+                 "names": [],
+                 "identifiers": []
+                }
+               ],
+               "names": [],
+               "identifiers": []
+              }
+             }
+            },
+            {
+             "type": "ExpressionStatement",
+             "expression": {
+              "type": "BinaryOperation",
+              "operator": "=",
+              "left": {
+               "type": "Identifier",
+               "name": "volumeSum"
+              },
+              "right": {
+               "type": "FunctionCall",
+               "expression": {
+                "type": "MemberAccess",
+                "expression": {
+                 "type": "Identifier",
+                 "name": "volumeSum"
+                },
+                "memberName": "add"
+               },
+               "arguments": [
+                {
+                 "type": "Identifier",
+                 "name": "partialVolume"
+                }
+               ],
+               "names": [],
+               "identifiers": []
+              }
+             }
+            }
+           ]
+          }
+         },
+         {
+          "type": "VariableDeclarationStatement",
+          "variables": [
+           {
+            "type": "VariableDeclaration",
+            "typeName": {
+             "type": "ElementaryTypeName",
+             "name": "uint256",
+             "stateMutability": null
+            },
+            "name": "exchangeRate",
+            "identifier": {
+             "type": "Identifier",
+             "name": "exchangeRate"
+            },
+            "storageLocation": null,
+            "isStateVar": false,
+            "isIndexed": false,
+            "expression": null
+           }
+          ],
+          "initialValue": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "MemberAccess",
+            "expression": {
+             "type": "Identifier",
+             "name": "volumeWeightedSum"
+            },
+            "memberName": "div"
+           },
+           "arguments": [
+            {
+             "type": "Identifier",
+             "name": "volumeSum"
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         },
+         {
+          "type": "ReturnStatement",
+          "expression": {
+           "type": "TupleExpression",
+           "components": [
+            {
+             "type": "Identifier",
+             "name": "exchangeRate"
+            },
+            {
+             "type": "Identifier",
+             "name": "volumeSum"
+            }
+           ],
+           "isArray": false
+          }
+         }
+        ]
+       },
+       "visibility": "external",
+       "modifiers": [],
+       "override": null,
+       "isConstructor": false,
+       "isReceiveEther": false,
+       "isFallback": false,
+       "isVirtual": false,
+       "stateMutability": null
+      },
+      {
+       "type": "FunctionDefinition",
+       "name": "addSource",
+       "parameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "UserDefinedTypeName",
+          "namePath": "MarketSource"
+         },
+         "name": "source",
+         "identifier": {
+          "type": "Identifier",
+          "name": "source"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "returnParameters": null,
+       "body": {
+        "type": "Block",
+        "statements": [
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "MemberAccess",
+            "expression": {
+             "type": "Identifier",
+             "name": "_whitelist"
+            },
+            "memberName": "push"
+           },
+           "arguments": [
+            {
+             "type": "Identifier",
+             "name": "source"
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         },
+         {
+          "type": "EmitStatement",
+          "eventCall": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "Identifier",
+            "name": "LogSourceAdded"
+           },
+           "arguments": [
+            {
+             "type": "Identifier",
+             "name": "source"
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         }
+        ]
+       },
+       "visibility": "external",
+       "modifiers": [
+        {
+         "type": "ModifierInvocation",
+         "name": "onlyOwner",
+         "arguments": null
+        }
+       ],
+       "override": null,
+       "isConstructor": false,
+       "isReceiveEther": false,
+       "isFallback": false,
+       "isVirtual": false,
+       "stateMutability": null
+      },
+      {
+       "type": "FunctionDefinition",
+       "name": "removeSource",
+       "parameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "UserDefinedTypeName",
+          "namePath": "MarketSource"
+         },
+         "name": "source",
+         "identifier": {
+          "type": "Identifier",
+          "name": "source"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "returnParameters": null,
+       "body": {
+        "type": "Block",
+        "statements": [
+         {
+          "type": "ForStatement",
+          "initExpression": {
+           "type": "VariableDeclarationStatement",
+           "variables": [
+            {
+             "type": "VariableDeclaration",
+             "typeName": {
+              "type": "ElementaryTypeName",
+              "name": "uint256",
+              "stateMutability": null
+             },
+             "name": "i",
+             "identifier": {
+              "type": "Identifier",
+              "name": "i"
+             },
+             "storageLocation": null,
+             "isStateVar": false,
+             "isIndexed": false,
+             "expression": null
+            }
+           ],
+           "initialValue": {
+            "type": "NumberLiteral",
+            "number": "0",
+            "subdenomination": null
+           }
+          },
+          "conditionExpression": {
+           "type": "BinaryOperation",
+           "operator": "<",
+           "left": {
+            "type": "Identifier",
+            "name": "i"
+           },
+           "right": {
+            "type": "MemberAccess",
+            "expression": {
+             "type": "Identifier",
+             "name": "_whitelist"
+            },
+            "memberName": "length"
+           }
+          },
+          "loopExpression": {
+           "type": "ExpressionStatement",
+           "expression": {
+            "type": "UnaryOperation",
+            "operator": "++",
+            "subExpression": {
+             "type": "Identifier",
+             "name": "i"
+            },
+            "isPrefix": false
+           }
+          },
+          "body": {
+           "type": "Block",
+           "statements": [
+            {
+             "type": "IfStatement",
+             "condition": {
+              "type": "BinaryOperation",
+              "operator": "==",
+              "left": {
+               "type": "IndexAccess",
+               "base": {
+                "type": "Identifier",
+                "name": "_whitelist"
+               },
+               "index": {
+                "type": "Identifier",
+                "name": "i"
+               }
+              },
+              "right": {
+               "type": "Identifier",
+               "name": "source"
+              }
+             },
+             "trueBody": {
+              "type": "Block",
+              "statements": [
+               {
+                "type": "ExpressionStatement",
+                "expression": {
+                 "type": "FunctionCall",
+                 "expression": {
+                  "type": "Identifier",
+                  "name": "removeSourceAtIndex"
+                 },
+                 "arguments": [
+                  {
+                   "type": "Identifier",
+                   "name": "i"
+                  }
+                 ],
+                 "names": [],
+                 "identifiers": []
+                }
+               },
+               {
+                "type": "BreakStatement"
+               }
+              ]
+             },
+             "falseBody": null
+            }
+           ]
+          }
+         }
+        ]
+       },
+       "visibility": "external",
+       "modifiers": [
+        {
+         "type": "ModifierInvocation",
+         "name": "onlyOwner",
+         "arguments": null
+        }
+       ],
+       "override": null,
+       "isConstructor": false,
+       "isReceiveEther": false,
+       "isFallback": false,
+       "isVirtual": false,
+       "stateMutability": null
+      },
+      {
+       "type": "FunctionDefinition",
+       "name": "removeDestructedSources",
+       "parameters": [],
+       "returnParameters": null,
+       "body": {
+        "type": "Block",
+        "statements": [
+         {
+          "type": "VariableDeclarationStatement",
+          "variables": [
+           {
+            "type": "VariableDeclaration",
+            "typeName": {
+             "type": "ElementaryTypeName",
+             "name": "uint256",
+             "stateMutability": null
+            },
+            "name": "i",
+            "identifier": {
+             "type": "Identifier",
+             "name": "i"
+            },
+            "storageLocation": null,
+            "isStateVar": false,
+            "isIndexed": false,
+            "expression": null
+           }
+          ],
+          "initialValue": {
+           "type": "NumberLiteral",
+           "number": "0",
+           "subdenomination": null
+          }
+         },
+         {
+          "type": "WhileStatement",
+          "condition": {
+           "type": "BinaryOperation",
+           "operator": "<",
+           "left": {
+            "type": "Identifier",
+            "name": "i"
+           },
+           "right": {
+            "type": "MemberAccess",
+            "expression": {
+             "type": "Identifier",
+             "name": "_whitelist"
+            },
+            "memberName": "length"
+           }
+          },
+          "body": {
+           "type": "Block",
+           "statements": [
+            {
+             "type": "IfStatement",
+             "condition": {
+              "type": "FunctionCall",
+              "expression": {
+               "type": "Identifier",
+               "name": "isContractDestructed"
+              },
+              "arguments": [
+               {
+                "type": "IndexAccess",
+                "base": {
+                 "type": "Identifier",
+                 "name": "_whitelist"
+                },
+                "index": {
+                 "type": "Identifier",
+                 "name": "i"
+                }
+               }
+              ],
+              "names": [],
+              "identifiers": []
+             },
+             "trueBody": {
+              "type": "Block",
+              "statements": [
+               {
+                "type": "ExpressionStatement",
+                "expression": {
+                 "type": "FunctionCall",
+                 "expression": {
+                  "type": "Identifier",
+                  "name": "removeSourceAtIndex"
+                 },
+                 "arguments": [
+                  {
+                   "type": "Identifier",
+                   "name": "i"
+                  }
+                 ],
+                 "names": [],
+                 "identifiers": []
+                }
+               }
+              ]
+             },
+             "falseBody": {
+              "type": "Block",
+              "statements": [
+               {
+                "type": "ExpressionStatement",
+                "expression": {
+                 "type": "UnaryOperation",
+                 "operator": "++",
+                 "subExpression": {
+                  "type": "Identifier",
+                  "name": "i"
+                 },
+                 "isPrefix": false
+                }
+               }
+              ]
+             }
+            }
+           ]
+          }
+         }
+        ]
+       },
+       "visibility": "external",
+       "modifiers": [],
+       "override": null,
+       "isConstructor": false,
+       "isReceiveEther": false,
+       "isFallback": false,
+       "isVirtual": false,
+       "stateMutability": null
+      },
+      {
+       "type": "FunctionDefinition",
+       "name": "whitelistSize",
+       "parameters": [],
+       "returnParameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint256",
+          "stateMutability": null
+         },
+         "name": null,
+         "identifier": null,
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "body": {
+        "type": "Block",
+        "statements": [
+         {
+          "type": "ReturnStatement",
+          "expression": {
+           "type": "MemberAccess",
+           "expression": {
+            "type": "Identifier",
+            "name": "_whitelist"
+           },
+           "memberName": "length"
+          }
+         }
+        ]
+       },
+       "visibility": "public",
+       "modifiers": [],
+       "override": null,
+       "isConstructor": false,
+       "isReceiveEther": false,
+       "isFallback": false,
+       "isVirtual": false,
+       "stateMutability": "view"
+      },
+      {
+       "type": "FunctionDefinition",
+       "name": "isContractDestructed",
+       "parameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "address",
+          "stateMutability": null
+         },
+         "name": "contractAddress",
+         "identifier": {
+          "type": "Identifier",
+          "name": "contractAddress"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "returnParameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "bool",
+          "stateMutability": null
+         },
+         "name": null,
+         "identifier": null,
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "body": {
+        "type": "Block",
+        "statements": [
+         {
+          "type": "VariableDeclarationStatement",
+          "variables": [
+           {
+            "type": "VariableDeclaration",
+            "typeName": {
+             "type": "ElementaryTypeName",
+             "name": "uint256",
+             "stateMutability": null
+            },
+            "name": "size",
+            "identifier": {
+             "type": "Identifier",
+             "name": "size"
+            },
+            "storageLocation": null,
+            "isStateVar": false,
+            "isIndexed": false,
+            "expression": null
+           }
+          ],
+          "initialValue": null
+         },
+         {
+          "type": "InlineAssemblyStatement",
+          "language": null,
+          "flags": [],
+          "body": {
+           "type": "AssemblyBlock",
+           "operations": [
+            {
+             "type": "AssemblyAssignment",
+             "names": [
+              {
+               "type": "Identifier",
+               "name": "size"
+              }
+             ],
+             "expression": {
+              "type": "AssemblyCall",
+              "functionName": "extcodesize",
+              "arguments": [
+               {
+                "type": "AssemblyCall",
+                "functionName": "contractAddress",
+                "arguments": []
+               }
+              ]
+             }
+            }
+           ]
+          }
+         },
+         {
+          "type": "ReturnStatement",
+          "expression": {
+           "type": "BinaryOperation",
+           "operator": "==",
+           "left": {
+            "type": "Identifier",
+            "name": "size"
+           },
+           "right": {
+            "type": "NumberLiteral",
+            "number": "0",
+            "subdenomination": null
+           }
+          }
+         }
+        ]
+       },
+       "visibility": "private",
+       "modifiers": [],
+       "override": null,
+       "isConstructor": false,
+       "isReceiveEther": false,
+       "isFallback": false,
+       "isVirtual": false,
+       "stateMutability": "view"
+      },
+      {
+       "type": "FunctionDefinition",
+       "name": "removeSourceAtIndex",
+       "parameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint256",
+          "stateMutability": null
+         },
+         "name": "index",
+         "identifier": {
+          "type": "Identifier",
+          "name": "index"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "returnParameters": null,
+       "body": {
+        "type": "Block",
+        "statements": [
+         {
+          "type": "EmitStatement",
+          "eventCall": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "Identifier",
+            "name": "LogSourceRemoved"
+           },
+           "arguments": [
+            {
+             "type": "IndexAccess",
+             "base": {
+              "type": "Identifier",
+              "name": "_whitelist"
+             },
+             "index": {
+              "type": "Identifier",
+              "name": "index"
+             }
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         },
+         {
+          "type": "IfStatement",
+          "condition": {
+           "type": "BinaryOperation",
+           "operator": "!=",
+           "left": {
+            "type": "Identifier",
+            "name": "index"
+           },
+           "right": {
+            "type": "BinaryOperation",
+            "operator": "-",
+            "left": {
+             "type": "MemberAccess",
+             "expression": {
+              "type": "Identifier",
+              "name": "_whitelist"
+             },
+             "memberName": "length"
+            },
+            "right": {
+             "type": "NumberLiteral",
+             "number": "1",
+             "subdenomination": null
+            }
+           }
+          },
+          "trueBody": {
+           "type": "Block",
+           "statements": [
+            {
+             "type": "ExpressionStatement",
+             "expression": {
+              "type": "BinaryOperation",
+              "operator": "=",
+              "left": {
+               "type": "IndexAccess",
+               "base": {
+                "type": "Identifier",
+                "name": "_whitelist"
+               },
+               "index": {
+                "type": "Identifier",
+                "name": "index"
+               }
+              },
+              "right": {
+               "type": "IndexAccess",
+               "base": {
+                "type": "Identifier",
+                "name": "_whitelist"
+               },
+               "index": {
+                "type": "BinaryOperation",
+                "operator": "-",
+                "left": {
+                 "type": "MemberAccess",
+                 "expression": {
+                  "type": "Identifier",
+                  "name": "_whitelist"
+                 },
+                 "memberName": "length"
+                },
+                "right": {
+                 "type": "NumberLiteral",
+                 "number": "1",
+                 "subdenomination": null
+                }
+               }
+              }
+             }
+            }
+           ]
+          },
+          "falseBody": null
+         },
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "UnaryOperation",
+           "operator": "--",
+           "subExpression": {
+            "type": "MemberAccess",
+            "expression": {
+             "type": "Identifier",
+             "name": "_whitelist"
+            },
+            "memberName": "length"
+           },
+           "isPrefix": false
+          }
+         }
+        ]
+       },
+       "visibility": "private",
+       "modifiers": [],
+       "override": null,
+       "isConstructor": false,
+       "isReceiveEther": false,
+       "isFallback": false,
+       "isVirtual": false,
+       "stateMutability": null
+      }
+     ],
+     "kind": "contract"
+    }
+   ]
+  }
+ }
+]

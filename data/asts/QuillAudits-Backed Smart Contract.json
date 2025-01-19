@@ -1,0 +1,1192 @@
+[
+ {
+  "path": "/home/jameschong/Projects/audits-kd/workspace/datasets/DAppSCAN/DAppSCAN-source/contracts/QuillAudits-Backed Smart Contract/backed-token-contracts-de0d6e6e8484f6147322538d0ab2a77091beb7ba/contracts/BackedToken.sol",
+  "ast": {
+   "type": "SourceUnit",
+   "children": [
+    {
+     "type": "PragmaDirective",
+     "name": "solidity",
+     "value": "^0.5.0"
+    },
+    {
+     "type": "ImportDirective",
+     "path": "@openzeppelin/contracts/token/ERC20/ERC20.sol",
+     "pathLiteral": {
+      "type": "StringLiteral",
+      "value": "@openzeppelin/contracts/token/ERC20/ERC20.sol",
+      "parts": [
+       "@openzeppelin/contracts/token/ERC20/ERC20.sol"
+      ],
+      "isUnicode": [
+       false
+      ]
+     },
+     "unitAlias": null,
+     "unitAliasIdentifier": null,
+     "symbolAliases": null,
+     "symbolAliasesIdentifiers": null
+    },
+    {
+     "type": "ImportDirective",
+     "path": "@openzeppelin/contracts/token/ERC20/ERC20Detailed.sol",
+     "pathLiteral": {
+      "type": "StringLiteral",
+      "value": "@openzeppelin/contracts/token/ERC20/ERC20Detailed.sol",
+      "parts": [
+       "@openzeppelin/contracts/token/ERC20/ERC20Detailed.sol"
+      ],
+      "isUnicode": [
+       false
+      ]
+     },
+     "unitAlias": null,
+     "unitAliasIdentifier": null,
+     "symbolAliases": null,
+     "symbolAliasesIdentifiers": null
+    },
+    {
+     "type": "ImportDirective",
+     "path": "@openzeppelin/contracts/ownership/Ownable.sol",
+     "pathLiteral": {
+      "type": "StringLiteral",
+      "value": "@openzeppelin/contracts/ownership/Ownable.sol",
+      "parts": [
+       "@openzeppelin/contracts/ownership/Ownable.sol"
+      ],
+      "isUnicode": [
+       false
+      ]
+     },
+     "unitAlias": null,
+     "unitAliasIdentifier": null,
+     "symbolAliases": null,
+     "symbolAliasesIdentifiers": null
+    },
+    {
+     "type": "ContractDefinition",
+     "name": "BackedToken",
+     "baseContracts": [
+      {
+       "type": "InheritanceSpecifier",
+       "baseName": {
+        "type": "UserDefinedTypeName",
+        "namePath": "ERC20"
+       },
+       "arguments": []
+      },
+      {
+       "type": "InheritanceSpecifier",
+       "baseName": {
+        "type": "UserDefinedTypeName",
+        "namePath": "ERC20Detailed"
+       },
+       "arguments": []
+      },
+      {
+       "type": "InheritanceSpecifier",
+       "baseName": {
+        "type": "UserDefinedTypeName",
+        "namePath": "Ownable"
+       },
+       "arguments": []
+      }
+     ],
+     "subNodes": [
+      {
+       "type": "StateVariableDeclaration",
+       "variables": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "bool",
+          "stateMutability": null
+         },
+         "name": "_unlocked",
+         "identifier": {
+          "type": "Identifier",
+          "name": "_unlocked"
+         },
+         "expression": null,
+         "visibility": "default",
+         "isStateVar": true,
+         "isDeclaredConst": false,
+         "isIndexed": false,
+         "isImmutable": false,
+         "override": null,
+         "storageLocation": null
+        }
+       ],
+       "initialValue": null
+      },
+      {
+       "type": "StateVariableDeclaration",
+       "variables": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "address",
+          "stateMutability": null
+         },
+         "name": "_owner",
+         "identifier": {
+          "type": "Identifier",
+          "name": "_owner"
+         },
+         "expression": null,
+         "visibility": "private",
+         "isStateVar": true,
+         "isDeclaredConst": false,
+         "isIndexed": false,
+         "isImmutable": false,
+         "override": null,
+         "storageLocation": null
+        }
+       ],
+       "initialValue": null
+      },
+      {
+       "type": "FunctionDefinition",
+       "name": null,
+       "parameters": [],
+       "returnParameters": null,
+       "body": {
+        "type": "Block",
+        "statements": [
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "Identifier",
+            "name": "_mint"
+           },
+           "arguments": [
+            {
+             "type": "MemberAccess",
+             "expression": {
+              "type": "Identifier",
+              "name": "msg"
+             },
+             "memberName": "sender"
+            },
+            {
+             "type": "BinaryOperation",
+             "operator": "*",
+             "left": {
+              "type": "NumberLiteral",
+              "number": "100000000",
+              "subdenomination": null
+             },
+             "right": {
+              "type": "BinaryOperation",
+              "operator": "**",
+              "left": {
+               "type": "NumberLiteral",
+               "number": "10",
+               "subdenomination": null
+              },
+              "right": {
+               "type": "NumberLiteral",
+               "number": "18",
+               "subdenomination": null
+              }
+             }
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         },
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "BinaryOperation",
+           "operator": "=",
+           "left": {
+            "type": "Identifier",
+            "name": "_owner"
+           },
+           "right": {
+            "type": "MemberAccess",
+            "expression": {
+             "type": "Identifier",
+             "name": "msg"
+            },
+            "memberName": "sender"
+           }
+          }
+         }
+        ]
+       },
+       "visibility": "public",
+       "modifiers": [
+        {
+         "type": "ModifierInvocation",
+         "name": "ERC20",
+         "arguments": []
+        },
+        {
+         "type": "ModifierInvocation",
+         "name": "ERC20Detailed",
+         "arguments": [
+          {
+           "type": "StringLiteral",
+           "value": "BACKED",
+           "parts": [
+            "BACKED"
+           ],
+           "isUnicode": [
+            false
+           ]
+          },
+          {
+           "type": "StringLiteral",
+           "value": "BAKT",
+           "parts": [
+            "BAKT"
+           ],
+           "isUnicode": [
+            false
+           ]
+          },
+          {
+           "type": "NumberLiteral",
+           "number": "18",
+           "subdenomination": null
+          }
+         ]
+        }
+       ],
+       "override": null,
+       "isConstructor": true,
+       "isReceiveEther": false,
+       "isFallback": false,
+       "isVirtual": false,
+       "stateMutability": null
+      },
+      {
+       "type": "FunctionDefinition",
+       "name": "_transfer",
+       "parameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "address",
+          "stateMutability": null
+         },
+         "name": "from",
+         "identifier": {
+          "type": "Identifier",
+          "name": "from"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "address",
+          "stateMutability": null
+         },
+         "name": "to",
+         "identifier": {
+          "type": "Identifier",
+          "name": "to"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint256",
+          "stateMutability": null
+         },
+         "name": "amount",
+         "identifier": {
+          "type": "Identifier",
+          "name": "amount"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "returnParameters": null,
+       "body": {
+        "type": "Block",
+        "statements": [
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "Identifier",
+            "name": "require"
+           },
+           "arguments": [
+            {
+             "type": "BinaryOperation",
+             "operator": "||",
+             "left": {
+              "type": "Identifier",
+              "name": "_unlocked"
+             },
+             "right": {
+              "type": "BinaryOperation",
+              "operator": "==",
+              "left": {
+               "type": "Identifier",
+               "name": "from"
+              },
+              "right": {
+               "type": "Identifier",
+               "name": "_owner"
+              }
+             }
+            },
+            {
+             "type": "StringLiteral",
+             "value": "token transfer while locked",
+             "parts": [
+              "token transfer while locked"
+             ],
+             "isUnicode": [
+              false
+             ]
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         },
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "MemberAccess",
+            "expression": {
+             "type": "Identifier",
+             "name": "super"
+            },
+            "memberName": "_transfer"
+           },
+           "arguments": [
+            {
+             "type": "Identifier",
+             "name": "from"
+            },
+            {
+             "type": "Identifier",
+             "name": "to"
+            },
+            {
+             "type": "Identifier",
+             "name": "amount"
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         }
+        ]
+       },
+       "visibility": "internal",
+       "modifiers": [],
+       "override": null,
+       "isConstructor": false,
+       "isReceiveEther": false,
+       "isFallback": false,
+       "isVirtual": false,
+       "stateMutability": null
+      },
+      {
+       "type": "FunctionDefinition",
+       "name": "unlock",
+       "parameters": [],
+       "returnParameters": null,
+       "body": {
+        "type": "Block",
+        "statements": [
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "BinaryOperation",
+           "operator": "=",
+           "left": {
+            "type": "Identifier",
+            "name": "_unlocked"
+           },
+           "right": {
+            "type": "BooleanLiteral",
+            "value": true
+           }
+          }
+         }
+        ]
+       },
+       "visibility": "public",
+       "modifiers": [
+        {
+         "type": "ModifierInvocation",
+         "name": "onlyOwner",
+         "arguments": null
+        }
+       ],
+       "override": null,
+       "isConstructor": false,
+       "isReceiveEther": false,
+       "isFallback": false,
+       "isVirtual": false,
+       "stateMutability": null
+      }
+     ],
+     "kind": "contract"
+    }
+   ]
+  }
+ },
+ {
+  "path": "/home/jameschong/Projects/audits-kd/workspace/datasets/DAppSCAN/DAppSCAN-source/contracts/QuillAudits-Backed Smart Contract/backed-token-contracts-de0d6e6e8484f6147322538d0ab2a77091beb7ba/contracts/BackedCrowdsale.sol",
+  "ast": {
+   "type": "SourceUnit",
+   "children": [
+    {
+     "type": "PragmaDirective",
+     "name": "solidity",
+     "value": "^0.5.0"
+    },
+    {
+     "type": "ImportDirective",
+     "path": "@openzeppelin/contracts/crowdsale/Crowdsale.sol",
+     "pathLiteral": {
+      "type": "StringLiteral",
+      "value": "@openzeppelin/contracts/crowdsale/Crowdsale.sol",
+      "parts": [
+       "@openzeppelin/contracts/crowdsale/Crowdsale.sol"
+      ],
+      "isUnicode": [
+       false
+      ]
+     },
+     "unitAlias": null,
+     "unitAliasIdentifier": null,
+     "symbolAliases": null,
+     "symbolAliasesIdentifiers": null
+    },
+    {
+     "type": "ImportDirective",
+     "path": "@openzeppelin/contracts/crowdsale/emission/AllowanceCrowdsale.sol",
+     "pathLiteral": {
+      "type": "StringLiteral",
+      "value": "@openzeppelin/contracts/crowdsale/emission/AllowanceCrowdsale.sol",
+      "parts": [
+       "@openzeppelin/contracts/crowdsale/emission/AllowanceCrowdsale.sol"
+      ],
+      "isUnicode": [
+       false
+      ]
+     },
+     "unitAlias": null,
+     "unitAliasIdentifier": null,
+     "symbolAliases": null,
+     "symbolAliasesIdentifiers": null
+    },
+    {
+     "type": "ImportDirective",
+     "path": "@openzeppelin/contracts/crowdsale/validation/CappedCrowdsale.sol",
+     "pathLiteral": {
+      "type": "StringLiteral",
+      "value": "@openzeppelin/contracts/crowdsale/validation/CappedCrowdsale.sol",
+      "parts": [
+       "@openzeppelin/contracts/crowdsale/validation/CappedCrowdsale.sol"
+      ],
+      "isUnicode": [
+       false
+      ]
+     },
+     "unitAlias": null,
+     "unitAliasIdentifier": null,
+     "symbolAliases": null,
+     "symbolAliasesIdentifiers": null
+    },
+    {
+     "type": "ImportDirective",
+     "path": "@openzeppelin/contracts/math/SafeMath.sol",
+     "pathLiteral": {
+      "type": "StringLiteral",
+      "value": "@openzeppelin/contracts/math/SafeMath.sol",
+      "parts": [
+       "@openzeppelin/contracts/math/SafeMath.sol"
+      ],
+      "isUnicode": [
+       false
+      ]
+     },
+     "unitAlias": null,
+     "unitAliasIdentifier": null,
+     "symbolAliases": null,
+     "symbolAliasesIdentifiers": null
+    },
+    {
+     "type": "ContractDefinition",
+     "name": "BackedCrowdsale",
+     "baseContracts": [
+      {
+       "type": "InheritanceSpecifier",
+       "baseName": {
+        "type": "UserDefinedTypeName",
+        "namePath": "Crowdsale"
+       },
+       "arguments": []
+      },
+      {
+       "type": "InheritanceSpecifier",
+       "baseName": {
+        "type": "UserDefinedTypeName",
+        "namePath": "CappedCrowdsale"
+       },
+       "arguments": []
+      },
+      {
+       "type": "InheritanceSpecifier",
+       "baseName": {
+        "type": "UserDefinedTypeName",
+        "namePath": "AllowanceCrowdsale"
+       },
+       "arguments": []
+      }
+     ],
+     "subNodes": [
+      {
+       "type": "UsingForDeclaration",
+       "isGlobal": false,
+       "typeName": {
+        "type": "ElementaryTypeName",
+        "name": "uint256",
+        "stateMutability": null
+       },
+       "libraryName": "SafeMath",
+       "functions": [],
+       "operators": []
+      },
+      {
+       "type": "StateVariableDeclaration",
+       "variables": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint256",
+          "stateMutability": null
+         },
+         "name": "minAmount",
+         "identifier": {
+          "type": "Identifier",
+          "name": "minAmount"
+         },
+         "expression": null,
+         "visibility": "public",
+         "isStateVar": true,
+         "isDeclaredConst": false,
+         "isIndexed": false,
+         "isImmutable": false,
+         "override": null,
+         "storageLocation": null
+        }
+       ],
+       "initialValue": null
+      },
+      {
+       "type": "StateVariableDeclaration",
+       "variables": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint256",
+          "stateMutability": null
+         },
+         "name": "maxAmount",
+         "identifier": {
+          "type": "Identifier",
+          "name": "maxAmount"
+         },
+         "expression": null,
+         "visibility": "public",
+         "isStateVar": true,
+         "isDeclaredConst": false,
+         "isIndexed": false,
+         "isImmutable": false,
+         "override": null,
+         "storageLocation": null
+        }
+       ],
+       "initialValue": null
+      },
+      {
+       "type": "StateVariableDeclaration",
+       "variables": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "Mapping",
+          "keyType": {
+           "type": "ElementaryTypeName",
+           "name": "address",
+           "stateMutability": null
+          },
+          "keyName": null,
+          "valueType": {
+           "type": "ElementaryTypeName",
+           "name": "uint256",
+           "stateMutability": null
+          },
+          "valueName": null
+         },
+         "name": "totalPurchase",
+         "identifier": {
+          "type": "Identifier",
+          "name": "totalPurchase"
+         },
+         "expression": null,
+         "visibility": "public",
+         "isStateVar": true,
+         "isDeclaredConst": false,
+         "isIndexed": false,
+         "isImmutable": false,
+         "override": null,
+         "storageLocation": null
+        }
+       ],
+       "initialValue": null
+      },
+      {
+       "type": "FunctionDefinition",
+       "name": null,
+       "parameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint256",
+          "stateMutability": null
+         },
+         "name": "rate",
+         "identifier": {
+          "type": "Identifier",
+          "name": "rate"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "address",
+          "stateMutability": "payable"
+         },
+         "name": "wallet",
+         "identifier": {
+          "type": "Identifier",
+          "name": "wallet"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint256",
+          "stateMutability": null
+         },
+         "name": "cap",
+         "identifier": {
+          "type": "Identifier",
+          "name": "cap"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "UserDefinedTypeName",
+          "namePath": "IERC20"
+         },
+         "name": "token",
+         "identifier": {
+          "type": "Identifier",
+          "name": "token"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint256",
+          "stateMutability": null
+         },
+         "name": "minAmount_",
+         "identifier": {
+          "type": "Identifier",
+          "name": "minAmount_"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint256",
+          "stateMutability": null
+         },
+         "name": "maxAmount_",
+         "identifier": {
+          "type": "Identifier",
+          "name": "maxAmount_"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "returnParameters": null,
+       "body": {
+        "type": "Block",
+        "statements": [
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "BinaryOperation",
+           "operator": "=",
+           "left": {
+            "type": "Identifier",
+            "name": "minAmount"
+           },
+           "right": {
+            "type": "Identifier",
+            "name": "minAmount_"
+           }
+          }
+         },
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "BinaryOperation",
+           "operator": "=",
+           "left": {
+            "type": "Identifier",
+            "name": "maxAmount"
+           },
+           "right": {
+            "type": "Identifier",
+            "name": "maxAmount_"
+           }
+          }
+         }
+        ]
+       },
+       "visibility": "public",
+       "modifiers": [
+        {
+         "type": "ModifierInvocation",
+         "name": "CappedCrowdsale",
+         "arguments": [
+          {
+           "type": "Identifier",
+           "name": "cap"
+          }
+         ]
+        },
+        {
+         "type": "ModifierInvocation",
+         "name": "AllowanceCrowdsale",
+         "arguments": [
+          {
+           "type": "Identifier",
+           "name": "wallet"
+          }
+         ]
+        },
+        {
+         "type": "ModifierInvocation",
+         "name": "Crowdsale",
+         "arguments": [
+          {
+           "type": "Identifier",
+           "name": "rate"
+          },
+          {
+           "type": "Identifier",
+           "name": "wallet"
+          },
+          {
+           "type": "Identifier",
+           "name": "token"
+          }
+         ]
+        }
+       ],
+       "override": null,
+       "isConstructor": true,
+       "isReceiveEther": false,
+       "isFallback": false,
+       "isVirtual": false,
+       "stateMutability": null
+      },
+      {
+       "type": "FunctionDefinition",
+       "name": "_preValidatePurchase",
+       "parameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "address",
+          "stateMutability": null
+         },
+         "name": "beneficiary",
+         "identifier": {
+          "type": "Identifier",
+          "name": "beneficiary"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint256",
+          "stateMutability": null
+         },
+         "name": "weiAmount",
+         "identifier": {
+          "type": "Identifier",
+          "name": "weiAmount"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "returnParameters": null,
+       "body": {
+        "type": "Block",
+        "statements": [
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "Identifier",
+            "name": "require"
+           },
+           "arguments": [
+            {
+             "type": "BinaryOperation",
+             "operator": "<=",
+             "left": {
+              "type": "FunctionCall",
+              "expression": {
+               "type": "MemberAccess",
+               "expression": {
+                "type": "Identifier",
+                "name": "weiAmount"
+               },
+               "memberName": "add"
+              },
+              "arguments": [
+               {
+                "type": "IndexAccess",
+                "base": {
+                 "type": "Identifier",
+                 "name": "totalPurchase"
+                },
+                "index": {
+                 "type": "Identifier",
+                 "name": "beneficiary"
+                }
+               }
+              ],
+              "names": [],
+              "identifiers": []
+             },
+             "right": {
+              "type": "Identifier",
+              "name": "maxAmount"
+             }
+            },
+            {
+             "type": "StringLiteral",
+             "value": "BackedCrowdsale: weiAmount <= _maxAmount",
+             "parts": [
+              "BackedCrowdsale: weiAmount <= _maxAmount"
+             ],
+             "isUnicode": [
+              false
+             ]
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         },
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "Identifier",
+            "name": "require"
+           },
+           "arguments": [
+            {
+             "type": "BinaryOperation",
+             "operator": ">=",
+             "left": {
+              "type": "FunctionCall",
+              "expression": {
+               "type": "MemberAccess",
+               "expression": {
+                "type": "Identifier",
+                "name": "weiAmount"
+               },
+               "memberName": "add"
+              },
+              "arguments": [
+               {
+                "type": "IndexAccess",
+                "base": {
+                 "type": "Identifier",
+                 "name": "totalPurchase"
+                },
+                "index": {
+                 "type": "Identifier",
+                 "name": "beneficiary"
+                }
+               }
+              ],
+              "names": [],
+              "identifiers": []
+             },
+             "right": {
+              "type": "Identifier",
+              "name": "minAmount"
+             }
+            },
+            {
+             "type": "StringLiteral",
+             "value": "BackedCrowdsale: weiAmount >= _minAmount",
+             "parts": [
+              "BackedCrowdsale: weiAmount >= _minAmount"
+             ],
+             "isUnicode": [
+              false
+             ]
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         },
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "MemberAccess",
+            "expression": {
+             "type": "Identifier",
+             "name": "super"
+            },
+            "memberName": "_preValidatePurchase"
+           },
+           "arguments": [
+            {
+             "type": "Identifier",
+             "name": "beneficiary"
+            },
+            {
+             "type": "Identifier",
+             "name": "weiAmount"
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         }
+        ]
+       },
+       "visibility": "internal",
+       "modifiers": [],
+       "override": null,
+       "isConstructor": false,
+       "isReceiveEther": false,
+       "isFallback": false,
+       "isVirtual": false,
+       "stateMutability": "view"
+      },
+      {
+       "type": "FunctionDefinition",
+       "name": "_updatePurchasingState",
+       "parameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "address",
+          "stateMutability": null
+         },
+         "name": "beneficiary",
+         "identifier": {
+          "type": "Identifier",
+          "name": "beneficiary"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint256",
+          "stateMutability": null
+         },
+         "name": "weiAmount",
+         "identifier": {
+          "type": "Identifier",
+          "name": "weiAmount"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "returnParameters": null,
+       "body": {
+        "type": "Block",
+        "statements": [
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "MemberAccess",
+            "expression": {
+             "type": "Identifier",
+             "name": "super"
+            },
+            "memberName": "_updatePurchasingState"
+           },
+           "arguments": [
+            {
+             "type": "Identifier",
+             "name": "beneficiary"
+            },
+            {
+             "type": "Identifier",
+             "name": "weiAmount"
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         },
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "BinaryOperation",
+           "operator": "=",
+           "left": {
+            "type": "IndexAccess",
+            "base": {
+             "type": "Identifier",
+             "name": "totalPurchase"
+            },
+            "index": {
+             "type": "Identifier",
+             "name": "beneficiary"
+            }
+           },
+           "right": {
+            "type": "FunctionCall",
+            "expression": {
+             "type": "MemberAccess",
+             "expression": {
+              "type": "Identifier",
+              "name": "weiAmount"
+             },
+             "memberName": "add"
+            },
+            "arguments": [
+             {
+              "type": "IndexAccess",
+              "base": {
+               "type": "Identifier",
+               "name": "totalPurchase"
+              },
+              "index": {
+               "type": "Identifier",
+               "name": "beneficiary"
+              }
+             }
+            ],
+            "names": [],
+            "identifiers": []
+           }
+          }
+         }
+        ]
+       },
+       "visibility": "internal",
+       "modifiers": [],
+       "override": null,
+       "isConstructor": false,
+       "isReceiveEther": false,
+       "isFallback": false,
+       "isVirtual": false,
+       "stateMutability": null
+      }
+     ],
+     "kind": "contract"
+    }
+   ]
+  }
+ }
+]

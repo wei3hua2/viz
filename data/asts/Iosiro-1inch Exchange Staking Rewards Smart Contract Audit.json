@@ -1,0 +1,2562 @@
+[
+ {
+  "path": "/home/jameschong/Projects/audits-kd/workspace/datasets/DAppSCAN/DAppSCAN-source/contracts/Iosiro-1inch Exchange Staking Rewards Smart Contract Audit/liquidity-protocol-c9c8bc600e8e7897f70f84b006de601d4f4bcbe3/BaseRewards.sol",
+  "ast": {
+   "type": "SourceUnit",
+   "children": [
+    {
+     "type": "PragmaDirective",
+     "name": "solidity",
+     "value": "^0.6.12"
+    },
+    {
+     "type": "ImportDirective",
+     "path": "@openzeppelin/contracts/access/Ownable.sol",
+     "pathLiteral": {
+      "type": "StringLiteral",
+      "value": "@openzeppelin/contracts/access/Ownable.sol",
+      "parts": [
+       "@openzeppelin/contracts/access/Ownable.sol"
+      ],
+      "isUnicode": [
+       false
+      ]
+     },
+     "unitAlias": null,
+     "unitAliasIdentifier": null,
+     "symbolAliases": null,
+     "symbolAliasesIdentifiers": null
+    },
+    {
+     "type": "ImportDirective",
+     "path": "@openzeppelin/contracts/math/Math.sol",
+     "pathLiteral": {
+      "type": "StringLiteral",
+      "value": "@openzeppelin/contracts/math/Math.sol",
+      "parts": [
+       "@openzeppelin/contracts/math/Math.sol"
+      ],
+      "isUnicode": [
+       false
+      ]
+     },
+     "unitAlias": null,
+     "unitAliasIdentifier": null,
+     "symbolAliases": null,
+     "symbolAliasesIdentifiers": null
+    },
+    {
+     "type": "ImportDirective",
+     "path": "@openzeppelin/contracts/token/ERC20/IERC20.sol",
+     "pathLiteral": {
+      "type": "StringLiteral",
+      "value": "@openzeppelin/contracts/token/ERC20/IERC20.sol",
+      "parts": [
+       "@openzeppelin/contracts/token/ERC20/IERC20.sol"
+      ],
+      "isUnicode": [
+       false
+      ]
+     },
+     "unitAlias": null,
+     "unitAliasIdentifier": null,
+     "symbolAliases": null,
+     "symbolAliasesIdentifiers": null
+    },
+    {
+     "type": "ImportDirective",
+     "path": "./BalanceAccounting.sol",
+     "pathLiteral": {
+      "type": "StringLiteral",
+      "value": "./BalanceAccounting.sol",
+      "parts": [
+       "./BalanceAccounting.sol"
+      ],
+      "isUnicode": [
+       false
+      ]
+     },
+     "unitAlias": null,
+     "unitAliasIdentifier": null,
+     "symbolAliases": null,
+     "symbolAliasesIdentifiers": null
+    },
+    {
+     "type": "ContractDefinition",
+     "name": "BaseRewards",
+     "baseContracts": [
+      {
+       "type": "InheritanceSpecifier",
+       "baseName": {
+        "type": "UserDefinedTypeName",
+        "namePath": "Ownable"
+       },
+       "arguments": []
+      },
+      {
+       "type": "InheritanceSpecifier",
+       "baseName": {
+        "type": "UserDefinedTypeName",
+        "namePath": "BalanceAccounting"
+       },
+       "arguments": []
+      }
+     ],
+     "subNodes": [
+      {
+       "type": "EventDefinition",
+       "name": "RewardAdded",
+       "parameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint256",
+          "stateMutability": null
+         },
+         "name": "reward",
+         "identifier": {
+          "type": "Identifier",
+          "name": "reward"
+         },
+         "isStateVar": false,
+         "isIndexed": false,
+         "storageLocation": null,
+         "expression": null
+        }
+       ],
+       "isAnonymous": false
+      },
+      {
+       "type": "EventDefinition",
+       "name": "RewardPaid",
+       "parameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "address",
+          "stateMutability": null
+         },
+         "name": "user",
+         "identifier": {
+          "type": "Identifier",
+          "name": "user"
+         },
+         "isStateVar": false,
+         "isIndexed": true,
+         "storageLocation": null,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint256",
+          "stateMutability": null
+         },
+         "name": "reward",
+         "identifier": {
+          "type": "Identifier",
+          "name": "reward"
+         },
+         "isStateVar": false,
+         "isIndexed": false,
+         "storageLocation": null,
+         "expression": null
+        }
+       ],
+       "isAnonymous": false
+      },
+      {
+       "type": "StructDefinition",
+       "name": "TokenRewards",
+       "members": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "UserDefinedTypeName",
+          "namePath": "IERC20"
+         },
+         "name": "gift",
+         "identifier": {
+          "type": "Identifier",
+          "name": "gift"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint256",
+          "stateMutability": null
+         },
+         "name": "duration",
+         "identifier": {
+          "type": "Identifier",
+          "name": "duration"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "address",
+          "stateMutability": null
+         },
+         "name": "rewardDistribution",
+         "identifier": {
+          "type": "Identifier",
+          "name": "rewardDistribution"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint256",
+          "stateMutability": null
+         },
+         "name": "periodFinish",
+         "identifier": {
+          "type": "Identifier",
+          "name": "periodFinish"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint256",
+          "stateMutability": null
+         },
+         "name": "rewardRate",
+         "identifier": {
+          "type": "Identifier",
+          "name": "rewardRate"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint256",
+          "stateMutability": null
+         },
+         "name": "lastUpdateTime",
+         "identifier": {
+          "type": "Identifier",
+          "name": "lastUpdateTime"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint256",
+          "stateMutability": null
+         },
+         "name": "rewardPerTokenStored",
+         "identifier": {
+          "type": "Identifier",
+          "name": "rewardPerTokenStored"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "Mapping",
+          "keyType": {
+           "type": "ElementaryTypeName",
+           "name": "address",
+           "stateMutability": null
+          },
+          "keyName": null,
+          "valueType": {
+           "type": "ElementaryTypeName",
+           "name": "uint256",
+           "stateMutability": null
+          },
+          "valueName": null
+         },
+         "name": "userRewardPerTokenPaid",
+         "identifier": {
+          "type": "Identifier",
+          "name": "userRewardPerTokenPaid"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "Mapping",
+          "keyType": {
+           "type": "ElementaryTypeName",
+           "name": "address",
+           "stateMutability": null
+          },
+          "keyName": null,
+          "valueType": {
+           "type": "ElementaryTypeName",
+           "name": "uint256",
+           "stateMutability": null
+          },
+          "valueName": null
+         },
+         "name": "rewards",
+         "identifier": {
+          "type": "Identifier",
+          "name": "rewards"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ]
+      },
+      {
+       "type": "StateVariableDeclaration",
+       "variables": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ArrayTypeName",
+          "baseTypeName": {
+           "type": "UserDefinedTypeName",
+           "namePath": "TokenRewards"
+          },
+          "length": null
+         },
+         "name": "tokenRewards",
+         "identifier": {
+          "type": "Identifier",
+          "name": "tokenRewards"
+         },
+         "expression": null,
+         "visibility": "public",
+         "isStateVar": true,
+         "isDeclaredConst": false,
+         "isIndexed": false,
+         "isImmutable": false,
+         "override": null,
+         "storageLocation": null
+        }
+       ],
+       "initialValue": null
+      },
+      {
+       "type": "ModifierDefinition",
+       "name": "updateReward",
+       "parameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "address",
+          "stateMutability": null
+         },
+         "name": "account",
+         "identifier": {
+          "type": "Identifier",
+          "name": "account"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "body": {
+        "type": "Block",
+        "statements": [
+         {
+          "type": "VariableDeclarationStatement",
+          "variables": [
+           {
+            "type": "VariableDeclaration",
+            "typeName": {
+             "type": "ElementaryTypeName",
+             "name": "uint256",
+             "stateMutability": null
+            },
+            "name": "len",
+            "identifier": {
+             "type": "Identifier",
+             "name": "len"
+            },
+            "storageLocation": null,
+            "isStateVar": false,
+            "isIndexed": false,
+            "expression": null
+           }
+          ],
+          "initialValue": {
+           "type": "MemberAccess",
+           "expression": {
+            "type": "Identifier",
+            "name": "tokenRewards"
+           },
+           "memberName": "length"
+          }
+         },
+         {
+          "type": "ForStatement",
+          "initExpression": {
+           "type": "VariableDeclarationStatement",
+           "variables": [
+            {
+             "type": "VariableDeclaration",
+             "typeName": {
+              "type": "ElementaryTypeName",
+              "name": "uint",
+              "stateMutability": null
+             },
+             "name": "i",
+             "identifier": {
+              "type": "Identifier",
+              "name": "i"
+             },
+             "storageLocation": null,
+             "isStateVar": false,
+             "isIndexed": false,
+             "expression": null
+            }
+           ],
+           "initialValue": {
+            "type": "NumberLiteral",
+            "number": "0",
+            "subdenomination": null
+           }
+          },
+          "conditionExpression": {
+           "type": "BinaryOperation",
+           "operator": "<",
+           "left": {
+            "type": "Identifier",
+            "name": "i"
+           },
+           "right": {
+            "type": "Identifier",
+            "name": "len"
+           }
+          },
+          "loopExpression": {
+           "type": "ExpressionStatement",
+           "expression": {
+            "type": "UnaryOperation",
+            "operator": "++",
+            "subExpression": {
+             "type": "Identifier",
+             "name": "i"
+            },
+            "isPrefix": false
+           }
+          },
+          "body": {
+           "type": "Block",
+           "statements": [
+            {
+             "type": "VariableDeclarationStatement",
+             "variables": [
+              {
+               "type": "VariableDeclaration",
+               "typeName": {
+                "type": "UserDefinedTypeName",
+                "namePath": "TokenRewards"
+               },
+               "name": "tr",
+               "identifier": {
+                "type": "Identifier",
+                "name": "tr"
+               },
+               "storageLocation": "storage",
+               "isStateVar": false,
+               "isIndexed": false,
+               "expression": null
+              }
+             ],
+             "initialValue": {
+              "type": "IndexAccess",
+              "base": {
+               "type": "Identifier",
+               "name": "tokenRewards"
+              },
+              "index": {
+               "type": "Identifier",
+               "name": "i"
+              }
+             }
+            },
+            {
+             "type": "ExpressionStatement",
+             "expression": {
+              "type": "BinaryOperation",
+              "operator": "=",
+              "left": {
+               "type": "MemberAccess",
+               "expression": {
+                "type": "Identifier",
+                "name": "tr"
+               },
+               "memberName": "rewardPerTokenStored"
+              },
+              "right": {
+               "type": "FunctionCall",
+               "expression": {
+                "type": "Identifier",
+                "name": "rewardPerToken"
+               },
+               "arguments": [
+                {
+                 "type": "Identifier",
+                 "name": "i"
+                }
+               ],
+               "names": [],
+               "identifiers": []
+              }
+             }
+            },
+            {
+             "type": "ExpressionStatement",
+             "expression": {
+              "type": "BinaryOperation",
+              "operator": "=",
+              "left": {
+               "type": "MemberAccess",
+               "expression": {
+                "type": "Identifier",
+                "name": "tr"
+               },
+               "memberName": "lastUpdateTime"
+              },
+              "right": {
+               "type": "FunctionCall",
+               "expression": {
+                "type": "Identifier",
+                "name": "lastTimeRewardApplicable"
+               },
+               "arguments": [
+                {
+                 "type": "Identifier",
+                 "name": "i"
+                }
+               ],
+               "names": [],
+               "identifiers": []
+              }
+             }
+            },
+            {
+             "type": "IfStatement",
+             "condition": {
+              "type": "BinaryOperation",
+              "operator": "!=",
+              "left": {
+               "type": "Identifier",
+               "name": "account"
+              },
+              "right": {
+               "type": "FunctionCall",
+               "expression": {
+                "type": "Identifier",
+                "name": "address"
+               },
+               "arguments": [
+                {
+                 "type": "NumberLiteral",
+                 "number": "0",
+                 "subdenomination": null
+                }
+               ],
+               "names": [],
+               "identifiers": []
+              }
+             },
+             "trueBody": {
+              "type": "Block",
+              "statements": [
+               {
+                "type": "ExpressionStatement",
+                "expression": {
+                 "type": "BinaryOperation",
+                 "operator": "=",
+                 "left": {
+                  "type": "IndexAccess",
+                  "base": {
+                   "type": "MemberAccess",
+                   "expression": {
+                    "type": "Identifier",
+                    "name": "tr"
+                   },
+                   "memberName": "rewards"
+                  },
+                  "index": {
+                   "type": "Identifier",
+                   "name": "account"
+                  }
+                 },
+                 "right": {
+                  "type": "FunctionCall",
+                  "expression": {
+                   "type": "Identifier",
+                   "name": "earned"
+                  },
+                  "arguments": [
+                   {
+                    "type": "Identifier",
+                    "name": "i"
+                   },
+                   {
+                    "type": "Identifier",
+                    "name": "account"
+                   }
+                  ],
+                  "names": [],
+                  "identifiers": []
+                 }
+                }
+               },
+               {
+                "type": "ExpressionStatement",
+                "expression": {
+                 "type": "BinaryOperation",
+                 "operator": "=",
+                 "left": {
+                  "type": "IndexAccess",
+                  "base": {
+                   "type": "MemberAccess",
+                   "expression": {
+                    "type": "Identifier",
+                    "name": "tr"
+                   },
+                   "memberName": "userRewardPerTokenPaid"
+                  },
+                  "index": {
+                   "type": "Identifier",
+                   "name": "account"
+                  }
+                 },
+                 "right": {
+                  "type": "MemberAccess",
+                  "expression": {
+                   "type": "Identifier",
+                   "name": "tr"
+                  },
+                  "memberName": "rewardPerTokenStored"
+                 }
+                }
+               }
+              ]
+             },
+             "falseBody": null
+            }
+           ]
+          }
+         },
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "Identifier",
+           "name": "_"
+          }
+         }
+        ]
+       },
+       "isVirtual": false,
+       "override": null
+      },
+      {
+       "type": "ModifierDefinition",
+       "name": "onlyRewardDistribution",
+       "parameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint",
+          "stateMutability": null
+         },
+         "name": "i",
+         "identifier": {
+          "type": "Identifier",
+          "name": "i"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "body": {
+        "type": "Block",
+        "statements": [
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "Identifier",
+            "name": "require"
+           },
+           "arguments": [
+            {
+             "type": "BinaryOperation",
+             "operator": "==",
+             "left": {
+              "type": "MemberAccess",
+              "expression": {
+               "type": "Identifier",
+               "name": "msg"
+              },
+              "memberName": "sender"
+             },
+             "right": {
+              "type": "MemberAccess",
+              "expression": {
+               "type": "IndexAccess",
+               "base": {
+                "type": "Identifier",
+                "name": "tokenRewards"
+               },
+               "index": {
+                "type": "Identifier",
+                "name": "i"
+               }
+              },
+              "memberName": "rewardDistribution"
+             }
+            },
+            {
+             "type": "StringLiteral",
+             "value": "Access denied",
+             "parts": [
+              "Access denied"
+             ],
+             "isUnicode": [
+              false
+             ]
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         },
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "Identifier",
+           "name": "_"
+          }
+         }
+        ]
+       },
+       "isVirtual": false,
+       "override": null
+      },
+      {
+       "type": "FunctionDefinition",
+       "name": "lastTimeRewardApplicable",
+       "parameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint",
+          "stateMutability": null
+         },
+         "name": "i",
+         "identifier": {
+          "type": "Identifier",
+          "name": "i"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "returnParameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint256",
+          "stateMutability": null
+         },
+         "name": null,
+         "identifier": null,
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "body": {
+        "type": "Block",
+        "statements": [
+         {
+          "type": "ReturnStatement",
+          "expression": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "MemberAccess",
+            "expression": {
+             "type": "Identifier",
+             "name": "Math"
+            },
+            "memberName": "min"
+           },
+           "arguments": [
+            {
+             "type": "MemberAccess",
+             "expression": {
+              "type": "Identifier",
+              "name": "block"
+             },
+             "memberName": "timestamp"
+            },
+            {
+             "type": "MemberAccess",
+             "expression": {
+              "type": "IndexAccess",
+              "base": {
+               "type": "Identifier",
+               "name": "tokenRewards"
+              },
+              "index": {
+               "type": "Identifier",
+               "name": "i"
+              }
+             },
+             "memberName": "periodFinish"
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         }
+        ]
+       },
+       "visibility": "public",
+       "modifiers": [],
+       "override": null,
+       "isConstructor": false,
+       "isReceiveEther": false,
+       "isFallback": false,
+       "isVirtual": false,
+       "stateMutability": "view"
+      },
+      {
+       "type": "FunctionDefinition",
+       "name": "rewardPerToken",
+       "parameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint",
+          "stateMutability": null
+         },
+         "name": "i",
+         "identifier": {
+          "type": "Identifier",
+          "name": "i"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "returnParameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint256",
+          "stateMutability": null
+         },
+         "name": null,
+         "identifier": null,
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "body": {
+        "type": "Block",
+        "statements": [
+         {
+          "type": "VariableDeclarationStatement",
+          "variables": [
+           {
+            "type": "VariableDeclaration",
+            "typeName": {
+             "type": "UserDefinedTypeName",
+             "namePath": "TokenRewards"
+            },
+            "name": "tr",
+            "identifier": {
+             "type": "Identifier",
+             "name": "tr"
+            },
+            "storageLocation": "storage",
+            "isStateVar": false,
+            "isIndexed": false,
+            "expression": null
+           }
+          ],
+          "initialValue": {
+           "type": "IndexAccess",
+           "base": {
+            "type": "Identifier",
+            "name": "tokenRewards"
+           },
+           "index": {
+            "type": "Identifier",
+            "name": "i"
+           }
+          }
+         },
+         {
+          "type": "IfStatement",
+          "condition": {
+           "type": "BinaryOperation",
+           "operator": "==",
+           "left": {
+            "type": "FunctionCall",
+            "expression": {
+             "type": "Identifier",
+             "name": "totalSupply"
+            },
+            "arguments": [],
+            "names": [],
+            "identifiers": []
+           },
+           "right": {
+            "type": "NumberLiteral",
+            "number": "0",
+            "subdenomination": null
+           }
+          },
+          "trueBody": {
+           "type": "Block",
+           "statements": [
+            {
+             "type": "ReturnStatement",
+             "expression": {
+              "type": "MemberAccess",
+              "expression": {
+               "type": "Identifier",
+               "name": "tr"
+              },
+              "memberName": "rewardPerTokenStored"
+             }
+            }
+           ]
+          },
+          "falseBody": null
+         },
+         {
+          "type": "ReturnStatement",
+          "expression": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "MemberAccess",
+            "expression": {
+             "type": "MemberAccess",
+             "expression": {
+              "type": "Identifier",
+              "name": "tr"
+             },
+             "memberName": "rewardPerTokenStored"
+            },
+            "memberName": "add"
+           },
+           "arguments": [
+            {
+             "type": "FunctionCall",
+             "expression": {
+              "type": "MemberAccess",
+              "expression": {
+               "type": "FunctionCall",
+               "expression": {
+                "type": "MemberAccess",
+                "expression": {
+                 "type": "FunctionCall",
+                 "expression": {
+                  "type": "MemberAccess",
+                  "expression": {
+                   "type": "FunctionCall",
+                   "expression": {
+                    "type": "MemberAccess",
+                    "expression": {
+                     "type": "FunctionCall",
+                     "expression": {
+                      "type": "Identifier",
+                      "name": "lastTimeRewardApplicable"
+                     },
+                     "arguments": [
+                      {
+                       "type": "Identifier",
+                       "name": "i"
+                      }
+                     ],
+                     "names": [],
+                     "identifiers": []
+                    },
+                    "memberName": "sub"
+                   },
+                   "arguments": [
+                    {
+                     "type": "MemberAccess",
+                     "expression": {
+                      "type": "Identifier",
+                      "name": "tr"
+                     },
+                     "memberName": "lastUpdateTime"
+                    }
+                   ],
+                   "names": [],
+                   "identifiers": []
+                  },
+                  "memberName": "mul"
+                 },
+                 "arguments": [
+                  {
+                   "type": "MemberAccess",
+                   "expression": {
+                    "type": "Identifier",
+                    "name": "tr"
+                   },
+                   "memberName": "rewardRate"
+                  }
+                 ],
+                 "names": [],
+                 "identifiers": []
+                },
+                "memberName": "mul"
+               },
+               "arguments": [
+                {
+                 "type": "NumberLiteral",
+                 "number": "1e18",
+                 "subdenomination": null
+                }
+               ],
+               "names": [],
+               "identifiers": []
+              },
+              "memberName": "div"
+             },
+             "arguments": [
+              {
+               "type": "FunctionCall",
+               "expression": {
+                "type": "Identifier",
+                "name": "totalSupply"
+               },
+               "arguments": [],
+               "names": [],
+               "identifiers": []
+              }
+             ],
+             "names": [],
+             "identifiers": []
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         }
+        ]
+       },
+       "visibility": "public",
+       "modifiers": [],
+       "override": null,
+       "isConstructor": false,
+       "isReceiveEther": false,
+       "isFallback": false,
+       "isVirtual": false,
+       "stateMutability": "view"
+      },
+      {
+       "type": "FunctionDefinition",
+       "name": "earned",
+       "parameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint",
+          "stateMutability": null
+         },
+         "name": "i",
+         "identifier": {
+          "type": "Identifier",
+          "name": "i"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "address",
+          "stateMutability": null
+         },
+         "name": "account",
+         "identifier": {
+          "type": "Identifier",
+          "name": "account"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "returnParameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint256",
+          "stateMutability": null
+         },
+         "name": null,
+         "identifier": null,
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "body": {
+        "type": "Block",
+        "statements": [
+         {
+          "type": "VariableDeclarationStatement",
+          "variables": [
+           {
+            "type": "VariableDeclaration",
+            "typeName": {
+             "type": "UserDefinedTypeName",
+             "namePath": "TokenRewards"
+            },
+            "name": "tr",
+            "identifier": {
+             "type": "Identifier",
+             "name": "tr"
+            },
+            "storageLocation": "storage",
+            "isStateVar": false,
+            "isIndexed": false,
+            "expression": null
+           }
+          ],
+          "initialValue": {
+           "type": "IndexAccess",
+           "base": {
+            "type": "Identifier",
+            "name": "tokenRewards"
+           },
+           "index": {
+            "type": "Identifier",
+            "name": "i"
+           }
+          }
+         },
+         {
+          "type": "ReturnStatement",
+          "expression": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "MemberAccess",
+            "expression": {
+             "type": "FunctionCall",
+             "expression": {
+              "type": "MemberAccess",
+              "expression": {
+               "type": "FunctionCall",
+               "expression": {
+                "type": "MemberAccess",
+                "expression": {
+                 "type": "FunctionCall",
+                 "expression": {
+                  "type": "Identifier",
+                  "name": "balanceOf"
+                 },
+                 "arguments": [
+                  {
+                   "type": "Identifier",
+                   "name": "account"
+                  }
+                 ],
+                 "names": [],
+                 "identifiers": []
+                },
+                "memberName": "mul"
+               },
+               "arguments": [
+                {
+                 "type": "FunctionCall",
+                 "expression": {
+                  "type": "MemberAccess",
+                  "expression": {
+                   "type": "FunctionCall",
+                   "expression": {
+                    "type": "Identifier",
+                    "name": "rewardPerToken"
+                   },
+                   "arguments": [
+                    {
+                     "type": "Identifier",
+                     "name": "i"
+                    }
+                   ],
+                   "names": [],
+                   "identifiers": []
+                  },
+                  "memberName": "sub"
+                 },
+                 "arguments": [
+                  {
+                   "type": "IndexAccess",
+                   "base": {
+                    "type": "MemberAccess",
+                    "expression": {
+                     "type": "Identifier",
+                     "name": "tr"
+                    },
+                    "memberName": "userRewardPerTokenPaid"
+                   },
+                   "index": {
+                    "type": "Identifier",
+                    "name": "account"
+                   }
+                  }
+                 ],
+                 "names": [],
+                 "identifiers": []
+                }
+               ],
+               "names": [],
+               "identifiers": []
+              },
+              "memberName": "div"
+             },
+             "arguments": [
+              {
+               "type": "NumberLiteral",
+               "number": "1e18",
+               "subdenomination": null
+              }
+             ],
+             "names": [],
+             "identifiers": []
+            },
+            "memberName": "add"
+           },
+           "arguments": [
+            {
+             "type": "IndexAccess",
+             "base": {
+              "type": "MemberAccess",
+              "expression": {
+               "type": "Identifier",
+               "name": "tr"
+              },
+              "memberName": "rewards"
+             },
+             "index": {
+              "type": "Identifier",
+              "name": "account"
+             }
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         }
+        ]
+       },
+       "visibility": "public",
+       "modifiers": [],
+       "override": null,
+       "isConstructor": false,
+       "isReceiveEther": false,
+       "isFallback": false,
+       "isVirtual": false,
+       "stateMutability": "view"
+      },
+      {
+       "type": "FunctionDefinition",
+       "name": "getReward",
+       "parameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint",
+          "stateMutability": null
+         },
+         "name": "i",
+         "identifier": {
+          "type": "Identifier",
+          "name": "i"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "returnParameters": null,
+       "body": {
+        "type": "Block",
+        "statements": [
+         {
+          "type": "VariableDeclarationStatement",
+          "variables": [
+           {
+            "type": "VariableDeclaration",
+            "typeName": {
+             "type": "UserDefinedTypeName",
+             "namePath": "TokenRewards"
+            },
+            "name": "tr",
+            "identifier": {
+             "type": "Identifier",
+             "name": "tr"
+            },
+            "storageLocation": "storage",
+            "isStateVar": false,
+            "isIndexed": false,
+            "expression": null
+           }
+          ],
+          "initialValue": {
+           "type": "IndexAccess",
+           "base": {
+            "type": "Identifier",
+            "name": "tokenRewards"
+           },
+           "index": {
+            "type": "Identifier",
+            "name": "i"
+           }
+          }
+         },
+         {
+          "type": "VariableDeclarationStatement",
+          "variables": [
+           {
+            "type": "VariableDeclaration",
+            "typeName": {
+             "type": "ElementaryTypeName",
+             "name": "uint256",
+             "stateMutability": null
+            },
+            "name": "reward",
+            "identifier": {
+             "type": "Identifier",
+             "name": "reward"
+            },
+            "storageLocation": null,
+            "isStateVar": false,
+            "isIndexed": false,
+            "expression": null
+           }
+          ],
+          "initialValue": {
+           "type": "IndexAccess",
+           "base": {
+            "type": "MemberAccess",
+            "expression": {
+             "type": "Identifier",
+             "name": "tr"
+            },
+            "memberName": "rewards"
+           },
+           "index": {
+            "type": "MemberAccess",
+            "expression": {
+             "type": "Identifier",
+             "name": "msg"
+            },
+            "memberName": "sender"
+           }
+          }
+         },
+         {
+          "type": "IfStatement",
+          "condition": {
+           "type": "BinaryOperation",
+           "operator": ">",
+           "left": {
+            "type": "Identifier",
+            "name": "reward"
+           },
+           "right": {
+            "type": "NumberLiteral",
+            "number": "0",
+            "subdenomination": null
+           }
+          },
+          "trueBody": {
+           "type": "Block",
+           "statements": [
+            {
+             "type": "ExpressionStatement",
+             "expression": {
+              "type": "BinaryOperation",
+              "operator": "=",
+              "left": {
+               "type": "IndexAccess",
+               "base": {
+                "type": "MemberAccess",
+                "expression": {
+                 "type": "Identifier",
+                 "name": "tr"
+                },
+                "memberName": "rewards"
+               },
+               "index": {
+                "type": "MemberAccess",
+                "expression": {
+                 "type": "Identifier",
+                 "name": "msg"
+                },
+                "memberName": "sender"
+               }
+              },
+              "right": {
+               "type": "NumberLiteral",
+               "number": "0",
+               "subdenomination": null
+              }
+             }
+            },
+            {
+             "type": "ExpressionStatement",
+             "expression": {
+              "type": "FunctionCall",
+              "expression": {
+               "type": "MemberAccess",
+               "expression": {
+                "type": "MemberAccess",
+                "expression": {
+                 "type": "Identifier",
+                 "name": "tr"
+                },
+                "memberName": "gift"
+               },
+               "memberName": "transfer"
+              },
+              "arguments": [
+               {
+                "type": "MemberAccess",
+                "expression": {
+                 "type": "Identifier",
+                 "name": "msg"
+                },
+                "memberName": "sender"
+               },
+               {
+                "type": "Identifier",
+                "name": "reward"
+               }
+              ],
+              "names": [],
+              "identifiers": []
+             }
+            },
+            {
+             "type": "EmitStatement",
+             "eventCall": {
+              "type": "FunctionCall",
+              "expression": {
+               "type": "Identifier",
+               "name": "RewardPaid"
+              },
+              "arguments": [
+               {
+                "type": "MemberAccess",
+                "expression": {
+                 "type": "Identifier",
+                 "name": "msg"
+                },
+                "memberName": "sender"
+               },
+               {
+                "type": "Identifier",
+                "name": "reward"
+               }
+              ],
+              "names": [],
+              "identifiers": []
+             }
+            }
+           ]
+          },
+          "falseBody": null
+         }
+        ]
+       },
+       "visibility": "public",
+       "modifiers": [
+        {
+         "type": "ModifierInvocation",
+         "name": "updateReward",
+         "arguments": [
+          {
+           "type": "MemberAccess",
+           "expression": {
+            "type": "Identifier",
+            "name": "msg"
+           },
+           "memberName": "sender"
+          }
+         ]
+        }
+       ],
+       "override": null,
+       "isConstructor": false,
+       "isReceiveEther": false,
+       "isFallback": false,
+       "isVirtual": false,
+       "stateMutability": null
+      },
+      {
+       "type": "FunctionDefinition",
+       "name": "notifyRewardAmount",
+       "parameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint",
+          "stateMutability": null
+         },
+         "name": "i",
+         "identifier": {
+          "type": "Identifier",
+          "name": "i"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint256",
+          "stateMutability": null
+         },
+         "name": "reward",
+         "identifier": {
+          "type": "Identifier",
+          "name": "reward"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "returnParameters": null,
+       "body": {
+        "type": "Block",
+        "statements": [
+         {
+          "type": "VariableDeclarationStatement",
+          "variables": [
+           {
+            "type": "VariableDeclaration",
+            "typeName": {
+             "type": "UserDefinedTypeName",
+             "namePath": "TokenRewards"
+            },
+            "name": "tr",
+            "identifier": {
+             "type": "Identifier",
+             "name": "tr"
+            },
+            "storageLocation": "storage",
+            "isStateVar": false,
+            "isIndexed": false,
+            "expression": null
+           }
+          ],
+          "initialValue": {
+           "type": "IndexAccess",
+           "base": {
+            "type": "Identifier",
+            "name": "tokenRewards"
+           },
+           "index": {
+            "type": "Identifier",
+            "name": "i"
+           }
+          }
+         },
+         {
+          "type": "VariableDeclarationStatement",
+          "variables": [
+           {
+            "type": "VariableDeclaration",
+            "typeName": {
+             "type": "ElementaryTypeName",
+             "name": "uint256",
+             "stateMutability": null
+            },
+            "name": "duration",
+            "identifier": {
+             "type": "Identifier",
+             "name": "duration"
+            },
+            "storageLocation": null,
+            "isStateVar": false,
+            "isIndexed": false,
+            "expression": null
+           }
+          ],
+          "initialValue": {
+           "type": "MemberAccess",
+           "expression": {
+            "type": "Identifier",
+            "name": "tr"
+           },
+           "memberName": "duration"
+          }
+         },
+         {
+          "type": "IfStatement",
+          "condition": {
+           "type": "BinaryOperation",
+           "operator": ">=",
+           "left": {
+            "type": "MemberAccess",
+            "expression": {
+             "type": "Identifier",
+             "name": "block"
+            },
+            "memberName": "timestamp"
+           },
+           "right": {
+            "type": "MemberAccess",
+            "expression": {
+             "type": "Identifier",
+             "name": "tr"
+            },
+            "memberName": "periodFinish"
+           }
+          },
+          "trueBody": {
+           "type": "Block",
+           "statements": [
+            {
+             "type": "ExpressionStatement",
+             "expression": {
+              "type": "BinaryOperation",
+              "operator": "=",
+              "left": {
+               "type": "MemberAccess",
+               "expression": {
+                "type": "Identifier",
+                "name": "tr"
+               },
+               "memberName": "rewardRate"
+              },
+              "right": {
+               "type": "FunctionCall",
+               "expression": {
+                "type": "MemberAccess",
+                "expression": {
+                 "type": "Identifier",
+                 "name": "reward"
+                },
+                "memberName": "div"
+               },
+               "arguments": [
+                {
+                 "type": "Identifier",
+                 "name": "duration"
+                }
+               ],
+               "names": [],
+               "identifiers": []
+              }
+             }
+            }
+           ]
+          },
+          "falseBody": {
+           "type": "Block",
+           "statements": [
+            {
+             "type": "VariableDeclarationStatement",
+             "variables": [
+              {
+               "type": "VariableDeclaration",
+               "typeName": {
+                "type": "ElementaryTypeName",
+                "name": "uint256",
+                "stateMutability": null
+               },
+               "name": "remaining",
+               "identifier": {
+                "type": "Identifier",
+                "name": "remaining"
+               },
+               "storageLocation": null,
+               "isStateVar": false,
+               "isIndexed": false,
+               "expression": null
+              }
+             ],
+             "initialValue": {
+              "type": "FunctionCall",
+              "expression": {
+               "type": "MemberAccess",
+               "expression": {
+                "type": "MemberAccess",
+                "expression": {
+                 "type": "Identifier",
+                 "name": "tr"
+                },
+                "memberName": "periodFinish"
+               },
+               "memberName": "sub"
+              },
+              "arguments": [
+               {
+                "type": "MemberAccess",
+                "expression": {
+                 "type": "Identifier",
+                 "name": "block"
+                },
+                "memberName": "timestamp"
+               }
+              ],
+              "names": [],
+              "identifiers": []
+             }
+            },
+            {
+             "type": "VariableDeclarationStatement",
+             "variables": [
+              {
+               "type": "VariableDeclaration",
+               "typeName": {
+                "type": "ElementaryTypeName",
+                "name": "uint256",
+                "stateMutability": null
+               },
+               "name": "leftover",
+               "identifier": {
+                "type": "Identifier",
+                "name": "leftover"
+               },
+               "storageLocation": null,
+               "isStateVar": false,
+               "isIndexed": false,
+               "expression": null
+              }
+             ],
+             "initialValue": {
+              "type": "FunctionCall",
+              "expression": {
+               "type": "MemberAccess",
+               "expression": {
+                "type": "Identifier",
+                "name": "remaining"
+               },
+               "memberName": "mul"
+              },
+              "arguments": [
+               {
+                "type": "MemberAccess",
+                "expression": {
+                 "type": "Identifier",
+                 "name": "tr"
+                },
+                "memberName": "rewardRate"
+               }
+              ],
+              "names": [],
+              "identifiers": []
+             }
+            },
+            {
+             "type": "ExpressionStatement",
+             "expression": {
+              "type": "BinaryOperation",
+              "operator": "=",
+              "left": {
+               "type": "MemberAccess",
+               "expression": {
+                "type": "Identifier",
+                "name": "tr"
+               },
+               "memberName": "rewardRate"
+              },
+              "right": {
+               "type": "FunctionCall",
+               "expression": {
+                "type": "MemberAccess",
+                "expression": {
+                 "type": "FunctionCall",
+                 "expression": {
+                  "type": "MemberAccess",
+                  "expression": {
+                   "type": "Identifier",
+                   "name": "reward"
+                  },
+                  "memberName": "add"
+                 },
+                 "arguments": [
+                  {
+                   "type": "Identifier",
+                   "name": "leftover"
+                  }
+                 ],
+                 "names": [],
+                 "identifiers": []
+                },
+                "memberName": "div"
+               },
+               "arguments": [
+                {
+                 "type": "Identifier",
+                 "name": "duration"
+                }
+               ],
+               "names": [],
+               "identifiers": []
+              }
+             }
+            }
+           ]
+          }
+         },
+         {
+          "type": "VariableDeclarationStatement",
+          "variables": [
+           {
+            "type": "VariableDeclaration",
+            "typeName": {
+             "type": "ElementaryTypeName",
+             "name": "uint",
+             "stateMutability": null
+            },
+            "name": "balance",
+            "identifier": {
+             "type": "Identifier",
+             "name": "balance"
+            },
+            "storageLocation": null,
+            "isStateVar": false,
+            "isIndexed": false,
+            "expression": null
+           }
+          ],
+          "initialValue": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "MemberAccess",
+            "expression": {
+             "type": "MemberAccess",
+             "expression": {
+              "type": "Identifier",
+              "name": "tr"
+             },
+             "memberName": "gift"
+            },
+            "memberName": "balanceOf"
+           },
+           "arguments": [
+            {
+             "type": "FunctionCall",
+             "expression": {
+              "type": "Identifier",
+              "name": "address"
+             },
+             "arguments": [
+              {
+               "type": "Identifier",
+               "name": "this"
+              }
+             ],
+             "names": [],
+             "identifiers": []
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         },
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "Identifier",
+            "name": "require"
+           },
+           "arguments": [
+            {
+             "type": "BinaryOperation",
+             "operator": "<=",
+             "left": {
+              "type": "MemberAccess",
+              "expression": {
+               "type": "Identifier",
+               "name": "tr"
+              },
+              "memberName": "rewardRate"
+             },
+             "right": {
+              "type": "FunctionCall",
+              "expression": {
+               "type": "MemberAccess",
+               "expression": {
+                "type": "Identifier",
+                "name": "balance"
+               },
+               "memberName": "div"
+              },
+              "arguments": [
+               {
+                "type": "Identifier",
+                "name": "duration"
+               }
+              ],
+              "names": [],
+              "identifiers": []
+             }
+            },
+            {
+             "type": "StringLiteral",
+             "value": "Reward is too big",
+             "parts": [
+              "Reward is too big"
+             ],
+             "isUnicode": [
+              false
+             ]
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         },
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "BinaryOperation",
+           "operator": "=",
+           "left": {
+            "type": "MemberAccess",
+            "expression": {
+             "type": "Identifier",
+             "name": "tr"
+            },
+            "memberName": "lastUpdateTime"
+           },
+           "right": {
+            "type": "MemberAccess",
+            "expression": {
+             "type": "Identifier",
+             "name": "block"
+            },
+            "memberName": "timestamp"
+           }
+          }
+         },
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "BinaryOperation",
+           "operator": "=",
+           "left": {
+            "type": "MemberAccess",
+            "expression": {
+             "type": "Identifier",
+             "name": "tr"
+            },
+            "memberName": "periodFinish"
+           },
+           "right": {
+            "type": "FunctionCall",
+            "expression": {
+             "type": "MemberAccess",
+             "expression": {
+              "type": "MemberAccess",
+              "expression": {
+               "type": "Identifier",
+               "name": "block"
+              },
+              "memberName": "timestamp"
+             },
+             "memberName": "add"
+            },
+            "arguments": [
+             {
+              "type": "Identifier",
+              "name": "duration"
+             }
+            ],
+            "names": [],
+            "identifiers": []
+           }
+          }
+         },
+         {
+          "type": "EmitStatement",
+          "eventCall": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "Identifier",
+            "name": "RewardAdded"
+           },
+           "arguments": [
+            {
+             "type": "Identifier",
+             "name": "reward"
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         }
+        ]
+       },
+       "visibility": "external",
+       "modifiers": [
+        {
+         "type": "ModifierInvocation",
+         "name": "onlyRewardDistribution",
+         "arguments": [
+          {
+           "type": "Identifier",
+           "name": "i"
+          }
+         ]
+        },
+        {
+         "type": "ModifierInvocation",
+         "name": "updateReward",
+         "arguments": [
+          {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "Identifier",
+            "name": "address"
+           },
+           "arguments": [
+            {
+             "type": "NumberLiteral",
+             "number": "0",
+             "subdenomination": null
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         ]
+        }
+       ],
+       "override": null,
+       "isConstructor": false,
+       "isReceiveEther": false,
+       "isFallback": false,
+       "isVirtual": false,
+       "stateMutability": null
+      },
+      {
+       "type": "FunctionDefinition",
+       "name": "setRewardDistribution",
+       "parameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint",
+          "stateMutability": null
+         },
+         "name": "i",
+         "identifier": {
+          "type": "Identifier",
+          "name": "i"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "address",
+          "stateMutability": null
+         },
+         "name": "_rewardDistribution",
+         "identifier": {
+          "type": "Identifier",
+          "name": "_rewardDistribution"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "returnParameters": null,
+       "body": {
+        "type": "Block",
+        "statements": [
+         {
+          "type": "VariableDeclarationStatement",
+          "variables": [
+           {
+            "type": "VariableDeclaration",
+            "typeName": {
+             "type": "UserDefinedTypeName",
+             "namePath": "TokenRewards"
+            },
+            "name": "tr",
+            "identifier": {
+             "type": "Identifier",
+             "name": "tr"
+            },
+            "storageLocation": "storage",
+            "isStateVar": false,
+            "isIndexed": false,
+            "expression": null
+           }
+          ],
+          "initialValue": {
+           "type": "IndexAccess",
+           "base": {
+            "type": "Identifier",
+            "name": "tokenRewards"
+           },
+           "index": {
+            "type": "Identifier",
+            "name": "i"
+           }
+          }
+         },
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "BinaryOperation",
+           "operator": "=",
+           "left": {
+            "type": "MemberAccess",
+            "expression": {
+             "type": "Identifier",
+             "name": "tr"
+            },
+            "memberName": "rewardDistribution"
+           },
+           "right": {
+            "type": "Identifier",
+            "name": "_rewardDistribution"
+           }
+          }
+         }
+        ]
+       },
+       "visibility": "external",
+       "modifiers": [
+        {
+         "type": "ModifierInvocation",
+         "name": "onlyOwner",
+         "arguments": null
+        }
+       ],
+       "override": null,
+       "isConstructor": false,
+       "isReceiveEther": false,
+       "isFallback": false,
+       "isVirtual": false,
+       "stateMutability": null
+      },
+      {
+       "type": "FunctionDefinition",
+       "name": "setDuration",
+       "parameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint",
+          "stateMutability": null
+         },
+         "name": "i",
+         "identifier": {
+          "type": "Identifier",
+          "name": "i"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint256",
+          "stateMutability": null
+         },
+         "name": "_duration",
+         "identifier": {
+          "type": "Identifier",
+          "name": "_duration"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "returnParameters": null,
+       "body": {
+        "type": "Block",
+        "statements": [
+         {
+          "type": "VariableDeclarationStatement",
+          "variables": [
+           {
+            "type": "VariableDeclaration",
+            "typeName": {
+             "type": "UserDefinedTypeName",
+             "namePath": "TokenRewards"
+            },
+            "name": "tr",
+            "identifier": {
+             "type": "Identifier",
+             "name": "tr"
+            },
+            "storageLocation": "storage",
+            "isStateVar": false,
+            "isIndexed": false,
+            "expression": null
+           }
+          ],
+          "initialValue": {
+           "type": "IndexAccess",
+           "base": {
+            "type": "Identifier",
+            "name": "tokenRewards"
+           },
+           "index": {
+            "type": "Identifier",
+            "name": "i"
+           }
+          }
+         },
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "Identifier",
+            "name": "require"
+           },
+           "arguments": [
+            {
+             "type": "BinaryOperation",
+             "operator": ">=",
+             "left": {
+              "type": "MemberAccess",
+              "expression": {
+               "type": "Identifier",
+               "name": "block"
+              },
+              "memberName": "timestamp"
+             },
+             "right": {
+              "type": "MemberAccess",
+              "expression": {
+               "type": "Identifier",
+               "name": "tr"
+              },
+              "memberName": "periodFinish"
+             }
+            },
+            {
+             "type": "StringLiteral",
+             "value": "Access denied",
+             "parts": [
+              "Access denied"
+             ],
+             "isUnicode": [
+              false
+             ]
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         },
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "BinaryOperation",
+           "operator": "=",
+           "left": {
+            "type": "MemberAccess",
+            "expression": {
+             "type": "Identifier",
+             "name": "tr"
+            },
+            "memberName": "duration"
+           },
+           "right": {
+            "type": "Identifier",
+            "name": "_duration"
+           }
+          }
+         }
+        ]
+       },
+       "visibility": "external",
+       "modifiers": [
+        {
+         "type": "ModifierInvocation",
+         "name": "onlyRewardDistribution",
+         "arguments": [
+          {
+           "type": "Identifier",
+           "name": "i"
+          }
+         ]
+        }
+       ],
+       "override": null,
+       "isConstructor": false,
+       "isReceiveEther": false,
+       "isFallback": false,
+       "isVirtual": false,
+       "stateMutability": null
+      },
+      {
+       "type": "FunctionDefinition",
+       "name": "addGift",
+       "parameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "UserDefinedTypeName",
+          "namePath": "IERC20"
+         },
+         "name": "gift",
+         "identifier": {
+          "type": "Identifier",
+          "name": "gift"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint256",
+          "stateMutability": null
+         },
+         "name": "duration",
+         "identifier": {
+          "type": "Identifier",
+          "name": "duration"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "address",
+          "stateMutability": null
+         },
+         "name": "rewardDistribution",
+         "identifier": {
+          "type": "Identifier",
+          "name": "rewardDistribution"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "returnParameters": null,
+       "body": {
+        "type": "Block",
+        "statements": [
+         {
+          "type": "VariableDeclarationStatement",
+          "variables": [
+           {
+            "type": "VariableDeclaration",
+            "typeName": {
+             "type": "UserDefinedTypeName",
+             "namePath": "TokenRewards"
+            },
+            "name": "tr",
+            "identifier": {
+             "type": "Identifier",
+             "name": "tr"
+            },
+            "storageLocation": "storage",
+            "isStateVar": false,
+            "isIndexed": false,
+            "expression": null
+           }
+          ],
+          "initialValue": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "MemberAccess",
+            "expression": {
+             "type": "Identifier",
+             "name": "tokenRewards"
+            },
+            "memberName": "push"
+           },
+           "arguments": [],
+           "names": [],
+           "identifiers": []
+          }
+         },
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "BinaryOperation",
+           "operator": "=",
+           "left": {
+            "type": "MemberAccess",
+            "expression": {
+             "type": "Identifier",
+             "name": "tr"
+            },
+            "memberName": "gift"
+           },
+           "right": {
+            "type": "Identifier",
+            "name": "gift"
+           }
+          }
+         },
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "BinaryOperation",
+           "operator": "=",
+           "left": {
+            "type": "MemberAccess",
+            "expression": {
+             "type": "Identifier",
+             "name": "tr"
+            },
+            "memberName": "duration"
+           },
+           "right": {
+            "type": "Identifier",
+            "name": "duration"
+           }
+          }
+         },
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "BinaryOperation",
+           "operator": "=",
+           "left": {
+            "type": "MemberAccess",
+            "expression": {
+             "type": "Identifier",
+             "name": "tr"
+            },
+            "memberName": "rewardDistribution"
+           },
+           "right": {
+            "type": "Identifier",
+            "name": "rewardDistribution"
+           }
+          }
+         }
+        ]
+       },
+       "visibility": "public",
+       "modifiers": [
+        {
+         "type": "ModifierInvocation",
+         "name": "onlyOwner",
+         "arguments": null
+        }
+       ],
+       "override": null,
+       "isConstructor": false,
+       "isReceiveEther": false,
+       "isFallback": false,
+       "isVirtual": false,
+       "stateMutability": null
+      }
+     ],
+     "kind": "contract"
+    }
+   ]
+  }
+ }
+]

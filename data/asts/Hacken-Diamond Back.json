@@ -1,0 +1,364 @@
+[
+ {
+  "path": "/home/jameschong/Projects/audits-kd/workspace/datasets/DAppSCAN/DAppSCAN-source/contracts/Hacken-Diamond Back/DiamondBack-contract-025f40496c88a1c7dda9c3bf294761397c9925d1/MyToken.sol",
+  "ast": {
+   "type": "SourceUnit",
+   "children": [
+    {
+     "type": "PragmaDirective",
+     "name": "solidity",
+     "value": "^0.8.2"
+    },
+    {
+     "type": "ImportDirective",
+     "path": "@openzeppelin/contracts/access/AccessControl.sol",
+     "pathLiteral": {
+      "type": "StringLiteral",
+      "value": "@openzeppelin/contracts/access/AccessControl.sol",
+      "parts": [
+       "@openzeppelin/contracts/access/AccessControl.sol"
+      ],
+      "isUnicode": [
+       false
+      ]
+     },
+     "unitAlias": null,
+     "unitAliasIdentifier": null,
+     "symbolAliases": null,
+     "symbolAliasesIdentifiers": null
+    },
+    {
+     "type": "ImportDirective",
+     "path": "@openzeppelin/contracts/token/ERC20/ERC20.sol",
+     "pathLiteral": {
+      "type": "StringLiteral",
+      "value": "@openzeppelin/contracts/token/ERC20/ERC20.sol",
+      "parts": [
+       "@openzeppelin/contracts/token/ERC20/ERC20.sol"
+      ],
+      "isUnicode": [
+       false
+      ]
+     },
+     "unitAlias": null,
+     "unitAliasIdentifier": null,
+     "symbolAliases": null,
+     "symbolAliasesIdentifiers": null
+    },
+    {
+     "type": "ContractDefinition",
+     "name": "MyToken",
+     "baseContracts": [
+      {
+       "type": "InheritanceSpecifier",
+       "baseName": {
+        "type": "UserDefinedTypeName",
+        "namePath": "ERC20"
+       },
+       "arguments": []
+      },
+      {
+       "type": "InheritanceSpecifier",
+       "baseName": {
+        "type": "UserDefinedTypeName",
+        "namePath": "AccessControl"
+       },
+       "arguments": []
+      }
+     ],
+     "subNodes": [
+      {
+       "type": "StateVariableDeclaration",
+       "variables": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "bytes32",
+          "stateMutability": null
+         },
+         "name": "MINTER_ROLE",
+         "identifier": {
+          "type": "Identifier",
+          "name": "MINTER_ROLE"
+         },
+         "expression": {
+          "type": "FunctionCall",
+          "expression": {
+           "type": "Identifier",
+           "name": "keccak256"
+          },
+          "arguments": [
+           {
+            "type": "StringLiteral",
+            "value": "MINTER_ROLE",
+            "parts": [
+             "MINTER_ROLE"
+            ],
+            "isUnicode": [
+             false
+            ]
+           }
+          ],
+          "names": [],
+          "identifiers": []
+         },
+         "visibility": "public",
+         "isStateVar": true,
+         "isDeclaredConst": true,
+         "isIndexed": false,
+         "isImmutable": false,
+         "override": null,
+         "storageLocation": null
+        }
+       ],
+       "initialValue": {
+        "type": "FunctionCall",
+        "expression": {
+         "type": "Identifier",
+         "name": "keccak256"
+        },
+        "arguments": [
+         {
+          "type": "StringLiteral",
+          "value": "MINTER_ROLE",
+          "parts": [
+           "MINTER_ROLE"
+          ],
+          "isUnicode": [
+           false
+          ]
+         }
+        ],
+        "names": [],
+        "identifiers": []
+       }
+      },
+      {
+       "type": "FunctionDefinition",
+       "name": null,
+       "parameters": [],
+       "returnParameters": null,
+       "body": {
+        "type": "Block",
+        "statements": [
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "Identifier",
+            "name": "_mint"
+           },
+           "arguments": [
+            {
+             "type": "MemberAccess",
+             "expression": {
+              "type": "Identifier",
+              "name": "msg"
+             },
+             "memberName": "sender"
+            },
+            {
+             "type": "BinaryOperation",
+             "operator": "**",
+             "left": {
+              "type": "NumberLiteral",
+              "number": "10",
+              "subdenomination": null
+             },
+             "right": {
+              "type": "NumberLiteral",
+              "number": "27",
+              "subdenomination": null
+             }
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         },
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "Identifier",
+            "name": "_setupRole"
+           },
+           "arguments": [
+            {
+             "type": "Identifier",
+             "name": "DEFAULT_ADMIN_ROLE"
+            },
+            {
+             "type": "MemberAccess",
+             "expression": {
+              "type": "Identifier",
+              "name": "msg"
+             },
+             "memberName": "sender"
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         },
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "Identifier",
+            "name": "_setupRole"
+           },
+           "arguments": [
+            {
+             "type": "Identifier",
+             "name": "MINTER_ROLE"
+            },
+            {
+             "type": "MemberAccess",
+             "expression": {
+              "type": "Identifier",
+              "name": "msg"
+             },
+             "memberName": "sender"
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         }
+        ]
+       },
+       "visibility": "default",
+       "modifiers": [
+        {
+         "type": "ModifierInvocation",
+         "name": "ERC20",
+         "arguments": [
+          {
+           "type": "StringLiteral",
+           "value": "Diamond Back",
+           "parts": [
+            "Diamond Back"
+           ],
+           "isUnicode": [
+            false
+           ]
+          },
+          {
+           "type": "StringLiteral",
+           "value": "DBK",
+           "parts": [
+            "DBK"
+           ],
+           "isUnicode": [
+            false
+           ]
+          }
+         ]
+        }
+       ],
+       "override": null,
+       "isConstructor": true,
+       "isReceiveEther": false,
+       "isFallback": false,
+       "isVirtual": false,
+       "stateMutability": null
+      },
+      {
+       "type": "FunctionDefinition",
+       "name": "mint",
+       "parameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "address",
+          "stateMutability": null
+         },
+         "name": "to",
+         "identifier": {
+          "type": "Identifier",
+          "name": "to"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint256",
+          "stateMutability": null
+         },
+         "name": "amount",
+         "identifier": {
+          "type": "Identifier",
+          "name": "amount"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "returnParameters": null,
+       "body": {
+        "type": "Block",
+        "statements": [
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "Identifier",
+            "name": "_mint"
+           },
+           "arguments": [
+            {
+             "type": "Identifier",
+             "name": "to"
+            },
+            {
+             "type": "Identifier",
+             "name": "amount"
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         }
+        ]
+       },
+       "visibility": "external",
+       "modifiers": [
+        {
+         "type": "ModifierInvocation",
+         "name": "onlyRole",
+         "arguments": [
+          {
+           "type": "Identifier",
+           "name": "MINTER_ROLE"
+          }
+         ]
+        }
+       ],
+       "override": null,
+       "isConstructor": false,
+       "isReceiveEther": false,
+       "isFallback": false,
+       "isVirtual": false,
+       "stateMutability": null
+      }
+     ],
+     "kind": "contract"
+    }
+   ]
+  }
+ }
+]

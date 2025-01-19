@@ -1,0 +1,2987 @@
+[
+ {
+  "path": "/home/jameschong/Projects/audits-kd/workspace/datasets/DAppSCAN/DAppSCAN-source/contracts/QuillAudits-1inch-token/1inch-token-99fd056f91005ca521a02a005f7bcd8f77e06afc/contracts/OneInch.sol",
+  "ast": {
+   "type": "SourceUnit",
+   "children": [
+    {
+     "type": "PragmaDirective",
+     "name": "solidity",
+     "value": "^0.6.0"
+    },
+    {
+     "type": "ImportDirective",
+     "path": "@openzeppelin/contracts/token/ERC20/ERC20Burnable.sol",
+     "pathLiteral": {
+      "type": "StringLiteral",
+      "value": "@openzeppelin/contracts/token/ERC20/ERC20Burnable.sol",
+      "parts": [
+       "@openzeppelin/contracts/token/ERC20/ERC20Burnable.sol"
+      ],
+      "isUnicode": [
+       false
+      ]
+     },
+     "unitAlias": null,
+     "unitAliasIdentifier": null,
+     "symbolAliases": null,
+     "symbolAliasesIdentifiers": null
+    },
+    {
+     "type": "ImportDirective",
+     "path": "@openzeppelin/contracts/access/Ownable.sol",
+     "pathLiteral": {
+      "type": "StringLiteral",
+      "value": "@openzeppelin/contracts/access/Ownable.sol",
+      "parts": [
+       "@openzeppelin/contracts/access/Ownable.sol"
+      ],
+      "isUnicode": [
+       false
+      ]
+     },
+     "unitAlias": null,
+     "unitAliasIdentifier": null,
+     "symbolAliases": null,
+     "symbolAliasesIdentifiers": null
+    },
+    {
+     "type": "ImportDirective",
+     "path": "./ERC20Permit.sol",
+     "pathLiteral": {
+      "type": "StringLiteral",
+      "value": "./ERC20Permit.sol",
+      "parts": [
+       "./ERC20Permit.sol"
+      ],
+      "isUnicode": [
+       false
+      ]
+     },
+     "unitAlias": null,
+     "unitAliasIdentifier": null,
+     "symbolAliases": null,
+     "symbolAliasesIdentifiers": null
+    },
+    {
+     "type": "ContractDefinition",
+     "name": "OneInch",
+     "baseContracts": [
+      {
+       "type": "InheritanceSpecifier",
+       "baseName": {
+        "type": "UserDefinedTypeName",
+        "namePath": "ERC20Permit"
+       },
+       "arguments": []
+      },
+      {
+       "type": "InheritanceSpecifier",
+       "baseName": {
+        "type": "UserDefinedTypeName",
+        "namePath": "ERC20Burnable"
+       },
+       "arguments": []
+      },
+      {
+       "type": "InheritanceSpecifier",
+       "baseName": {
+        "type": "UserDefinedTypeName",
+        "namePath": "Ownable"
+       },
+       "arguments": []
+      }
+     ],
+     "subNodes": [
+      {
+       "type": "FunctionDefinition",
+       "name": null,
+       "parameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "address",
+          "stateMutability": null
+         },
+         "name": "_owner",
+         "identifier": {
+          "type": "Identifier",
+          "name": "_owner"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "returnParameters": null,
+       "body": {
+        "type": "Block",
+        "statements": [
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "Identifier",
+            "name": "_mint"
+           },
+           "arguments": [
+            {
+             "type": "Identifier",
+             "name": "_owner"
+            },
+            {
+             "type": "NumberLiteral",
+             "number": "1.5e9",
+             "subdenomination": "ether"
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         },
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "Identifier",
+            "name": "transferOwnership"
+           },
+           "arguments": [
+            {
+             "type": "Identifier",
+             "name": "_owner"
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         }
+        ]
+       },
+       "visibility": "public",
+       "modifiers": [
+        {
+         "type": "ModifierInvocation",
+         "name": "ERC20",
+         "arguments": [
+          {
+           "type": "StringLiteral",
+           "value": "1INCH Token",
+           "parts": [
+            "1INCH Token"
+           ],
+           "isUnicode": [
+            false
+           ]
+          },
+          {
+           "type": "StringLiteral",
+           "value": "1INCH",
+           "parts": [
+            "1INCH"
+           ],
+           "isUnicode": [
+            false
+           ]
+          }
+         ]
+        },
+        {
+         "type": "ModifierInvocation",
+         "name": "EIP712",
+         "arguments": [
+          {
+           "type": "StringLiteral",
+           "value": "1INCH Token",
+           "parts": [
+            "1INCH Token"
+           ],
+           "isUnicode": [
+            false
+           ]
+          },
+          {
+           "type": "StringLiteral",
+           "value": "1",
+           "parts": [
+            "1"
+           ],
+           "isUnicode": [
+            false
+           ]
+          }
+         ]
+        }
+       ],
+       "override": null,
+       "isConstructor": true,
+       "isReceiveEther": false,
+       "isFallback": false,
+       "isVirtual": false,
+       "stateMutability": null
+      },
+      {
+       "type": "FunctionDefinition",
+       "name": "mint",
+       "parameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "address",
+          "stateMutability": null
+         },
+         "name": "to",
+         "identifier": {
+          "type": "Identifier",
+          "name": "to"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint256",
+          "stateMutability": null
+         },
+         "name": "amount",
+         "identifier": {
+          "type": "Identifier",
+          "name": "amount"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "returnParameters": null,
+       "body": {
+        "type": "Block",
+        "statements": [
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "Identifier",
+            "name": "_mint"
+           },
+           "arguments": [
+            {
+             "type": "Identifier",
+             "name": "to"
+            },
+            {
+             "type": "Identifier",
+             "name": "amount"
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         }
+        ]
+       },
+       "visibility": "external",
+       "modifiers": [
+        {
+         "type": "ModifierInvocation",
+         "name": "onlyOwner",
+         "arguments": null
+        }
+       ],
+       "override": null,
+       "isConstructor": false,
+       "isReceiveEther": false,
+       "isFallback": false,
+       "isVirtual": false,
+       "stateMutability": null
+      }
+     ],
+     "kind": "contract"
+    }
+   ]
+  }
+ },
+ {
+  "path": "/home/jameschong/Projects/audits-kd/workspace/datasets/DAppSCAN/DAppSCAN-source/contracts/QuillAudits-1inch-token/1inch-token-99fd056f91005ca521a02a005f7bcd8f77e06afc/contracts/IERC20Permit.sol",
+  "ast": {
+   "type": "SourceUnit",
+   "children": [
+    {
+     "type": "PragmaDirective",
+     "name": "solidity",
+     "value": "^0.6.0"
+    },
+    {
+     "type": "ContractDefinition",
+     "name": "IERC20Permit",
+     "baseContracts": [],
+     "subNodes": [
+      {
+       "type": "FunctionDefinition",
+       "name": "permit",
+       "parameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "address",
+          "stateMutability": null
+         },
+         "name": "owner",
+         "identifier": {
+          "type": "Identifier",
+          "name": "owner"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "address",
+          "stateMutability": null
+         },
+         "name": "spender",
+         "identifier": {
+          "type": "Identifier",
+          "name": "spender"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint256",
+          "stateMutability": null
+         },
+         "name": "amount",
+         "identifier": {
+          "type": "Identifier",
+          "name": "amount"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint256",
+          "stateMutability": null
+         },
+         "name": "deadline",
+         "identifier": {
+          "type": "Identifier",
+          "name": "deadline"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint8",
+          "stateMutability": null
+         },
+         "name": "v",
+         "identifier": {
+          "type": "Identifier",
+          "name": "v"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "bytes32",
+          "stateMutability": null
+         },
+         "name": "r",
+         "identifier": {
+          "type": "Identifier",
+          "name": "r"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "bytes32",
+          "stateMutability": null
+         },
+         "name": "s",
+         "identifier": {
+          "type": "Identifier",
+          "name": "s"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "returnParameters": null,
+       "body": null,
+       "visibility": "external",
+       "modifiers": [],
+       "override": null,
+       "isConstructor": false,
+       "isReceiveEther": false,
+       "isFallback": false,
+       "isVirtual": false,
+       "stateMutability": null
+      },
+      {
+       "type": "FunctionDefinition",
+       "name": "nonces",
+       "parameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "address",
+          "stateMutability": null
+         },
+         "name": "owner",
+         "identifier": {
+          "type": "Identifier",
+          "name": "owner"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "returnParameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint256",
+          "stateMutability": null
+         },
+         "name": null,
+         "identifier": null,
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "body": null,
+       "visibility": "external",
+       "modifiers": [],
+       "override": null,
+       "isConstructor": false,
+       "isReceiveEther": false,
+       "isFallback": false,
+       "isVirtual": false,
+       "stateMutability": "view"
+      },
+      {
+       "type": "FunctionDefinition",
+       "name": "DOMAIN_SEPARATOR",
+       "parameters": [],
+       "returnParameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "bytes32",
+          "stateMutability": null
+         },
+         "name": null,
+         "identifier": null,
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "body": null,
+       "visibility": "external",
+       "modifiers": [],
+       "override": null,
+       "isConstructor": false,
+       "isReceiveEther": false,
+       "isFallback": false,
+       "isVirtual": false,
+       "stateMutability": "view"
+      }
+     ],
+     "kind": "interface"
+    }
+   ]
+  }
+ },
+ {
+  "path": "/home/jameschong/Projects/audits-kd/workspace/datasets/DAppSCAN/DAppSCAN-source/contracts/QuillAudits-1inch-token/1inch-token-99fd056f91005ca521a02a005f7bcd8f77e06afc/contracts/ERC20Permit.sol",
+  "ast": {
+   "type": "SourceUnit",
+   "children": [
+    {
+     "type": "PragmaDirective",
+     "name": "solidity",
+     "value": "^0.6.0"
+    },
+    {
+     "type": "ImportDirective",
+     "path": "@openzeppelin/contracts/token/ERC20/ERC20.sol",
+     "pathLiteral": {
+      "type": "StringLiteral",
+      "value": "@openzeppelin/contracts/token/ERC20/ERC20.sol",
+      "parts": [
+       "@openzeppelin/contracts/token/ERC20/ERC20.sol"
+      ],
+      "isUnicode": [
+       false
+      ]
+     },
+     "unitAlias": null,
+     "unitAliasIdentifier": null,
+     "symbolAliases": null,
+     "symbolAliasesIdentifiers": null
+    },
+    {
+     "type": "ImportDirective",
+     "path": "@openzeppelin/contracts/utils/Counters.sol",
+     "pathLiteral": {
+      "type": "StringLiteral",
+      "value": "@openzeppelin/contracts/utils/Counters.sol",
+      "parts": [
+       "@openzeppelin/contracts/utils/Counters.sol"
+      ],
+      "isUnicode": [
+       false
+      ]
+     },
+     "unitAlias": null,
+     "unitAliasIdentifier": null,
+     "symbolAliases": null,
+     "symbolAliasesIdentifiers": null
+    },
+    {
+     "type": "ImportDirective",
+     "path": "./IERC20Permit.sol",
+     "pathLiteral": {
+      "type": "StringLiteral",
+      "value": "./IERC20Permit.sol",
+      "parts": [
+       "./IERC20Permit.sol"
+      ],
+      "isUnicode": [
+       false
+      ]
+     },
+     "unitAlias": null,
+     "unitAliasIdentifier": null,
+     "symbolAliases": null,
+     "symbolAliasesIdentifiers": null
+    },
+    {
+     "type": "ImportDirective",
+     "path": "./ECDSA.sol",
+     "pathLiteral": {
+      "type": "StringLiteral",
+      "value": "./ECDSA.sol",
+      "parts": [
+       "./ECDSA.sol"
+      ],
+      "isUnicode": [
+       false
+      ]
+     },
+     "unitAlias": null,
+     "unitAliasIdentifier": null,
+     "symbolAliases": null,
+     "symbolAliasesIdentifiers": null
+    },
+    {
+     "type": "ImportDirective",
+     "path": "./EIP712.sol",
+     "pathLiteral": {
+      "type": "StringLiteral",
+      "value": "./EIP712.sol",
+      "parts": [
+       "./EIP712.sol"
+      ],
+      "isUnicode": [
+       false
+      ]
+     },
+     "unitAlias": null,
+     "unitAliasIdentifier": null,
+     "symbolAliases": null,
+     "symbolAliasesIdentifiers": null
+    },
+    {
+     "type": "ContractDefinition",
+     "name": "ERC20Permit",
+     "baseContracts": [
+      {
+       "type": "InheritanceSpecifier",
+       "baseName": {
+        "type": "UserDefinedTypeName",
+        "namePath": "ERC20"
+       },
+       "arguments": []
+      },
+      {
+       "type": "InheritanceSpecifier",
+       "baseName": {
+        "type": "UserDefinedTypeName",
+        "namePath": "IERC20Permit"
+       },
+       "arguments": []
+      },
+      {
+       "type": "InheritanceSpecifier",
+       "baseName": {
+        "type": "UserDefinedTypeName",
+        "namePath": "EIP712"
+       },
+       "arguments": []
+      }
+     ],
+     "subNodes": [
+      {
+       "type": "UsingForDeclaration",
+       "isGlobal": false,
+       "typeName": {
+        "type": "UserDefinedTypeName",
+        "namePath": "Counters.Counter"
+       },
+       "libraryName": "Counters",
+       "functions": [],
+       "operators": []
+      },
+      {
+       "type": "StateVariableDeclaration",
+       "variables": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "Mapping",
+          "keyType": {
+           "type": "ElementaryTypeName",
+           "name": "address",
+           "stateMutability": null
+          },
+          "keyName": null,
+          "valueType": {
+           "type": "UserDefinedTypeName",
+           "namePath": "Counters.Counter"
+          },
+          "valueName": null
+         },
+         "name": "_nonces",
+         "identifier": {
+          "type": "Identifier",
+          "name": "_nonces"
+         },
+         "expression": null,
+         "visibility": "private",
+         "isStateVar": true,
+         "isDeclaredConst": false,
+         "isIndexed": false,
+         "isImmutable": false,
+         "override": null,
+         "storageLocation": null
+        }
+       ],
+       "initialValue": null
+      },
+      {
+       "type": "StateVariableDeclaration",
+       "variables": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "bytes32",
+          "stateMutability": null
+         },
+         "name": "_PERMIT_TYPEHASH",
+         "identifier": {
+          "type": "Identifier",
+          "name": "_PERMIT_TYPEHASH"
+         },
+         "expression": {
+          "type": "FunctionCall",
+          "expression": {
+           "type": "Identifier",
+           "name": "keccak256"
+          },
+          "arguments": [
+           {
+            "type": "StringLiteral",
+            "value": "Permit(address owner,address spender,uint256 value,uint256 nonce,uint256 deadline)",
+            "parts": [
+             "Permit(address owner,address spender,uint256 value,uint256 nonce,uint256 deadline)"
+            ],
+            "isUnicode": [
+             false
+            ]
+           }
+          ],
+          "names": [],
+          "identifiers": []
+         },
+         "visibility": "private",
+         "isStateVar": true,
+         "isDeclaredConst": false,
+         "isIndexed": false,
+         "isImmutable": true,
+         "override": null,
+         "storageLocation": null
+        }
+       ],
+       "initialValue": {
+        "type": "FunctionCall",
+        "expression": {
+         "type": "Identifier",
+         "name": "keccak256"
+        },
+        "arguments": [
+         {
+          "type": "StringLiteral",
+          "value": "Permit(address owner,address spender,uint256 value,uint256 nonce,uint256 deadline)",
+          "parts": [
+           "Permit(address owner,address spender,uint256 value,uint256 nonce,uint256 deadline)"
+          ],
+          "isUnicode": [
+           false
+          ]
+         }
+        ],
+        "names": [],
+        "identifiers": []
+       }
+      },
+      {
+       "type": "FunctionDefinition",
+       "name": "permit",
+       "parameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "address",
+          "stateMutability": null
+         },
+         "name": "owner",
+         "identifier": {
+          "type": "Identifier",
+          "name": "owner"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "address",
+          "stateMutability": null
+         },
+         "name": "spender",
+         "identifier": {
+          "type": "Identifier",
+          "name": "spender"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint256",
+          "stateMutability": null
+         },
+         "name": "amount",
+         "identifier": {
+          "type": "Identifier",
+          "name": "amount"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint256",
+          "stateMutability": null
+         },
+         "name": "deadline",
+         "identifier": {
+          "type": "Identifier",
+          "name": "deadline"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint8",
+          "stateMutability": null
+         },
+         "name": "v",
+         "identifier": {
+          "type": "Identifier",
+          "name": "v"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "bytes32",
+          "stateMutability": null
+         },
+         "name": "r",
+         "identifier": {
+          "type": "Identifier",
+          "name": "r"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "bytes32",
+          "stateMutability": null
+         },
+         "name": "s",
+         "identifier": {
+          "type": "Identifier",
+          "name": "s"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "returnParameters": null,
+       "body": {
+        "type": "Block",
+        "statements": [
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "Identifier",
+            "name": "require"
+           },
+           "arguments": [
+            {
+             "type": "BinaryOperation",
+             "operator": "<=",
+             "left": {
+              "type": "MemberAccess",
+              "expression": {
+               "type": "Identifier",
+               "name": "block"
+              },
+              "memberName": "timestamp"
+             },
+             "right": {
+              "type": "Identifier",
+              "name": "deadline"
+             }
+            },
+            {
+             "type": "StringLiteral",
+             "value": "ERC20Permit: expired deadline",
+             "parts": [
+              "ERC20Permit: expired deadline"
+             ],
+             "isUnicode": [
+              false
+             ]
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         },
+         {
+          "type": "VariableDeclarationStatement",
+          "variables": [
+           {
+            "type": "VariableDeclaration",
+            "typeName": {
+             "type": "ElementaryTypeName",
+             "name": "bytes32",
+             "stateMutability": null
+            },
+            "name": "structHash",
+            "identifier": {
+             "type": "Identifier",
+             "name": "structHash"
+            },
+            "storageLocation": null,
+            "isStateVar": false,
+            "isIndexed": false,
+            "expression": null
+           }
+          ],
+          "initialValue": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "Identifier",
+            "name": "keccak256"
+           },
+           "arguments": [
+            {
+             "type": "FunctionCall",
+             "expression": {
+              "type": "MemberAccess",
+              "expression": {
+               "type": "Identifier",
+               "name": "abi"
+              },
+              "memberName": "encode"
+             },
+             "arguments": [
+              {
+               "type": "Identifier",
+               "name": "_PERMIT_TYPEHASH"
+              },
+              {
+               "type": "Identifier",
+               "name": "owner"
+              },
+              {
+               "type": "Identifier",
+               "name": "spender"
+              },
+              {
+               "type": "Identifier",
+               "name": "amount"
+              },
+              {
+               "type": "FunctionCall",
+               "expression": {
+                "type": "MemberAccess",
+                "expression": {
+                 "type": "IndexAccess",
+                 "base": {
+                  "type": "Identifier",
+                  "name": "_nonces"
+                 },
+                 "index": {
+                  "type": "Identifier",
+                  "name": "owner"
+                 }
+                },
+                "memberName": "current"
+               },
+               "arguments": [],
+               "names": [],
+               "identifiers": []
+              },
+              {
+               "type": "Identifier",
+               "name": "deadline"
+              }
+             ],
+             "names": [],
+             "identifiers": []
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         },
+         {
+          "type": "VariableDeclarationStatement",
+          "variables": [
+           {
+            "type": "VariableDeclaration",
+            "typeName": {
+             "type": "ElementaryTypeName",
+             "name": "bytes32",
+             "stateMutability": null
+            },
+            "name": "hash",
+            "identifier": {
+             "type": "Identifier",
+             "name": "hash"
+            },
+            "storageLocation": null,
+            "isStateVar": false,
+            "isIndexed": false,
+            "expression": null
+           }
+          ],
+          "initialValue": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "Identifier",
+            "name": "_hashTypedDataV4"
+           },
+           "arguments": [
+            {
+             "type": "Identifier",
+             "name": "structHash"
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         },
+         {
+          "type": "VariableDeclarationStatement",
+          "variables": [
+           {
+            "type": "VariableDeclaration",
+            "typeName": {
+             "type": "ElementaryTypeName",
+             "name": "address",
+             "stateMutability": null
+            },
+            "name": "signer",
+            "identifier": {
+             "type": "Identifier",
+             "name": "signer"
+            },
+            "storageLocation": null,
+            "isStateVar": false,
+            "isIndexed": false,
+            "expression": null
+           }
+          ],
+          "initialValue": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "MemberAccess",
+            "expression": {
+             "type": "Identifier",
+             "name": "ECDSA"
+            },
+            "memberName": "recover"
+           },
+           "arguments": [
+            {
+             "type": "Identifier",
+             "name": "hash"
+            },
+            {
+             "type": "Identifier",
+             "name": "v"
+            },
+            {
+             "type": "Identifier",
+             "name": "r"
+            },
+            {
+             "type": "Identifier",
+             "name": "s"
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         },
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "Identifier",
+            "name": "require"
+           },
+           "arguments": [
+            {
+             "type": "BinaryOperation",
+             "operator": "==",
+             "left": {
+              "type": "Identifier",
+              "name": "signer"
+             },
+             "right": {
+              "type": "Identifier",
+              "name": "owner"
+             }
+            },
+            {
+             "type": "StringLiteral",
+             "value": "ERC20Permit: invalid signature",
+             "parts": [
+              "ERC20Permit: invalid signature"
+             ],
+             "isUnicode": [
+              false
+             ]
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         },
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "MemberAccess",
+            "expression": {
+             "type": "IndexAccess",
+             "base": {
+              "type": "Identifier",
+              "name": "_nonces"
+             },
+             "index": {
+              "type": "Identifier",
+              "name": "owner"
+             }
+            },
+            "memberName": "increment"
+           },
+           "arguments": [],
+           "names": [],
+           "identifiers": []
+          }
+         },
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "Identifier",
+            "name": "_approve"
+           },
+           "arguments": [
+            {
+             "type": "Identifier",
+             "name": "owner"
+            },
+            {
+             "type": "Identifier",
+             "name": "spender"
+            },
+            {
+             "type": "Identifier",
+             "name": "amount"
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         }
+        ]
+       },
+       "visibility": "public",
+       "modifiers": [],
+       "override": [],
+       "isConstructor": false,
+       "isReceiveEther": false,
+       "isFallback": false,
+       "isVirtual": true,
+       "stateMutability": null
+      },
+      {
+       "type": "FunctionDefinition",
+       "name": "nonces",
+       "parameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "address",
+          "stateMutability": null
+         },
+         "name": "owner",
+         "identifier": {
+          "type": "Identifier",
+          "name": "owner"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "returnParameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint256",
+          "stateMutability": null
+         },
+         "name": null,
+         "identifier": null,
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "body": {
+        "type": "Block",
+        "statements": [
+         {
+          "type": "ReturnStatement",
+          "expression": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "MemberAccess",
+            "expression": {
+             "type": "IndexAccess",
+             "base": {
+              "type": "Identifier",
+              "name": "_nonces"
+             },
+             "index": {
+              "type": "Identifier",
+              "name": "owner"
+             }
+            },
+            "memberName": "current"
+           },
+           "arguments": [],
+           "names": [],
+           "identifiers": []
+          }
+         }
+        ]
+       },
+       "visibility": "public",
+       "modifiers": [],
+       "override": [],
+       "isConstructor": false,
+       "isReceiveEther": false,
+       "isFallback": false,
+       "isVirtual": false,
+       "stateMutability": "view"
+      },
+      {
+       "type": "FunctionDefinition",
+       "name": "DOMAIN_SEPARATOR",
+       "parameters": [],
+       "returnParameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "bytes32",
+          "stateMutability": null
+         },
+         "name": null,
+         "identifier": null,
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "body": {
+        "type": "Block",
+        "statements": [
+         {
+          "type": "ReturnStatement",
+          "expression": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "Identifier",
+            "name": "_domainSeparatorV4"
+           },
+           "arguments": [],
+           "names": [],
+           "identifiers": []
+          }
+         }
+        ]
+       },
+       "visibility": "external",
+       "modifiers": [],
+       "override": [],
+       "isConstructor": false,
+       "isReceiveEther": false,
+       "isFallback": false,
+       "isVirtual": false,
+       "stateMutability": "view"
+      }
+     ],
+     "kind": "abstract"
+    }
+   ]
+  }
+ },
+ {
+  "path": "/home/jameschong/Projects/audits-kd/workspace/datasets/DAppSCAN/DAppSCAN-source/contracts/QuillAudits-1inch-token/1inch-token-99fd056f91005ca521a02a005f7bcd8f77e06afc/contracts/EIP712.sol",
+  "ast": {
+   "type": "SourceUnit",
+   "children": [
+    {
+     "type": "PragmaDirective",
+     "name": "solidity",
+     "value": "^0.6.0"
+    },
+    {
+     "type": "ContractDefinition",
+     "name": "EIP712",
+     "baseContracts": [],
+     "subNodes": [
+      {
+       "type": "StateVariableDeclaration",
+       "variables": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "bytes32",
+          "stateMutability": null
+         },
+         "name": "_CACHED_DOMAIN_SEPARATOR",
+         "identifier": {
+          "type": "Identifier",
+          "name": "_CACHED_DOMAIN_SEPARATOR"
+         },
+         "expression": null,
+         "visibility": "private",
+         "isStateVar": true,
+         "isDeclaredConst": false,
+         "isIndexed": false,
+         "isImmutable": true,
+         "override": null,
+         "storageLocation": null
+        }
+       ],
+       "initialValue": null
+      },
+      {
+       "type": "StateVariableDeclaration",
+       "variables": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint256",
+          "stateMutability": null
+         },
+         "name": "_CACHED_CHAIN_ID",
+         "identifier": {
+          "type": "Identifier",
+          "name": "_CACHED_CHAIN_ID"
+         },
+         "expression": null,
+         "visibility": "private",
+         "isStateVar": true,
+         "isDeclaredConst": false,
+         "isIndexed": false,
+         "isImmutable": true,
+         "override": null,
+         "storageLocation": null
+        }
+       ],
+       "initialValue": null
+      },
+      {
+       "type": "StateVariableDeclaration",
+       "variables": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "bytes32",
+          "stateMutability": null
+         },
+         "name": "_HASHED_NAME",
+         "identifier": {
+          "type": "Identifier",
+          "name": "_HASHED_NAME"
+         },
+         "expression": null,
+         "visibility": "private",
+         "isStateVar": true,
+         "isDeclaredConst": false,
+         "isIndexed": false,
+         "isImmutable": true,
+         "override": null,
+         "storageLocation": null
+        }
+       ],
+       "initialValue": null
+      },
+      {
+       "type": "StateVariableDeclaration",
+       "variables": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "bytes32",
+          "stateMutability": null
+         },
+         "name": "_HASHED_VERSION",
+         "identifier": {
+          "type": "Identifier",
+          "name": "_HASHED_VERSION"
+         },
+         "expression": null,
+         "visibility": "private",
+         "isStateVar": true,
+         "isDeclaredConst": false,
+         "isIndexed": false,
+         "isImmutable": true,
+         "override": null,
+         "storageLocation": null
+        }
+       ],
+       "initialValue": null
+      },
+      {
+       "type": "StateVariableDeclaration",
+       "variables": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "bytes32",
+          "stateMutability": null
+         },
+         "name": "_TYPE_HASH",
+         "identifier": {
+          "type": "Identifier",
+          "name": "_TYPE_HASH"
+         },
+         "expression": null,
+         "visibility": "private",
+         "isStateVar": true,
+         "isDeclaredConst": false,
+         "isIndexed": false,
+         "isImmutable": true,
+         "override": null,
+         "storageLocation": null
+        }
+       ],
+       "initialValue": null
+      },
+      {
+       "type": "FunctionDefinition",
+       "name": null,
+       "parameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "string",
+          "stateMutability": null
+         },
+         "name": "name",
+         "identifier": {
+          "type": "Identifier",
+          "name": "name"
+         },
+         "storageLocation": "memory",
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "string",
+          "stateMutability": null
+         },
+         "name": "version",
+         "identifier": {
+          "type": "Identifier",
+          "name": "version"
+         },
+         "storageLocation": "memory",
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "returnParameters": null,
+       "body": {
+        "type": "Block",
+        "statements": [
+         {
+          "type": "VariableDeclarationStatement",
+          "variables": [
+           {
+            "type": "VariableDeclaration",
+            "typeName": {
+             "type": "ElementaryTypeName",
+             "name": "bytes32",
+             "stateMutability": null
+            },
+            "name": "hashedName",
+            "identifier": {
+             "type": "Identifier",
+             "name": "hashedName"
+            },
+            "storageLocation": null,
+            "isStateVar": false,
+            "isIndexed": false,
+            "expression": null
+           }
+          ],
+          "initialValue": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "Identifier",
+            "name": "keccak256"
+           },
+           "arguments": [
+            {
+             "type": "FunctionCall",
+             "expression": {
+              "type": "ElementaryTypeName",
+              "name": "bytes",
+              "stateMutability": null
+             },
+             "arguments": [
+              {
+               "type": "Identifier",
+               "name": "name"
+              }
+             ],
+             "names": [],
+             "identifiers": []
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         },
+         {
+          "type": "VariableDeclarationStatement",
+          "variables": [
+           {
+            "type": "VariableDeclaration",
+            "typeName": {
+             "type": "ElementaryTypeName",
+             "name": "bytes32",
+             "stateMutability": null
+            },
+            "name": "hashedVersion",
+            "identifier": {
+             "type": "Identifier",
+             "name": "hashedVersion"
+            },
+            "storageLocation": null,
+            "isStateVar": false,
+            "isIndexed": false,
+            "expression": null
+           }
+          ],
+          "initialValue": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "Identifier",
+            "name": "keccak256"
+           },
+           "arguments": [
+            {
+             "type": "FunctionCall",
+             "expression": {
+              "type": "ElementaryTypeName",
+              "name": "bytes",
+              "stateMutability": null
+             },
+             "arguments": [
+              {
+               "type": "Identifier",
+               "name": "version"
+              }
+             ],
+             "names": [],
+             "identifiers": []
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         },
+         {
+          "type": "VariableDeclarationStatement",
+          "variables": [
+           {
+            "type": "VariableDeclaration",
+            "typeName": {
+             "type": "ElementaryTypeName",
+             "name": "bytes32",
+             "stateMutability": null
+            },
+            "name": "typeHash",
+            "identifier": {
+             "type": "Identifier",
+             "name": "typeHash"
+            },
+            "storageLocation": null,
+            "isStateVar": false,
+            "isIndexed": false,
+            "expression": null
+           }
+          ],
+          "initialValue": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "Identifier",
+            "name": "keccak256"
+           },
+           "arguments": [
+            {
+             "type": "StringLiteral",
+             "value": "EIP712Domain(string name,string version,uint256 chainId,address verifyingContract)",
+             "parts": [
+              "EIP712Domain(string name,string version,uint256 chainId,address verifyingContract)"
+             ],
+             "isUnicode": [
+              false
+             ]
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         },
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "BinaryOperation",
+           "operator": "=",
+           "left": {
+            "type": "Identifier",
+            "name": "_HASHED_NAME"
+           },
+           "right": {
+            "type": "Identifier",
+            "name": "hashedName"
+           }
+          }
+         },
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "BinaryOperation",
+           "operator": "=",
+           "left": {
+            "type": "Identifier",
+            "name": "_HASHED_VERSION"
+           },
+           "right": {
+            "type": "Identifier",
+            "name": "hashedVersion"
+           }
+          }
+         },
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "BinaryOperation",
+           "operator": "=",
+           "left": {
+            "type": "Identifier",
+            "name": "_CACHED_CHAIN_ID"
+           },
+           "right": {
+            "type": "FunctionCall",
+            "expression": {
+             "type": "Identifier",
+             "name": "_getChainId"
+            },
+            "arguments": [],
+            "names": [],
+            "identifiers": []
+           }
+          }
+         },
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "BinaryOperation",
+           "operator": "=",
+           "left": {
+            "type": "Identifier",
+            "name": "_CACHED_DOMAIN_SEPARATOR"
+           },
+           "right": {
+            "type": "FunctionCall",
+            "expression": {
+             "type": "Identifier",
+             "name": "_buildDomainSeparator"
+            },
+            "arguments": [
+             {
+              "type": "Identifier",
+              "name": "typeHash"
+             },
+             {
+              "type": "Identifier",
+              "name": "hashedName"
+             },
+             {
+              "type": "Identifier",
+              "name": "hashedVersion"
+             }
+            ],
+            "names": [],
+            "identifiers": []
+           }
+          }
+         },
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "BinaryOperation",
+           "operator": "=",
+           "left": {
+            "type": "Identifier",
+            "name": "_TYPE_HASH"
+           },
+           "right": {
+            "type": "Identifier",
+            "name": "typeHash"
+           }
+          }
+         }
+        ]
+       },
+       "visibility": "internal",
+       "modifiers": [],
+       "override": null,
+       "isConstructor": true,
+       "isReceiveEther": false,
+       "isFallback": false,
+       "isVirtual": false,
+       "stateMutability": null
+      },
+      {
+       "type": "FunctionDefinition",
+       "name": "_domainSeparatorV4",
+       "parameters": [],
+       "returnParameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "bytes32",
+          "stateMutability": null
+         },
+         "name": null,
+         "identifier": null,
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "body": {
+        "type": "Block",
+        "statements": [
+         {
+          "type": "IfStatement",
+          "condition": {
+           "type": "BinaryOperation",
+           "operator": "==",
+           "left": {
+            "type": "FunctionCall",
+            "expression": {
+             "type": "Identifier",
+             "name": "_getChainId"
+            },
+            "arguments": [],
+            "names": [],
+            "identifiers": []
+           },
+           "right": {
+            "type": "Identifier",
+            "name": "_CACHED_CHAIN_ID"
+           }
+          },
+          "trueBody": {
+           "type": "Block",
+           "statements": [
+            {
+             "type": "ReturnStatement",
+             "expression": {
+              "type": "Identifier",
+              "name": "_CACHED_DOMAIN_SEPARATOR"
+             }
+            }
+           ]
+          },
+          "falseBody": {
+           "type": "Block",
+           "statements": [
+            {
+             "type": "ReturnStatement",
+             "expression": {
+              "type": "FunctionCall",
+              "expression": {
+               "type": "Identifier",
+               "name": "_buildDomainSeparator"
+              },
+              "arguments": [
+               {
+                "type": "Identifier",
+                "name": "_TYPE_HASH"
+               },
+               {
+                "type": "Identifier",
+                "name": "_HASHED_NAME"
+               },
+               {
+                "type": "Identifier",
+                "name": "_HASHED_VERSION"
+               }
+              ],
+              "names": [],
+              "identifiers": []
+             }
+            }
+           ]
+          }
+         }
+        ]
+       },
+       "visibility": "internal",
+       "modifiers": [],
+       "override": null,
+       "isConstructor": false,
+       "isReceiveEther": false,
+       "isFallback": false,
+       "isVirtual": false,
+       "stateMutability": "view"
+      },
+      {
+       "type": "FunctionDefinition",
+       "name": "_buildDomainSeparator",
+       "parameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "bytes32",
+          "stateMutability": null
+         },
+         "name": "typeHash",
+         "identifier": {
+          "type": "Identifier",
+          "name": "typeHash"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "bytes32",
+          "stateMutability": null
+         },
+         "name": "name",
+         "identifier": {
+          "type": "Identifier",
+          "name": "name"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "bytes32",
+          "stateMutability": null
+         },
+         "name": "version",
+         "identifier": {
+          "type": "Identifier",
+          "name": "version"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "returnParameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "bytes32",
+          "stateMutability": null
+         },
+         "name": null,
+         "identifier": null,
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "body": {
+        "type": "Block",
+        "statements": [
+         {
+          "type": "ReturnStatement",
+          "expression": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "Identifier",
+            "name": "keccak256"
+           },
+           "arguments": [
+            {
+             "type": "FunctionCall",
+             "expression": {
+              "type": "MemberAccess",
+              "expression": {
+               "type": "Identifier",
+               "name": "abi"
+              },
+              "memberName": "encode"
+             },
+             "arguments": [
+              {
+               "type": "Identifier",
+               "name": "typeHash"
+              },
+              {
+               "type": "Identifier",
+               "name": "name"
+              },
+              {
+               "type": "Identifier",
+               "name": "version"
+              },
+              {
+               "type": "FunctionCall",
+               "expression": {
+                "type": "Identifier",
+                "name": "_getChainId"
+               },
+               "arguments": [],
+               "names": [],
+               "identifiers": []
+              },
+              {
+               "type": "FunctionCall",
+               "expression": {
+                "type": "Identifier",
+                "name": "address"
+               },
+               "arguments": [
+                {
+                 "type": "Identifier",
+                 "name": "this"
+                }
+               ],
+               "names": [],
+               "identifiers": []
+              }
+             ],
+             "names": [],
+             "identifiers": []
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         }
+        ]
+       },
+       "visibility": "private",
+       "modifiers": [],
+       "override": null,
+       "isConstructor": false,
+       "isReceiveEther": false,
+       "isFallback": false,
+       "isVirtual": false,
+       "stateMutability": "view"
+      },
+      {
+       "type": "FunctionDefinition",
+       "name": "_hashTypedDataV4",
+       "parameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "bytes32",
+          "stateMutability": null
+         },
+         "name": "structHash",
+         "identifier": {
+          "type": "Identifier",
+          "name": "structHash"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "returnParameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "bytes32",
+          "stateMutability": null
+         },
+         "name": null,
+         "identifier": null,
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "body": {
+        "type": "Block",
+        "statements": [
+         {
+          "type": "ReturnStatement",
+          "expression": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "Identifier",
+            "name": "keccak256"
+           },
+           "arguments": [
+            {
+             "type": "FunctionCall",
+             "expression": {
+              "type": "MemberAccess",
+              "expression": {
+               "type": "Identifier",
+               "name": "abi"
+              },
+              "memberName": "encodePacked"
+             },
+             "arguments": [
+              {
+               "type": "StringLiteral",
+               "value": "\\x19\\x01",
+               "parts": [
+                "\\x19\\x01"
+               ],
+               "isUnicode": [
+                false
+               ]
+              },
+              {
+               "type": "FunctionCall",
+               "expression": {
+                "type": "Identifier",
+                "name": "_domainSeparatorV4"
+               },
+               "arguments": [],
+               "names": [],
+               "identifiers": []
+              },
+              {
+               "type": "Identifier",
+               "name": "structHash"
+              }
+             ],
+             "names": [],
+             "identifiers": []
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         }
+        ]
+       },
+       "visibility": "internal",
+       "modifiers": [],
+       "override": null,
+       "isConstructor": false,
+       "isReceiveEther": false,
+       "isFallback": false,
+       "isVirtual": false,
+       "stateMutability": "view"
+      },
+      {
+       "type": "FunctionDefinition",
+       "name": "_getChainId",
+       "parameters": [],
+       "returnParameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint256",
+          "stateMutability": null
+         },
+         "name": "chainId",
+         "identifier": {
+          "type": "Identifier",
+          "name": "chainId"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "body": {
+        "type": "Block",
+        "statements": [
+         {
+          "type": "InlineAssemblyStatement",
+          "language": null,
+          "flags": [],
+          "body": {
+           "type": "AssemblyBlock",
+           "operations": [
+            {
+             "type": "AssemblyAssignment",
+             "names": [
+              {
+               "type": "Identifier",
+               "name": "chainId"
+              }
+             ],
+             "expression": {
+              "type": "AssemblyCall",
+              "functionName": "chainid",
+              "arguments": []
+             }
+            }
+           ]
+          }
+         }
+        ]
+       },
+       "visibility": "private",
+       "modifiers": [],
+       "override": null,
+       "isConstructor": false,
+       "isReceiveEther": false,
+       "isFallback": false,
+       "isVirtual": false,
+       "stateMutability": "pure"
+      }
+     ],
+     "kind": "abstract"
+    }
+   ]
+  }
+ },
+ {
+  "path": "/home/jameschong/Projects/audits-kd/workspace/datasets/DAppSCAN/DAppSCAN-source/contracts/QuillAudits-1inch-token/1inch-token-99fd056f91005ca521a02a005f7bcd8f77e06afc/contracts/ECDSA.sol",
+  "ast": {
+   "type": "SourceUnit",
+   "children": [
+    {
+     "type": "PragmaDirective",
+     "name": "solidity",
+     "value": "^0.6.0"
+    },
+    {
+     "type": "ContractDefinition",
+     "name": "ECDSA",
+     "baseContracts": [],
+     "subNodes": [
+      {
+       "type": "FunctionDefinition",
+       "name": "recover",
+       "parameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "bytes32",
+          "stateMutability": null
+         },
+         "name": "hash",
+         "identifier": {
+          "type": "Identifier",
+          "name": "hash"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "bytes",
+          "stateMutability": null
+         },
+         "name": "signature",
+         "identifier": {
+          "type": "Identifier",
+          "name": "signature"
+         },
+         "storageLocation": "memory",
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "returnParameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "address",
+          "stateMutability": null
+         },
+         "name": null,
+         "identifier": null,
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "body": {
+        "type": "Block",
+        "statements": [
+         {
+          "type": "IfStatement",
+          "condition": {
+           "type": "BinaryOperation",
+           "operator": "!=",
+           "left": {
+            "type": "MemberAccess",
+            "expression": {
+             "type": "Identifier",
+             "name": "signature"
+            },
+            "memberName": "length"
+           },
+           "right": {
+            "type": "NumberLiteral",
+            "number": "65",
+            "subdenomination": null
+           }
+          },
+          "trueBody": {
+           "type": "Block",
+           "statements": [
+            {
+             "type": "ExpressionStatement",
+             "expression": {
+              "type": "FunctionCall",
+              "expression": {
+               "type": "Identifier",
+               "name": "revert"
+              },
+              "arguments": [
+               {
+                "type": "StringLiteral",
+                "value": "ECDSA: invalid signature length",
+                "parts": [
+                 "ECDSA: invalid signature length"
+                ],
+                "isUnicode": [
+                 false
+                ]
+               }
+              ],
+              "names": [],
+              "identifiers": []
+             }
+            }
+           ]
+          },
+          "falseBody": null
+         },
+         {
+          "type": "VariableDeclarationStatement",
+          "variables": [
+           {
+            "type": "VariableDeclaration",
+            "typeName": {
+             "type": "ElementaryTypeName",
+             "name": "bytes32",
+             "stateMutability": null
+            },
+            "name": "r",
+            "identifier": {
+             "type": "Identifier",
+             "name": "r"
+            },
+            "storageLocation": null,
+            "isStateVar": false,
+            "isIndexed": false,
+            "expression": null
+           }
+          ],
+          "initialValue": null
+         },
+         {
+          "type": "VariableDeclarationStatement",
+          "variables": [
+           {
+            "type": "VariableDeclaration",
+            "typeName": {
+             "type": "ElementaryTypeName",
+             "name": "bytes32",
+             "stateMutability": null
+            },
+            "name": "s",
+            "identifier": {
+             "type": "Identifier",
+             "name": "s"
+            },
+            "storageLocation": null,
+            "isStateVar": false,
+            "isIndexed": false,
+            "expression": null
+           }
+          ],
+          "initialValue": null
+         },
+         {
+          "type": "VariableDeclarationStatement",
+          "variables": [
+           {
+            "type": "VariableDeclaration",
+            "typeName": {
+             "type": "ElementaryTypeName",
+             "name": "uint8",
+             "stateMutability": null
+            },
+            "name": "v",
+            "identifier": {
+             "type": "Identifier",
+             "name": "v"
+            },
+            "storageLocation": null,
+            "isStateVar": false,
+            "isIndexed": false,
+            "expression": null
+           }
+          ],
+          "initialValue": null
+         },
+         {
+          "type": "InlineAssemblyStatement",
+          "language": null,
+          "flags": [],
+          "body": {
+           "type": "AssemblyBlock",
+           "operations": [
+            {
+             "type": "AssemblyAssignment",
+             "names": [
+              {
+               "type": "Identifier",
+               "name": "r"
+              }
+             ],
+             "expression": {
+              "type": "AssemblyCall",
+              "functionName": "mload",
+              "arguments": [
+               {
+                "type": "AssemblyCall",
+                "functionName": "add",
+                "arguments": [
+                 {
+                  "type": "AssemblyCall",
+                  "functionName": "signature",
+                  "arguments": []
+                 },
+                 {
+                  "type": "HexNumber",
+                  "value": "0x20"
+                 }
+                ]
+               }
+              ]
+             }
+            },
+            {
+             "type": "AssemblyAssignment",
+             "names": [
+              {
+               "type": "Identifier",
+               "name": "s"
+              }
+             ],
+             "expression": {
+              "type": "AssemblyCall",
+              "functionName": "mload",
+              "arguments": [
+               {
+                "type": "AssemblyCall",
+                "functionName": "add",
+                "arguments": [
+                 {
+                  "type": "AssemblyCall",
+                  "functionName": "signature",
+                  "arguments": []
+                 },
+                 {
+                  "type": "HexNumber",
+                  "value": "0x40"
+                 }
+                ]
+               }
+              ]
+             }
+            },
+            {
+             "type": "AssemblyAssignment",
+             "names": [
+              {
+               "type": "Identifier",
+               "name": "v"
+              }
+             ],
+             "expression": {
+              "type": "AssemblyCall",
+              "functionName": "byte",
+              "arguments": [
+               {
+                "type": "DecimalNumber",
+                "value": "0"
+               },
+               {
+                "type": "AssemblyCall",
+                "functionName": "mload",
+                "arguments": [
+                 {
+                  "type": "AssemblyCall",
+                  "functionName": "add",
+                  "arguments": [
+                   {
+                    "type": "AssemblyCall",
+                    "functionName": "signature",
+                    "arguments": []
+                   },
+                   {
+                    "type": "HexNumber",
+                    "value": "0x60"
+                   }
+                  ]
+                 }
+                ]
+               }
+              ]
+             }
+            }
+           ]
+          }
+         },
+         {
+          "type": "ReturnStatement",
+          "expression": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "Identifier",
+            "name": "recover"
+           },
+           "arguments": [
+            {
+             "type": "Identifier",
+             "name": "hash"
+            },
+            {
+             "type": "Identifier",
+             "name": "v"
+            },
+            {
+             "type": "Identifier",
+             "name": "r"
+            },
+            {
+             "type": "Identifier",
+             "name": "s"
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         }
+        ]
+       },
+       "visibility": "internal",
+       "modifiers": [],
+       "override": null,
+       "isConstructor": false,
+       "isReceiveEther": false,
+       "isFallback": false,
+       "isVirtual": false,
+       "stateMutability": "pure"
+      },
+      {
+       "type": "FunctionDefinition",
+       "name": "recover",
+       "parameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "bytes32",
+          "stateMutability": null
+         },
+         "name": "hash",
+         "identifier": {
+          "type": "Identifier",
+          "name": "hash"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint8",
+          "stateMutability": null
+         },
+         "name": "v",
+         "identifier": {
+          "type": "Identifier",
+          "name": "v"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "bytes32",
+          "stateMutability": null
+         },
+         "name": "r",
+         "identifier": {
+          "type": "Identifier",
+          "name": "r"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "bytes32",
+          "stateMutability": null
+         },
+         "name": "s",
+         "identifier": {
+          "type": "Identifier",
+          "name": "s"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "returnParameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "address",
+          "stateMutability": null
+         },
+         "name": null,
+         "identifier": null,
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "body": {
+        "type": "Block",
+        "statements": [
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "Identifier",
+            "name": "require"
+           },
+           "arguments": [
+            {
+             "type": "BinaryOperation",
+             "operator": "<=",
+             "left": {
+              "type": "FunctionCall",
+              "expression": {
+               "type": "ElementaryTypeName",
+               "name": "uint256",
+               "stateMutability": null
+              },
+              "arguments": [
+               {
+                "type": "Identifier",
+                "name": "s"
+               }
+              ],
+              "names": [],
+              "identifiers": []
+             },
+             "right": {
+              "type": "NumberLiteral",
+              "number": "0x7FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF5D576E7357A4501DDFE92F46681B20A0",
+              "subdenomination": null
+             }
+            },
+            {
+             "type": "StringLiteral",
+             "value": "ECDSA: invalid signature s value",
+             "parts": [
+              "ECDSA: invalid signature s value"
+             ],
+             "isUnicode": [
+              false
+             ]
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         },
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "Identifier",
+            "name": "require"
+           },
+           "arguments": [
+            {
+             "type": "BinaryOperation",
+             "operator": "||",
+             "left": {
+              "type": "BinaryOperation",
+              "operator": "==",
+              "left": {
+               "type": "Identifier",
+               "name": "v"
+              },
+              "right": {
+               "type": "NumberLiteral",
+               "number": "27",
+               "subdenomination": null
+              }
+             },
+             "right": {
+              "type": "BinaryOperation",
+              "operator": "==",
+              "left": {
+               "type": "Identifier",
+               "name": "v"
+              },
+              "right": {
+               "type": "NumberLiteral",
+               "number": "28",
+               "subdenomination": null
+              }
+             }
+            },
+            {
+             "type": "StringLiteral",
+             "value": "ECDSA: invalid signature v value",
+             "parts": [
+              "ECDSA: invalid signature v value"
+             ],
+             "isUnicode": [
+              false
+             ]
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         },
+         {
+          "type": "VariableDeclarationStatement",
+          "variables": [
+           {
+            "type": "VariableDeclaration",
+            "typeName": {
+             "type": "ElementaryTypeName",
+             "name": "address",
+             "stateMutability": null
+            },
+            "name": "signer",
+            "identifier": {
+             "type": "Identifier",
+             "name": "signer"
+            },
+            "storageLocation": null,
+            "isStateVar": false,
+            "isIndexed": false,
+            "expression": null
+           }
+          ],
+          "initialValue": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "Identifier",
+            "name": "ecrecover"
+           },
+           "arguments": [
+            {
+             "type": "Identifier",
+             "name": "hash"
+            },
+            {
+             "type": "Identifier",
+             "name": "v"
+            },
+            {
+             "type": "Identifier",
+             "name": "r"
+            },
+            {
+             "type": "Identifier",
+             "name": "s"
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         },
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "Identifier",
+            "name": "require"
+           },
+           "arguments": [
+            {
+             "type": "BinaryOperation",
+             "operator": "!=",
+             "left": {
+              "type": "Identifier",
+              "name": "signer"
+             },
+             "right": {
+              "type": "FunctionCall",
+              "expression": {
+               "type": "Identifier",
+               "name": "address"
+              },
+              "arguments": [
+               {
+                "type": "NumberLiteral",
+                "number": "0",
+                "subdenomination": null
+               }
+              ],
+              "names": [],
+              "identifiers": []
+             }
+            },
+            {
+             "type": "StringLiteral",
+             "value": "ECDSA: invalid signature",
+             "parts": [
+              "ECDSA: invalid signature"
+             ],
+             "isUnicode": [
+              false
+             ]
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         },
+         {
+          "type": "ReturnStatement",
+          "expression": {
+           "type": "Identifier",
+           "name": "signer"
+          }
+         }
+        ]
+       },
+       "visibility": "internal",
+       "modifiers": [],
+       "override": null,
+       "isConstructor": false,
+       "isReceiveEther": false,
+       "isFallback": false,
+       "isVirtual": false,
+       "stateMutability": "pure"
+      },
+      {
+       "type": "FunctionDefinition",
+       "name": "toEthSignedMessageHash",
+       "parameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "bytes32",
+          "stateMutability": null
+         },
+         "name": "hash",
+         "identifier": {
+          "type": "Identifier",
+          "name": "hash"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "returnParameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "bytes32",
+          "stateMutability": null
+         },
+         "name": null,
+         "identifier": null,
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "body": {
+        "type": "Block",
+        "statements": [
+         {
+          "type": "ReturnStatement",
+          "expression": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "Identifier",
+            "name": "keccak256"
+           },
+           "arguments": [
+            {
+             "type": "FunctionCall",
+             "expression": {
+              "type": "MemberAccess",
+              "expression": {
+               "type": "Identifier",
+               "name": "abi"
+              },
+              "memberName": "encodePacked"
+             },
+             "arguments": [
+              {
+               "type": "StringLiteral",
+               "value": "\\x19Ethereum Signed Message:\\n32",
+               "parts": [
+                "\\x19Ethereum Signed Message:\\n32"
+               ],
+               "isUnicode": [
+                false
+               ]
+              },
+              {
+               "type": "Identifier",
+               "name": "hash"
+              }
+             ],
+             "names": [],
+             "identifiers": []
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         }
+        ]
+       },
+       "visibility": "internal",
+       "modifiers": [],
+       "override": null,
+       "isConstructor": false,
+       "isReceiveEther": false,
+       "isFallback": false,
+       "isVirtual": false,
+       "stateMutability": "pure"
+      }
+     ],
+     "kind": "library"
+    }
+   ]
+  }
+ }
+]

@@ -1,0 +1,5882 @@
+[
+ {
+  "path": "/home/jameschong/Projects/audits-kd/workspace/datasets/DAppSCAN/DAppSCAN-source/contracts/QuillAudits-Lido-Aragon Voting/aragon-apps-8c46da8704d0011c42ece2896dbf4aeee069b84a/Voting.sol",
+  "ast": {
+   "type": "SourceUnit",
+   "children": [
+    {
+     "type": "PragmaDirective",
+     "name": "solidity",
+     "value": "0.4.24"
+    },
+    {
+     "type": "ImportDirective",
+     "path": "@aragon/os/contracts/apps/AragonApp.sol",
+     "pathLiteral": {
+      "type": "StringLiteral",
+      "value": "@aragon/os/contracts/apps/AragonApp.sol",
+      "parts": [
+       "@aragon/os/contracts/apps/AragonApp.sol"
+      ],
+      "isUnicode": [
+       false
+      ]
+     },
+     "unitAlias": null,
+     "unitAliasIdentifier": null,
+     "symbolAliases": null,
+     "symbolAliasesIdentifiers": null
+    },
+    {
+     "type": "ImportDirective",
+     "path": "@aragon/os/contracts/common/IForwarder.sol",
+     "pathLiteral": {
+      "type": "StringLiteral",
+      "value": "@aragon/os/contracts/common/IForwarder.sol",
+      "parts": [
+       "@aragon/os/contracts/common/IForwarder.sol"
+      ],
+      "isUnicode": [
+       false
+      ]
+     },
+     "unitAlias": null,
+     "unitAliasIdentifier": null,
+     "symbolAliases": null,
+     "symbolAliasesIdentifiers": null
+    },
+    {
+     "type": "ImportDirective",
+     "path": "@aragon/os/contracts/lib/math/SafeMath.sol",
+     "pathLiteral": {
+      "type": "StringLiteral",
+      "value": "@aragon/os/contracts/lib/math/SafeMath.sol",
+      "parts": [
+       "@aragon/os/contracts/lib/math/SafeMath.sol"
+      ],
+      "isUnicode": [
+       false
+      ]
+     },
+     "unitAlias": null,
+     "unitAliasIdentifier": null,
+     "symbolAliases": null,
+     "symbolAliasesIdentifiers": null
+    },
+    {
+     "type": "ImportDirective",
+     "path": "@aragon/os/contracts/lib/math/SafeMath64.sol",
+     "pathLiteral": {
+      "type": "StringLiteral",
+      "value": "@aragon/os/contracts/lib/math/SafeMath64.sol",
+      "parts": [
+       "@aragon/os/contracts/lib/math/SafeMath64.sol"
+      ],
+      "isUnicode": [
+       false
+      ]
+     },
+     "unitAlias": null,
+     "unitAliasIdentifier": null,
+     "symbolAliases": null,
+     "symbolAliasesIdentifiers": null
+    },
+    {
+     "type": "ImportDirective",
+     "path": "@aragon/minime/contracts/MiniMeToken.sol",
+     "pathLiteral": {
+      "type": "StringLiteral",
+      "value": "@aragon/minime/contracts/MiniMeToken.sol",
+      "parts": [
+       "@aragon/minime/contracts/MiniMeToken.sol"
+      ],
+      "isUnicode": [
+       false
+      ]
+     },
+     "unitAlias": null,
+     "unitAliasIdentifier": null,
+     "symbolAliases": null,
+     "symbolAliasesIdentifiers": null
+    },
+    {
+     "type": "ContractDefinition",
+     "name": "Voting",
+     "baseContracts": [
+      {
+       "type": "InheritanceSpecifier",
+       "baseName": {
+        "type": "UserDefinedTypeName",
+        "namePath": "IForwarder"
+       },
+       "arguments": []
+      },
+      {
+       "type": "InheritanceSpecifier",
+       "baseName": {
+        "type": "UserDefinedTypeName",
+        "namePath": "AragonApp"
+       },
+       "arguments": []
+      }
+     ],
+     "subNodes": [
+      {
+       "type": "UsingForDeclaration",
+       "isGlobal": false,
+       "typeName": {
+        "type": "ElementaryTypeName",
+        "name": "uint256",
+        "stateMutability": null
+       },
+       "libraryName": "SafeMath",
+       "functions": [],
+       "operators": []
+      },
+      {
+       "type": "UsingForDeclaration",
+       "isGlobal": false,
+       "typeName": {
+        "type": "ElementaryTypeName",
+        "name": "uint64",
+        "stateMutability": null
+       },
+       "libraryName": "SafeMath64",
+       "functions": [],
+       "operators": []
+      },
+      {
+       "type": "StateVariableDeclaration",
+       "variables": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "bytes32",
+          "stateMutability": null
+         },
+         "name": "CREATE_VOTES_ROLE",
+         "identifier": {
+          "type": "Identifier",
+          "name": "CREATE_VOTES_ROLE"
+         },
+         "expression": {
+          "type": "FunctionCall",
+          "expression": {
+           "type": "Identifier",
+           "name": "keccak256"
+          },
+          "arguments": [
+           {
+            "type": "StringLiteral",
+            "value": "CREATE_VOTES_ROLE",
+            "parts": [
+             "CREATE_VOTES_ROLE"
+            ],
+            "isUnicode": [
+             false
+            ]
+           }
+          ],
+          "names": [],
+          "identifiers": []
+         },
+         "visibility": "public",
+         "isStateVar": true,
+         "isDeclaredConst": true,
+         "isIndexed": false,
+         "isImmutable": false,
+         "override": null,
+         "storageLocation": null
+        }
+       ],
+       "initialValue": {
+        "type": "FunctionCall",
+        "expression": {
+         "type": "Identifier",
+         "name": "keccak256"
+        },
+        "arguments": [
+         {
+          "type": "StringLiteral",
+          "value": "CREATE_VOTES_ROLE",
+          "parts": [
+           "CREATE_VOTES_ROLE"
+          ],
+          "isUnicode": [
+           false
+          ]
+         }
+        ],
+        "names": [],
+        "identifiers": []
+       }
+      },
+      {
+       "type": "StateVariableDeclaration",
+       "variables": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "bytes32",
+          "stateMutability": null
+         },
+         "name": "MODIFY_SUPPORT_ROLE",
+         "identifier": {
+          "type": "Identifier",
+          "name": "MODIFY_SUPPORT_ROLE"
+         },
+         "expression": {
+          "type": "FunctionCall",
+          "expression": {
+           "type": "Identifier",
+           "name": "keccak256"
+          },
+          "arguments": [
+           {
+            "type": "StringLiteral",
+            "value": "MODIFY_SUPPORT_ROLE",
+            "parts": [
+             "MODIFY_SUPPORT_ROLE"
+            ],
+            "isUnicode": [
+             false
+            ]
+           }
+          ],
+          "names": [],
+          "identifiers": []
+         },
+         "visibility": "public",
+         "isStateVar": true,
+         "isDeclaredConst": true,
+         "isIndexed": false,
+         "isImmutable": false,
+         "override": null,
+         "storageLocation": null
+        }
+       ],
+       "initialValue": {
+        "type": "FunctionCall",
+        "expression": {
+         "type": "Identifier",
+         "name": "keccak256"
+        },
+        "arguments": [
+         {
+          "type": "StringLiteral",
+          "value": "MODIFY_SUPPORT_ROLE",
+          "parts": [
+           "MODIFY_SUPPORT_ROLE"
+          ],
+          "isUnicode": [
+           false
+          ]
+         }
+        ],
+        "names": [],
+        "identifiers": []
+       }
+      },
+      {
+       "type": "StateVariableDeclaration",
+       "variables": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "bytes32",
+          "stateMutability": null
+         },
+         "name": "MODIFY_QUORUM_ROLE",
+         "identifier": {
+          "type": "Identifier",
+          "name": "MODIFY_QUORUM_ROLE"
+         },
+         "expression": {
+          "type": "FunctionCall",
+          "expression": {
+           "type": "Identifier",
+           "name": "keccak256"
+          },
+          "arguments": [
+           {
+            "type": "StringLiteral",
+            "value": "MODIFY_QUORUM_ROLE",
+            "parts": [
+             "MODIFY_QUORUM_ROLE"
+            ],
+            "isUnicode": [
+             false
+            ]
+           }
+          ],
+          "names": [],
+          "identifiers": []
+         },
+         "visibility": "public",
+         "isStateVar": true,
+         "isDeclaredConst": true,
+         "isIndexed": false,
+         "isImmutable": false,
+         "override": null,
+         "storageLocation": null
+        }
+       ],
+       "initialValue": {
+        "type": "FunctionCall",
+        "expression": {
+         "type": "Identifier",
+         "name": "keccak256"
+        },
+        "arguments": [
+         {
+          "type": "StringLiteral",
+          "value": "MODIFY_QUORUM_ROLE",
+          "parts": [
+           "MODIFY_QUORUM_ROLE"
+          ],
+          "isUnicode": [
+           false
+          ]
+         }
+        ],
+        "names": [],
+        "identifiers": []
+       }
+      },
+      {
+       "type": "StateVariableDeclaration",
+       "variables": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "bytes32",
+          "stateMutability": null
+         },
+         "name": "UNSAFELY_MODIFY_VOTE_TIME_ROLE",
+         "identifier": {
+          "type": "Identifier",
+          "name": "UNSAFELY_MODIFY_VOTE_TIME_ROLE"
+         },
+         "expression": {
+          "type": "FunctionCall",
+          "expression": {
+           "type": "Identifier",
+           "name": "keccak256"
+          },
+          "arguments": [
+           {
+            "type": "StringLiteral",
+            "value": "UNSAFELY_MODIFY_VOTE_TIME_ROLE",
+            "parts": [
+             "UNSAFELY_MODIFY_VOTE_TIME_ROLE"
+            ],
+            "isUnicode": [
+             false
+            ]
+           }
+          ],
+          "names": [],
+          "identifiers": []
+         },
+         "visibility": "public",
+         "isStateVar": true,
+         "isDeclaredConst": true,
+         "isIndexed": false,
+         "isImmutable": false,
+         "override": null,
+         "storageLocation": null
+        }
+       ],
+       "initialValue": {
+        "type": "FunctionCall",
+        "expression": {
+         "type": "Identifier",
+         "name": "keccak256"
+        },
+        "arguments": [
+         {
+          "type": "StringLiteral",
+          "value": "UNSAFELY_MODIFY_VOTE_TIME_ROLE",
+          "parts": [
+           "UNSAFELY_MODIFY_VOTE_TIME_ROLE"
+          ],
+          "isUnicode": [
+           false
+          ]
+         }
+        ],
+        "names": [],
+        "identifiers": []
+       }
+      },
+      {
+       "type": "StateVariableDeclaration",
+       "variables": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint64",
+          "stateMutability": null
+         },
+         "name": "PCT_BASE",
+         "identifier": {
+          "type": "Identifier",
+          "name": "PCT_BASE"
+         },
+         "expression": {
+          "type": "BinaryOperation",
+          "operator": "**",
+          "left": {
+           "type": "NumberLiteral",
+           "number": "10",
+           "subdenomination": null
+          },
+          "right": {
+           "type": "NumberLiteral",
+           "number": "18",
+           "subdenomination": null
+          }
+         },
+         "visibility": "public",
+         "isStateVar": true,
+         "isDeclaredConst": true,
+         "isIndexed": false,
+         "isImmutable": false,
+         "override": null,
+         "storageLocation": null
+        }
+       ],
+       "initialValue": {
+        "type": "BinaryOperation",
+        "operator": "**",
+        "left": {
+         "type": "NumberLiteral",
+         "number": "10",
+         "subdenomination": null
+        },
+        "right": {
+         "type": "NumberLiteral",
+         "number": "18",
+         "subdenomination": null
+        }
+       }
+      },
+      {
+       "type": "StateVariableDeclaration",
+       "variables": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "string",
+          "stateMutability": null
+         },
+         "name": "ERROR_NO_VOTE",
+         "identifier": {
+          "type": "Identifier",
+          "name": "ERROR_NO_VOTE"
+         },
+         "expression": {
+          "type": "StringLiteral",
+          "value": "VOTING_NO_VOTE",
+          "parts": [
+           "VOTING_NO_VOTE"
+          ],
+          "isUnicode": [
+           false
+          ]
+         },
+         "visibility": "private",
+         "isStateVar": true,
+         "isDeclaredConst": true,
+         "isIndexed": false,
+         "isImmutable": false,
+         "override": null,
+         "storageLocation": null
+        }
+       ],
+       "initialValue": {
+        "type": "StringLiteral",
+        "value": "VOTING_NO_VOTE",
+        "parts": [
+         "VOTING_NO_VOTE"
+        ],
+        "isUnicode": [
+         false
+        ]
+       }
+      },
+      {
+       "type": "StateVariableDeclaration",
+       "variables": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "string",
+          "stateMutability": null
+         },
+         "name": "ERROR_INIT_PCTS",
+         "identifier": {
+          "type": "Identifier",
+          "name": "ERROR_INIT_PCTS"
+         },
+         "expression": {
+          "type": "StringLiteral",
+          "value": "VOTING_INIT_PCTS",
+          "parts": [
+           "VOTING_INIT_PCTS"
+          ],
+          "isUnicode": [
+           false
+          ]
+         },
+         "visibility": "private",
+         "isStateVar": true,
+         "isDeclaredConst": true,
+         "isIndexed": false,
+         "isImmutable": false,
+         "override": null,
+         "storageLocation": null
+        }
+       ],
+       "initialValue": {
+        "type": "StringLiteral",
+        "value": "VOTING_INIT_PCTS",
+        "parts": [
+         "VOTING_INIT_PCTS"
+        ],
+        "isUnicode": [
+         false
+        ]
+       }
+      },
+      {
+       "type": "StateVariableDeclaration",
+       "variables": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "string",
+          "stateMutability": null
+         },
+         "name": "ERROR_CHANGE_SUPPORT_PCTS",
+         "identifier": {
+          "type": "Identifier",
+          "name": "ERROR_CHANGE_SUPPORT_PCTS"
+         },
+         "expression": {
+          "type": "StringLiteral",
+          "value": "VOTING_CHANGE_SUPPORT_PCTS",
+          "parts": [
+           "VOTING_CHANGE_SUPPORT_PCTS"
+          ],
+          "isUnicode": [
+           false
+          ]
+         },
+         "visibility": "private",
+         "isStateVar": true,
+         "isDeclaredConst": true,
+         "isIndexed": false,
+         "isImmutable": false,
+         "override": null,
+         "storageLocation": null
+        }
+       ],
+       "initialValue": {
+        "type": "StringLiteral",
+        "value": "VOTING_CHANGE_SUPPORT_PCTS",
+        "parts": [
+         "VOTING_CHANGE_SUPPORT_PCTS"
+        ],
+        "isUnicode": [
+         false
+        ]
+       }
+      },
+      {
+       "type": "StateVariableDeclaration",
+       "variables": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "string",
+          "stateMutability": null
+         },
+         "name": "ERROR_CHANGE_QUORUM_PCTS",
+         "identifier": {
+          "type": "Identifier",
+          "name": "ERROR_CHANGE_QUORUM_PCTS"
+         },
+         "expression": {
+          "type": "StringLiteral",
+          "value": "VOTING_CHANGE_QUORUM_PCTS",
+          "parts": [
+           "VOTING_CHANGE_QUORUM_PCTS"
+          ],
+          "isUnicode": [
+           false
+          ]
+         },
+         "visibility": "private",
+         "isStateVar": true,
+         "isDeclaredConst": true,
+         "isIndexed": false,
+         "isImmutable": false,
+         "override": null,
+         "storageLocation": null
+        }
+       ],
+       "initialValue": {
+        "type": "StringLiteral",
+        "value": "VOTING_CHANGE_QUORUM_PCTS",
+        "parts": [
+         "VOTING_CHANGE_QUORUM_PCTS"
+        ],
+        "isUnicode": [
+         false
+        ]
+       }
+      },
+      {
+       "type": "StateVariableDeclaration",
+       "variables": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "string",
+          "stateMutability": null
+         },
+         "name": "ERROR_INIT_SUPPORT_TOO_BIG",
+         "identifier": {
+          "type": "Identifier",
+          "name": "ERROR_INIT_SUPPORT_TOO_BIG"
+         },
+         "expression": {
+          "type": "StringLiteral",
+          "value": "VOTING_INIT_SUPPORT_TOO_BIG",
+          "parts": [
+           "VOTING_INIT_SUPPORT_TOO_BIG"
+          ],
+          "isUnicode": [
+           false
+          ]
+         },
+         "visibility": "private",
+         "isStateVar": true,
+         "isDeclaredConst": true,
+         "isIndexed": false,
+         "isImmutable": false,
+         "override": null,
+         "storageLocation": null
+        }
+       ],
+       "initialValue": {
+        "type": "StringLiteral",
+        "value": "VOTING_INIT_SUPPORT_TOO_BIG",
+        "parts": [
+         "VOTING_INIT_SUPPORT_TOO_BIG"
+        ],
+        "isUnicode": [
+         false
+        ]
+       }
+      },
+      {
+       "type": "StateVariableDeclaration",
+       "variables": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "string",
+          "stateMutability": null
+         },
+         "name": "ERROR_CHANGE_SUPPORT_TOO_BIG",
+         "identifier": {
+          "type": "Identifier",
+          "name": "ERROR_CHANGE_SUPPORT_TOO_BIG"
+         },
+         "expression": {
+          "type": "StringLiteral",
+          "value": "VOTING_CHANGE_SUPP_TOO_BIG",
+          "parts": [
+           "VOTING_CHANGE_SUPP_TOO_BIG"
+          ],
+          "isUnicode": [
+           false
+          ]
+         },
+         "visibility": "private",
+         "isStateVar": true,
+         "isDeclaredConst": true,
+         "isIndexed": false,
+         "isImmutable": false,
+         "override": null,
+         "storageLocation": null
+        }
+       ],
+       "initialValue": {
+        "type": "StringLiteral",
+        "value": "VOTING_CHANGE_SUPP_TOO_BIG",
+        "parts": [
+         "VOTING_CHANGE_SUPP_TOO_BIG"
+        ],
+        "isUnicode": [
+         false
+        ]
+       }
+      },
+      {
+       "type": "StateVariableDeclaration",
+       "variables": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "string",
+          "stateMutability": null
+         },
+         "name": "ERROR_CAN_NOT_VOTE",
+         "identifier": {
+          "type": "Identifier",
+          "name": "ERROR_CAN_NOT_VOTE"
+         },
+         "expression": {
+          "type": "StringLiteral",
+          "value": "VOTING_CAN_NOT_VOTE",
+          "parts": [
+           "VOTING_CAN_NOT_VOTE"
+          ],
+          "isUnicode": [
+           false
+          ]
+         },
+         "visibility": "private",
+         "isStateVar": true,
+         "isDeclaredConst": true,
+         "isIndexed": false,
+         "isImmutable": false,
+         "override": null,
+         "storageLocation": null
+        }
+       ],
+       "initialValue": {
+        "type": "StringLiteral",
+        "value": "VOTING_CAN_NOT_VOTE",
+        "parts": [
+         "VOTING_CAN_NOT_VOTE"
+        ],
+        "isUnicode": [
+         false
+        ]
+       }
+      },
+      {
+       "type": "StateVariableDeclaration",
+       "variables": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "string",
+          "stateMutability": null
+         },
+         "name": "ERROR_CAN_NOT_EXECUTE",
+         "identifier": {
+          "type": "Identifier",
+          "name": "ERROR_CAN_NOT_EXECUTE"
+         },
+         "expression": {
+          "type": "StringLiteral",
+          "value": "VOTING_CAN_NOT_EXECUTE",
+          "parts": [
+           "VOTING_CAN_NOT_EXECUTE"
+          ],
+          "isUnicode": [
+           false
+          ]
+         },
+         "visibility": "private",
+         "isStateVar": true,
+         "isDeclaredConst": true,
+         "isIndexed": false,
+         "isImmutable": false,
+         "override": null,
+         "storageLocation": null
+        }
+       ],
+       "initialValue": {
+        "type": "StringLiteral",
+        "value": "VOTING_CAN_NOT_EXECUTE",
+        "parts": [
+         "VOTING_CAN_NOT_EXECUTE"
+        ],
+        "isUnicode": [
+         false
+        ]
+       }
+      },
+      {
+       "type": "StateVariableDeclaration",
+       "variables": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "string",
+          "stateMutability": null
+         },
+         "name": "ERROR_CAN_NOT_FORWARD",
+         "identifier": {
+          "type": "Identifier",
+          "name": "ERROR_CAN_NOT_FORWARD"
+         },
+         "expression": {
+          "type": "StringLiteral",
+          "value": "VOTING_CAN_NOT_FORWARD",
+          "parts": [
+           "VOTING_CAN_NOT_FORWARD"
+          ],
+          "isUnicode": [
+           false
+          ]
+         },
+         "visibility": "private",
+         "isStateVar": true,
+         "isDeclaredConst": true,
+         "isIndexed": false,
+         "isImmutable": false,
+         "override": null,
+         "storageLocation": null
+        }
+       ],
+       "initialValue": {
+        "type": "StringLiteral",
+        "value": "VOTING_CAN_NOT_FORWARD",
+        "parts": [
+         "VOTING_CAN_NOT_FORWARD"
+        ],
+        "isUnicode": [
+         false
+        ]
+       }
+      },
+      {
+       "type": "StateVariableDeclaration",
+       "variables": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "string",
+          "stateMutability": null
+         },
+         "name": "ERROR_NO_VOTING_POWER",
+         "identifier": {
+          "type": "Identifier",
+          "name": "ERROR_NO_VOTING_POWER"
+         },
+         "expression": {
+          "type": "StringLiteral",
+          "value": "VOTING_NO_VOTING_POWER",
+          "parts": [
+           "VOTING_NO_VOTING_POWER"
+          ],
+          "isUnicode": [
+           false
+          ]
+         },
+         "visibility": "private",
+         "isStateVar": true,
+         "isDeclaredConst": true,
+         "isIndexed": false,
+         "isImmutable": false,
+         "override": null,
+         "storageLocation": null
+        }
+       ],
+       "initialValue": {
+        "type": "StringLiteral",
+        "value": "VOTING_NO_VOTING_POWER",
+        "parts": [
+         "VOTING_NO_VOTING_POWER"
+        ],
+        "isUnicode": [
+         false
+        ]
+       }
+      },
+      {
+       "type": "EnumDefinition",
+       "name": "VoterState",
+       "members": [
+        {
+         "type": "EnumValue",
+         "name": "Absent"
+        },
+        {
+         "type": "EnumValue",
+         "name": "Yea"
+        },
+        {
+         "type": "EnumValue",
+         "name": "Nay"
+        }
+       ]
+      },
+      {
+       "type": "StructDefinition",
+       "name": "Vote",
+       "members": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "bool",
+          "stateMutability": null
+         },
+         "name": "executed",
+         "identifier": {
+          "type": "Identifier",
+          "name": "executed"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint64",
+          "stateMutability": null
+         },
+         "name": "startDate",
+         "identifier": {
+          "type": "Identifier",
+          "name": "startDate"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint64",
+          "stateMutability": null
+         },
+         "name": "snapshotBlock",
+         "identifier": {
+          "type": "Identifier",
+          "name": "snapshotBlock"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint64",
+          "stateMutability": null
+         },
+         "name": "supportRequiredPct",
+         "identifier": {
+          "type": "Identifier",
+          "name": "supportRequiredPct"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint64",
+          "stateMutability": null
+         },
+         "name": "minAcceptQuorumPct",
+         "identifier": {
+          "type": "Identifier",
+          "name": "minAcceptQuorumPct"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint256",
+          "stateMutability": null
+         },
+         "name": "yea",
+         "identifier": {
+          "type": "Identifier",
+          "name": "yea"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint256",
+          "stateMutability": null
+         },
+         "name": "nay",
+         "identifier": {
+          "type": "Identifier",
+          "name": "nay"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint256",
+          "stateMutability": null
+         },
+         "name": "votingPower",
+         "identifier": {
+          "type": "Identifier",
+          "name": "votingPower"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "bytes",
+          "stateMutability": null
+         },
+         "name": "executionScript",
+         "identifier": {
+          "type": "Identifier",
+          "name": "executionScript"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "Mapping",
+          "keyType": {
+           "type": "ElementaryTypeName",
+           "name": "address",
+           "stateMutability": null
+          },
+          "keyName": null,
+          "valueType": {
+           "type": "UserDefinedTypeName",
+           "namePath": "VoterState"
+          },
+          "valueName": null
+         },
+         "name": "voters",
+         "identifier": {
+          "type": "Identifier",
+          "name": "voters"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ]
+      },
+      {
+       "type": "StateVariableDeclaration",
+       "variables": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "UserDefinedTypeName",
+          "namePath": "MiniMeToken"
+         },
+         "name": "token",
+         "identifier": {
+          "type": "Identifier",
+          "name": "token"
+         },
+         "expression": null,
+         "visibility": "public",
+         "isStateVar": true,
+         "isDeclaredConst": false,
+         "isIndexed": false,
+         "isImmutable": false,
+         "override": null,
+         "storageLocation": null
+        }
+       ],
+       "initialValue": null
+      },
+      {
+       "type": "StateVariableDeclaration",
+       "variables": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint64",
+          "stateMutability": null
+         },
+         "name": "supportRequiredPct",
+         "identifier": {
+          "type": "Identifier",
+          "name": "supportRequiredPct"
+         },
+         "expression": null,
+         "visibility": "public",
+         "isStateVar": true,
+         "isDeclaredConst": false,
+         "isIndexed": false,
+         "isImmutable": false,
+         "override": null,
+         "storageLocation": null
+        }
+       ],
+       "initialValue": null
+      },
+      {
+       "type": "StateVariableDeclaration",
+       "variables": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint64",
+          "stateMutability": null
+         },
+         "name": "minAcceptQuorumPct",
+         "identifier": {
+          "type": "Identifier",
+          "name": "minAcceptQuorumPct"
+         },
+         "expression": null,
+         "visibility": "public",
+         "isStateVar": true,
+         "isDeclaredConst": false,
+         "isIndexed": false,
+         "isImmutable": false,
+         "override": null,
+         "storageLocation": null
+        }
+       ],
+       "initialValue": null
+      },
+      {
+       "type": "StateVariableDeclaration",
+       "variables": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint64",
+          "stateMutability": null
+         },
+         "name": "voteTime",
+         "identifier": {
+          "type": "Identifier",
+          "name": "voteTime"
+         },
+         "expression": null,
+         "visibility": "public",
+         "isStateVar": true,
+         "isDeclaredConst": false,
+         "isIndexed": false,
+         "isImmutable": false,
+         "override": null,
+         "storageLocation": null
+        }
+       ],
+       "initialValue": null
+      },
+      {
+       "type": "StateVariableDeclaration",
+       "variables": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "Mapping",
+          "keyType": {
+           "type": "ElementaryTypeName",
+           "name": "uint256",
+           "stateMutability": null
+          },
+          "keyName": null,
+          "valueType": {
+           "type": "UserDefinedTypeName",
+           "namePath": "Vote"
+          },
+          "valueName": null
+         },
+         "name": "votes",
+         "identifier": {
+          "type": "Identifier",
+          "name": "votes"
+         },
+         "expression": null,
+         "visibility": "internal",
+         "isStateVar": true,
+         "isDeclaredConst": false,
+         "isIndexed": false,
+         "isImmutable": false,
+         "override": null,
+         "storageLocation": null
+        }
+       ],
+       "initialValue": null
+      },
+      {
+       "type": "StateVariableDeclaration",
+       "variables": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint256",
+          "stateMutability": null
+         },
+         "name": "votesLength",
+         "identifier": {
+          "type": "Identifier",
+          "name": "votesLength"
+         },
+         "expression": null,
+         "visibility": "public",
+         "isStateVar": true,
+         "isDeclaredConst": false,
+         "isIndexed": false,
+         "isImmutable": false,
+         "override": null,
+         "storageLocation": null
+        }
+       ],
+       "initialValue": null
+      },
+      {
+       "type": "EventDefinition",
+       "name": "StartVote",
+       "parameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint256",
+          "stateMutability": null
+         },
+         "name": "voteId",
+         "identifier": {
+          "type": "Identifier",
+          "name": "voteId"
+         },
+         "isStateVar": false,
+         "isIndexed": true,
+         "storageLocation": null,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "address",
+          "stateMutability": null
+         },
+         "name": "creator",
+         "identifier": {
+          "type": "Identifier",
+          "name": "creator"
+         },
+         "isStateVar": false,
+         "isIndexed": true,
+         "storageLocation": null,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "string",
+          "stateMutability": null
+         },
+         "name": "metadata",
+         "identifier": {
+          "type": "Identifier",
+          "name": "metadata"
+         },
+         "isStateVar": false,
+         "isIndexed": false,
+         "storageLocation": null,
+         "expression": null
+        }
+       ],
+       "isAnonymous": false
+      },
+      {
+       "type": "EventDefinition",
+       "name": "CastVote",
+       "parameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint256",
+          "stateMutability": null
+         },
+         "name": "voteId",
+         "identifier": {
+          "type": "Identifier",
+          "name": "voteId"
+         },
+         "isStateVar": false,
+         "isIndexed": true,
+         "storageLocation": null,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "address",
+          "stateMutability": null
+         },
+         "name": "voter",
+         "identifier": {
+          "type": "Identifier",
+          "name": "voter"
+         },
+         "isStateVar": false,
+         "isIndexed": true,
+         "storageLocation": null,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "bool",
+          "stateMutability": null
+         },
+         "name": "supports",
+         "identifier": {
+          "type": "Identifier",
+          "name": "supports"
+         },
+         "isStateVar": false,
+         "isIndexed": false,
+         "storageLocation": null,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint256",
+          "stateMutability": null
+         },
+         "name": "stake",
+         "identifier": {
+          "type": "Identifier",
+          "name": "stake"
+         },
+         "isStateVar": false,
+         "isIndexed": false,
+         "storageLocation": null,
+         "expression": null
+        }
+       ],
+       "isAnonymous": false
+      },
+      {
+       "type": "EventDefinition",
+       "name": "ExecuteVote",
+       "parameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint256",
+          "stateMutability": null
+         },
+         "name": "voteId",
+         "identifier": {
+          "type": "Identifier",
+          "name": "voteId"
+         },
+         "isStateVar": false,
+         "isIndexed": true,
+         "storageLocation": null,
+         "expression": null
+        }
+       ],
+       "isAnonymous": false
+      },
+      {
+       "type": "EventDefinition",
+       "name": "ChangeSupportRequired",
+       "parameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint64",
+          "stateMutability": null
+         },
+         "name": "supportRequiredPct",
+         "identifier": {
+          "type": "Identifier",
+          "name": "supportRequiredPct"
+         },
+         "isStateVar": false,
+         "isIndexed": false,
+         "storageLocation": null,
+         "expression": null
+        }
+       ],
+       "isAnonymous": false
+      },
+      {
+       "type": "EventDefinition",
+       "name": "ChangeMinQuorum",
+       "parameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint64",
+          "stateMutability": null
+         },
+         "name": "minAcceptQuorumPct",
+         "identifier": {
+          "type": "Identifier",
+          "name": "minAcceptQuorumPct"
+         },
+         "isStateVar": false,
+         "isIndexed": false,
+         "storageLocation": null,
+         "expression": null
+        }
+       ],
+       "isAnonymous": false
+      },
+      {
+       "type": "EventDefinition",
+       "name": "ChangeVoteTime",
+       "parameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint64",
+          "stateMutability": null
+         },
+         "name": "voteTime",
+         "identifier": {
+          "type": "Identifier",
+          "name": "voteTime"
+         },
+         "isStateVar": false,
+         "isIndexed": false,
+         "storageLocation": null,
+         "expression": null
+        }
+       ],
+       "isAnonymous": false
+      },
+      {
+       "type": "ModifierDefinition",
+       "name": "voteExists",
+       "parameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint256",
+          "stateMutability": null
+         },
+         "name": "_voteId",
+         "identifier": {
+          "type": "Identifier",
+          "name": "_voteId"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "body": {
+        "type": "Block",
+        "statements": [
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "Identifier",
+            "name": "require"
+           },
+           "arguments": [
+            {
+             "type": "BinaryOperation",
+             "operator": "<",
+             "left": {
+              "type": "Identifier",
+              "name": "_voteId"
+             },
+             "right": {
+              "type": "Identifier",
+              "name": "votesLength"
+             }
+            },
+            {
+             "type": "Identifier",
+             "name": "ERROR_NO_VOTE"
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         },
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "Identifier",
+           "name": "_"
+          }
+         }
+        ]
+       },
+       "isVirtual": false,
+       "override": null
+      },
+      {
+       "type": "FunctionDefinition",
+       "name": "initialize",
+       "parameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "UserDefinedTypeName",
+          "namePath": "MiniMeToken"
+         },
+         "name": "_token",
+         "identifier": {
+          "type": "Identifier",
+          "name": "_token"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint64",
+          "stateMutability": null
+         },
+         "name": "_supportRequiredPct",
+         "identifier": {
+          "type": "Identifier",
+          "name": "_supportRequiredPct"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint64",
+          "stateMutability": null
+         },
+         "name": "_minAcceptQuorumPct",
+         "identifier": {
+          "type": "Identifier",
+          "name": "_minAcceptQuorumPct"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint64",
+          "stateMutability": null
+         },
+         "name": "_voteTime",
+         "identifier": {
+          "type": "Identifier",
+          "name": "_voteTime"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "returnParameters": null,
+       "body": {
+        "type": "Block",
+        "statements": [
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "Identifier",
+            "name": "initialized"
+           },
+           "arguments": [],
+           "names": [],
+           "identifiers": []
+          }
+         },
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "Identifier",
+            "name": "require"
+           },
+           "arguments": [
+            {
+             "type": "BinaryOperation",
+             "operator": "<=",
+             "left": {
+              "type": "Identifier",
+              "name": "_minAcceptQuorumPct"
+             },
+             "right": {
+              "type": "Identifier",
+              "name": "_supportRequiredPct"
+             }
+            },
+            {
+             "type": "Identifier",
+             "name": "ERROR_INIT_PCTS"
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         },
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "Identifier",
+            "name": "require"
+           },
+           "arguments": [
+            {
+             "type": "BinaryOperation",
+             "operator": "<",
+             "left": {
+              "type": "Identifier",
+              "name": "_supportRequiredPct"
+             },
+             "right": {
+              "type": "Identifier",
+              "name": "PCT_BASE"
+             }
+            },
+            {
+             "type": "Identifier",
+             "name": "ERROR_INIT_SUPPORT_TOO_BIG"
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         },
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "BinaryOperation",
+           "operator": "=",
+           "left": {
+            "type": "Identifier",
+            "name": "token"
+           },
+           "right": {
+            "type": "Identifier",
+            "name": "_token"
+           }
+          }
+         },
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "BinaryOperation",
+           "operator": "=",
+           "left": {
+            "type": "Identifier",
+            "name": "supportRequiredPct"
+           },
+           "right": {
+            "type": "Identifier",
+            "name": "_supportRequiredPct"
+           }
+          }
+         },
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "BinaryOperation",
+           "operator": "=",
+           "left": {
+            "type": "Identifier",
+            "name": "minAcceptQuorumPct"
+           },
+           "right": {
+            "type": "Identifier",
+            "name": "_minAcceptQuorumPct"
+           }
+          }
+         },
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "BinaryOperation",
+           "operator": "=",
+           "left": {
+            "type": "Identifier",
+            "name": "voteTime"
+           },
+           "right": {
+            "type": "Identifier",
+            "name": "_voteTime"
+           }
+          }
+         }
+        ]
+       },
+       "visibility": "external",
+       "modifiers": [
+        {
+         "type": "ModifierInvocation",
+         "name": "onlyInit",
+         "arguments": null
+        }
+       ],
+       "override": null,
+       "isConstructor": false,
+       "isReceiveEther": false,
+       "isFallback": false,
+       "isVirtual": false,
+       "stateMutability": null
+      },
+      {
+       "type": "FunctionDefinition",
+       "name": "changeSupportRequiredPct",
+       "parameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint64",
+          "stateMutability": null
+         },
+         "name": "_supportRequiredPct",
+         "identifier": {
+          "type": "Identifier",
+          "name": "_supportRequiredPct"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "returnParameters": null,
+       "body": {
+        "type": "Block",
+        "statements": [
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "Identifier",
+            "name": "require"
+           },
+           "arguments": [
+            {
+             "type": "BinaryOperation",
+             "operator": "<=",
+             "left": {
+              "type": "Identifier",
+              "name": "minAcceptQuorumPct"
+             },
+             "right": {
+              "type": "Identifier",
+              "name": "_supportRequiredPct"
+             }
+            },
+            {
+             "type": "Identifier",
+             "name": "ERROR_CHANGE_SUPPORT_PCTS"
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         },
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "Identifier",
+            "name": "require"
+           },
+           "arguments": [
+            {
+             "type": "BinaryOperation",
+             "operator": "<",
+             "left": {
+              "type": "Identifier",
+              "name": "_supportRequiredPct"
+             },
+             "right": {
+              "type": "Identifier",
+              "name": "PCT_BASE"
+             }
+            },
+            {
+             "type": "Identifier",
+             "name": "ERROR_CHANGE_SUPPORT_TOO_BIG"
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         },
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "BinaryOperation",
+           "operator": "=",
+           "left": {
+            "type": "Identifier",
+            "name": "supportRequiredPct"
+           },
+           "right": {
+            "type": "Identifier",
+            "name": "_supportRequiredPct"
+           }
+          }
+         },
+         {
+          "type": "EmitStatement",
+          "eventCall": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "Identifier",
+            "name": "ChangeSupportRequired"
+           },
+           "arguments": [
+            {
+             "type": "Identifier",
+             "name": "_supportRequiredPct"
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         }
+        ]
+       },
+       "visibility": "external",
+       "modifiers": [
+        {
+         "type": "ModifierInvocation",
+         "name": "authP",
+         "arguments": [
+          {
+           "type": "Identifier",
+           "name": "MODIFY_SUPPORT_ROLE"
+          },
+          {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "Identifier",
+            "name": "arr"
+           },
+           "arguments": [
+            {
+             "type": "FunctionCall",
+             "expression": {
+              "type": "ElementaryTypeName",
+              "name": "uint256",
+              "stateMutability": null
+             },
+             "arguments": [
+              {
+               "type": "Identifier",
+               "name": "_supportRequiredPct"
+              }
+             ],
+             "names": [],
+             "identifiers": []
+            },
+            {
+             "type": "FunctionCall",
+             "expression": {
+              "type": "ElementaryTypeName",
+              "name": "uint256",
+              "stateMutability": null
+             },
+             "arguments": [
+              {
+               "type": "Identifier",
+               "name": "supportRequiredPct"
+              }
+             ],
+             "names": [],
+             "identifiers": []
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         ]
+        }
+       ],
+       "override": null,
+       "isConstructor": false,
+       "isReceiveEther": false,
+       "isFallback": false,
+       "isVirtual": false,
+       "stateMutability": null
+      },
+      {
+       "type": "FunctionDefinition",
+       "name": "changeMinAcceptQuorumPct",
+       "parameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint64",
+          "stateMutability": null
+         },
+         "name": "_minAcceptQuorumPct",
+         "identifier": {
+          "type": "Identifier",
+          "name": "_minAcceptQuorumPct"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "returnParameters": null,
+       "body": {
+        "type": "Block",
+        "statements": [
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "Identifier",
+            "name": "require"
+           },
+           "arguments": [
+            {
+             "type": "BinaryOperation",
+             "operator": "<=",
+             "left": {
+              "type": "Identifier",
+              "name": "_minAcceptQuorumPct"
+             },
+             "right": {
+              "type": "Identifier",
+              "name": "supportRequiredPct"
+             }
+            },
+            {
+             "type": "Identifier",
+             "name": "ERROR_CHANGE_QUORUM_PCTS"
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         },
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "BinaryOperation",
+           "operator": "=",
+           "left": {
+            "type": "Identifier",
+            "name": "minAcceptQuorumPct"
+           },
+           "right": {
+            "type": "Identifier",
+            "name": "_minAcceptQuorumPct"
+           }
+          }
+         },
+         {
+          "type": "EmitStatement",
+          "eventCall": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "Identifier",
+            "name": "ChangeMinQuorum"
+           },
+           "arguments": [
+            {
+             "type": "Identifier",
+             "name": "_minAcceptQuorumPct"
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         }
+        ]
+       },
+       "visibility": "external",
+       "modifiers": [
+        {
+         "type": "ModifierInvocation",
+         "name": "authP",
+         "arguments": [
+          {
+           "type": "Identifier",
+           "name": "MODIFY_QUORUM_ROLE"
+          },
+          {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "Identifier",
+            "name": "arr"
+           },
+           "arguments": [
+            {
+             "type": "FunctionCall",
+             "expression": {
+              "type": "ElementaryTypeName",
+              "name": "uint256",
+              "stateMutability": null
+             },
+             "arguments": [
+              {
+               "type": "Identifier",
+               "name": "_minAcceptQuorumPct"
+              }
+             ],
+             "names": [],
+             "identifiers": []
+            },
+            {
+             "type": "FunctionCall",
+             "expression": {
+              "type": "ElementaryTypeName",
+              "name": "uint256",
+              "stateMutability": null
+             },
+             "arguments": [
+              {
+               "type": "Identifier",
+               "name": "minAcceptQuorumPct"
+              }
+             ],
+             "names": [],
+             "identifiers": []
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         ]
+        }
+       ],
+       "override": null,
+       "isConstructor": false,
+       "isReceiveEther": false,
+       "isFallback": false,
+       "isVirtual": false,
+       "stateMutability": null
+      },
+      {
+       "type": "FunctionDefinition",
+       "name": "unsafelyChangeVoteTime",
+       "parameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint64",
+          "stateMutability": null
+         },
+         "name": "_voteTime",
+         "identifier": {
+          "type": "Identifier",
+          "name": "_voteTime"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "returnParameters": null,
+       "body": {
+        "type": "Block",
+        "statements": [
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "BinaryOperation",
+           "operator": "=",
+           "left": {
+            "type": "Identifier",
+            "name": "voteTime"
+           },
+           "right": {
+            "type": "Identifier",
+            "name": "_voteTime"
+           }
+          }
+         },
+         {
+          "type": "EmitStatement",
+          "eventCall": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "Identifier",
+            "name": "ChangeVoteTime"
+           },
+           "arguments": [
+            {
+             "type": "Identifier",
+             "name": "_voteTime"
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         }
+        ]
+       },
+       "visibility": "external",
+       "modifiers": [
+        {
+         "type": "ModifierInvocation",
+         "name": "authP",
+         "arguments": [
+          {
+           "type": "Identifier",
+           "name": "UNSAFELY_MODIFY_VOTE_TIME_ROLE"
+          },
+          {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "Identifier",
+            "name": "arr"
+           },
+           "arguments": [
+            {
+             "type": "FunctionCall",
+             "expression": {
+              "type": "ElementaryTypeName",
+              "name": "uint256",
+              "stateMutability": null
+             },
+             "arguments": [
+              {
+               "type": "Identifier",
+               "name": "_voteTime"
+              }
+             ],
+             "names": [],
+             "identifiers": []
+            },
+            {
+             "type": "FunctionCall",
+             "expression": {
+              "type": "ElementaryTypeName",
+              "name": "uint256",
+              "stateMutability": null
+             },
+             "arguments": [
+              {
+               "type": "Identifier",
+               "name": "voteTime"
+              }
+             ],
+             "names": [],
+             "identifiers": []
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         ]
+        }
+       ],
+       "override": null,
+       "isConstructor": false,
+       "isReceiveEther": false,
+       "isFallback": false,
+       "isVirtual": false,
+       "stateMutability": null
+      },
+      {
+       "type": "FunctionDefinition",
+       "name": "newVote",
+       "parameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "bytes",
+          "stateMutability": null
+         },
+         "name": "_executionScript",
+         "identifier": {
+          "type": "Identifier",
+          "name": "_executionScript"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "string",
+          "stateMutability": null
+         },
+         "name": "_metadata",
+         "identifier": {
+          "type": "Identifier",
+          "name": "_metadata"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "returnParameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint256",
+          "stateMutability": null
+         },
+         "name": "voteId",
+         "identifier": {
+          "type": "Identifier",
+          "name": "voteId"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "body": {
+        "type": "Block",
+        "statements": [
+         {
+          "type": "ReturnStatement",
+          "expression": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "Identifier",
+            "name": "_newVote"
+           },
+           "arguments": [
+            {
+             "type": "Identifier",
+             "name": "_executionScript"
+            },
+            {
+             "type": "Identifier",
+             "name": "_metadata"
+            },
+            {
+             "type": "BooleanLiteral",
+             "value": true
+            },
+            {
+             "type": "BooleanLiteral",
+             "value": true
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         }
+        ]
+       },
+       "visibility": "external",
+       "modifiers": [
+        {
+         "type": "ModifierInvocation",
+         "name": "auth",
+         "arguments": [
+          {
+           "type": "Identifier",
+           "name": "CREATE_VOTES_ROLE"
+          }
+         ]
+        }
+       ],
+       "override": null,
+       "isConstructor": false,
+       "isReceiveEther": false,
+       "isFallback": false,
+       "isVirtual": false,
+       "stateMutability": null
+      },
+      {
+       "type": "FunctionDefinition",
+       "name": "newVote",
+       "parameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "bytes",
+          "stateMutability": null
+         },
+         "name": "_executionScript",
+         "identifier": {
+          "type": "Identifier",
+          "name": "_executionScript"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "string",
+          "stateMutability": null
+         },
+         "name": "_metadata",
+         "identifier": {
+          "type": "Identifier",
+          "name": "_metadata"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "bool",
+          "stateMutability": null
+         },
+         "name": "_castVote",
+         "identifier": {
+          "type": "Identifier",
+          "name": "_castVote"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "bool",
+          "stateMutability": null
+         },
+         "name": "_executesIfDecided",
+         "identifier": {
+          "type": "Identifier",
+          "name": "_executesIfDecided"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "returnParameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint256",
+          "stateMutability": null
+         },
+         "name": "voteId",
+         "identifier": {
+          "type": "Identifier",
+          "name": "voteId"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "body": {
+        "type": "Block",
+        "statements": [
+         {
+          "type": "ReturnStatement",
+          "expression": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "Identifier",
+            "name": "_newVote"
+           },
+           "arguments": [
+            {
+             "type": "Identifier",
+             "name": "_executionScript"
+            },
+            {
+             "type": "Identifier",
+             "name": "_metadata"
+            },
+            {
+             "type": "Identifier",
+             "name": "_castVote"
+            },
+            {
+             "type": "Identifier",
+             "name": "_executesIfDecided"
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         }
+        ]
+       },
+       "visibility": "external",
+       "modifiers": [
+        {
+         "type": "ModifierInvocation",
+         "name": "auth",
+         "arguments": [
+          {
+           "type": "Identifier",
+           "name": "CREATE_VOTES_ROLE"
+          }
+         ]
+        }
+       ],
+       "override": null,
+       "isConstructor": false,
+       "isReceiveEther": false,
+       "isFallback": false,
+       "isVirtual": false,
+       "stateMutability": null
+      },
+      {
+       "type": "FunctionDefinition",
+       "name": "vote",
+       "parameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint256",
+          "stateMutability": null
+         },
+         "name": "_voteId",
+         "identifier": {
+          "type": "Identifier",
+          "name": "_voteId"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "bool",
+          "stateMutability": null
+         },
+         "name": "_supports",
+         "identifier": {
+          "type": "Identifier",
+          "name": "_supports"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "bool",
+          "stateMutability": null
+         },
+         "name": "_executesIfDecided",
+         "identifier": {
+          "type": "Identifier",
+          "name": "_executesIfDecided"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "returnParameters": null,
+       "body": {
+        "type": "Block",
+        "statements": [
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "Identifier",
+            "name": "require"
+           },
+           "arguments": [
+            {
+             "type": "FunctionCall",
+             "expression": {
+              "type": "Identifier",
+              "name": "_canVote"
+             },
+             "arguments": [
+              {
+               "type": "Identifier",
+               "name": "_voteId"
+              },
+              {
+               "type": "MemberAccess",
+               "expression": {
+                "type": "Identifier",
+                "name": "msg"
+               },
+               "memberName": "sender"
+              }
+             ],
+             "names": [],
+             "identifiers": []
+            },
+            {
+             "type": "Identifier",
+             "name": "ERROR_CAN_NOT_VOTE"
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         },
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "Identifier",
+            "name": "_vote"
+           },
+           "arguments": [
+            {
+             "type": "Identifier",
+             "name": "_voteId"
+            },
+            {
+             "type": "Identifier",
+             "name": "_supports"
+            },
+            {
+             "type": "MemberAccess",
+             "expression": {
+              "type": "Identifier",
+              "name": "msg"
+             },
+             "memberName": "sender"
+            },
+            {
+             "type": "Identifier",
+             "name": "_executesIfDecided"
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         }
+        ]
+       },
+       "visibility": "external",
+       "modifiers": [
+        {
+         "type": "ModifierInvocation",
+         "name": "voteExists",
+         "arguments": [
+          {
+           "type": "Identifier",
+           "name": "_voteId"
+          }
+         ]
+        }
+       ],
+       "override": null,
+       "isConstructor": false,
+       "isReceiveEther": false,
+       "isFallback": false,
+       "isVirtual": false,
+       "stateMutability": null
+      },
+      {
+       "type": "FunctionDefinition",
+       "name": "executeVote",
+       "parameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint256",
+          "stateMutability": null
+         },
+         "name": "_voteId",
+         "identifier": {
+          "type": "Identifier",
+          "name": "_voteId"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "returnParameters": null,
+       "body": {
+        "type": "Block",
+        "statements": [
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "Identifier",
+            "name": "_executeVote"
+           },
+           "arguments": [
+            {
+             "type": "Identifier",
+             "name": "_voteId"
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         }
+        ]
+       },
+       "visibility": "external",
+       "modifiers": [
+        {
+         "type": "ModifierInvocation",
+         "name": "voteExists",
+         "arguments": [
+          {
+           "type": "Identifier",
+           "name": "_voteId"
+          }
+         ]
+        }
+       ],
+       "override": null,
+       "isConstructor": false,
+       "isReceiveEther": false,
+       "isFallback": false,
+       "isVirtual": false,
+       "stateMutability": null
+      },
+      {
+       "type": "FunctionDefinition",
+       "name": "isForwarder",
+       "parameters": [],
+       "returnParameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "bool",
+          "stateMutability": null
+         },
+         "name": null,
+         "identifier": null,
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "body": {
+        "type": "Block",
+        "statements": [
+         {
+          "type": "ReturnStatement",
+          "expression": {
+           "type": "BooleanLiteral",
+           "value": true
+          }
+         }
+        ]
+       },
+       "visibility": "external",
+       "modifiers": [],
+       "override": null,
+       "isConstructor": false,
+       "isReceiveEther": false,
+       "isFallback": false,
+       "isVirtual": false,
+       "stateMutability": "pure"
+      },
+      {
+       "type": "FunctionDefinition",
+       "name": "forward",
+       "parameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "bytes",
+          "stateMutability": null
+         },
+         "name": "_evmScript",
+         "identifier": {
+          "type": "Identifier",
+          "name": "_evmScript"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "returnParameters": null,
+       "body": {
+        "type": "Block",
+        "statements": [
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "Identifier",
+            "name": "require"
+           },
+           "arguments": [
+            {
+             "type": "FunctionCall",
+             "expression": {
+              "type": "Identifier",
+              "name": "canForward"
+             },
+             "arguments": [
+              {
+               "type": "MemberAccess",
+               "expression": {
+                "type": "Identifier",
+                "name": "msg"
+               },
+               "memberName": "sender"
+              },
+              {
+               "type": "Identifier",
+               "name": "_evmScript"
+              }
+             ],
+             "names": [],
+             "identifiers": []
+            },
+            {
+             "type": "Identifier",
+             "name": "ERROR_CAN_NOT_FORWARD"
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         },
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "Identifier",
+            "name": "_newVote"
+           },
+           "arguments": [
+            {
+             "type": "Identifier",
+             "name": "_evmScript"
+            },
+            {
+             "type": "StringLiteral",
+             "value": "",
+             "parts": [
+              ""
+             ],
+             "isUnicode": [
+              false
+             ]
+            },
+            {
+             "type": "BooleanLiteral",
+             "value": true
+            },
+            {
+             "type": "BooleanLiteral",
+             "value": true
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         }
+        ]
+       },
+       "visibility": "public",
+       "modifiers": [],
+       "override": null,
+       "isConstructor": false,
+       "isReceiveEther": false,
+       "isFallback": false,
+       "isVirtual": false,
+       "stateMutability": null
+      },
+      {
+       "type": "FunctionDefinition",
+       "name": "canForward",
+       "parameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "address",
+          "stateMutability": null
+         },
+         "name": "_sender",
+         "identifier": {
+          "type": "Identifier",
+          "name": "_sender"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "bytes",
+          "stateMutability": null
+         },
+         "name": null,
+         "identifier": null,
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "returnParameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "bool",
+          "stateMutability": null
+         },
+         "name": null,
+         "identifier": null,
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "body": {
+        "type": "Block",
+        "statements": [
+         {
+          "type": "ReturnStatement",
+          "expression": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "Identifier",
+            "name": "canPerform"
+           },
+           "arguments": [
+            {
+             "type": "Identifier",
+             "name": "_sender"
+            },
+            {
+             "type": "Identifier",
+             "name": "CREATE_VOTES_ROLE"
+            },
+            {
+             "type": "FunctionCall",
+             "expression": {
+              "type": "Identifier",
+              "name": "arr"
+             },
+             "arguments": [],
+             "names": [],
+             "identifiers": []
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         }
+        ]
+       },
+       "visibility": "public",
+       "modifiers": [],
+       "override": null,
+       "isConstructor": false,
+       "isReceiveEther": false,
+       "isFallback": false,
+       "isVirtual": false,
+       "stateMutability": "view"
+      },
+      {
+       "type": "FunctionDefinition",
+       "name": "canExecute",
+       "parameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint256",
+          "stateMutability": null
+         },
+         "name": "_voteId",
+         "identifier": {
+          "type": "Identifier",
+          "name": "_voteId"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "returnParameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "bool",
+          "stateMutability": null
+         },
+         "name": null,
+         "identifier": null,
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "body": {
+        "type": "Block",
+        "statements": [
+         {
+          "type": "ReturnStatement",
+          "expression": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "Identifier",
+            "name": "_canExecute"
+           },
+           "arguments": [
+            {
+             "type": "Identifier",
+             "name": "_voteId"
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         }
+        ]
+       },
+       "visibility": "public",
+       "modifiers": [
+        {
+         "type": "ModifierInvocation",
+         "name": "voteExists",
+         "arguments": [
+          {
+           "type": "Identifier",
+           "name": "_voteId"
+          }
+         ]
+        }
+       ],
+       "override": null,
+       "isConstructor": false,
+       "isReceiveEther": false,
+       "isFallback": false,
+       "isVirtual": false,
+       "stateMutability": "view"
+      },
+      {
+       "type": "FunctionDefinition",
+       "name": "canVote",
+       "parameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint256",
+          "stateMutability": null
+         },
+         "name": "_voteId",
+         "identifier": {
+          "type": "Identifier",
+          "name": "_voteId"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "address",
+          "stateMutability": null
+         },
+         "name": "_voter",
+         "identifier": {
+          "type": "Identifier",
+          "name": "_voter"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "returnParameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "bool",
+          "stateMutability": null
+         },
+         "name": null,
+         "identifier": null,
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "body": {
+        "type": "Block",
+        "statements": [
+         {
+          "type": "ReturnStatement",
+          "expression": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "Identifier",
+            "name": "_canVote"
+           },
+           "arguments": [
+            {
+             "type": "Identifier",
+             "name": "_voteId"
+            },
+            {
+             "type": "Identifier",
+             "name": "_voter"
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         }
+        ]
+       },
+       "visibility": "public",
+       "modifiers": [
+        {
+         "type": "ModifierInvocation",
+         "name": "voteExists",
+         "arguments": [
+          {
+           "type": "Identifier",
+           "name": "_voteId"
+          }
+         ]
+        }
+       ],
+       "override": null,
+       "isConstructor": false,
+       "isReceiveEther": false,
+       "isFallback": false,
+       "isVirtual": false,
+       "stateMutability": "view"
+      },
+      {
+       "type": "FunctionDefinition",
+       "name": "getVote",
+       "parameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint256",
+          "stateMutability": null
+         },
+         "name": "_voteId",
+         "identifier": {
+          "type": "Identifier",
+          "name": "_voteId"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "returnParameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "bool",
+          "stateMutability": null
+         },
+         "name": "open",
+         "identifier": {
+          "type": "Identifier",
+          "name": "open"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "bool",
+          "stateMutability": null
+         },
+         "name": "executed",
+         "identifier": {
+          "type": "Identifier",
+          "name": "executed"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint64",
+          "stateMutability": null
+         },
+         "name": "startDate",
+         "identifier": {
+          "type": "Identifier",
+          "name": "startDate"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint64",
+          "stateMutability": null
+         },
+         "name": "snapshotBlock",
+         "identifier": {
+          "type": "Identifier",
+          "name": "snapshotBlock"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint64",
+          "stateMutability": null
+         },
+         "name": "supportRequired",
+         "identifier": {
+          "type": "Identifier",
+          "name": "supportRequired"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint64",
+          "stateMutability": null
+         },
+         "name": "minAcceptQuorum",
+         "identifier": {
+          "type": "Identifier",
+          "name": "minAcceptQuorum"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint256",
+          "stateMutability": null
+         },
+         "name": "yea",
+         "identifier": {
+          "type": "Identifier",
+          "name": "yea"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint256",
+          "stateMutability": null
+         },
+         "name": "nay",
+         "identifier": {
+          "type": "Identifier",
+          "name": "nay"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint256",
+          "stateMutability": null
+         },
+         "name": "votingPower",
+         "identifier": {
+          "type": "Identifier",
+          "name": "votingPower"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "bytes",
+          "stateMutability": null
+         },
+         "name": "script",
+         "identifier": {
+          "type": "Identifier",
+          "name": "script"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "body": {
+        "type": "Block",
+        "statements": [
+         {
+          "type": "VariableDeclarationStatement",
+          "variables": [
+           {
+            "type": "VariableDeclaration",
+            "typeName": {
+             "type": "UserDefinedTypeName",
+             "namePath": "Vote"
+            },
+            "name": "vote_",
+            "identifier": {
+             "type": "Identifier",
+             "name": "vote_"
+            },
+            "storageLocation": "storage",
+            "isStateVar": false,
+            "isIndexed": false,
+            "expression": null
+           }
+          ],
+          "initialValue": {
+           "type": "IndexAccess",
+           "base": {
+            "type": "Identifier",
+            "name": "votes"
+           },
+           "index": {
+            "type": "Identifier",
+            "name": "_voteId"
+           }
+          }
+         },
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "BinaryOperation",
+           "operator": "=",
+           "left": {
+            "type": "Identifier",
+            "name": "open"
+           },
+           "right": {
+            "type": "FunctionCall",
+            "expression": {
+             "type": "Identifier",
+             "name": "_isVoteOpen"
+            },
+            "arguments": [
+             {
+              "type": "Identifier",
+              "name": "vote_"
+             }
+            ],
+            "names": [],
+            "identifiers": []
+           }
+          }
+         },
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "BinaryOperation",
+           "operator": "=",
+           "left": {
+            "type": "Identifier",
+            "name": "executed"
+           },
+           "right": {
+            "type": "MemberAccess",
+            "expression": {
+             "type": "Identifier",
+             "name": "vote_"
+            },
+            "memberName": "executed"
+           }
+          }
+         },
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "BinaryOperation",
+           "operator": "=",
+           "left": {
+            "type": "Identifier",
+            "name": "startDate"
+           },
+           "right": {
+            "type": "MemberAccess",
+            "expression": {
+             "type": "Identifier",
+             "name": "vote_"
+            },
+            "memberName": "startDate"
+           }
+          }
+         },
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "BinaryOperation",
+           "operator": "=",
+           "left": {
+            "type": "Identifier",
+            "name": "snapshotBlock"
+           },
+           "right": {
+            "type": "MemberAccess",
+            "expression": {
+             "type": "Identifier",
+             "name": "vote_"
+            },
+            "memberName": "snapshotBlock"
+           }
+          }
+         },
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "BinaryOperation",
+           "operator": "=",
+           "left": {
+            "type": "Identifier",
+            "name": "supportRequired"
+           },
+           "right": {
+            "type": "MemberAccess",
+            "expression": {
+             "type": "Identifier",
+             "name": "vote_"
+            },
+            "memberName": "supportRequiredPct"
+           }
+          }
+         },
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "BinaryOperation",
+           "operator": "=",
+           "left": {
+            "type": "Identifier",
+            "name": "minAcceptQuorum"
+           },
+           "right": {
+            "type": "MemberAccess",
+            "expression": {
+             "type": "Identifier",
+             "name": "vote_"
+            },
+            "memberName": "minAcceptQuorumPct"
+           }
+          }
+         },
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "BinaryOperation",
+           "operator": "=",
+           "left": {
+            "type": "Identifier",
+            "name": "yea"
+           },
+           "right": {
+            "type": "MemberAccess",
+            "expression": {
+             "type": "Identifier",
+             "name": "vote_"
+            },
+            "memberName": "yea"
+           }
+          }
+         },
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "BinaryOperation",
+           "operator": "=",
+           "left": {
+            "type": "Identifier",
+            "name": "nay"
+           },
+           "right": {
+            "type": "MemberAccess",
+            "expression": {
+             "type": "Identifier",
+             "name": "vote_"
+            },
+            "memberName": "nay"
+           }
+          }
+         },
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "BinaryOperation",
+           "operator": "=",
+           "left": {
+            "type": "Identifier",
+            "name": "votingPower"
+           },
+           "right": {
+            "type": "MemberAccess",
+            "expression": {
+             "type": "Identifier",
+             "name": "vote_"
+            },
+            "memberName": "votingPower"
+           }
+          }
+         },
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "BinaryOperation",
+           "operator": "=",
+           "left": {
+            "type": "Identifier",
+            "name": "script"
+           },
+           "right": {
+            "type": "MemberAccess",
+            "expression": {
+             "type": "Identifier",
+             "name": "vote_"
+            },
+            "memberName": "executionScript"
+           }
+          }
+         }
+        ]
+       },
+       "visibility": "public",
+       "modifiers": [
+        {
+         "type": "ModifierInvocation",
+         "name": "voteExists",
+         "arguments": [
+          {
+           "type": "Identifier",
+           "name": "_voteId"
+          }
+         ]
+        }
+       ],
+       "override": null,
+       "isConstructor": false,
+       "isReceiveEther": false,
+       "isFallback": false,
+       "isVirtual": false,
+       "stateMutability": "view"
+      },
+      {
+       "type": "FunctionDefinition",
+       "name": "getVoterState",
+       "parameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint256",
+          "stateMutability": null
+         },
+         "name": "_voteId",
+         "identifier": {
+          "type": "Identifier",
+          "name": "_voteId"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "address",
+          "stateMutability": null
+         },
+         "name": "_voter",
+         "identifier": {
+          "type": "Identifier",
+          "name": "_voter"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "returnParameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "UserDefinedTypeName",
+          "namePath": "VoterState"
+         },
+         "name": null,
+         "identifier": null,
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "body": {
+        "type": "Block",
+        "statements": [
+         {
+          "type": "ReturnStatement",
+          "expression": {
+           "type": "IndexAccess",
+           "base": {
+            "type": "MemberAccess",
+            "expression": {
+             "type": "IndexAccess",
+             "base": {
+              "type": "Identifier",
+              "name": "votes"
+             },
+             "index": {
+              "type": "Identifier",
+              "name": "_voteId"
+             }
+            },
+            "memberName": "voters"
+           },
+           "index": {
+            "type": "Identifier",
+            "name": "_voter"
+           }
+          }
+         }
+        ]
+       },
+       "visibility": "public",
+       "modifiers": [
+        {
+         "type": "ModifierInvocation",
+         "name": "voteExists",
+         "arguments": [
+          {
+           "type": "Identifier",
+           "name": "_voteId"
+          }
+         ]
+        }
+       ],
+       "override": null,
+       "isConstructor": false,
+       "isReceiveEther": false,
+       "isFallback": false,
+       "isVirtual": false,
+       "stateMutability": "view"
+      },
+      {
+       "type": "FunctionDefinition",
+       "name": "_newVote",
+       "parameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "bytes",
+          "stateMutability": null
+         },
+         "name": "_executionScript",
+         "identifier": {
+          "type": "Identifier",
+          "name": "_executionScript"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "string",
+          "stateMutability": null
+         },
+         "name": "_metadata",
+         "identifier": {
+          "type": "Identifier",
+          "name": "_metadata"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "bool",
+          "stateMutability": null
+         },
+         "name": "_castVote",
+         "identifier": {
+          "type": "Identifier",
+          "name": "_castVote"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "bool",
+          "stateMutability": null
+         },
+         "name": "_executesIfDecided",
+         "identifier": {
+          "type": "Identifier",
+          "name": "_executesIfDecided"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "returnParameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint256",
+          "stateMutability": null
+         },
+         "name": "voteId",
+         "identifier": {
+          "type": "Identifier",
+          "name": "voteId"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "body": {
+        "type": "Block",
+        "statements": [
+         {
+          "type": "VariableDeclarationStatement",
+          "variables": [
+           {
+            "type": "VariableDeclaration",
+            "typeName": {
+             "type": "ElementaryTypeName",
+             "name": "uint64",
+             "stateMutability": null
+            },
+            "name": "snapshotBlock",
+            "identifier": {
+             "type": "Identifier",
+             "name": "snapshotBlock"
+            },
+            "storageLocation": null,
+            "isStateVar": false,
+            "isIndexed": false,
+            "expression": null
+           }
+          ],
+          "initialValue": {
+           "type": "BinaryOperation",
+           "operator": "-",
+           "left": {
+            "type": "FunctionCall",
+            "expression": {
+             "type": "Identifier",
+             "name": "getBlockNumber64"
+            },
+            "arguments": [],
+            "names": [],
+            "identifiers": []
+           },
+           "right": {
+            "type": "NumberLiteral",
+            "number": "1",
+            "subdenomination": null
+           }
+          }
+         },
+         {
+          "type": "VariableDeclarationStatement",
+          "variables": [
+           {
+            "type": "VariableDeclaration",
+            "typeName": {
+             "type": "ElementaryTypeName",
+             "name": "uint256",
+             "stateMutability": null
+            },
+            "name": "votingPower",
+            "identifier": {
+             "type": "Identifier",
+             "name": "votingPower"
+            },
+            "storageLocation": null,
+            "isStateVar": false,
+            "isIndexed": false,
+            "expression": null
+           }
+          ],
+          "initialValue": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "MemberAccess",
+            "expression": {
+             "type": "Identifier",
+             "name": "token"
+            },
+            "memberName": "totalSupplyAt"
+           },
+           "arguments": [
+            {
+             "type": "Identifier",
+             "name": "snapshotBlock"
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         },
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "Identifier",
+            "name": "require"
+           },
+           "arguments": [
+            {
+             "type": "BinaryOperation",
+             "operator": ">",
+             "left": {
+              "type": "Identifier",
+              "name": "votingPower"
+             },
+             "right": {
+              "type": "NumberLiteral",
+              "number": "0",
+              "subdenomination": null
+             }
+            },
+            {
+             "type": "Identifier",
+             "name": "ERROR_NO_VOTING_POWER"
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         },
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "BinaryOperation",
+           "operator": "=",
+           "left": {
+            "type": "Identifier",
+            "name": "voteId"
+           },
+           "right": {
+            "type": "UnaryOperation",
+            "operator": "++",
+            "subExpression": {
+             "type": "Identifier",
+             "name": "votesLength"
+            },
+            "isPrefix": false
+           }
+          }
+         },
+         {
+          "type": "VariableDeclarationStatement",
+          "variables": [
+           {
+            "type": "VariableDeclaration",
+            "typeName": {
+             "type": "UserDefinedTypeName",
+             "namePath": "Vote"
+            },
+            "name": "vote_",
+            "identifier": {
+             "type": "Identifier",
+             "name": "vote_"
+            },
+            "storageLocation": "storage",
+            "isStateVar": false,
+            "isIndexed": false,
+            "expression": null
+           }
+          ],
+          "initialValue": {
+           "type": "IndexAccess",
+           "base": {
+            "type": "Identifier",
+            "name": "votes"
+           },
+           "index": {
+            "type": "Identifier",
+            "name": "voteId"
+           }
+          }
+         },
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "BinaryOperation",
+           "operator": "=",
+           "left": {
+            "type": "MemberAccess",
+            "expression": {
+             "type": "Identifier",
+             "name": "vote_"
+            },
+            "memberName": "startDate"
+           },
+           "right": {
+            "type": "FunctionCall",
+            "expression": {
+             "type": "Identifier",
+             "name": "getTimestamp64"
+            },
+            "arguments": [],
+            "names": [],
+            "identifiers": []
+           }
+          }
+         },
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "BinaryOperation",
+           "operator": "=",
+           "left": {
+            "type": "MemberAccess",
+            "expression": {
+             "type": "Identifier",
+             "name": "vote_"
+            },
+            "memberName": "snapshotBlock"
+           },
+           "right": {
+            "type": "Identifier",
+            "name": "snapshotBlock"
+           }
+          }
+         },
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "BinaryOperation",
+           "operator": "=",
+           "left": {
+            "type": "MemberAccess",
+            "expression": {
+             "type": "Identifier",
+             "name": "vote_"
+            },
+            "memberName": "supportRequiredPct"
+           },
+           "right": {
+            "type": "Identifier",
+            "name": "supportRequiredPct"
+           }
+          }
+         },
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "BinaryOperation",
+           "operator": "=",
+           "left": {
+            "type": "MemberAccess",
+            "expression": {
+             "type": "Identifier",
+             "name": "vote_"
+            },
+            "memberName": "minAcceptQuorumPct"
+           },
+           "right": {
+            "type": "Identifier",
+            "name": "minAcceptQuorumPct"
+           }
+          }
+         },
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "BinaryOperation",
+           "operator": "=",
+           "left": {
+            "type": "MemberAccess",
+            "expression": {
+             "type": "Identifier",
+             "name": "vote_"
+            },
+            "memberName": "votingPower"
+           },
+           "right": {
+            "type": "Identifier",
+            "name": "votingPower"
+           }
+          }
+         },
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "BinaryOperation",
+           "operator": "=",
+           "left": {
+            "type": "MemberAccess",
+            "expression": {
+             "type": "Identifier",
+             "name": "vote_"
+            },
+            "memberName": "executionScript"
+           },
+           "right": {
+            "type": "Identifier",
+            "name": "_executionScript"
+           }
+          }
+         },
+         {
+          "type": "EmitStatement",
+          "eventCall": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "Identifier",
+            "name": "StartVote"
+           },
+           "arguments": [
+            {
+             "type": "Identifier",
+             "name": "voteId"
+            },
+            {
+             "type": "MemberAccess",
+             "expression": {
+              "type": "Identifier",
+              "name": "msg"
+             },
+             "memberName": "sender"
+            },
+            {
+             "type": "Identifier",
+             "name": "_metadata"
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         },
+         {
+          "type": "IfStatement",
+          "condition": {
+           "type": "BinaryOperation",
+           "operator": "&&",
+           "left": {
+            "type": "Identifier",
+            "name": "_castVote"
+           },
+           "right": {
+            "type": "FunctionCall",
+            "expression": {
+             "type": "Identifier",
+             "name": "_canVote"
+            },
+            "arguments": [
+             {
+              "type": "Identifier",
+              "name": "voteId"
+             },
+             {
+              "type": "MemberAccess",
+              "expression": {
+               "type": "Identifier",
+               "name": "msg"
+              },
+              "memberName": "sender"
+             }
+            ],
+            "names": [],
+            "identifiers": []
+           }
+          },
+          "trueBody": {
+           "type": "Block",
+           "statements": [
+            {
+             "type": "ExpressionStatement",
+             "expression": {
+              "type": "FunctionCall",
+              "expression": {
+               "type": "Identifier",
+               "name": "_vote"
+              },
+              "arguments": [
+               {
+                "type": "Identifier",
+                "name": "voteId"
+               },
+               {
+                "type": "BooleanLiteral",
+                "value": true
+               },
+               {
+                "type": "MemberAccess",
+                "expression": {
+                 "type": "Identifier",
+                 "name": "msg"
+                },
+                "memberName": "sender"
+               },
+               {
+                "type": "Identifier",
+                "name": "_executesIfDecided"
+               }
+              ],
+              "names": [],
+              "identifiers": []
+             }
+            }
+           ]
+          },
+          "falseBody": null
+         }
+        ]
+       },
+       "visibility": "internal",
+       "modifiers": [],
+       "override": null,
+       "isConstructor": false,
+       "isReceiveEther": false,
+       "isFallback": false,
+       "isVirtual": false,
+       "stateMutability": null
+      },
+      {
+       "type": "FunctionDefinition",
+       "name": "_vote",
+       "parameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint256",
+          "stateMutability": null
+         },
+         "name": "_voteId",
+         "identifier": {
+          "type": "Identifier",
+          "name": "_voteId"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "bool",
+          "stateMutability": null
+         },
+         "name": "_supports",
+         "identifier": {
+          "type": "Identifier",
+          "name": "_supports"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "address",
+          "stateMutability": null
+         },
+         "name": "_voter",
+         "identifier": {
+          "type": "Identifier",
+          "name": "_voter"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "bool",
+          "stateMutability": null
+         },
+         "name": "_executesIfDecided",
+         "identifier": {
+          "type": "Identifier",
+          "name": "_executesIfDecided"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "returnParameters": null,
+       "body": {
+        "type": "Block",
+        "statements": [
+         {
+          "type": "VariableDeclarationStatement",
+          "variables": [
+           {
+            "type": "VariableDeclaration",
+            "typeName": {
+             "type": "UserDefinedTypeName",
+             "namePath": "Vote"
+            },
+            "name": "vote_",
+            "identifier": {
+             "type": "Identifier",
+             "name": "vote_"
+            },
+            "storageLocation": "storage",
+            "isStateVar": false,
+            "isIndexed": false,
+            "expression": null
+           }
+          ],
+          "initialValue": {
+           "type": "IndexAccess",
+           "base": {
+            "type": "Identifier",
+            "name": "votes"
+           },
+           "index": {
+            "type": "Identifier",
+            "name": "_voteId"
+           }
+          }
+         },
+         {
+          "type": "VariableDeclarationStatement",
+          "variables": [
+           {
+            "type": "VariableDeclaration",
+            "typeName": {
+             "type": "ElementaryTypeName",
+             "name": "uint256",
+             "stateMutability": null
+            },
+            "name": "voterStake",
+            "identifier": {
+             "type": "Identifier",
+             "name": "voterStake"
+            },
+            "storageLocation": null,
+            "isStateVar": false,
+            "isIndexed": false,
+            "expression": null
+           }
+          ],
+          "initialValue": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "MemberAccess",
+            "expression": {
+             "type": "Identifier",
+             "name": "token"
+            },
+            "memberName": "balanceOfAt"
+           },
+           "arguments": [
+            {
+             "type": "Identifier",
+             "name": "_voter"
+            },
+            {
+             "type": "MemberAccess",
+             "expression": {
+              "type": "Identifier",
+              "name": "vote_"
+             },
+             "memberName": "snapshotBlock"
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         },
+         {
+          "type": "VariableDeclarationStatement",
+          "variables": [
+           {
+            "type": "VariableDeclaration",
+            "typeName": {
+             "type": "UserDefinedTypeName",
+             "namePath": "VoterState"
+            },
+            "name": "state",
+            "identifier": {
+             "type": "Identifier",
+             "name": "state"
+            },
+            "storageLocation": null,
+            "isStateVar": false,
+            "isIndexed": false,
+            "expression": null
+           }
+          ],
+          "initialValue": {
+           "type": "IndexAccess",
+           "base": {
+            "type": "MemberAccess",
+            "expression": {
+             "type": "Identifier",
+             "name": "vote_"
+            },
+            "memberName": "voters"
+           },
+           "index": {
+            "type": "Identifier",
+            "name": "_voter"
+           }
+          }
+         },
+         {
+          "type": "IfStatement",
+          "condition": {
+           "type": "BinaryOperation",
+           "operator": "==",
+           "left": {
+            "type": "Identifier",
+            "name": "state"
+           },
+           "right": {
+            "type": "MemberAccess",
+            "expression": {
+             "type": "Identifier",
+             "name": "VoterState"
+            },
+            "memberName": "Yea"
+           }
+          },
+          "trueBody": {
+           "type": "Block",
+           "statements": [
+            {
+             "type": "ExpressionStatement",
+             "expression": {
+              "type": "BinaryOperation",
+              "operator": "=",
+              "left": {
+               "type": "MemberAccess",
+               "expression": {
+                "type": "Identifier",
+                "name": "vote_"
+               },
+               "memberName": "yea"
+              },
+              "right": {
+               "type": "FunctionCall",
+               "expression": {
+                "type": "MemberAccess",
+                "expression": {
+                 "type": "MemberAccess",
+                 "expression": {
+                  "type": "Identifier",
+                  "name": "vote_"
+                 },
+                 "memberName": "yea"
+                },
+                "memberName": "sub"
+               },
+               "arguments": [
+                {
+                 "type": "Identifier",
+                 "name": "voterStake"
+                }
+               ],
+               "names": [],
+               "identifiers": []
+              }
+             }
+            }
+           ]
+          },
+          "falseBody": {
+           "type": "IfStatement",
+           "condition": {
+            "type": "BinaryOperation",
+            "operator": "==",
+            "left": {
+             "type": "Identifier",
+             "name": "state"
+            },
+            "right": {
+             "type": "MemberAccess",
+             "expression": {
+              "type": "Identifier",
+              "name": "VoterState"
+             },
+             "memberName": "Nay"
+            }
+           },
+           "trueBody": {
+            "type": "Block",
+            "statements": [
+             {
+              "type": "ExpressionStatement",
+              "expression": {
+               "type": "BinaryOperation",
+               "operator": "=",
+               "left": {
+                "type": "MemberAccess",
+                "expression": {
+                 "type": "Identifier",
+                 "name": "vote_"
+                },
+                "memberName": "nay"
+               },
+               "right": {
+                "type": "FunctionCall",
+                "expression": {
+                 "type": "MemberAccess",
+                 "expression": {
+                  "type": "MemberAccess",
+                  "expression": {
+                   "type": "Identifier",
+                   "name": "vote_"
+                  },
+                  "memberName": "nay"
+                 },
+                 "memberName": "sub"
+                },
+                "arguments": [
+                 {
+                  "type": "Identifier",
+                  "name": "voterStake"
+                 }
+                ],
+                "names": [],
+                "identifiers": []
+               }
+              }
+             }
+            ]
+           },
+           "falseBody": null
+          }
+         },
+         {
+          "type": "IfStatement",
+          "condition": {
+           "type": "Identifier",
+           "name": "_supports"
+          },
+          "trueBody": {
+           "type": "Block",
+           "statements": [
+            {
+             "type": "ExpressionStatement",
+             "expression": {
+              "type": "BinaryOperation",
+              "operator": "=",
+              "left": {
+               "type": "MemberAccess",
+               "expression": {
+                "type": "Identifier",
+                "name": "vote_"
+               },
+               "memberName": "yea"
+              },
+              "right": {
+               "type": "FunctionCall",
+               "expression": {
+                "type": "MemberAccess",
+                "expression": {
+                 "type": "MemberAccess",
+                 "expression": {
+                  "type": "Identifier",
+                  "name": "vote_"
+                 },
+                 "memberName": "yea"
+                },
+                "memberName": "add"
+               },
+               "arguments": [
+                {
+                 "type": "Identifier",
+                 "name": "voterStake"
+                }
+               ],
+               "names": [],
+               "identifiers": []
+              }
+             }
+            }
+           ]
+          },
+          "falseBody": {
+           "type": "Block",
+           "statements": [
+            {
+             "type": "ExpressionStatement",
+             "expression": {
+              "type": "BinaryOperation",
+              "operator": "=",
+              "left": {
+               "type": "MemberAccess",
+               "expression": {
+                "type": "Identifier",
+                "name": "vote_"
+               },
+               "memberName": "nay"
+              },
+              "right": {
+               "type": "FunctionCall",
+               "expression": {
+                "type": "MemberAccess",
+                "expression": {
+                 "type": "MemberAccess",
+                 "expression": {
+                  "type": "Identifier",
+                  "name": "vote_"
+                 },
+                 "memberName": "nay"
+                },
+                "memberName": "add"
+               },
+               "arguments": [
+                {
+                 "type": "Identifier",
+                 "name": "voterStake"
+                }
+               ],
+               "names": [],
+               "identifiers": []
+              }
+             }
+            }
+           ]
+          }
+         },
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "BinaryOperation",
+           "operator": "=",
+           "left": {
+            "type": "IndexAccess",
+            "base": {
+             "type": "MemberAccess",
+             "expression": {
+              "type": "Identifier",
+              "name": "vote_"
+             },
+             "memberName": "voters"
+            },
+            "index": {
+             "type": "Identifier",
+             "name": "_voter"
+            }
+           },
+           "right": {
+            "type": "Conditional",
+            "condition": {
+             "type": "Identifier",
+             "name": "_supports"
+            },
+            "trueExpression": {
+             "type": "MemberAccess",
+             "expression": {
+              "type": "Identifier",
+              "name": "VoterState"
+             },
+             "memberName": "Yea"
+            },
+            "falseExpression": {
+             "type": "MemberAccess",
+             "expression": {
+              "type": "Identifier",
+              "name": "VoterState"
+             },
+             "memberName": "Nay"
+            }
+           }
+          }
+         },
+         {
+          "type": "EmitStatement",
+          "eventCall": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "Identifier",
+            "name": "CastVote"
+           },
+           "arguments": [
+            {
+             "type": "Identifier",
+             "name": "_voteId"
+            },
+            {
+             "type": "Identifier",
+             "name": "_voter"
+            },
+            {
+             "type": "Identifier",
+             "name": "_supports"
+            },
+            {
+             "type": "Identifier",
+             "name": "voterStake"
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         },
+         {
+          "type": "IfStatement",
+          "condition": {
+           "type": "BinaryOperation",
+           "operator": "&&",
+           "left": {
+            "type": "Identifier",
+            "name": "_executesIfDecided"
+           },
+           "right": {
+            "type": "FunctionCall",
+            "expression": {
+             "type": "Identifier",
+             "name": "_canExecute"
+            },
+            "arguments": [
+             {
+              "type": "Identifier",
+              "name": "_voteId"
+             }
+            ],
+            "names": [],
+            "identifiers": []
+           }
+          },
+          "trueBody": {
+           "type": "Block",
+           "statements": [
+            {
+             "type": "ExpressionStatement",
+             "expression": {
+              "type": "FunctionCall",
+              "expression": {
+               "type": "Identifier",
+               "name": "_unsafeExecuteVote"
+              },
+              "arguments": [
+               {
+                "type": "Identifier",
+                "name": "_voteId"
+               }
+              ],
+              "names": [],
+              "identifiers": []
+             }
+            }
+           ]
+          },
+          "falseBody": null
+         }
+        ]
+       },
+       "visibility": "internal",
+       "modifiers": [],
+       "override": null,
+       "isConstructor": false,
+       "isReceiveEther": false,
+       "isFallback": false,
+       "isVirtual": false,
+       "stateMutability": null
+      },
+      {
+       "type": "FunctionDefinition",
+       "name": "_executeVote",
+       "parameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint256",
+          "stateMutability": null
+         },
+         "name": "_voteId",
+         "identifier": {
+          "type": "Identifier",
+          "name": "_voteId"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "returnParameters": null,
+       "body": {
+        "type": "Block",
+        "statements": [
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "Identifier",
+            "name": "require"
+           },
+           "arguments": [
+            {
+             "type": "FunctionCall",
+             "expression": {
+              "type": "Identifier",
+              "name": "_canExecute"
+             },
+             "arguments": [
+              {
+               "type": "Identifier",
+               "name": "_voteId"
+              }
+             ],
+             "names": [],
+             "identifiers": []
+            },
+            {
+             "type": "Identifier",
+             "name": "ERROR_CAN_NOT_EXECUTE"
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         },
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "Identifier",
+            "name": "_unsafeExecuteVote"
+           },
+           "arguments": [
+            {
+             "type": "Identifier",
+             "name": "_voteId"
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         }
+        ]
+       },
+       "visibility": "internal",
+       "modifiers": [],
+       "override": null,
+       "isConstructor": false,
+       "isReceiveEther": false,
+       "isFallback": false,
+       "isVirtual": false,
+       "stateMutability": null
+      },
+      {
+       "type": "FunctionDefinition",
+       "name": "_unsafeExecuteVote",
+       "parameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint256",
+          "stateMutability": null
+         },
+         "name": "_voteId",
+         "identifier": {
+          "type": "Identifier",
+          "name": "_voteId"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "returnParameters": null,
+       "body": {
+        "type": "Block",
+        "statements": [
+         {
+          "type": "VariableDeclarationStatement",
+          "variables": [
+           {
+            "type": "VariableDeclaration",
+            "typeName": {
+             "type": "UserDefinedTypeName",
+             "namePath": "Vote"
+            },
+            "name": "vote_",
+            "identifier": {
+             "type": "Identifier",
+             "name": "vote_"
+            },
+            "storageLocation": "storage",
+            "isStateVar": false,
+            "isIndexed": false,
+            "expression": null
+           }
+          ],
+          "initialValue": {
+           "type": "IndexAccess",
+           "base": {
+            "type": "Identifier",
+            "name": "votes"
+           },
+           "index": {
+            "type": "Identifier",
+            "name": "_voteId"
+           }
+          }
+         },
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "BinaryOperation",
+           "operator": "=",
+           "left": {
+            "type": "MemberAccess",
+            "expression": {
+             "type": "Identifier",
+             "name": "vote_"
+            },
+            "memberName": "executed"
+           },
+           "right": {
+            "type": "BooleanLiteral",
+            "value": true
+           }
+          }
+         },
+         {
+          "type": "VariableDeclarationStatement",
+          "variables": [
+           {
+            "type": "VariableDeclaration",
+            "typeName": {
+             "type": "ElementaryTypeName",
+             "name": "bytes",
+             "stateMutability": null
+            },
+            "name": "input",
+            "identifier": {
+             "type": "Identifier",
+             "name": "input"
+            },
+            "storageLocation": "memory",
+            "isStateVar": false,
+            "isIndexed": false,
+            "expression": null
+           }
+          ],
+          "initialValue": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "NewExpression",
+            "typeName": {
+             "type": "ElementaryTypeName",
+             "name": "bytes",
+             "stateMutability": null
+            }
+           },
+           "arguments": [
+            {
+             "type": "NumberLiteral",
+             "number": "0",
+             "subdenomination": null
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         },
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "Identifier",
+            "name": "runScript"
+           },
+           "arguments": [
+            {
+             "type": "MemberAccess",
+             "expression": {
+              "type": "Identifier",
+              "name": "vote_"
+             },
+             "memberName": "executionScript"
+            },
+            {
+             "type": "Identifier",
+             "name": "input"
+            },
+            {
+             "type": "FunctionCall",
+             "expression": {
+              "type": "NewExpression",
+              "typeName": {
+               "type": "ArrayTypeName",
+               "baseTypeName": {
+                "type": "ElementaryTypeName",
+                "name": "address",
+                "stateMutability": null
+               },
+               "length": null
+              }
+             },
+             "arguments": [
+              {
+               "type": "NumberLiteral",
+               "number": "0",
+               "subdenomination": null
+              }
+             ],
+             "names": [],
+             "identifiers": []
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         },
+         {
+          "type": "EmitStatement",
+          "eventCall": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "Identifier",
+            "name": "ExecuteVote"
+           },
+           "arguments": [
+            {
+             "type": "Identifier",
+             "name": "_voteId"
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         }
+        ]
+       },
+       "visibility": "internal",
+       "modifiers": [],
+       "override": null,
+       "isConstructor": false,
+       "isReceiveEther": false,
+       "isFallback": false,
+       "isVirtual": false,
+       "stateMutability": null
+      },
+      {
+       "type": "FunctionDefinition",
+       "name": "_canExecute",
+       "parameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint256",
+          "stateMutability": null
+         },
+         "name": "_voteId",
+         "identifier": {
+          "type": "Identifier",
+          "name": "_voteId"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "returnParameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "bool",
+          "stateMutability": null
+         },
+         "name": null,
+         "identifier": null,
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "body": {
+        "type": "Block",
+        "statements": [
+         {
+          "type": "VariableDeclarationStatement",
+          "variables": [
+           {
+            "type": "VariableDeclaration",
+            "typeName": {
+             "type": "UserDefinedTypeName",
+             "namePath": "Vote"
+            },
+            "name": "vote_",
+            "identifier": {
+             "type": "Identifier",
+             "name": "vote_"
+            },
+            "storageLocation": "storage",
+            "isStateVar": false,
+            "isIndexed": false,
+            "expression": null
+           }
+          ],
+          "initialValue": {
+           "type": "IndexAccess",
+           "base": {
+            "type": "Identifier",
+            "name": "votes"
+           },
+           "index": {
+            "type": "Identifier",
+            "name": "_voteId"
+           }
+          }
+         },
+         {
+          "type": "IfStatement",
+          "condition": {
+           "type": "MemberAccess",
+           "expression": {
+            "type": "Identifier",
+            "name": "vote_"
+           },
+           "memberName": "executed"
+          },
+          "trueBody": {
+           "type": "Block",
+           "statements": [
+            {
+             "type": "ReturnStatement",
+             "expression": {
+              "type": "BooleanLiteral",
+              "value": false
+             }
+            }
+           ]
+          },
+          "falseBody": null
+         },
+         {
+          "type": "IfStatement",
+          "condition": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "Identifier",
+            "name": "_isValuePct"
+           },
+           "arguments": [
+            {
+             "type": "MemberAccess",
+             "expression": {
+              "type": "Identifier",
+              "name": "vote_"
+             },
+             "memberName": "yea"
+            },
+            {
+             "type": "MemberAccess",
+             "expression": {
+              "type": "Identifier",
+              "name": "vote_"
+             },
+             "memberName": "votingPower"
+            },
+            {
+             "type": "MemberAccess",
+             "expression": {
+              "type": "Identifier",
+              "name": "vote_"
+             },
+             "memberName": "supportRequiredPct"
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          },
+          "trueBody": {
+           "type": "Block",
+           "statements": [
+            {
+             "type": "ReturnStatement",
+             "expression": {
+              "type": "BooleanLiteral",
+              "value": true
+             }
+            }
+           ]
+          },
+          "falseBody": null
+         },
+         {
+          "type": "IfStatement",
+          "condition": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "Identifier",
+            "name": "_isVoteOpen"
+           },
+           "arguments": [
+            {
+             "type": "Identifier",
+             "name": "vote_"
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          },
+          "trueBody": {
+           "type": "Block",
+           "statements": [
+            {
+             "type": "ReturnStatement",
+             "expression": {
+              "type": "BooleanLiteral",
+              "value": false
+             }
+            }
+           ]
+          },
+          "falseBody": null
+         },
+         {
+          "type": "VariableDeclarationStatement",
+          "variables": [
+           {
+            "type": "VariableDeclaration",
+            "typeName": {
+             "type": "ElementaryTypeName",
+             "name": "uint256",
+             "stateMutability": null
+            },
+            "name": "totalVotes",
+            "identifier": {
+             "type": "Identifier",
+             "name": "totalVotes"
+            },
+            "storageLocation": null,
+            "isStateVar": false,
+            "isIndexed": false,
+            "expression": null
+           }
+          ],
+          "initialValue": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "MemberAccess",
+            "expression": {
+             "type": "MemberAccess",
+             "expression": {
+              "type": "Identifier",
+              "name": "vote_"
+             },
+             "memberName": "yea"
+            },
+            "memberName": "add"
+           },
+           "arguments": [
+            {
+             "type": "MemberAccess",
+             "expression": {
+              "type": "Identifier",
+              "name": "vote_"
+             },
+             "memberName": "nay"
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         },
+         {
+          "type": "IfStatement",
+          "condition": {
+           "type": "UnaryOperation",
+           "operator": "!",
+           "subExpression": {
+            "type": "FunctionCall",
+            "expression": {
+             "type": "Identifier",
+             "name": "_isValuePct"
+            },
+            "arguments": [
+             {
+              "type": "MemberAccess",
+              "expression": {
+               "type": "Identifier",
+               "name": "vote_"
+              },
+              "memberName": "yea"
+             },
+             {
+              "type": "Identifier",
+              "name": "totalVotes"
+             },
+             {
+              "type": "MemberAccess",
+              "expression": {
+               "type": "Identifier",
+               "name": "vote_"
+              },
+              "memberName": "supportRequiredPct"
+             }
+            ],
+            "names": [],
+            "identifiers": []
+           },
+           "isPrefix": true
+          },
+          "trueBody": {
+           "type": "Block",
+           "statements": [
+            {
+             "type": "ReturnStatement",
+             "expression": {
+              "type": "BooleanLiteral",
+              "value": false
+             }
+            }
+           ]
+          },
+          "falseBody": null
+         },
+         {
+          "type": "IfStatement",
+          "condition": {
+           "type": "UnaryOperation",
+           "operator": "!",
+           "subExpression": {
+            "type": "FunctionCall",
+            "expression": {
+             "type": "Identifier",
+             "name": "_isValuePct"
+            },
+            "arguments": [
+             {
+              "type": "MemberAccess",
+              "expression": {
+               "type": "Identifier",
+               "name": "vote_"
+              },
+              "memberName": "yea"
+             },
+             {
+              "type": "MemberAccess",
+              "expression": {
+               "type": "Identifier",
+               "name": "vote_"
+              },
+              "memberName": "votingPower"
+             },
+             {
+              "type": "MemberAccess",
+              "expression": {
+               "type": "Identifier",
+               "name": "vote_"
+              },
+              "memberName": "minAcceptQuorumPct"
+             }
+            ],
+            "names": [],
+            "identifiers": []
+           },
+           "isPrefix": true
+          },
+          "trueBody": {
+           "type": "Block",
+           "statements": [
+            {
+             "type": "ReturnStatement",
+             "expression": {
+              "type": "BooleanLiteral",
+              "value": false
+             }
+            }
+           ]
+          },
+          "falseBody": null
+         },
+         {
+          "type": "ReturnStatement",
+          "expression": {
+           "type": "BooleanLiteral",
+           "value": true
+          }
+         }
+        ]
+       },
+       "visibility": "internal",
+       "modifiers": [],
+       "override": null,
+       "isConstructor": false,
+       "isReceiveEther": false,
+       "isFallback": false,
+       "isVirtual": false,
+       "stateMutability": "view"
+      },
+      {
+       "type": "FunctionDefinition",
+       "name": "_canVote",
+       "parameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint256",
+          "stateMutability": null
+         },
+         "name": "_voteId",
+         "identifier": {
+          "type": "Identifier",
+          "name": "_voteId"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "address",
+          "stateMutability": null
+         },
+         "name": "_voter",
+         "identifier": {
+          "type": "Identifier",
+          "name": "_voter"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "returnParameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "bool",
+          "stateMutability": null
+         },
+         "name": null,
+         "identifier": null,
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "body": {
+        "type": "Block",
+        "statements": [
+         {
+          "type": "VariableDeclarationStatement",
+          "variables": [
+           {
+            "type": "VariableDeclaration",
+            "typeName": {
+             "type": "UserDefinedTypeName",
+             "namePath": "Vote"
+            },
+            "name": "vote_",
+            "identifier": {
+             "type": "Identifier",
+             "name": "vote_"
+            },
+            "storageLocation": "storage",
+            "isStateVar": false,
+            "isIndexed": false,
+            "expression": null
+           }
+          ],
+          "initialValue": {
+           "type": "IndexAccess",
+           "base": {
+            "type": "Identifier",
+            "name": "votes"
+           },
+           "index": {
+            "type": "Identifier",
+            "name": "_voteId"
+           }
+          }
+         },
+         {
+          "type": "ReturnStatement",
+          "expression": {
+           "type": "BinaryOperation",
+           "operator": "&&",
+           "left": {
+            "type": "FunctionCall",
+            "expression": {
+             "type": "Identifier",
+             "name": "_isVoteOpen"
+            },
+            "arguments": [
+             {
+              "type": "Identifier",
+              "name": "vote_"
+             }
+            ],
+            "names": [],
+            "identifiers": []
+           },
+           "right": {
+            "type": "BinaryOperation",
+            "operator": ">",
+            "left": {
+             "type": "FunctionCall",
+             "expression": {
+              "type": "MemberAccess",
+              "expression": {
+               "type": "Identifier",
+               "name": "token"
+              },
+              "memberName": "balanceOfAt"
+             },
+             "arguments": [
+              {
+               "type": "Identifier",
+               "name": "_voter"
+              },
+              {
+               "type": "MemberAccess",
+               "expression": {
+                "type": "Identifier",
+                "name": "vote_"
+               },
+               "memberName": "snapshotBlock"
+              }
+             ],
+             "names": [],
+             "identifiers": []
+            },
+            "right": {
+             "type": "NumberLiteral",
+             "number": "0",
+             "subdenomination": null
+            }
+           }
+          }
+         }
+        ]
+       },
+       "visibility": "internal",
+       "modifiers": [],
+       "override": null,
+       "isConstructor": false,
+       "isReceiveEther": false,
+       "isFallback": false,
+       "isVirtual": false,
+       "stateMutability": "view"
+      },
+      {
+       "type": "FunctionDefinition",
+       "name": "_isVoteOpen",
+       "parameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "UserDefinedTypeName",
+          "namePath": "Vote"
+         },
+         "name": "vote_",
+         "identifier": {
+          "type": "Identifier",
+          "name": "vote_"
+         },
+         "storageLocation": "storage",
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "returnParameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "bool",
+          "stateMutability": null
+         },
+         "name": null,
+         "identifier": null,
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "body": {
+        "type": "Block",
+        "statements": [
+         {
+          "type": "ReturnStatement",
+          "expression": {
+           "type": "BinaryOperation",
+           "operator": "&&",
+           "left": {
+            "type": "BinaryOperation",
+            "operator": "<",
+            "left": {
+             "type": "FunctionCall",
+             "expression": {
+              "type": "Identifier",
+              "name": "getTimestamp64"
+             },
+             "arguments": [],
+             "names": [],
+             "identifiers": []
+            },
+            "right": {
+             "type": "FunctionCall",
+             "expression": {
+              "type": "MemberAccess",
+              "expression": {
+               "type": "MemberAccess",
+               "expression": {
+                "type": "Identifier",
+                "name": "vote_"
+               },
+               "memberName": "startDate"
+              },
+              "memberName": "add"
+             },
+             "arguments": [
+              {
+               "type": "Identifier",
+               "name": "voteTime"
+              }
+             ],
+             "names": [],
+             "identifiers": []
+            }
+           },
+           "right": {
+            "type": "UnaryOperation",
+            "operator": "!",
+            "subExpression": {
+             "type": "MemberAccess",
+             "expression": {
+              "type": "Identifier",
+              "name": "vote_"
+             },
+             "memberName": "executed"
+            },
+            "isPrefix": true
+           }
+          }
+         }
+        ]
+       },
+       "visibility": "internal",
+       "modifiers": [],
+       "override": null,
+       "isConstructor": false,
+       "isReceiveEther": false,
+       "isFallback": false,
+       "isVirtual": false,
+       "stateMutability": "view"
+      },
+      {
+       "type": "FunctionDefinition",
+       "name": "_isValuePct",
+       "parameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint256",
+          "stateMutability": null
+         },
+         "name": "_value",
+         "identifier": {
+          "type": "Identifier",
+          "name": "_value"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint256",
+          "stateMutability": null
+         },
+         "name": "_total",
+         "identifier": {
+          "type": "Identifier",
+          "name": "_total"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint256",
+          "stateMutability": null
+         },
+         "name": "_pct",
+         "identifier": {
+          "type": "Identifier",
+          "name": "_pct"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "returnParameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "bool",
+          "stateMutability": null
+         },
+         "name": null,
+         "identifier": null,
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "body": {
+        "type": "Block",
+        "statements": [
+         {
+          "type": "IfStatement",
+          "condition": {
+           "type": "BinaryOperation",
+           "operator": "==",
+           "left": {
+            "type": "Identifier",
+            "name": "_total"
+           },
+           "right": {
+            "type": "NumberLiteral",
+            "number": "0",
+            "subdenomination": null
+           }
+          },
+          "trueBody": {
+           "type": "Block",
+           "statements": [
+            {
+             "type": "ReturnStatement",
+             "expression": {
+              "type": "BooleanLiteral",
+              "value": false
+             }
+            }
+           ]
+          },
+          "falseBody": null
+         },
+         {
+          "type": "VariableDeclarationStatement",
+          "variables": [
+           {
+            "type": "VariableDeclaration",
+            "typeName": {
+             "type": "ElementaryTypeName",
+             "name": "uint256",
+             "stateMutability": null
+            },
+            "name": "computedPct",
+            "identifier": {
+             "type": "Identifier",
+             "name": "computedPct"
+            },
+            "storageLocation": null,
+            "isStateVar": false,
+            "isIndexed": false,
+            "expression": null
+           }
+          ],
+          "initialValue": {
+           "type": "BinaryOperation",
+           "operator": "/",
+           "left": {
+            "type": "FunctionCall",
+            "expression": {
+             "type": "MemberAccess",
+             "expression": {
+              "type": "Identifier",
+              "name": "_value"
+             },
+             "memberName": "mul"
+            },
+            "arguments": [
+             {
+              "type": "Identifier",
+              "name": "PCT_BASE"
+             }
+            ],
+            "names": [],
+            "identifiers": []
+           },
+           "right": {
+            "type": "Identifier",
+            "name": "_total"
+           }
+          }
+         },
+         {
+          "type": "ReturnStatement",
+          "expression": {
+           "type": "BinaryOperation",
+           "operator": ">",
+           "left": {
+            "type": "Identifier",
+            "name": "computedPct"
+           },
+           "right": {
+            "type": "Identifier",
+            "name": "_pct"
+           }
+          }
+         }
+        ]
+       },
+       "visibility": "internal",
+       "modifiers": [],
+       "override": null,
+       "isConstructor": false,
+       "isReceiveEther": false,
+       "isFallback": false,
+       "isVirtual": false,
+       "stateMutability": "pure"
+      }
+     ],
+     "kind": "contract"
+    }
+   ]
+  }
+ }
+]

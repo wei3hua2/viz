@@ -1,0 +1,841 @@
+[
+ {
+  "path": "/home/jameschong/Projects/audits-kd/workspace/datasets/DAppSCAN/DAppSCAN-source/contracts/openzeppelin-1inch_Limit_Order_Protocol/limit-order-protocol-4d94eea25e4dac6271bfd703096a5c4a4d899b4a/ChainlinkCalculator.sol",
+  "ast": {
+   "type": "SourceUnit",
+   "children": [
+    {
+     "type": "PragmaDirective",
+     "name": "solidity",
+     "value": "0.8.9"
+    },
+    {
+     "type": "PragmaDirective",
+     "name": "abicoder",
+     "value": "v1"
+    },
+    {
+     "type": "ImportDirective",
+     "path": "../interfaces/AggregatorInterface.sol",
+     "pathLiteral": {
+      "type": "StringLiteral",
+      "value": "../interfaces/AggregatorInterface.sol",
+      "parts": [
+       "../interfaces/AggregatorInterface.sol"
+      ],
+      "isUnicode": [
+       false
+      ]
+     },
+     "unitAlias": null,
+     "unitAliasIdentifier": null,
+     "symbolAliases": null,
+     "symbolAliasesIdentifiers": null
+    },
+    {
+     "type": "ContractDefinition",
+     "name": "ChainlinkCalculator",
+     "baseContracts": [],
+     "subNodes": [
+      {
+       "type": "StateVariableDeclaration",
+       "variables": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint256",
+          "stateMutability": null
+         },
+         "name": "_SPREAD_DENOMINATOR",
+         "identifier": {
+          "type": "Identifier",
+          "name": "_SPREAD_DENOMINATOR"
+         },
+         "expression": {
+          "type": "NumberLiteral",
+          "number": "1e9",
+          "subdenomination": null
+         },
+         "visibility": "private",
+         "isStateVar": true,
+         "isDeclaredConst": true,
+         "isIndexed": false,
+         "isImmutable": false,
+         "override": null,
+         "storageLocation": null
+        }
+       ],
+       "initialValue": {
+        "type": "NumberLiteral",
+        "number": "1e9",
+        "subdenomination": null
+       }
+      },
+      {
+       "type": "StateVariableDeclaration",
+       "variables": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint256",
+          "stateMutability": null
+         },
+         "name": "_ORACLE_EXPIRATION_TIME",
+         "identifier": {
+          "type": "Identifier",
+          "name": "_ORACLE_EXPIRATION_TIME"
+         },
+         "expression": {
+          "type": "NumberLiteral",
+          "number": "30",
+          "subdenomination": "minutes"
+         },
+         "visibility": "private",
+         "isStateVar": true,
+         "isDeclaredConst": true,
+         "isIndexed": false,
+         "isImmutable": false,
+         "override": null,
+         "storageLocation": null
+        }
+       ],
+       "initialValue": {
+        "type": "NumberLiteral",
+        "number": "30",
+        "subdenomination": "minutes"
+       }
+      },
+      {
+       "type": "StateVariableDeclaration",
+       "variables": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint256",
+          "stateMutability": null
+         },
+         "name": "_INVERSE_MASK",
+         "identifier": {
+          "type": "Identifier",
+          "name": "_INVERSE_MASK"
+         },
+         "expression": {
+          "type": "BinaryOperation",
+          "operator": "<<",
+          "left": {
+           "type": "NumberLiteral",
+           "number": "1",
+           "subdenomination": null
+          },
+          "right": {
+           "type": "NumberLiteral",
+           "number": "255",
+           "subdenomination": null
+          }
+         },
+         "visibility": "private",
+         "isStateVar": true,
+         "isDeclaredConst": true,
+         "isIndexed": false,
+         "isImmutable": false,
+         "override": null,
+         "storageLocation": null
+        }
+       ],
+       "initialValue": {
+        "type": "BinaryOperation",
+        "operator": "<<",
+        "left": {
+         "type": "NumberLiteral",
+         "number": "1",
+         "subdenomination": null
+        },
+        "right": {
+         "type": "NumberLiteral",
+         "number": "255",
+         "subdenomination": null
+        }
+       }
+      },
+      {
+       "type": "FunctionDefinition",
+       "name": "singlePrice",
+       "parameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "UserDefinedTypeName",
+          "namePath": "AggregatorInterface"
+         },
+         "name": "oracle",
+         "identifier": {
+          "type": "Identifier",
+          "name": "oracle"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint256",
+          "stateMutability": null
+         },
+         "name": "inverseAndSpread",
+         "identifier": {
+          "type": "Identifier",
+          "name": "inverseAndSpread"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint256",
+          "stateMutability": null
+         },
+         "name": "amount",
+         "identifier": {
+          "type": "Identifier",
+          "name": "amount"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "returnParameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint256",
+          "stateMutability": null
+         },
+         "name": null,
+         "identifier": null,
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "body": {
+        "type": "Block",
+        "statements": [
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "Identifier",
+            "name": "require"
+           },
+           "arguments": [
+            {
+             "type": "BinaryOperation",
+             "operator": ">",
+             "left": {
+              "type": "BinaryOperation",
+              "operator": "+",
+              "left": {
+               "type": "FunctionCall",
+               "expression": {
+                "type": "MemberAccess",
+                "expression": {
+                 "type": "Identifier",
+                 "name": "oracle"
+                },
+                "memberName": "latestTimestamp"
+               },
+               "arguments": [],
+               "names": [],
+               "identifiers": []
+              },
+              "right": {
+               "type": "Identifier",
+               "name": "_ORACLE_EXPIRATION_TIME"
+              }
+             },
+             "right": {
+              "type": "MemberAccess",
+              "expression": {
+               "type": "Identifier",
+               "name": "block"
+              },
+              "memberName": "timestamp"
+             }
+            },
+            {
+             "type": "StringLiteral",
+             "value": "CC: stale data",
+             "parts": [
+              "CC: stale data"
+             ],
+             "isUnicode": [
+              false
+             ]
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         },
+         {
+          "type": "VariableDeclarationStatement",
+          "variables": [
+           {
+            "type": "VariableDeclaration",
+            "typeName": {
+             "type": "ElementaryTypeName",
+             "name": "bool",
+             "stateMutability": null
+            },
+            "name": "inverse",
+            "identifier": {
+             "type": "Identifier",
+             "name": "inverse"
+            },
+            "storageLocation": null,
+            "isStateVar": false,
+            "isIndexed": false,
+            "expression": null
+           }
+          ],
+          "initialValue": {
+           "type": "BinaryOperation",
+           "operator": ">",
+           "left": {
+            "type": "BinaryOperation",
+            "operator": "&",
+            "left": {
+             "type": "Identifier",
+             "name": "inverseAndSpread"
+            },
+            "right": {
+             "type": "Identifier",
+             "name": "_INVERSE_MASK"
+            }
+           },
+           "right": {
+            "type": "NumberLiteral",
+            "number": "0",
+            "subdenomination": null
+           }
+          }
+         },
+         {
+          "type": "VariableDeclarationStatement",
+          "variables": [
+           {
+            "type": "VariableDeclaration",
+            "typeName": {
+             "type": "ElementaryTypeName",
+             "name": "uint256",
+             "stateMutability": null
+            },
+            "name": "spread",
+            "identifier": {
+             "type": "Identifier",
+             "name": "spread"
+            },
+            "storageLocation": null,
+            "isStateVar": false,
+            "isIndexed": false,
+            "expression": null
+           }
+          ],
+          "initialValue": {
+           "type": "BinaryOperation",
+           "operator": "&",
+           "left": {
+            "type": "Identifier",
+            "name": "inverseAndSpread"
+           },
+           "right": {
+            "type": "TupleExpression",
+            "components": [
+             {
+              "type": "UnaryOperation",
+              "operator": "~",
+              "subExpression": {
+               "type": "Identifier",
+               "name": "_INVERSE_MASK"
+              },
+              "isPrefix": true
+             }
+            ],
+            "isArray": false
+           }
+          }
+         },
+         {
+          "type": "IfStatement",
+          "condition": {
+           "type": "Identifier",
+           "name": "inverse"
+          },
+          "trueBody": {
+           "type": "Block",
+           "statements": [
+            {
+             "type": "ReturnStatement",
+             "expression": {
+              "type": "BinaryOperation",
+              "operator": "/",
+              "left": {
+               "type": "BinaryOperation",
+               "operator": "/",
+               "left": {
+                "type": "BinaryOperation",
+                "operator": "*",
+                "left": {
+                 "type": "BinaryOperation",
+                 "operator": "*",
+                 "left": {
+                  "type": "Identifier",
+                  "name": "amount"
+                 },
+                 "right": {
+                  "type": "Identifier",
+                  "name": "spread"
+                 }
+                },
+                "right": {
+                 "type": "NumberLiteral",
+                 "number": "1e18",
+                 "subdenomination": null
+                }
+               },
+               "right": {
+                "type": "FunctionCall",
+                "expression": {
+                 "type": "ElementaryTypeName",
+                 "name": "uint256",
+                 "stateMutability": null
+                },
+                "arguments": [
+                 {
+                  "type": "FunctionCall",
+                  "expression": {
+                   "type": "MemberAccess",
+                   "expression": {
+                    "type": "Identifier",
+                    "name": "oracle"
+                   },
+                   "memberName": "latestAnswer"
+                  },
+                  "arguments": [],
+                  "names": [],
+                  "identifiers": []
+                 }
+                ],
+                "names": [],
+                "identifiers": []
+               }
+              },
+              "right": {
+               "type": "Identifier",
+               "name": "_SPREAD_DENOMINATOR"
+              }
+             }
+            }
+           ]
+          },
+          "falseBody": {
+           "type": "Block",
+           "statements": [
+            {
+             "type": "ReturnStatement",
+             "expression": {
+              "type": "BinaryOperation",
+              "operator": "/",
+              "left": {
+               "type": "BinaryOperation",
+               "operator": "/",
+               "left": {
+                "type": "BinaryOperation",
+                "operator": "*",
+                "left": {
+                 "type": "BinaryOperation",
+                 "operator": "*",
+                 "left": {
+                  "type": "Identifier",
+                  "name": "amount"
+                 },
+                 "right": {
+                  "type": "Identifier",
+                  "name": "spread"
+                 }
+                },
+                "right": {
+                 "type": "FunctionCall",
+                 "expression": {
+                  "type": "ElementaryTypeName",
+                  "name": "uint256",
+                  "stateMutability": null
+                 },
+                 "arguments": [
+                  {
+                   "type": "FunctionCall",
+                   "expression": {
+                    "type": "MemberAccess",
+                    "expression": {
+                     "type": "Identifier",
+                     "name": "oracle"
+                    },
+                    "memberName": "latestAnswer"
+                   },
+                   "arguments": [],
+                   "names": [],
+                   "identifiers": []
+                  }
+                 ],
+                 "names": [],
+                 "identifiers": []
+                }
+               },
+               "right": {
+                "type": "NumberLiteral",
+                "number": "1e18",
+                "subdenomination": null
+               }
+              },
+              "right": {
+               "type": "Identifier",
+               "name": "_SPREAD_DENOMINATOR"
+              }
+             }
+            }
+           ]
+          }
+         }
+        ]
+       },
+       "visibility": "external",
+       "modifiers": [],
+       "override": null,
+       "isConstructor": false,
+       "isReceiveEther": false,
+       "isFallback": false,
+       "isVirtual": false,
+       "stateMutability": "view"
+      },
+      {
+       "type": "FunctionDefinition",
+       "name": "doublePrice",
+       "parameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "UserDefinedTypeName",
+          "namePath": "AggregatorInterface"
+         },
+         "name": "oracle1",
+         "identifier": {
+          "type": "Identifier",
+          "name": "oracle1"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "UserDefinedTypeName",
+          "namePath": "AggregatorInterface"
+         },
+         "name": "oracle2",
+         "identifier": {
+          "type": "Identifier",
+          "name": "oracle2"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint256",
+          "stateMutability": null
+         },
+         "name": "spread",
+         "identifier": {
+          "type": "Identifier",
+          "name": "spread"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint256",
+          "stateMutability": null
+         },
+         "name": "amount",
+         "identifier": {
+          "type": "Identifier",
+          "name": "amount"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "returnParameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint256",
+          "stateMutability": null
+         },
+         "name": null,
+         "identifier": null,
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "body": {
+        "type": "Block",
+        "statements": [
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "Identifier",
+            "name": "require"
+           },
+           "arguments": [
+            {
+             "type": "BinaryOperation",
+             "operator": ">",
+             "left": {
+              "type": "BinaryOperation",
+              "operator": "+",
+              "left": {
+               "type": "FunctionCall",
+               "expression": {
+                "type": "MemberAccess",
+                "expression": {
+                 "type": "Identifier",
+                 "name": "oracle1"
+                },
+                "memberName": "latestTimestamp"
+               },
+               "arguments": [],
+               "names": [],
+               "identifiers": []
+              },
+              "right": {
+               "type": "Identifier",
+               "name": "_ORACLE_EXPIRATION_TIME"
+              }
+             },
+             "right": {
+              "type": "MemberAccess",
+              "expression": {
+               "type": "Identifier",
+               "name": "block"
+              },
+              "memberName": "timestamp"
+             }
+            },
+            {
+             "type": "StringLiteral",
+             "value": "CC: stale data O1",
+             "parts": [
+              "CC: stale data O1"
+             ],
+             "isUnicode": [
+              false
+             ]
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         },
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "Identifier",
+            "name": "require"
+           },
+           "arguments": [
+            {
+             "type": "BinaryOperation",
+             "operator": ">",
+             "left": {
+              "type": "BinaryOperation",
+              "operator": "+",
+              "left": {
+               "type": "FunctionCall",
+               "expression": {
+                "type": "MemberAccess",
+                "expression": {
+                 "type": "Identifier",
+                 "name": "oracle2"
+                },
+                "memberName": "latestTimestamp"
+               },
+               "arguments": [],
+               "names": [],
+               "identifiers": []
+              },
+              "right": {
+               "type": "Identifier",
+               "name": "_ORACLE_EXPIRATION_TIME"
+              }
+             },
+             "right": {
+              "type": "MemberAccess",
+              "expression": {
+               "type": "Identifier",
+               "name": "block"
+              },
+              "memberName": "timestamp"
+             }
+            },
+            {
+             "type": "StringLiteral",
+             "value": "CC: stale data O2",
+             "parts": [
+              "CC: stale data O2"
+             ],
+             "isUnicode": [
+              false
+             ]
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         },
+         {
+          "type": "ReturnStatement",
+          "expression": {
+           "type": "BinaryOperation",
+           "operator": "/",
+           "left": {
+            "type": "BinaryOperation",
+            "operator": "/",
+            "left": {
+             "type": "BinaryOperation",
+             "operator": "*",
+             "left": {
+              "type": "BinaryOperation",
+              "operator": "*",
+              "left": {
+               "type": "Identifier",
+               "name": "amount"
+              },
+              "right": {
+               "type": "Identifier",
+               "name": "spread"
+              }
+             },
+             "right": {
+              "type": "FunctionCall",
+              "expression": {
+               "type": "ElementaryTypeName",
+               "name": "uint256",
+               "stateMutability": null
+              },
+              "arguments": [
+               {
+                "type": "FunctionCall",
+                "expression": {
+                 "type": "MemberAccess",
+                 "expression": {
+                  "type": "Identifier",
+                  "name": "oracle1"
+                 },
+                 "memberName": "latestAnswer"
+                },
+                "arguments": [],
+                "names": [],
+                "identifiers": []
+               }
+              ],
+              "names": [],
+              "identifiers": []
+             }
+            },
+            "right": {
+             "type": "FunctionCall",
+             "expression": {
+              "type": "ElementaryTypeName",
+              "name": "uint256",
+              "stateMutability": null
+             },
+             "arguments": [
+              {
+               "type": "FunctionCall",
+               "expression": {
+                "type": "MemberAccess",
+                "expression": {
+                 "type": "Identifier",
+                 "name": "oracle2"
+                },
+                "memberName": "latestAnswer"
+               },
+               "arguments": [],
+               "names": [],
+               "identifiers": []
+              }
+             ],
+             "names": [],
+             "identifiers": []
+            }
+           },
+           "right": {
+            "type": "Identifier",
+            "name": "_SPREAD_DENOMINATOR"
+           }
+          }
+         }
+        ]
+       },
+       "visibility": "external",
+       "modifiers": [],
+       "override": null,
+       "isConstructor": false,
+       "isReceiveEther": false,
+       "isFallback": false,
+       "isVirtual": false,
+       "stateMutability": "view"
+      }
+     ],
+     "kind": "contract"
+    }
+   ]
+  }
+ }
+]

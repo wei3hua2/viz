@@ -1,0 +1,3032 @@
+[
+ {
+  "path": "/home/jameschong/Projects/audits-kd/workspace/datasets/DAppSCAN/DAppSCAN-source/contracts/Hacken-Nimbus-V2/nim-smartcontract-12a41a194f39670637d79ef2c5bcc6a70d617781/SwapsUser.sol",
+  "ast": {
+   "type": "SourceUnit",
+   "children": [
+    {
+     "type": "PragmaDirective",
+     "name": "solidity",
+     "value": "0.5.17"
+    },
+    {
+     "type": "ImportDirective",
+     "path": "../core/State.sol",
+     "pathLiteral": {
+      "type": "StringLiteral",
+      "value": "../core/State.sol",
+      "parts": [
+       "../core/State.sol"
+      ],
+      "isUnicode": [
+       false
+      ]
+     },
+     "unitAlias": null,
+     "unitAliasIdentifier": null,
+     "symbolAliases": null,
+     "symbolAliasesIdentifiers": null
+    },
+    {
+     "type": "ImportDirective",
+     "path": "../feeds/IPriceFeeds.sol",
+     "pathLiteral": {
+      "type": "StringLiteral",
+      "value": "../feeds/IPriceFeeds.sol",
+      "parts": [
+       "../feeds/IPriceFeeds.sol"
+      ],
+      "isUnicode": [
+       false
+      ]
+     },
+     "unitAlias": null,
+     "unitAliasIdentifier": null,
+     "symbolAliases": null,
+     "symbolAliasesIdentifiers": null
+    },
+    {
+     "type": "ImportDirective",
+     "path": "../events/SwapsEvents.sol",
+     "pathLiteral": {
+      "type": "StringLiteral",
+      "value": "../events/SwapsEvents.sol",
+      "parts": [
+       "../events/SwapsEvents.sol"
+      ],
+      "isUnicode": [
+       false
+      ]
+     },
+     "unitAlias": null,
+     "unitAliasIdentifier": null,
+     "symbolAliases": null,
+     "symbolAliasesIdentifiers": null
+    },
+    {
+     "type": "ImportDirective",
+     "path": "../mixins/FeesHelper.sol",
+     "pathLiteral": {
+      "type": "StringLiteral",
+      "value": "../mixins/FeesHelper.sol",
+      "parts": [
+       "../mixins/FeesHelper.sol"
+      ],
+      "isUnicode": [
+       false
+      ]
+     },
+     "unitAlias": null,
+     "unitAliasIdentifier": null,
+     "symbolAliases": null,
+     "symbolAliasesIdentifiers": null
+    },
+    {
+     "type": "ImportDirective",
+     "path": "./ISwapsImpl.sol",
+     "pathLiteral": {
+      "type": "StringLiteral",
+      "value": "./ISwapsImpl.sol",
+      "parts": [
+       "./ISwapsImpl.sol"
+      ],
+      "isUnicode": [
+       false
+      ]
+     },
+     "unitAlias": null,
+     "unitAliasIdentifier": null,
+     "symbolAliases": null,
+     "symbolAliasesIdentifiers": null
+    },
+    {
+     "type": "ContractDefinition",
+     "name": "SwapsUser",
+     "baseContracts": [
+      {
+       "type": "InheritanceSpecifier",
+       "baseName": {
+        "type": "UserDefinedTypeName",
+        "namePath": "State"
+       },
+       "arguments": []
+      },
+      {
+       "type": "InheritanceSpecifier",
+       "baseName": {
+        "type": "UserDefinedTypeName",
+        "namePath": "SwapsEvents"
+       },
+       "arguments": []
+      },
+      {
+       "type": "InheritanceSpecifier",
+       "baseName": {
+        "type": "UserDefinedTypeName",
+        "namePath": "FeesHelper"
+       },
+       "arguments": []
+      }
+     ],
+     "subNodes": [
+      {
+       "type": "FunctionDefinition",
+       "name": "_loanSwap",
+       "parameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "bytes32",
+          "stateMutability": null
+         },
+         "name": "loanId",
+         "identifier": {
+          "type": "Identifier",
+          "name": "loanId"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "address",
+          "stateMutability": null
+         },
+         "name": "sourceToken",
+         "identifier": {
+          "type": "Identifier",
+          "name": "sourceToken"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "address",
+          "stateMutability": null
+         },
+         "name": "destToken",
+         "identifier": {
+          "type": "Identifier",
+          "name": "destToken"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "address",
+          "stateMutability": null
+         },
+         "name": "user",
+         "identifier": {
+          "type": "Identifier",
+          "name": "user"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint256",
+          "stateMutability": null
+         },
+         "name": "minSourceTokenAmount",
+         "identifier": {
+          "type": "Identifier",
+          "name": "minSourceTokenAmount"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint256",
+          "stateMutability": null
+         },
+         "name": "maxSourceTokenAmount",
+         "identifier": {
+          "type": "Identifier",
+          "name": "maxSourceTokenAmount"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint256",
+          "stateMutability": null
+         },
+         "name": "requiredDestTokenAmount",
+         "identifier": {
+          "type": "Identifier",
+          "name": "requiredDestTokenAmount"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "bool",
+          "stateMutability": null
+         },
+         "name": "bypassFee",
+         "identifier": {
+          "type": "Identifier",
+          "name": "bypassFee"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "bytes",
+          "stateMutability": null
+         },
+         "name": "loanDataBytes",
+         "identifier": {
+          "type": "Identifier",
+          "name": "loanDataBytes"
+         },
+         "storageLocation": "memory",
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "returnParameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint256",
+          "stateMutability": null
+         },
+         "name": "destTokenAmountReceived",
+         "identifier": {
+          "type": "Identifier",
+          "name": "destTokenAmountReceived"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint256",
+          "stateMutability": null
+         },
+         "name": "sourceTokenAmountUsed",
+         "identifier": {
+          "type": "Identifier",
+          "name": "sourceTokenAmountUsed"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint256",
+          "stateMutability": null
+         },
+         "name": "sourceToDestSwapRate",
+         "identifier": {
+          "type": "Identifier",
+          "name": "sourceToDestSwapRate"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "body": {
+        "type": "Block",
+        "statements": [
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "BinaryOperation",
+           "operator": "=",
+           "left": {
+            "type": "TupleExpression",
+            "components": [
+             {
+              "type": "Identifier",
+              "name": "destTokenAmountReceived"
+             },
+             {
+              "type": "Identifier",
+              "name": "sourceTokenAmountUsed"
+             }
+            ],
+            "isArray": false
+           },
+           "right": {
+            "type": "FunctionCall",
+            "expression": {
+             "type": "Identifier",
+             "name": "_swapsCall"
+            },
+            "arguments": [
+             {
+              "type": "TupleExpression",
+              "components": [
+               {
+                "type": "Identifier",
+                "name": "sourceToken"
+               },
+               {
+                "type": "Identifier",
+                "name": "destToken"
+               },
+               {
+                "type": "FunctionCall",
+                "expression": {
+                 "type": "Identifier",
+                 "name": "address"
+                },
+                "arguments": [
+                 {
+                  "type": "Identifier",
+                  "name": "this"
+                 }
+                ],
+                "names": [],
+                "identifiers": []
+               },
+               {
+                "type": "FunctionCall",
+                "expression": {
+                 "type": "Identifier",
+                 "name": "address"
+                },
+                "arguments": [
+                 {
+                  "type": "Identifier",
+                  "name": "this"
+                 }
+                ],
+                "names": [],
+                "identifiers": []
+               },
+               {
+                "type": "Identifier",
+                "name": "user"
+               }
+              ],
+              "isArray": true
+             },
+             {
+              "type": "TupleExpression",
+              "components": [
+               {
+                "type": "Identifier",
+                "name": "minSourceTokenAmount"
+               },
+               {
+                "type": "Identifier",
+                "name": "maxSourceTokenAmount"
+               },
+               {
+                "type": "Identifier",
+                "name": "requiredDestTokenAmount"
+               }
+              ],
+              "isArray": true
+             },
+             {
+              "type": "Identifier",
+              "name": "loanId"
+             },
+             {
+              "type": "Identifier",
+              "name": "bypassFee"
+             },
+             {
+              "type": "Identifier",
+              "name": "loanDataBytes"
+             }
+            ],
+            "names": [],
+            "identifiers": []
+           }
+          }
+         },
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "Identifier",
+            "name": "_checkSwapSize"
+           },
+           "arguments": [
+            {
+             "type": "Identifier",
+             "name": "sourceToken"
+            },
+            {
+             "type": "Identifier",
+             "name": "sourceTokenAmountUsed"
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         },
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "BinaryOperation",
+           "operator": "=",
+           "left": {
+            "type": "Identifier",
+            "name": "sourceToDestSwapRate"
+           },
+           "right": {
+            "type": "FunctionCall",
+            "expression": {
+             "type": "MemberAccess",
+             "expression": {
+              "type": "FunctionCall",
+              "expression": {
+               "type": "Identifier",
+               "name": "IPriceFeeds"
+              },
+              "arguments": [
+               {
+                "type": "Identifier",
+                "name": "priceFeeds"
+               }
+              ],
+              "names": [],
+              "identifiers": []
+             },
+             "memberName": "checkPriceDisagreement"
+            },
+            "arguments": [
+             {
+              "type": "Identifier",
+              "name": "sourceToken"
+             },
+             {
+              "type": "Identifier",
+              "name": "destToken"
+             },
+             {
+              "type": "Identifier",
+              "name": "sourceTokenAmountUsed"
+             },
+             {
+              "type": "Identifier",
+              "name": "destTokenAmountReceived"
+             },
+             {
+              "type": "Identifier",
+              "name": "maxDisagreement"
+             }
+            ],
+            "names": [],
+            "identifiers": []
+           }
+          }
+         },
+         {
+          "type": "EmitStatement",
+          "eventCall": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "Identifier",
+            "name": "LoanSwap"
+           },
+           "arguments": [
+            {
+             "type": "Identifier",
+             "name": "loanId"
+            },
+            {
+             "type": "Identifier",
+             "name": "sourceToken"
+            },
+            {
+             "type": "Identifier",
+             "name": "destToken"
+            },
+            {
+             "type": "Identifier",
+             "name": "user"
+            },
+            {
+             "type": "Identifier",
+             "name": "sourceTokenAmountUsed"
+            },
+            {
+             "type": "Identifier",
+             "name": "destTokenAmountReceived"
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         }
+        ]
+       },
+       "visibility": "internal",
+       "modifiers": [],
+       "override": null,
+       "isConstructor": false,
+       "isReceiveEther": false,
+       "isFallback": false,
+       "isVirtual": false,
+       "stateMutability": null
+      },
+      {
+       "type": "FunctionDefinition",
+       "name": "_swapsCall",
+       "parameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ArrayTypeName",
+          "baseTypeName": {
+           "type": "ElementaryTypeName",
+           "name": "address",
+           "stateMutability": null
+          },
+          "length": {
+           "type": "NumberLiteral",
+           "number": "5",
+           "subdenomination": null
+          }
+         },
+         "name": "addrs",
+         "identifier": {
+          "type": "Identifier",
+          "name": "addrs"
+         },
+         "storageLocation": "memory",
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ArrayTypeName",
+          "baseTypeName": {
+           "type": "ElementaryTypeName",
+           "name": "uint256",
+           "stateMutability": null
+          },
+          "length": {
+           "type": "NumberLiteral",
+           "number": "3",
+           "subdenomination": null
+          }
+         },
+         "name": "vals",
+         "identifier": {
+          "type": "Identifier",
+          "name": "vals"
+         },
+         "storageLocation": "memory",
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "bytes32",
+          "stateMutability": null
+         },
+         "name": "loanId",
+         "identifier": {
+          "type": "Identifier",
+          "name": "loanId"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "bool",
+          "stateMutability": null
+         },
+         "name": "miscBool",
+         "identifier": {
+          "type": "Identifier",
+          "name": "miscBool"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "bytes",
+          "stateMutability": null
+         },
+         "name": "loanDataBytes",
+         "identifier": {
+          "type": "Identifier",
+          "name": "loanDataBytes"
+         },
+         "storageLocation": "memory",
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "returnParameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint256",
+          "stateMutability": null
+         },
+         "name": null,
+         "identifier": null,
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint256",
+          "stateMutability": null
+         },
+         "name": null,
+         "identifier": null,
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "body": {
+        "type": "Block",
+        "statements": [
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "Identifier",
+            "name": "require"
+           },
+           "arguments": [
+            {
+             "type": "BinaryOperation",
+             "operator": "!=",
+             "left": {
+              "type": "IndexAccess",
+              "base": {
+               "type": "Identifier",
+               "name": "vals"
+              },
+              "index": {
+               "type": "NumberLiteral",
+               "number": "0",
+               "subdenomination": null
+              }
+             },
+             "right": {
+              "type": "NumberLiteral",
+              "number": "0",
+              "subdenomination": null
+             }
+            },
+            {
+             "type": "StringLiteral",
+             "value": "sourceAmount == 0",
+             "parts": [
+              "sourceAmount == 0"
+             ],
+             "isUnicode": [
+              false
+             ]
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         },
+         {
+          "type": "VariableDeclarationStatement",
+          "variables": [
+           {
+            "type": "VariableDeclaration",
+            "typeName": {
+             "type": "ElementaryTypeName",
+             "name": "uint256",
+             "stateMutability": null
+            },
+            "name": "destTokenAmountReceived",
+            "identifier": {
+             "type": "Identifier",
+             "name": "destTokenAmountReceived"
+            },
+            "storageLocation": null,
+            "isStateVar": false,
+            "isIndexed": false,
+            "expression": null
+           }
+          ],
+          "initialValue": null
+         },
+         {
+          "type": "VariableDeclarationStatement",
+          "variables": [
+           {
+            "type": "VariableDeclaration",
+            "typeName": {
+             "type": "ElementaryTypeName",
+             "name": "uint256",
+             "stateMutability": null
+            },
+            "name": "sourceTokenAmountUsed",
+            "identifier": {
+             "type": "Identifier",
+             "name": "sourceTokenAmountUsed"
+            },
+            "storageLocation": null,
+            "isStateVar": false,
+            "isIndexed": false,
+            "expression": null
+           }
+          ],
+          "initialValue": null
+         },
+         {
+          "type": "VariableDeclarationStatement",
+          "variables": [
+           {
+            "type": "VariableDeclaration",
+            "typeName": {
+             "type": "ElementaryTypeName",
+             "name": "uint256",
+             "stateMutability": null
+            },
+            "name": "tradingFee",
+            "identifier": {
+             "type": "Identifier",
+             "name": "tradingFee"
+            },
+            "storageLocation": null,
+            "isStateVar": false,
+            "isIndexed": false,
+            "expression": null
+           }
+          ],
+          "initialValue": null
+         },
+         {
+          "type": "IfStatement",
+          "condition": {
+           "type": "UnaryOperation",
+           "operator": "!",
+           "subExpression": {
+            "type": "Identifier",
+            "name": "miscBool"
+           },
+           "isPrefix": true
+          },
+          "trueBody": {
+           "type": "Block",
+           "statements": [
+            {
+             "type": "IfStatement",
+             "condition": {
+              "type": "BinaryOperation",
+              "operator": "==",
+              "left": {
+               "type": "IndexAccess",
+               "base": {
+                "type": "Identifier",
+                "name": "vals"
+               },
+               "index": {
+                "type": "NumberLiteral",
+                "number": "2",
+                "subdenomination": null
+               }
+              },
+              "right": {
+               "type": "NumberLiteral",
+               "number": "0",
+               "subdenomination": null
+              }
+             },
+             "trueBody": {
+              "type": "Block",
+              "statements": [
+               {
+                "type": "ExpressionStatement",
+                "expression": {
+                 "type": "BinaryOperation",
+                 "operator": "=",
+                 "left": {
+                  "type": "Identifier",
+                  "name": "tradingFee"
+                 },
+                 "right": {
+                  "type": "FunctionCall",
+                  "expression": {
+                   "type": "Identifier",
+                   "name": "_getTradingFee"
+                  },
+                  "arguments": [
+                   {
+                    "type": "IndexAccess",
+                    "base": {
+                     "type": "Identifier",
+                     "name": "vals"
+                    },
+                    "index": {
+                     "type": "NumberLiteral",
+                     "number": "0",
+                     "subdenomination": null
+                    }
+                   }
+                  ],
+                  "names": [],
+                  "identifiers": []
+                 }
+                }
+               },
+               {
+                "type": "IfStatement",
+                "condition": {
+                 "type": "BinaryOperation",
+                 "operator": "!=",
+                 "left": {
+                  "type": "Identifier",
+                  "name": "tradingFee"
+                 },
+                 "right": {
+                  "type": "NumberLiteral",
+                  "number": "0",
+                  "subdenomination": null
+                 }
+                },
+                "trueBody": {
+                 "type": "Block",
+                 "statements": [
+                  {
+                   "type": "ExpressionStatement",
+                   "expression": {
+                    "type": "FunctionCall",
+                    "expression": {
+                     "type": "Identifier",
+                     "name": "_payTradingFee"
+                    },
+                    "arguments": [
+                     {
+                      "type": "IndexAccess",
+                      "base": {
+                       "type": "Identifier",
+                       "name": "addrs"
+                      },
+                      "index": {
+                       "type": "NumberLiteral",
+                       "number": "4",
+                       "subdenomination": null
+                      }
+                     },
+                     {
+                      "type": "Identifier",
+                      "name": "loanId"
+                     },
+                     {
+                      "type": "IndexAccess",
+                      "base": {
+                       "type": "Identifier",
+                       "name": "addrs"
+                      },
+                      "index": {
+                       "type": "NumberLiteral",
+                       "number": "0",
+                       "subdenomination": null
+                      }
+                     },
+                     {
+                      "type": "Identifier",
+                      "name": "tradingFee"
+                     }
+                    ],
+                    "names": [],
+                    "identifiers": []
+                   }
+                  },
+                  {
+                   "type": "ExpressionStatement",
+                   "expression": {
+                    "type": "BinaryOperation",
+                    "operator": "=",
+                    "left": {
+                     "type": "IndexAccess",
+                     "base": {
+                      "type": "Identifier",
+                      "name": "vals"
+                     },
+                     "index": {
+                      "type": "NumberLiteral",
+                      "number": "0",
+                      "subdenomination": null
+                     }
+                    },
+                    "right": {
+                     "type": "FunctionCall",
+                     "expression": {
+                      "type": "MemberAccess",
+                      "expression": {
+                       "type": "IndexAccess",
+                       "base": {
+                        "type": "Identifier",
+                        "name": "vals"
+                       },
+                       "index": {
+                        "type": "NumberLiteral",
+                        "number": "0",
+                        "subdenomination": null
+                       }
+                      },
+                      "memberName": "sub"
+                     },
+                     "arguments": [
+                      {
+                       "type": "Identifier",
+                       "name": "tradingFee"
+                      }
+                     ],
+                     "names": [],
+                     "identifiers": []
+                    }
+                   }
+                  }
+                 ]
+                },
+                "falseBody": null
+               }
+              ]
+             },
+             "falseBody": {
+              "type": "Block",
+              "statements": [
+               {
+                "type": "ExpressionStatement",
+                "expression": {
+                 "type": "BinaryOperation",
+                 "operator": "=",
+                 "left": {
+                  "type": "Identifier",
+                  "name": "tradingFee"
+                 },
+                 "right": {
+                  "type": "FunctionCall",
+                  "expression": {
+                   "type": "Identifier",
+                   "name": "_getTradingFee"
+                  },
+                  "arguments": [
+                   {
+                    "type": "IndexAccess",
+                    "base": {
+                     "type": "Identifier",
+                     "name": "vals"
+                    },
+                    "index": {
+                     "type": "NumberLiteral",
+                     "number": "2",
+                     "subdenomination": null
+                    }
+                   }
+                  ],
+                  "names": [],
+                  "identifiers": []
+                 }
+                }
+               },
+               {
+                "type": "IfStatement",
+                "condition": {
+                 "type": "BinaryOperation",
+                 "operator": "!=",
+                 "left": {
+                  "type": "Identifier",
+                  "name": "tradingFee"
+                 },
+                 "right": {
+                  "type": "NumberLiteral",
+                  "number": "0",
+                  "subdenomination": null
+                 }
+                },
+                "trueBody": {
+                 "type": "Block",
+                 "statements": [
+                  {
+                   "type": "ExpressionStatement",
+                   "expression": {
+                    "type": "BinaryOperation",
+                    "operator": "=",
+                    "left": {
+                     "type": "IndexAccess",
+                     "base": {
+                      "type": "Identifier",
+                      "name": "vals"
+                     },
+                     "index": {
+                      "type": "NumberLiteral",
+                      "number": "2",
+                      "subdenomination": null
+                     }
+                    },
+                    "right": {
+                     "type": "FunctionCall",
+                     "expression": {
+                      "type": "MemberAccess",
+                      "expression": {
+                       "type": "IndexAccess",
+                       "base": {
+                        "type": "Identifier",
+                        "name": "vals"
+                       },
+                       "index": {
+                        "type": "NumberLiteral",
+                        "number": "2",
+                        "subdenomination": null
+                       }
+                      },
+                      "memberName": "add"
+                     },
+                     "arguments": [
+                      {
+                       "type": "Identifier",
+                       "name": "tradingFee"
+                      }
+                     ],
+                     "names": [],
+                     "identifiers": []
+                    }
+                   }
+                  }
+                 ]
+                },
+                "falseBody": null
+               }
+              ]
+             }
+            }
+           ]
+          },
+          "falseBody": null
+         },
+         {
+          "type": "IfStatement",
+          "condition": {
+           "type": "BinaryOperation",
+           "operator": "==",
+           "left": {
+            "type": "IndexAccess",
+            "base": {
+             "type": "Identifier",
+             "name": "vals"
+            },
+            "index": {
+             "type": "NumberLiteral",
+             "number": "1",
+             "subdenomination": null
+            }
+           },
+           "right": {
+            "type": "NumberLiteral",
+            "number": "0",
+            "subdenomination": null
+           }
+          },
+          "trueBody": {
+           "type": "Block",
+           "statements": [
+            {
+             "type": "ExpressionStatement",
+             "expression": {
+              "type": "BinaryOperation",
+              "operator": "=",
+              "left": {
+               "type": "IndexAccess",
+               "base": {
+                "type": "Identifier",
+                "name": "vals"
+               },
+               "index": {
+                "type": "NumberLiteral",
+                "number": "1",
+                "subdenomination": null
+               }
+              },
+              "right": {
+               "type": "IndexAccess",
+               "base": {
+                "type": "Identifier",
+                "name": "vals"
+               },
+               "index": {
+                "type": "NumberLiteral",
+                "number": "0",
+                "subdenomination": null
+               }
+              }
+             }
+            }
+           ]
+          },
+          "falseBody": {
+           "type": "Block",
+           "statements": [
+            {
+             "type": "ExpressionStatement",
+             "expression": {
+              "type": "FunctionCall",
+              "expression": {
+               "type": "Identifier",
+               "name": "require"
+              },
+              "arguments": [
+               {
+                "type": "BinaryOperation",
+                "operator": "<=",
+                "left": {
+                 "type": "IndexAccess",
+                 "base": {
+                  "type": "Identifier",
+                  "name": "vals"
+                 },
+                 "index": {
+                  "type": "NumberLiteral",
+                  "number": "0",
+                  "subdenomination": null
+                 }
+                },
+                "right": {
+                 "type": "IndexAccess",
+                 "base": {
+                  "type": "Identifier",
+                  "name": "vals"
+                 },
+                 "index": {
+                  "type": "NumberLiteral",
+                  "number": "1",
+                  "subdenomination": null
+                 }
+                }
+               },
+               {
+                "type": "StringLiteral",
+                "value": "min greater than max",
+                "parts": [
+                 "min greater than max"
+                ],
+                "isUnicode": [
+                 false
+                ]
+               }
+              ],
+              "names": [],
+              "identifiers": []
+             }
+            }
+           ]
+          }
+         },
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "Identifier",
+            "name": "require"
+           },
+           "arguments": [
+            {
+             "type": "BinaryOperation",
+             "operator": "==",
+             "left": {
+              "type": "MemberAccess",
+              "expression": {
+               "type": "Identifier",
+               "name": "loanDataBytes"
+              },
+              "memberName": "length"
+             },
+             "right": {
+              "type": "NumberLiteral",
+              "number": "0",
+              "subdenomination": null
+             }
+            },
+            {
+             "type": "StringLiteral",
+             "value": "invalid state",
+             "parts": [
+              "invalid state"
+             ],
+             "isUnicode": [
+              false
+             ]
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         },
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "BinaryOperation",
+           "operator": "=",
+           "left": {
+            "type": "TupleExpression",
+            "components": [
+             {
+              "type": "Identifier",
+              "name": "destTokenAmountReceived"
+             },
+             {
+              "type": "Identifier",
+              "name": "sourceTokenAmountUsed"
+             }
+            ],
+            "isArray": false
+           },
+           "right": {
+            "type": "FunctionCall",
+            "expression": {
+             "type": "Identifier",
+             "name": "_swapsCall_internal"
+            },
+            "arguments": [
+             {
+              "type": "Identifier",
+              "name": "addrs"
+             },
+             {
+              "type": "Identifier",
+              "name": "vals"
+             }
+            ],
+            "names": [],
+            "identifiers": []
+           }
+          }
+         },
+         {
+          "type": "IfStatement",
+          "condition": {
+           "type": "BinaryOperation",
+           "operator": "==",
+           "left": {
+            "type": "IndexAccess",
+            "base": {
+             "type": "Identifier",
+             "name": "vals"
+            },
+            "index": {
+             "type": "NumberLiteral",
+             "number": "2",
+             "subdenomination": null
+            }
+           },
+           "right": {
+            "type": "NumberLiteral",
+            "number": "0",
+            "subdenomination": null
+           }
+          },
+          "trueBody": {
+           "type": "Block",
+           "statements": [
+            {
+             "type": "ExpressionStatement",
+             "expression": {
+              "type": "FunctionCall",
+              "expression": {
+               "type": "Identifier",
+               "name": "require"
+              },
+              "arguments": [
+               {
+                "type": "BinaryOperation",
+                "operator": "==",
+                "left": {
+                 "type": "Identifier",
+                 "name": "sourceTokenAmountUsed"
+                },
+                "right": {
+                 "type": "IndexAccess",
+                 "base": {
+                  "type": "Identifier",
+                  "name": "vals"
+                 },
+                 "index": {
+                  "type": "NumberLiteral",
+                  "number": "0",
+                  "subdenomination": null
+                 }
+                }
+               },
+               {
+                "type": "StringLiteral",
+                "value": "swap too large to fill",
+                "parts": [
+                 "swap too large to fill"
+                ],
+                "isUnicode": [
+                 false
+                ]
+               }
+              ],
+              "names": [],
+              "identifiers": []
+             }
+            },
+            {
+             "type": "IfStatement",
+             "condition": {
+              "type": "BinaryOperation",
+              "operator": "!=",
+              "left": {
+               "type": "Identifier",
+               "name": "tradingFee"
+              },
+              "right": {
+               "type": "NumberLiteral",
+               "number": "0",
+               "subdenomination": null
+              }
+             },
+             "trueBody": {
+              "type": "Block",
+              "statements": [
+               {
+                "type": "ExpressionStatement",
+                "expression": {
+                 "type": "BinaryOperation",
+                 "operator": "=",
+                 "left": {
+                  "type": "Identifier",
+                  "name": "sourceTokenAmountUsed"
+                 },
+                 "right": {
+                  "type": "BinaryOperation",
+                  "operator": "+",
+                  "left": {
+                   "type": "Identifier",
+                   "name": "sourceTokenAmountUsed"
+                  },
+                  "right": {
+                   "type": "Identifier",
+                   "name": "tradingFee"
+                  }
+                 }
+                }
+               }
+              ]
+             },
+             "falseBody": null
+            }
+           ]
+          },
+          "falseBody": {
+           "type": "Block",
+           "statements": [
+            {
+             "type": "ExpressionStatement",
+             "expression": {
+              "type": "FunctionCall",
+              "expression": {
+               "type": "Identifier",
+               "name": "require"
+              },
+              "arguments": [
+               {
+                "type": "BinaryOperation",
+                "operator": "<=",
+                "left": {
+                 "type": "Identifier",
+                 "name": "sourceTokenAmountUsed"
+                },
+                "right": {
+                 "type": "IndexAccess",
+                 "base": {
+                  "type": "Identifier",
+                  "name": "vals"
+                 },
+                 "index": {
+                  "type": "NumberLiteral",
+                  "number": "1",
+                  "subdenomination": null
+                 }
+                }
+               },
+               {
+                "type": "StringLiteral",
+                "value": "swap fill too large",
+                "parts": [
+                 "swap fill too large"
+                ],
+                "isUnicode": [
+                 false
+                ]
+               }
+              ],
+              "names": [],
+              "identifiers": []
+             }
+            },
+            {
+             "type": "ExpressionStatement",
+             "expression": {
+              "type": "FunctionCall",
+              "expression": {
+               "type": "Identifier",
+               "name": "require"
+              },
+              "arguments": [
+               {
+                "type": "BinaryOperation",
+                "operator": ">=",
+                "left": {
+                 "type": "Identifier",
+                 "name": "destTokenAmountReceived"
+                },
+                "right": {
+                 "type": "IndexAccess",
+                 "base": {
+                  "type": "Identifier",
+                  "name": "vals"
+                 },
+                 "index": {
+                  "type": "NumberLiteral",
+                  "number": "2",
+                  "subdenomination": null
+                 }
+                }
+               },
+               {
+                "type": "StringLiteral",
+                "value": "insufficient swap liquidity",
+                "parts": [
+                 "insufficient swap liquidity"
+                ],
+                "isUnicode": [
+                 false
+                ]
+               }
+              ],
+              "names": [],
+              "identifiers": []
+             }
+            },
+            {
+             "type": "IfStatement",
+             "condition": {
+              "type": "BinaryOperation",
+              "operator": "!=",
+              "left": {
+               "type": "Identifier",
+               "name": "tradingFee"
+              },
+              "right": {
+               "type": "NumberLiteral",
+               "number": "0",
+               "subdenomination": null
+              }
+             },
+             "trueBody": {
+              "type": "Block",
+              "statements": [
+               {
+                "type": "ExpressionStatement",
+                "expression": {
+                 "type": "FunctionCall",
+                 "expression": {
+                  "type": "Identifier",
+                  "name": "_payTradingFee"
+                 },
+                 "arguments": [
+                  {
+                   "type": "IndexAccess",
+                   "base": {
+                    "type": "Identifier",
+                    "name": "addrs"
+                   },
+                   "index": {
+                    "type": "NumberLiteral",
+                    "number": "4",
+                    "subdenomination": null
+                   }
+                  },
+                  {
+                   "type": "Identifier",
+                   "name": "loanId"
+                  },
+                  {
+                   "type": "IndexAccess",
+                   "base": {
+                    "type": "Identifier",
+                    "name": "addrs"
+                   },
+                   "index": {
+                    "type": "NumberLiteral",
+                    "number": "1",
+                    "subdenomination": null
+                   }
+                  },
+                  {
+                   "type": "Identifier",
+                   "name": "tradingFee"
+                  }
+                 ],
+                 "names": [],
+                 "identifiers": []
+                }
+               },
+               {
+                "type": "ExpressionStatement",
+                "expression": {
+                 "type": "BinaryOperation",
+                 "operator": "=",
+                 "left": {
+                  "type": "Identifier",
+                  "name": "destTokenAmountReceived"
+                 },
+                 "right": {
+                  "type": "BinaryOperation",
+                  "operator": "-",
+                  "left": {
+                   "type": "Identifier",
+                   "name": "destTokenAmountReceived"
+                  },
+                  "right": {
+                   "type": "Identifier",
+                   "name": "tradingFee"
+                  }
+                 }
+                }
+               }
+              ]
+             },
+             "falseBody": null
+            }
+           ]
+          }
+         },
+         {
+          "type": "ReturnStatement",
+          "expression": {
+           "type": "TupleExpression",
+           "components": [
+            {
+             "type": "Identifier",
+             "name": "destTokenAmountReceived"
+            },
+            {
+             "type": "Identifier",
+             "name": "sourceTokenAmountUsed"
+            }
+           ],
+           "isArray": false
+          }
+         }
+        ]
+       },
+       "visibility": "internal",
+       "modifiers": [],
+       "override": null,
+       "isConstructor": false,
+       "isReceiveEther": false,
+       "isFallback": false,
+       "isVirtual": false,
+       "stateMutability": null
+      },
+      {
+       "type": "FunctionDefinition",
+       "name": "_swapsCall_internal",
+       "parameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ArrayTypeName",
+          "baseTypeName": {
+           "type": "ElementaryTypeName",
+           "name": "address",
+           "stateMutability": null
+          },
+          "length": {
+           "type": "NumberLiteral",
+           "number": "5",
+           "subdenomination": null
+          }
+         },
+         "name": "addrs",
+         "identifier": {
+          "type": "Identifier",
+          "name": "addrs"
+         },
+         "storageLocation": "memory",
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ArrayTypeName",
+          "baseTypeName": {
+           "type": "ElementaryTypeName",
+           "name": "uint256",
+           "stateMutability": null
+          },
+          "length": {
+           "type": "NumberLiteral",
+           "number": "3",
+           "subdenomination": null
+          }
+         },
+         "name": "vals",
+         "identifier": {
+          "type": "Identifier",
+          "name": "vals"
+         },
+         "storageLocation": "memory",
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "returnParameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint256",
+          "stateMutability": null
+         },
+         "name": "destTokenAmountReceived",
+         "identifier": {
+          "type": "Identifier",
+          "name": "destTokenAmountReceived"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint256",
+          "stateMutability": null
+         },
+         "name": "sourceTokenAmountUsed",
+         "identifier": {
+          "type": "Identifier",
+          "name": "sourceTokenAmountUsed"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "body": {
+        "type": "Block",
+        "statements": [
+         {
+          "type": "VariableDeclarationStatement",
+          "variables": [
+           {
+            "type": "VariableDeclaration",
+            "typeName": {
+             "type": "ElementaryTypeName",
+             "name": "bytes",
+             "stateMutability": null
+            },
+            "name": "data",
+            "identifier": {
+             "type": "Identifier",
+             "name": "data"
+            },
+            "storageLocation": "memory",
+            "isStateVar": false,
+            "isIndexed": false,
+            "expression": null
+           }
+          ],
+          "initialValue": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "MemberAccess",
+            "expression": {
+             "type": "Identifier",
+             "name": "abi"
+            },
+            "memberName": "encodeWithSelector"
+           },
+           "arguments": [
+            {
+             "type": "MemberAccess",
+             "expression": {
+              "type": "MemberAccess",
+              "expression": {
+               "type": "FunctionCall",
+               "expression": {
+                "type": "Identifier",
+                "name": "ISwapsImpl"
+               },
+               "arguments": [
+                {
+                 "type": "Identifier",
+                 "name": "swapsImpl"
+                }
+               ],
+               "names": [],
+               "identifiers": []
+              },
+              "memberName": "dexSwap"
+             },
+             "memberName": "selector"
+            },
+            {
+             "type": "IndexAccess",
+             "base": {
+              "type": "Identifier",
+              "name": "addrs"
+             },
+             "index": {
+              "type": "NumberLiteral",
+              "number": "0",
+              "subdenomination": null
+             }
+            },
+            {
+             "type": "IndexAccess",
+             "base": {
+              "type": "Identifier",
+              "name": "addrs"
+             },
+             "index": {
+              "type": "NumberLiteral",
+              "number": "1",
+              "subdenomination": null
+             }
+            },
+            {
+             "type": "IndexAccess",
+             "base": {
+              "type": "Identifier",
+              "name": "addrs"
+             },
+             "index": {
+              "type": "NumberLiteral",
+              "number": "2",
+              "subdenomination": null
+             }
+            },
+            {
+             "type": "IndexAccess",
+             "base": {
+              "type": "Identifier",
+              "name": "addrs"
+             },
+             "index": {
+              "type": "NumberLiteral",
+              "number": "3",
+              "subdenomination": null
+             }
+            },
+            {
+             "type": "IndexAccess",
+             "base": {
+              "type": "Identifier",
+              "name": "vals"
+             },
+             "index": {
+              "type": "NumberLiteral",
+              "number": "0",
+              "subdenomination": null
+             }
+            },
+            {
+             "type": "IndexAccess",
+             "base": {
+              "type": "Identifier",
+              "name": "vals"
+             },
+             "index": {
+              "type": "NumberLiteral",
+              "number": "1",
+              "subdenomination": null
+             }
+            },
+            {
+             "type": "IndexAccess",
+             "base": {
+              "type": "Identifier",
+              "name": "vals"
+             },
+             "index": {
+              "type": "NumberLiteral",
+              "number": "2",
+              "subdenomination": null
+             }
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         },
+         {
+          "type": "VariableDeclarationStatement",
+          "variables": [
+           {
+            "type": "VariableDeclaration",
+            "typeName": {
+             "type": "ElementaryTypeName",
+             "name": "bool",
+             "stateMutability": null
+            },
+            "name": "success",
+            "identifier": {
+             "type": "Identifier",
+             "name": "success"
+            },
+            "storageLocation": null,
+            "isStateVar": false,
+            "isIndexed": false,
+            "expression": null
+           }
+          ],
+          "initialValue": null
+         },
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "BinaryOperation",
+           "operator": "=",
+           "left": {
+            "type": "TupleExpression",
+            "components": [
+             {
+              "type": "Identifier",
+              "name": "success"
+             },
+             {
+              "type": "Identifier",
+              "name": "data"
+             }
+            ],
+            "isArray": false
+           },
+           "right": {
+            "type": "FunctionCall",
+            "expression": {
+             "type": "MemberAccess",
+             "expression": {
+              "type": "Identifier",
+              "name": "swapsImpl"
+             },
+             "memberName": "delegatecall"
+            },
+            "arguments": [
+             {
+              "type": "Identifier",
+              "name": "data"
+             }
+            ],
+            "names": [],
+            "identifiers": []
+           }
+          }
+         },
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "Identifier",
+            "name": "require"
+           },
+           "arguments": [
+            {
+             "type": "Identifier",
+             "name": "success"
+            },
+            {
+             "type": "StringLiteral",
+             "value": "swap failed",
+             "parts": [
+              "swap failed"
+             ],
+             "isUnicode": [
+              false
+             ]
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         },
+         {
+          "type": "ExpressionStatement",
+          "expression": {
+           "type": "BinaryOperation",
+           "operator": "=",
+           "left": {
+            "type": "TupleExpression",
+            "components": [
+             {
+              "type": "Identifier",
+              "name": "destTokenAmountReceived"
+             },
+             {
+              "type": "Identifier",
+              "name": "sourceTokenAmountUsed"
+             }
+            ],
+            "isArray": false
+           },
+           "right": {
+            "type": "FunctionCall",
+            "expression": {
+             "type": "MemberAccess",
+             "expression": {
+              "type": "Identifier",
+              "name": "abi"
+             },
+             "memberName": "decode"
+            },
+            "arguments": [
+             {
+              "type": "Identifier",
+              "name": "data"
+             },
+             {
+              "type": "TupleExpression",
+              "components": [
+               {
+                "type": "ElementaryTypeName",
+                "name": "uint256",
+                "stateMutability": null
+               },
+               {
+                "type": "ElementaryTypeName",
+                "name": "uint256",
+                "stateMutability": null
+               }
+              ],
+              "isArray": false
+             }
+            ],
+            "names": [],
+            "identifiers": []
+           }
+          }
+         }
+        ]
+       },
+       "visibility": "internal",
+       "modifiers": [],
+       "override": null,
+       "isConstructor": false,
+       "isReceiveEther": false,
+       "isFallback": false,
+       "isVirtual": false,
+       "stateMutability": null
+      },
+      {
+       "type": "FunctionDefinition",
+       "name": "_swapsExpectedReturn",
+       "parameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "address",
+          "stateMutability": null
+         },
+         "name": "sourceToken",
+         "identifier": {
+          "type": "Identifier",
+          "name": "sourceToken"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "address",
+          "stateMutability": null
+         },
+         "name": "destToken",
+         "identifier": {
+          "type": "Identifier",
+          "name": "destToken"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint256",
+          "stateMutability": null
+         },
+         "name": "sourceTokenAmount",
+         "identifier": {
+          "type": "Identifier",
+          "name": "sourceTokenAmount"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "returnParameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint256",
+          "stateMutability": null
+         },
+         "name": null,
+         "identifier": null,
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "body": {
+        "type": "Block",
+        "statements": [
+         {
+          "type": "VariableDeclarationStatement",
+          "variables": [
+           {
+            "type": "VariableDeclaration",
+            "typeName": {
+             "type": "ElementaryTypeName",
+             "name": "uint256",
+             "stateMutability": null
+            },
+            "name": "tradingFee",
+            "identifier": {
+             "type": "Identifier",
+             "name": "tradingFee"
+            },
+            "storageLocation": null,
+            "isStateVar": false,
+            "isIndexed": false,
+            "expression": null
+           }
+          ],
+          "initialValue": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "Identifier",
+            "name": "_getTradingFee"
+           },
+           "arguments": [
+            {
+             "type": "Identifier",
+             "name": "sourceTokenAmount"
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         },
+         {
+          "type": "IfStatement",
+          "condition": {
+           "type": "BinaryOperation",
+           "operator": "!=",
+           "left": {
+            "type": "Identifier",
+            "name": "tradingFee"
+           },
+           "right": {
+            "type": "NumberLiteral",
+            "number": "0",
+            "subdenomination": null
+           }
+          },
+          "trueBody": {
+           "type": "Block",
+           "statements": [
+            {
+             "type": "ExpressionStatement",
+             "expression": {
+              "type": "BinaryOperation",
+              "operator": "=",
+              "left": {
+               "type": "Identifier",
+               "name": "sourceTokenAmount"
+              },
+              "right": {
+               "type": "FunctionCall",
+               "expression": {
+                "type": "MemberAccess",
+                "expression": {
+                 "type": "Identifier",
+                 "name": "sourceTokenAmount"
+                },
+                "memberName": "sub"
+               },
+               "arguments": [
+                {
+                 "type": "Identifier",
+                 "name": "tradingFee"
+                }
+               ],
+               "names": [],
+               "identifiers": []
+              }
+             }
+            }
+           ]
+          },
+          "falseBody": null
+         },
+         {
+          "type": "VariableDeclarationStatement",
+          "variables": [
+           {
+            "type": "VariableDeclaration",
+            "typeName": {
+             "type": "ElementaryTypeName",
+             "name": "uint256",
+             "stateMutability": null
+            },
+            "name": "sourceToDestRate",
+            "identifier": {
+             "type": "Identifier",
+             "name": "sourceToDestRate"
+            },
+            "storageLocation": null,
+            "isStateVar": false,
+            "isIndexed": false,
+            "expression": null
+           }
+          ],
+          "initialValue": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "MemberAccess",
+            "expression": {
+             "type": "FunctionCall",
+             "expression": {
+              "type": "Identifier",
+              "name": "ISwapsImpl"
+             },
+             "arguments": [
+              {
+               "type": "Identifier",
+               "name": "swapsImpl"
+              }
+             ],
+             "names": [],
+             "identifiers": []
+            },
+            "memberName": "dexExpectedRate"
+           },
+           "arguments": [
+            {
+             "type": "Identifier",
+             "name": "sourceToken"
+            },
+            {
+             "type": "Identifier",
+             "name": "destToken"
+            },
+            {
+             "type": "Identifier",
+             "name": "sourceTokenAmount"
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         },
+         {
+          "type": "VariableDeclarationStatement",
+          "variables": [
+           {
+            "type": "VariableDeclaration",
+            "typeName": {
+             "type": "ElementaryTypeName",
+             "name": "uint256",
+             "stateMutability": null
+            },
+            "name": "sourceToDestPrecision",
+            "identifier": {
+             "type": "Identifier",
+             "name": "sourceToDestPrecision"
+            },
+            "storageLocation": null,
+            "isStateVar": false,
+            "isIndexed": false,
+            "expression": null
+           }
+          ],
+          "initialValue": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "MemberAccess",
+            "expression": {
+             "type": "FunctionCall",
+             "expression": {
+              "type": "Identifier",
+              "name": "IPriceFeeds"
+             },
+             "arguments": [
+              {
+               "type": "Identifier",
+               "name": "priceFeeds"
+              }
+             ],
+             "names": [],
+             "identifiers": []
+            },
+            "memberName": "queryPrecision"
+           },
+           "arguments": [
+            {
+             "type": "Identifier",
+             "name": "sourceToken"
+            },
+            {
+             "type": "Identifier",
+             "name": "destToken"
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         },
+         {
+          "type": "ReturnStatement",
+          "expression": {
+           "type": "FunctionCall",
+           "expression": {
+            "type": "MemberAccess",
+            "expression": {
+             "type": "FunctionCall",
+             "expression": {
+              "type": "MemberAccess",
+              "expression": {
+               "type": "Identifier",
+               "name": "sourceTokenAmount"
+              },
+              "memberName": "mul"
+             },
+             "arguments": [
+              {
+               "type": "Identifier",
+               "name": "sourceToDestRate"
+              }
+             ],
+             "names": [],
+             "identifiers": []
+            },
+            "memberName": "div"
+           },
+           "arguments": [
+            {
+             "type": "Identifier",
+             "name": "sourceToDestPrecision"
+            }
+           ],
+           "names": [],
+           "identifiers": []
+          }
+         }
+        ]
+       },
+       "visibility": "internal",
+       "modifiers": [],
+       "override": null,
+       "isConstructor": false,
+       "isReceiveEther": false,
+       "isFallback": false,
+       "isVirtual": false,
+       "stateMutability": "view"
+      },
+      {
+       "type": "FunctionDefinition",
+       "name": "_checkSwapSize",
+       "parameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "address",
+          "stateMutability": null
+         },
+         "name": "tokenAddress",
+         "identifier": {
+          "type": "Identifier",
+          "name": "tokenAddress"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint256",
+          "stateMutability": null
+         },
+         "name": "amount",
+         "identifier": {
+          "type": "Identifier",
+          "name": "amount"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "returnParameters": null,
+       "body": {
+        "type": "Block",
+        "statements": [
+         {
+          "type": "VariableDeclarationStatement",
+          "variables": [
+           {
+            "type": "VariableDeclaration",
+            "typeName": {
+             "type": "ElementaryTypeName",
+             "name": "uint256",
+             "stateMutability": null
+            },
+            "name": "_maxSwapSize",
+            "identifier": {
+             "type": "Identifier",
+             "name": "_maxSwapSize"
+            },
+            "storageLocation": null,
+            "isStateVar": false,
+            "isIndexed": false,
+            "expression": null
+           }
+          ],
+          "initialValue": {
+           "type": "Identifier",
+           "name": "maxSwapSize"
+          }
+         },
+         {
+          "type": "IfStatement",
+          "condition": {
+           "type": "BinaryOperation",
+           "operator": "!=",
+           "left": {
+            "type": "Identifier",
+            "name": "_maxSwapSize"
+           },
+           "right": {
+            "type": "NumberLiteral",
+            "number": "0",
+            "subdenomination": null
+           }
+          },
+          "trueBody": {
+           "type": "Block",
+           "statements": [
+            {
+             "type": "VariableDeclarationStatement",
+             "variables": [
+              {
+               "type": "VariableDeclaration",
+               "typeName": {
+                "type": "ElementaryTypeName",
+                "name": "uint256",
+                "stateMutability": null
+               },
+               "name": "amountInEth",
+               "identifier": {
+                "type": "Identifier",
+                "name": "amountInEth"
+               },
+               "storageLocation": null,
+               "isStateVar": false,
+               "isIndexed": false,
+               "expression": null
+              }
+             ],
+             "initialValue": null
+            },
+            {
+             "type": "IfStatement",
+             "condition": {
+              "type": "BinaryOperation",
+              "operator": "==",
+              "left": {
+               "type": "Identifier",
+               "name": "tokenAddress"
+              },
+              "right": {
+               "type": "FunctionCall",
+               "expression": {
+                "type": "Identifier",
+                "name": "address"
+               },
+               "arguments": [
+                {
+                 "type": "Identifier",
+                 "name": "wethToken"
+                }
+               ],
+               "names": [],
+               "identifiers": []
+              }
+             },
+             "trueBody": {
+              "type": "Block",
+              "statements": [
+               {
+                "type": "ExpressionStatement",
+                "expression": {
+                 "type": "BinaryOperation",
+                 "operator": "=",
+                 "left": {
+                  "type": "Identifier",
+                  "name": "amountInEth"
+                 },
+                 "right": {
+                  "type": "Identifier",
+                  "name": "amount"
+                 }
+                }
+               }
+              ]
+             },
+             "falseBody": {
+              "type": "Block",
+              "statements": [
+               {
+                "type": "ExpressionStatement",
+                "expression": {
+                 "type": "BinaryOperation",
+                 "operator": "=",
+                 "left": {
+                  "type": "Identifier",
+                  "name": "amountInEth"
+                 },
+                 "right": {
+                  "type": "FunctionCall",
+                  "expression": {
+                   "type": "MemberAccess",
+                   "expression": {
+                    "type": "FunctionCall",
+                    "expression": {
+                     "type": "Identifier",
+                     "name": "IPriceFeeds"
+                    },
+                    "arguments": [
+                     {
+                      "type": "Identifier",
+                      "name": "priceFeeds"
+                     }
+                    ],
+                    "names": [],
+                    "identifiers": []
+                   },
+                   "memberName": "amountInEth"
+                  },
+                  "arguments": [
+                   {
+                    "type": "Identifier",
+                    "name": "tokenAddress"
+                   },
+                   {
+                    "type": "Identifier",
+                    "name": "amount"
+                   }
+                  ],
+                  "names": [],
+                  "identifiers": []
+                 }
+                }
+               }
+              ]
+             }
+            },
+            {
+             "type": "ExpressionStatement",
+             "expression": {
+              "type": "FunctionCall",
+              "expression": {
+               "type": "Identifier",
+               "name": "require"
+              },
+              "arguments": [
+               {
+                "type": "BinaryOperation",
+                "operator": "<=",
+                "left": {
+                 "type": "Identifier",
+                 "name": "amountInEth"
+                },
+                "right": {
+                 "type": "Identifier",
+                 "name": "_maxSwapSize"
+                }
+               },
+               {
+                "type": "StringLiteral",
+                "value": "swap too large",
+                "parts": [
+                 "swap too large"
+                ],
+                "isUnicode": [
+                 false
+                ]
+               }
+              ],
+              "names": [],
+              "identifiers": []
+             }
+            }
+           ]
+          },
+          "falseBody": null
+         }
+        ]
+       },
+       "visibility": "internal",
+       "modifiers": [],
+       "override": null,
+       "isConstructor": false,
+       "isReceiveEther": false,
+       "isFallback": false,
+       "isVirtual": false,
+       "stateMutability": "view"
+      }
+     ],
+     "kind": "contract"
+    }
+   ]
+  }
+ },
+ {
+  "path": "/home/jameschong/Projects/audits-kd/workspace/datasets/DAppSCAN/DAppSCAN-source/contracts/Hacken-Nimbus-V2/nim-smartcontract-12a41a194f39670637d79ef2c5bcc6a70d617781/IChai.sol",
+  "ast": {
+   "type": "SourceUnit",
+   "children": [
+    {
+     "type": "PragmaDirective",
+     "name": "solidity",
+     "value": ">=0.5.0 <0.6.0"
+    },
+    {
+     "type": "ImportDirective",
+     "path": "./IERC20.sol",
+     "pathLiteral": {
+      "type": "StringLiteral",
+      "value": "./IERC20.sol",
+      "parts": [
+       "./IERC20.sol"
+      ],
+      "isUnicode": [
+       false
+      ]
+     },
+     "unitAlias": null,
+     "unitAliasIdentifier": null,
+     "symbolAliases": null,
+     "symbolAliasesIdentifiers": null
+    },
+    {
+     "type": "ContractDefinition",
+     "name": "IPot",
+     "baseContracts": [],
+     "subNodes": [
+      {
+       "type": "FunctionDefinition",
+       "name": "dsr",
+       "parameters": [],
+       "returnParameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint256",
+          "stateMutability": null
+         },
+         "name": null,
+         "identifier": null,
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "body": null,
+       "visibility": "external",
+       "modifiers": [],
+       "override": null,
+       "isConstructor": false,
+       "isReceiveEther": false,
+       "isFallback": false,
+       "isVirtual": false,
+       "stateMutability": "view"
+      },
+      {
+       "type": "FunctionDefinition",
+       "name": "chi",
+       "parameters": [],
+       "returnParameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint256",
+          "stateMutability": null
+         },
+         "name": null,
+         "identifier": null,
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "body": null,
+       "visibility": "external",
+       "modifiers": [],
+       "override": null,
+       "isConstructor": false,
+       "isReceiveEther": false,
+       "isFallback": false,
+       "isVirtual": false,
+       "stateMutability": "view"
+      },
+      {
+       "type": "FunctionDefinition",
+       "name": "rho",
+       "parameters": [],
+       "returnParameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint256",
+          "stateMutability": null
+         },
+         "name": null,
+         "identifier": null,
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "body": null,
+       "visibility": "external",
+       "modifiers": [],
+       "override": null,
+       "isConstructor": false,
+       "isReceiveEther": false,
+       "isFallback": false,
+       "isVirtual": false,
+       "stateMutability": "view"
+      }
+     ],
+     "kind": "interface"
+    },
+    {
+     "type": "ContractDefinition",
+     "name": "IChai",
+     "baseContracts": [
+      {
+       "type": "InheritanceSpecifier",
+       "baseName": {
+        "type": "UserDefinedTypeName",
+        "namePath": "IERC20"
+       },
+       "arguments": []
+      }
+     ],
+     "subNodes": [
+      {
+       "type": "FunctionDefinition",
+       "name": "move",
+       "parameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "address",
+          "stateMutability": null
+         },
+         "name": "src",
+         "identifier": {
+          "type": "Identifier",
+          "name": "src"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "address",
+          "stateMutability": null
+         },
+         "name": "dst",
+         "identifier": {
+          "type": "Identifier",
+          "name": "dst"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint256",
+          "stateMutability": null
+         },
+         "name": "wad",
+         "identifier": {
+          "type": "Identifier",
+          "name": "wad"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "returnParameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "bool",
+          "stateMutability": null
+         },
+         "name": null,
+         "identifier": null,
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "body": null,
+       "visibility": "external",
+       "modifiers": [],
+       "override": null,
+       "isConstructor": false,
+       "isReceiveEther": false,
+       "isFallback": false,
+       "isVirtual": false,
+       "stateMutability": null
+      },
+      {
+       "type": "FunctionDefinition",
+       "name": "join",
+       "parameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "address",
+          "stateMutability": null
+         },
+         "name": "dst",
+         "identifier": {
+          "type": "Identifier",
+          "name": "dst"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint256",
+          "stateMutability": null
+         },
+         "name": "wad",
+         "identifier": {
+          "type": "Identifier",
+          "name": "wad"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "returnParameters": null,
+       "body": null,
+       "visibility": "external",
+       "modifiers": [],
+       "override": null,
+       "isConstructor": false,
+       "isReceiveEther": false,
+       "isFallback": false,
+       "isVirtual": false,
+       "stateMutability": null
+      },
+      {
+       "type": "FunctionDefinition",
+       "name": "draw",
+       "parameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "address",
+          "stateMutability": null
+         },
+         "name": "src",
+         "identifier": {
+          "type": "Identifier",
+          "name": "src"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint256",
+          "stateMutability": null
+         },
+         "name": "wad",
+         "identifier": {
+          "type": "Identifier",
+          "name": "wad"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "returnParameters": null,
+       "body": null,
+       "visibility": "external",
+       "modifiers": [],
+       "override": null,
+       "isConstructor": false,
+       "isReceiveEther": false,
+       "isFallback": false,
+       "isVirtual": false,
+       "stateMutability": null
+      },
+      {
+       "type": "FunctionDefinition",
+       "name": "exit",
+       "parameters": [
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "address",
+          "stateMutability": null
+         },
+         "name": "src",
+         "identifier": {
+          "type": "Identifier",
+          "name": "src"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        },
+        {
+         "type": "VariableDeclaration",
+         "typeName": {
+          "type": "ElementaryTypeName",
+          "name": "uint",
+          "stateMutability": null
+         },
+         "name": "wad",
+         "identifier": {
+          "type": "Identifier",
+          "name": "wad"
+         },
+         "storageLocation": null,
+         "isStateVar": false,
+         "isIndexed": false,
+         "expression": null
+        }
+       ],
+       "returnParameters": null,
+       "body": null,
+       "visibility": "external",
+       "modifiers": [],
+       "override": null,
+       "isConstructor": false,
+       "isReceiveEther": false,
+       "isFallback": false,
+       "isVirtual": false,
+       "stateMutability": null
+      }
+     ],
+     "kind": "contract"
+    }
+   ]
+  }
+ }
+]
