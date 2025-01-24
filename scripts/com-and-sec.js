@@ -14,8 +14,9 @@ export async function init () {
     const data147 = map_volume((await axios.get("./data/papers/comp-and-sec/147.json")).data, 147);
     const data148 = map_volume((await axios.get("./data/papers/comp-and-sec/148.json")).data, 148);
     const data149 = map_volume((await axios.get("./data/papers/comp-and-sec/149.json")).data, 149);
+    const data150 = map_volume((await axios.get("./data/papers/comp-and-sec/150.json")).data, 150);
 
-    const data = data143.concat(data142,data144,data145,data146,data147,data148,data149);
+    const data = data143.concat(data142,data144,data145,data146,data147,data148,data149,data150);
 
     const topics = _.chain(data).map("topics").compact().flatten().uniq().value();
     console.log(topics);

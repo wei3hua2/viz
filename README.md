@@ -18,6 +18,13 @@
 https://github.com/giacomofi/Smart-Contracts-Bipartite-Graph-Generator
 
 
+## industries
+tryhackme
+hackerone
+Immunefi, code4renas
+
+Systematically understanding the cyber attack business: A survey
+
 
 ## libraries
 utilities: lodash tailwindcss  

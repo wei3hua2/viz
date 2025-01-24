@@ -8,6 +8,6 @@ export async function init () {
     let table = new DataTable('#papers_table', {
         pageLength:1000,
         data,
-        columns:[ {data:'title'}, {data:'year'}, {data:'topics'} ]
+        columns:[ {data:'title'}, {data:'year'}, {data:'notes'},{data:'topics'} ]
     });
 }

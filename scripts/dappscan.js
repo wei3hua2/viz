@@ -13,7 +13,8 @@ export async  function init () {
         (p) => ({
             project:p.project,
             issues: _.map(p.issues, i => filename_only(i.filePath)).join('<br/>'),
-            files:_.chain(p.files).map(filename_only).filter( f => f.indexOf('.sol')>=0 ).value().join('<br/>')
+            files: p.files.length
+            // files:_.chain(p.files).map(filename_only).filter( f => f.indexOf('.sol')>=0 ).value().join('<br/>')
         })
     );
 
