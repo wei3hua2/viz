@@ -1,13 +1,12 @@
 
 
-
 export async function init () {
 
-    const data = (await axios.get("./data/papers/cybersec.json")).data;
+    const books = (await axios.get("./data/cybersec/books.json")).data;
 
-    let table = new DataTable('#papers_table', {
+    let table = new DataTable('#books_table', {
         pageLength:1000,
-        data,
+        data:books,
         columns:[ {data:'title'}, {data:'year'}, {data:'topics'} ]
     });
 }
