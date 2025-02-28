@@ -11,6 +11,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.24.1/cytoscape.min.js" integrity="sha512-gOLdh3sQWkoTw0DuAqdrkBhsza6oYMHwLQ7ajmdZ0iTT5hTAKTg88bEvPGLlEJEYmpYJa+vTtAMxKqpDnB89Ng==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 
     <script src="https://cdn.datatables.net/2.2.0/js/dataTables.js"></script>
 
@@ -22,51 +23,30 @@
         }
     </style>
 
-    <title>Viz</title>
+    <title>Viz - project</title>
   </head>
   <body>
-
     
 
-    <div id="main" class="container mx-auto">
-        <!-- <h2 class="text-2xl underline">Reconnaissance/Intelligence</h2> -->
+    <div id="main" class="container px-5">
+        <h1 class="text-4xl underline" id="title"></h1>
+
+
+        <pre id="human-summary"></pre>
+
+        <pre id=="diagram" class="mermaid">
+
+        </pre>
         
-
-        <table id="recon_table" class="display"></table>
-        <hr/>
-
-        <div>
-
-          <h1 class="text-3xl underline">Survey and Taxonomy of Adversarial Reconnaissance Techniques</h1>
-
-          <img src ="https://ai2-s2-public.s3.amazonaws.com/figures/2017-08-08/08136dddf8f377ad37e96fdd302ac51969420503/15-Figure3-1.png"/>
-
-          <br/><hr/><br/>
-
-          <img src="https://ai2-s2-public.s3.amazonaws.com/figures/2017-08-08/08136dddf8f377ad37e96fdd302ac51969420503/13-Figure2-1.png"/>
-
-          <br/><hr/><br/>
-
-          <pre>
-          3.1 Surveys of Reconnaissance Techniques
-          OSINT, Social Engineering , Cyber Scanning , Side-channel Attacks
-          </pre>
-
-        </div>          
-
-        <br/><hr/><br/>
-
-        <div> 
-          <h1>tools: </h1>
-          https://cybdetective.com/
-          <br/>
-          https://github.com/jivoi/awesome-osint
-        </div>
+        <div style="background-color: #777;display: inline-block;" id="function-summary"></div>
 
     </div>
 
     <script type="module">
-      import {init} from "./scripts/recon.js"
+      import {init} from "./scripts/project.js"
+      import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+
+      mermaid.initialize({ startOnLoad: true });
 
       $(document).ready(async function () {
         await init();

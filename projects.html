@@ -31,23 +31,210 @@
   <body>
     
 
-    <div id="main" class="container mx-auto">
+    <!-- <div id="main" class="container mx-auto"> -->
+      <div id="main" class="container px-6">
 
         <br/>
 
-        <h2 class="text-2xl underline">projects</h2>
-        <table id="projects_table" class="display"></table>
+        <h2 class="text-2xl underline">Velvet</h2>
+        <pre>TODO</pre>
+        <!-- <div id="velvet-graph" class="graph"></div> -->
+
+        <h2 class="text-2xl underline">Hesty</h2>
+<pre class="mermaid">
+classDiagram
+HestyRouter --> ReferralSystem
+HestyRouter --> HestyAccessControl
+TokenFactory --> HestyAssetIssuance
+HestyAssetIssuance --|> PropertyToken
+PropertyInfo *-- TokenFactory 
+class TokenFactory{
+  propertyCounter
+  minInvAmount
+  maxNumberOfReferrals
+  maxAmountOfRefRev
+  platformFeeBasisPoints
+  refFeeBasisPoints
+  treasury
+  initialized
+  property
+  platformFee
+  ownersPlatformFee
+  propertyOwnerShare
+  refFee
+  ownersFeeBasisPoints
+  deadProperty
+  tokensWhitelist
+  userInvested
+  rightForTokens
+}
+class PropertyInfo{
+  price
+  amountToSell
+  threshold
+  raised
+  raiseDeadline
+  isCompleted
+  approved
+  extended
+  owner
+  ownerExchAddr
+  paymentToken
+  asset
+  revenueToken
+}
+class PropertyToken{
+  rewardAsset
+  dividendPerToken
+  xDividendPerToken
+  ctrHestyControl
+}
+class HestyAccessControl{
+  initialSponsorAmount
+  kycCompleted
+  blackList
+  firstApproval
+}
+class HestyRouter{
+  tokenFactory;
+  hestyAccessControl
+  pendingHestyAccessControl
+}
+class ReferralSystem{
+  ctrHestyControl
+  rewardToken
+  tokenFactory
+  rewards
+  totalRewards
+  globalRewards
+  rewardsByProperty
+  numberOfRef
+  referredBy
+  approvedCtrs
+}
+</pre>
+
+        <!-- <div id="hesty-graph" class="graph"></div> -->
+
+<br/><hr/><br/>
+
+
+        <a href="./project.html?pid=size-solidity" class="text-2xl underline">Size-Solidity</a>
+<pre class="mermaid">
+classDiagram
+State *-- SizeStorage
+SizeStorage *-- FeeConfig
+SizeStorage *-- RiskConfig
+SizeStorage *-- Oracle
+SizeStorage *-- Data
+PriceFeed <-- SizeStorage
+class PriceFeed{
+  base;
+  quote;
+  sequencerUptimeFeed;
+  baseStalePriceInterval;
+  quoteStalePriceInterval;
+}
+class SizeStorage{
+  State state
+}
+class State{
+  FeeConfig feeConfig;
+  RiskConfig riskConfig;
+  Oracle oracle;
+  Data data;
+}
+class FeeConfig {
+  swapFeeAPR
+  fragmentationFee
+  liquidationRewardPercent
+  overdueCollateralProtocolPercent
+  collateralProtocolPercent
+  feeRecipient
+}
+class RiskConfig {
+  crOpening
+  crLiquidation
+  minimumCreditBorrowAToken
+  borrowATokenCap
+  minTenor
+  maxTenor
+}
+class Oracle {
+  priceFeed
+  variablePoolBorrowRate
+  variablePoolBorrowRateUpdatedAt
+  variablePoolBorrowRateStaleRateInterval
+}
+class Data{
+  users
+  debtPositions
+  creditPositions
+  nextDebtPositionId
+  nextCreditPositionId
+  weth
+  underlyingCollateralToken
+  underlyingBorrowToken
+  collateralToken
+  borrowAToken
+  debtToken
+  variablePool
+  isMulticall
+}
+</pre>
 
         <hr/> <br/>
 
+<pre>
+  +-----+-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Num |           Printer |                                                                                                                                                                      What it Does |
++-----+-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| 1   |        call-graph |                                                                                                                              Export the call-graph of the contracts to a dot file |
+| 2   |               cfg |                                                                                                                                                  Export the CFG of each functions |
+| 3   |                ck |                                                                                                     Chidamber and Kemerer (CK) complexity metrics and related function attributes |
+| 4   | constructor-calls |                                                                                                                                                   Print the constructors executed |
+| 5   |  contract-summary |                                                                                                                                                  Print a summary of the contracts |
+| 6   |   data-dependency |                                                                                                                                      Print the data dependencies of the variables |
+| 7   |       declaration |                                                                             Prototype showing the source code declaration, implementation and references of the contracts objects |
+| 8   |         dominator |                                                                                                                                       Export the dominator tree of each functions |
+| 9   |           echidna |                                                                                                                                                Export Echidna guiding information |
+| 10  |               evm |                                                                                                                                  Print the evm instructions of nodes in functions |
+| 11  |       function-id |                                                                                                                                    Print the keccak256 signature of the functions |
+| 12  |  function-summary |                                                                                                                                                  Print a summary of the functions |
+| 13  |          halstead |                                                                                                                        Computes the Halstead complexity metrics for each contract |
+| 14  |     human-summary |                                                                                                                                   Print a human-readable summary of the contracts |
+| 15  |       inheritance |                                                                                                                                 Print the inheritance relations between contracts |
+| 16  | inheritance-graph |                                                                                                                       Export the inheritance graph of each contract to a dot file |
+| 17  |               loc | Count the total number lines of code (LOC), source lines of code (SLOC), and comment lines of code (CLOC) found in source files (SRC), dependencies (DEP), and test files (TEST). |
+| 18  |            martin |                                                                                                                                   Martin agile software metrics (Ca, Ce, I, A, D) |
+| 19  |         modifiers |                                                                                                                                       Print the modifiers called by each function |
+| 20  |      not-pausable |                                                                                                                                     Print functions that do not use whenNotPaused |
+| 21  |           require |                                                                                                                               Print the require and assert calls of each function |
+| 22  |           slithir |                                                                                                                                 Print the slithIR representation of the functions |
+| 23  |       slithir-ssa |                                                                                                                                 Print the slithIR representation of the functions |
+| 24  |    variable-order |                                                                                                                                    Print the storage order of the state variables |
+| 25  |     vars-and-auth |                                                                                                          Print the state variables written and the authorization of the functions |
++-----+-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+</pre>
 
-        <h2 class="text-2xl underline">issues</h2>
-        <table id="issuess_table" class="display"></table>
+        <hr/> <br/>
+
+        <!-- <h2 class="text-2xl underline">temp</h2>
+        <table id="projects_table" class="display"></table> -->
+
+
+        <!-- <h2 class="text-2xl underline">issues</h2>
+        <table id="issuess_table" class="display"></table> -->
+
+        
 
     </div>
 
     <script type="module">
-      import {init} from "./scripts/projects.js"
+      import {init} from "./scripts/projects.js";
+      import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+
+      mermaid.initialize({ startOnLoad: true });
 
       $(document).ready(async function () {
         await init();

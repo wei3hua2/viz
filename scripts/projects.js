@@ -1,3 +1,30 @@
+const graphStyle = [
+    {
+        selector:'node',
+        style: {
+            "label":"data(name)",
+            'background-color': '#99d'
+        }
+    },
+    {
+        selector:'.issue',
+        style: {
+            "label":"data(name)",
+            'background-color': '#491'
+        }
+    },
+    {
+        selector:'edge',
+        style: {
+            'width': 3,
+            'line-color': '#555',
+            'target-arrow-color': '#444',
+            'target-arrow-shape': 'triangle',
+            'curve-style': 'bezier',
+            "label":"data(name)"
+        }
+    }
+];
 
 const projects = [
     {
@@ -234,10 +261,56 @@ export async function init () {
         columns:[ {data:'name'}, {data:'contracts'}, {data:'entities'}, {data:'roles'} ]
     });
 
-    let itable = new DataTable('#issuess_table', {
-        pageLength:1000,
-        data:issues,
-        columns:[ {data:'title'}, {data:'project'}, {data:'contracts'} ]
+    // let itable = new DataTable('#issuess_table', {
+    //     pageLength:1000,
+    //     data:issues,
+    //     columns:[ {data:'title'}, {data:'project'}, {data:'contracts'} ]
+    // });
+
+
+    var cy = cytoscape({
+        container: $('#hesty-graph'),
+        elements: [
+            {data: {id:'Factory', name:'Factory'}},
+            {data: {id:'Issuance', name:'Issuance'}},
+            {data: {id:'PropertyToken', name:'PropertyToken'}},
+            {data: {id:'Router', name:'Router'}},
+            {data: {id:'AccessControl', name:'AccessControl'}},
+            {data: {id:'ReferralSystem', name:'ReferralSystem'}},
+
+            {data: {id:'a', source:'Factory', target:'Issuance',name:''}},
+            {data: {id:'b', source:'Issuance', target:'PropertyToken',name:''}},
+            {data: {id:'c', source:'Router', target:'AccessControl',name:''}},
+            {data: {id:'d', source:'Router', target:'Factory',name:''}},
+
+        ],
+        style: graphStyle,
+        layout: {name:"breadthfirst"}
+    });
+
+    var cy = cytoscape({
+        container: $('#velvet-graph'),
+        elements: [
+            {data: {id:'PortfolioFactory', name:'PortfolioFactory'}},
+            {data: {id:'Portfolio', name:'Portfolio'}},
+            {data: {id:'TokenExclusionManager', name:'TokenExclusionManager'}},
+            {data: {id:'FeeModule', name:'FeeModule'}},
+            {data: {id:'AccessController', name:'AccessController'}},
+            {data: {id:'GnosisDeployer', name:'GnosisDeployer'}},
+            {data: {id:'VaultManager', name:'VaultManager'}},
+            {data: {id:'FeeManager', name:'FeeManager'}},
+
+            
+            {data: {id:'a', source:'PortfolioFactory', target:'Portfolio',name:''}},
+            {data: {id:'b', source:'Portfolio', target:'VaultManager',name:'extends'}},
+            {data: {id:'c', source:'VaultManager', target:'FeeManager',name:'extends'}},
+            {data: {id:'d', source:'FeeManager', target:'FeeModule',name:''}}
+
+
+        ],
+        style: graphStyle,
+        layout: {name:"breadthfirst"}
     });
 
 }
+
