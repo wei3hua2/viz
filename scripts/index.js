@@ -1,6 +1,16 @@
 import {graphStyle} from './config.js';
 
 export async  function init () {
+
+    const books = (await axios.get("./data/cybersec/books.json")).data;
+
+    let table = new DataTable('#books_table', {
+        pageLength:1000,
+        data:books,
+        columns:[ {data:'title'}, {data:'year'}, {data:'topics'} ]
+    });
+
+
     // const scvd = (await axios.get("./data/papers/scvd.json")).data;
     // const gnn = _.find(scvd, ['id','10.24963/ijcai.2020/454']);
     // const expert = _.find(scvd, ['id','10.1109/TKDE.2021.3095196']); 
