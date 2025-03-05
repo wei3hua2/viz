@@ -261,12 +261,6 @@ export async function init () {
         columns:[ {data:'name'}, {data:'contracts'}, {data:'entities'}, {data:'roles'} ]
     });
 
-    // let itable = new DataTable('#issuess_table', {
-    //     pageLength:1000,
-    //     data:issues,
-    //     columns:[ {data:'title'}, {data:'project'}, {data:'contracts'} ]
-    // });
-
 
     var cy = cytoscape({
         container: $('#hesty-graph'),

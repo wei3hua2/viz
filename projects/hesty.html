@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.2.0/css/dataTables.dataTables.css" />
+    <!-- <link rel="stylesheet" href="https://cdn.datatables.net/select/3.0.0/css/select.dataTables.min.css" /> -->
+    
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js" integrity="sha512-WFN04846sdKMIP5LKNphMaWzU7YpMyCU245etK3g/2ARYbPK9Ub18eG+ljU96qKRCWh+quCY7yefSmlkQw1ANQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.24.1/cytoscape.min.js" integrity="sha512-gOLdh3sQWkoTw0DuAqdrkBhsza6oYMHwLQ7ajmdZ0iTT5hTAKTg88bEvPGLlEJEYmpYJa+vTtAMxKqpDnB89Ng==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="https://cdn.datatables.net/2.2.0/js/dataTables.js"></script>
+    <!-- <script src="https://cdn.datatables.net/select/3.0.0/js/dataTables.select.min.js"></script> -->
+    
+
+    <style>
+        .graph {
+          width:100%;
+          height:600px;
+          display: block;
+        }
+    </style>
+
+    <title>Viz - Hesty</title>
+  </head>
+  <body>
+    
+      <div id="main" class="container px-6">
+
+        
+
+        <h2 class="text-2xl underline">Hesty</h2>
+<pre class="mermaid">
+classDiagram
+HestyRouter --> ReferralSystem
+HestyRouter --> HestyAccessControl
+TokenFactory --> HestyAssetIssuance
+HestyAssetIssuance --|> PropertyToken
+PropertyInfo *-- TokenFactory 
+class TokenFactory{
+  propertyCounter
+  minInvAmount
+  maxNumberOfReferrals
+  maxAmountOfRefRev
+  platformFeeBasisPoints
+  refFeeBasisPoints
+  treasury
+  initialized
+  property
+  platformFee
+  ownersPlatformFee
+  propertyOwnerShare
+  refFee
+  ownersFeeBasisPoints
+  deadProperty
+  tokensWhitelist
+  userInvested
+  rightForTokens
+}
+class PropertyInfo{
+  price
+  amountToSell
+  threshold
+  raised
+  raiseDeadline
+  isCompleted
+  approved
+  extended
+  owner
+  ownerExchAddr
+  paymentToken
+  asset
+  revenueToken
+}
+class PropertyToken{
+  rewardAsset
+  dividendPerToken
+  xDividendPerToken
+  ctrHestyControl
+}
+class HestyAccessControl{
+  initialSponsorAmount
+  kycCompleted
+  blackList
+  firstApproval
+}
+class HestyRouter{
+  tokenFactory;
+  hestyAccessControl
+  pendingHestyAccessControl
+}
+class ReferralSystem{
+  ctrHestyControl
+  rewardToken
+  tokenFactory
+  rewards
+  totalRewards
+  globalRewards
+  rewardsByProperty
+  numberOfRef
+  referredBy
+  approvedCtrs
+}
+</pre>
+
+<div>
+  ERC 20 transfer
+</div>
+
+<div>
+  <h1 class="text-2xl underline">Issuance</h1>
+  <table id="issuance_table" class="display"></table>
+  
+  <h1 class="text-2xl underline">Router</h1>
+  <table id="router_table" class="display"></table>
+  
+  <h1 class="text-2xl underline">Access Control</h1>
+  <table id="ac_table" class="display"></table>
+  
+  <h1 class="text-2xl underline">Referral System</h1>
+  <table id="referral_table" class="display"></table>
+  
+  <h1 class="text-2xl underline">Property Token</h1>
+  <table id="proptoken_table" class="display"></table>
+
+  <h1 class="text-2xl underline">Token Factory</h1>
+  <table id="tokenfactory_table" class="display"></table>
+
+</div>
+
+<br/><hr/><br/>
+
+    </div>
+
+    <script type="module">
+      import {init} from "./hesty.js";
+      import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+
+      mermaid.initialize({ startOnLoad: true });
+
+      $(document).ready(async function () {
+        await init();
+      });
+
+    </script>
+    
+  </body>
+</html>

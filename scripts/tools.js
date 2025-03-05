@@ -11,7 +11,7 @@ const hunting = "Hunting Cyber Criminals: A Hacker's Guide to Online Intelligenc
 const metasploit = "Metasploit: The Penetration Tester's Guide";
 
 const tools = [
-    "metasploit", "recon-ng", "nmap", "aircrack-ng", "dork", "whois", "shodan", "nessus" 
+    "metasploit", "recon-ng", "nmap", "aircrack-ng", "dork", "whois", "shodan", "nessus", "burp"
 ]
 
 export async function init () {

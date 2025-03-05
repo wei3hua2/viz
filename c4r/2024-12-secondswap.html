@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.2.0/css/dataTables.dataTables.css" />
+    <!-- <link rel="stylesheet" href="https://cdn.datatables.net/select/3.0.0/css/select.dataTables.min.css" /> -->
+    
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js" integrity="sha512-WFN04846sdKMIP5LKNphMaWzU7YpMyCU245etK3g/2ARYbPK9Ub18eG+ljU96qKRCWh+quCY7yefSmlkQw1ANQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.24.1/cytoscape.min.js" integrity="sha512-gOLdh3sQWkoTw0DuAqdrkBhsza6oYMHwLQ7ajmdZ0iTT5hTAKTg88bEvPGLlEJEYmpYJa+vTtAMxKqpDnB89Ng==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="https://cdn.datatables.net/2.2.0/js/dataTables.js"></script>
+    <!-- <script src="https://cdn.datatables.net/select/3.0.0/js/dataTables.select.min.js"></script> -->
+    
+
+    <style>
+        .graph {
+          width:100%;
+          height:600px;
+          display: block;
+        }
+    </style>
+
+    <title>Viz - Hesty</title>
+  </head>
+  <body>
+    
+      <div id="main" class="container px-6">
+
+        
+
+        <h2 class="text-2xl underline">Hesty</h2>
+<pre class="mermaid">
+classDiagram
+SecondSwap_WhitelistDeployer --|> SecondSwap_Whitelist : deploy
+SecondSwap_VestingManager --> SecondSwap_StepVesting
+SecondSwap_VestingManager --> SecondSwap_StepVesting
+SecondSwap_Marketplace --> SecondSwap_MarketplaceSetting
+SecondSwap_Marketplace --> SecondSwap_Whitelist
+SecondSwap_Marketplace --> SecondSwap_VestingManager
+SecondSwap_Marketplace --> SecondSwap_WhitelistDeployer
+SecondSwap_VestingDeployer --|> SecondSwap_StepVesting : deploy
+class SecondSwap_Marketplace{
+    marketplaceSetting
+    listings
+    nextListingId
+    isTokenSupport
+    BASE
+}
+class SecondSwap_MarketplaceSetting{
+    buyerFee
+    sellerFee
+    penaltyFee
+    minListingDuration
+    referralFee
+    isMarketplaceFreeze
+    feeCollector
+    s2Admin
+    whitelistDeployer
+    vestingManager
+    referralFeeCollector
+    usdt
+}
+class SecondSwap_StepVesting{
+    startTime
+    endTime
+    numOfSteps
+    stepDuration
+    _vestings
+    vestingDeployer
+    manager
+    tokenIssuer
+}
+class SecondSwap_VestingDeployer{
+    manager
+    _tokenOwner
+    s2Admin
+}
+class SecondSwap_VestingManager{
+    vestingSettings
+    allocations
+    marketplace
+    s2Admin
+    vestingDeployer
+    BASE
+}
+class SecondSwap_Whitelist{
+    maxWhitelist
+    totalWhitelist
+    lotOwner
+    userSettings
+}
+class SecondSwap_WhitelistDeployer{
+    deployWhitelist(uint256 _maxWhitelist, address _lotOwner)
+}
+</pre>
+
+<br/><hr/><br/>
+
+<div>
+  <div>
+    <div>[H-01] SecondSwap_Marketplace vesting listing order affects how much the vesting buyers can claim at a given step</div>
+    
+
+  </div>
+  <div>
+    [H-02] transferVesting creates an incorrect vesting for new users when they purchase a vesting, because stepsClaimed is the same for all sales, allowing an attacker to prematurely unlock too many tokens
+  </div>
+  
+  <div>
+    [H-03] In transferVesting, the grantorVesting.releaseRate is calculated incorrectly, which leads to the sender being able to unlock more tokens than were initially locked.
+  </div>
+  
+</div>
+
+<div>
+  <!-- <h1 class="text-2xl underline">Issuance</h1>
+  <table id="issuance_table" class="display"></table>
+  
+  <h1 class="text-2xl underline">Router</h1>
+  <table id="router_table" class="display"></table>
+  
+  <h1 class="text-2xl underline">Access Control</h1>
+  <table id="ac_table" class="display"></table>
+  
+  <h1 class="text-2xl underline">Referral System</h1>
+  <table id="referral_table" class="display"></table>
+  
+  <h1 class="text-2xl underline">Property Token</h1>
+  <table id="proptoken_table" class="display"></table>
+
+  <h1 class="text-2xl underline">Token Factory</h1>
+  <table id="tokenfactory_table" class="display"></table> -->
+
+</div>
+
+<br/><hr/><br/>
+
+    </div>
+
+    <script type="module">
+      import {init} from "./2024-12-secondswap.js";
+      import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+
+      mermaid.initialize({ startOnLoad: true });
+
+      $(document).ready(async function () {
+        await init();
+      });
+
+    </script>
+    
+  </body>
+</html>
