@@ -32,9 +32,57 @@
     
       <div id="main" class="container px-6">
 
-        
-
         <h2 class="text-2xl underline">Valuit</h2>
+
+<pre class="mermaid">
+classDiagram
+EscrowController --|> EscrowStorage
+FundFactory <|-- FundFactoryStorage
+MCStorage <|-- ModularCompliance
+Fund <|-- FundStorage
+class MCStorage{
+	_tokenBound
+	_modules
+	_moduleBound
+	wrapperSet
+	wrapper
+	__gap
+}
+class EscrowStorage{
+	totalPendingOrderAmount
+	FEE_DENOMINATOR
+	masterFactory
+	fundFactory
+	pendingOrderAmount
+	stablecoin
+	stableCoinName
+	isStableCoin
+	investorOrders
+	redemptionStatus
+	__gap
+}
+class EscrowControllerProxy{
+	maintenancePosition
+	implementationPosition
+	proxyOwnerPosition
+}
+class AgentRole{
+	_agents
+	_tAs
+}
+class AgentRoleUpgradeable{
+	_agents
+	_tAs
+}
+TokenStorage <|-- Token
+AgentRoleUpgradeable <|-- Token
+WrapperStorage <|-- Wrapper
+TIRStorage <|--  TrustedIssuersRegistry
+IRStorage <|--  ClaimTopicsRegistry
+IRSStorage <|--  IdentityRegistry
+CTRStorage <|--  ClaimTopicsRegistry
+</pre>
+
 
         <pre>
 compliance
