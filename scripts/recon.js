@@ -32,6 +32,21 @@ const tools = [
     {"name":"CloudFlair",    "detail":"", "tags":['ct']},
     {"name":"CachedView.com","detail":"", "tags":['ct']},
     {"name":"Wayback Machine Scraper",    "detail":"", "tags":['ct']},
+
+    {"name":"Exiftool","detail":"", "tags":['meta']},
+    {"name":"Metagoo","detail":"", "tags":['meta']},
+    {"name":"FOCA","detail":"", "tags":['meta']},
+
+    {"name":"TheHarvester","detail":"", "tags":['other']},
+    {"name":"Paste Sites","detail":"", "tags":['other']},
+    {"name":"Forums","detail":"", "tags":['other']},
+    {"name":"Code Repositories","detail":"", "tags":['other']},
+    {"name":"Wiki Sites","detail":"", "tags":['other']},
+
+    {"name":"PIPL","detail":"", "tags":['people']},
+    {"name":"EagleEye","detail":"", "tags":['people']},
+
+    {"name":"Data Viper","detail":"", "tags":['dump']},
 ]
 
 

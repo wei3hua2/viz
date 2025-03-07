@@ -7,6 +7,7 @@ SecondSwap_WhitelistDeployer --|> SecondSwap_Whitelist : deploy
 SecondSwap_VestingManager --> SecondSwap_StepVesting
 `
 
+const all_su =(asts) => _.map(asts, 'path');
 
 const imports_summary = (asts) => {
     const out = _.map(asts, a => {
@@ -67,6 +68,7 @@ export async function init () {
     try {
         const diagram = (await axios.get(`./diagrams/${id}.md`)).data; console.log(diagram);
         $('#contracts').html(diagram);
+        mermaid.run();
     }catch(err) {
         console.error('no diagram found')
     }
@@ -74,7 +76,10 @@ export async function init () {
 
     const asts = (await axios.get(`./ast/${id}.json`)).data; console.log(asts);
 
-    var out = imports_summary(asts);
+    var out = all_su(asts).join('\n');
+    $('#sus').html(out);
+
+    out = imports_summary(asts);
     out = _.map(out, o => `${o.su.padEnd(50)} : ${o.constracts.join(',').padEnd(60)} : ${o.imports.join(', ')}`).join('\n');
     $('#contract_imports').html( out );
 
@@ -106,6 +111,5 @@ export async function init () {
     }
 
 
-    // mermaid.initialize({ startOnLoad: true });
 
 }
