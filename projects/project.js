@@ -72,12 +72,6 @@ export async function init () {
         console.error('no diagram found')
     }
 
-    // try {
-    //     const diagram = (await axios.get(`./diagrams/${id}-tokens.md`)).data; console.log(diagram);
-    //     $('#tokens').html(diagram);
-    // }catch(err) {
-    //     console.error('no diagram found')
-    // }
 
     mermaid.run();
 
@@ -98,26 +92,6 @@ export async function init () {
     out = contracts_functions(asts); console.log(out);
     out = _.map(out, o => `${o.name.padEnd(50)} : ${o.fns.join(',')}`).join('\n');
     $('#contract_fns').html(out);
-
-
-    try{
-        const issues = (await axios.get(`./issues/${id}.json`)).data; console.log(issues);
-        
-        let table = new DataTable('#issues_table', {
-            pageLength:1000,
-            data:issues,
-            columns:[ 
-                {data:'title'}, 
-                {data:'contracts'}, 
-                {data:'fns'},
-                {data:'params'},
-                {data:'details'}
-            ]
-        });
-    } catch(err) {
-        console.error('issues list not found!');
-    }
-
 
 
 }
