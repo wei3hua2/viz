@@ -11,7 +11,15 @@ const hunting = "Hunting Cyber Criminals: A Hacker's Guide to Online Intelligenc
 const metasploit = "Metasploit: The Penetration Tester's Guide";
 
 const tools = [
-    "metasploit", "recon-ng", "nmap", "aircrack-ng", "dork", "whois", "shodan", "nessus", "burp"
+    {"name":"metasploit" },
+    {"name":"OSSEC"},
+    {"name":"recon-ng" },
+    {"name":"MISP - Threat Intelligence Sharing Platform"},
+    
+    {"name":"aircrack-ng" },
+    {"name":"nessus" },
+    {"name":"burp"},
+    {"name":"snort"}
 ]
 
 export async function init () {
@@ -19,7 +27,7 @@ export async function init () {
 
     let table = new DataTable('#tools_table', {
         pageLength:1000,
-        data:_.map(tools, (tool) => ({name:tool})),
+        data:tools,
         columns:[ {data:'name'} ]
     });
 
