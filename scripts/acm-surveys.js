@@ -24,10 +24,10 @@ export async function init () {
 
     const topics = _.chain(data).map("topics").compact().flatten().uniq().value();
     console.log(topics);
-    $("#topics").append(topics.join(', '));
+    $("#acm-topics").append(topics.join(', '));
 
-    let table = new DataTable('#papers_table', {
-        pageLength:1000,
+    let table = new DataTable('#acm_table', {
+        pageLength:100,
         data,
         columns:[ {data:'title'}, {data:'volume'}, {data:'topics'} ]
     });
