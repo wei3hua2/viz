@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="https://cdn.datatables.net/2.2.0/css/dataTables.dataTables.css" />
-    <!-- <link rel="stylesheet" href="https://cdn.datatables.net/select/3.0.0/css/select.dataTables.min.css" /> -->
-    
 
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js" integrity="sha512-WFN04846sdKMIP5LKNphMaWzU7YpMyCU245etK3g/2ARYbPK9Ub18eG+ljU96qKRCWh+quCY7yefSmlkQw1ANQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -15,8 +13,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <script src="https://cdn.datatables.net/2.2.0/js/dataTables.js"></script>
-    <!-- <script src="https://cdn.datatables.net/select/3.0.0/js/dataTables.select.min.js"></script> -->
-    
 
     <style>
         .graph {
@@ -26,44 +22,21 @@
         }
     </style>
 
-    <title>Viz - project</title>
+    <title>Viz</title>
   </head>
   <body>
-    
-    <div id="main" class="container px-6">
 
-      <h2 class="text-2xl underline" id="title"></h2>
-      <pre class="mermaid" id="contracts"></pre>
-      <br/><hr/><br/>
+    <div id="main" class="container mx-auto">
+        <h2 class="text-3xl underline">ACM Surveys</h2>
+        <div id="topics"></div>
 
-
-
-      <h2 class="text-2xl underline">source units</h2>
-      <pre id="sus"></pre>
-
-      <br/><hr/><br/>
-
-      <h2 class="text-2xl underline">contracts dependencies</h2>
-      <pre id="contract_imports"></pre>
-
-      <br/><hr/><br/>
-
-      <h2 class="text-2xl underline">contracts state vars</h2>
-      <pre id="contract_svars"></pre>
-
-      <br/><hr/><br/>
-
-      <h2 class="text-2xl underline">contracts functions</h2>
-      <pre id="contract_fns"></pre>
-
+        <table id="papers_table" class="display"></table>
+        <hr/>
 
     </div>
 
     <script type="module">
-      import {init} from "./project.js";
-      import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
-
-      mermaid.initialize({ startOnLoad: false });
+      import {init} from "./scripts/acm-surveys.js"
 
       $(document).ready(async function () {
         await init();
