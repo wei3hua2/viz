@@ -60,22 +60,47 @@ const contracts_functions = (asts) => {
     }).value();
 }
 
+
+const diagrams = [
+    "modules"
+]
+const notes = [
+
+]
+
 export async function init () {
     const params = (new URL(document.location)).searchParams;
     const id = params.get('id'); console.log('id :', id);
     $('#title').html(id);
 
+    /****** diagrams ******/
+
+    for(var i =0;i<diagrams.length;i++) {
+        try {
+            const mods = (await axios.get(`./diagrams/${id}-${diagrams[i]}.md`)).data;
+            $(`#${diagrams[i]}`).html(mods);
+        }catch(err) {
+            console.error('no modules found');
+        }
+    }
     try {
-        const diagram = (await axios.get(`./diagrams/${id}.md`)).data; console.log(diagram);
+        const diagram = (await axios.get(`./diagrams/${id}.md`)).data;
         $('#contracts').html(diagram);
     }catch(err) {
-        console.error('no diagram found')
+        console.error('no diagram found');
     }
-
 
     mermaid.run();
 
+    /****** notes ******/
+    try {
+        const notes = (await axios.get(`./notes/${id}.md`)).data;
+        $('#notes').html(notes);
+    }catch(err) {
+        console.error('no notes found');
+    }
 
+    /****** attributes ******/
     const asts = (await axios.get(`./ast/${id}.json`)).data; console.log(asts);
 
     var out = all_su(asts).join('\n');
