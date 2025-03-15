@@ -2,12 +2,13 @@ import {graphStyle} from './config.js';
 
 export async  function init () {
 
-    const books = (await axios.get("./data/cybersec/books.json")).data;
+    var books = (await axios.get("./data/cybersec/books.json")).data;
+    books = _.map( books, (b) => ({ ...{toc:''}, ...b })  );
 
     let table = new DataTable('#books_table', {
         pageLength:1000,
         data:books,
-        columns:[ {data:'title'}, {data:'year'}, {data:'topics'} ]
+        columns:[ {data:'title'}, {data:'year'}, {data:'topics'}, {data:'toc'} ]
     });
 
 
