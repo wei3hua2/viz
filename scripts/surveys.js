@@ -6,6 +6,11 @@ const map_volume = (list, volume) =>
 
 export async function init () {
 
+    const data561 = map_volume((await axios.get("./data/papers/acm-surveys/56-1.json")).data, '56-1');
+    const data562 = map_volume((await axios.get("./data/papers/acm-surveys/56-2.json")).data, '56-2');
+    const data563 = map_volume((await axios.get("./data/papers/acm-surveys/56-3.json")).data, '56-3');
+    const data564 = map_volume((await axios.get("./data/papers/acm-surveys/56-4.json")).data, '56-4');
+    const data565 = map_volume((await axios.get("./data/papers/acm-surveys/56-5.json")).data, '56-5');
     const data566 = map_volume((await axios.get("./data/papers/acm-surveys/56-6.json")).data, '56-6');
     const data567 = map_volume((await axios.get("./data/papers/acm-surveys/56-7.json")).data, '56-7');
     const data568 = map_volume((await axios.get("./data/papers/acm-surveys/56-8.json")).data, '56-8');
@@ -21,7 +26,10 @@ export async function init () {
     const data575 = map_volume((await axios.get("./data/papers/acm-surveys/57-5.json")).data, '57-5');
 
 
-    var data = data571.concat(data572,data573, data566,data567,data568,data569, data5610, data5611,data5612, data574, data575);
+    var data = data571.concat(
+        data572,data573, data566,data567,data568,data569, 
+        data5610, data5611,data5612, data574, data575,
+        data565,data564,data563,data562,data561);
     data = _.map(data, d => !d.topics? {...d, ...{topics:[]}} : d );
     console.log(data);
 
