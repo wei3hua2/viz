@@ -3,11 +3,25 @@ NFTVesting
 Yeetback
 Yeet --> YeetToken
 Yeet --> Reward
+Yeet --> StakeV2
 Reward --> RewardSettings
 Yeet --> YeetGameSettings
 OnlyYeetContract <|-- Reward
 Manager <|-- StakeV2
 StakeV2 ..> Zapper
+class YeetGameSettings{
+    YEET_TIME_SECONDS
+    POT_DIVISION
+    TAX_PER_YEET
+    TAX_TO_STAKERS
+    TAX_TO_PUBLIC_GOODS
+    TAX_TO_TREASURY
+    YEETBACK_PERCENTAGE
+    COOLDOWN_TIME
+    BOOSTRAP_PHASE_DURATION
+    MINIMUM_YEET_POINT
+    SCALE
+}
 class Reward{
     token
     rewardsSettings
@@ -25,6 +39,15 @@ class Reward{
     currentEpochStart
 }
 class RewardSettings{
+    MAX_CAP_PER_WALLET_PER_EPOCH_FACTOR
+    setYeetRewardsSettings(_maxCapPerWalletPerEpochFactor)
+}
+class Manager{
+    managers
+    addManager(mgr)
+    removeManager(mgr)
+}
+class Yeet{
     YEET_TIME_SECONDS
     POT_DIVISION
     TAX_PER_YEET
@@ -35,14 +58,6 @@ class RewardSettings{
     COOLDOWN_TIME
     BOOSTRAP_PHASE_DURATION
     MINIMUM_YEET_POINT
-    SCALE
-}
-class Manager{
-    managers
-    addManager(mgr)
-    removeManager(mgr)
-}
-class Yeet{
     lastYeeted
     lastYeetedAt
     potToWinner
@@ -56,16 +71,6 @@ class Yeet{
     publicGoodsAddress
     treasuryRevenueAddress
     treasuryRevenueAmount
-    YEET_TIME_SECONDS
-    POT_DIVISION
-    TAX_PER_YEET
-    TAX_TO_STAKERS
-    TAX_TO_PUBLIC_GOODS
-    TAX_TO_TREASURY
-    YEETBACK_PERCENTAGE
-    COOLDOWN_TIME
-    BOOSTRAP_PHASE_DURATION
-    MINIMUM_YEET_POINT
     yeetTokenAddress
     rewardsContract
     stakingContract
@@ -78,9 +83,10 @@ class Yeet{
     yeet()
     yeet(tokenIds)
     claim()
-    hasCooldownEnded()
     restart(userRandomNumber)
+    hasCooldownEnded()
     isRoundFinished()
+    isBoostrapPhase()
     minimumYeetPoint()
     getDistribution(yeetAmount)
     getWinner(round)
@@ -91,7 +97,6 @@ class Yeet{
     setYeetardsNFTsAddress(_yeetardsNFTsAddress)
     updateStakingContract(_staking)
     getBoostedValue(sender,value,tokenIds)
-    isBoostrapPhase()
     getNFTBoost(owner,tokenIds)
     pause()
     unpause()

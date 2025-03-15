@@ -62,7 +62,8 @@ const contracts_functions = (asts) => {
 
 
 const diagrams = [
-    "modules"
+    "modules",
+    "state"
 ]
 const notes = [
 
@@ -79,6 +80,8 @@ export async function init () {
         try {
             const mods = (await axios.get(`./diagrams/${id}-${diagrams[i]}.md`)).data;
             $(`#${diagrams[i]}`).html(mods);
+
+            await mermaid.run({querySelector: `#${diagrams[i]}`});
         }catch(err) {
             console.error('no modules found');
         }
@@ -86,11 +89,12 @@ export async function init () {
     try {
         const diagram = (await axios.get(`./diagrams/${id}.md`)).data;
         $('#contracts').html(diagram);
+
+        await mermaid.run({querySelector: '#contracts'});
     }catch(err) {
         console.error('no diagram found');
     }
 
-    mermaid.run();
 
     /****** notes ******/
     try {
