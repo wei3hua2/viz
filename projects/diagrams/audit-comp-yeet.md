@@ -21,6 +21,8 @@ class YeetGameSettings{
     BOOSTRAP_PHASE_DURATION
     MINIMUM_YEET_POINT
     SCALE
+
+    setYeetSettings()
 }
 class Reward{
     token
@@ -37,6 +39,14 @@ class Reward{
     currentEpoch
     currentEpochEnd
     currentEpochStart
+
+    getEpochRewardsForCurrentEpoch()
+	getLastMidnight()
+	clawbackTokens(tokenAmount)
+	addYeetVolume(user, amount)
+	claim()
+	punchItChewie(epoch)
+    getClaimableAmount(user)
 }
 class RewardSettings{
     MAX_CAP_PER_WALLET_PER_EPOCH_FACTOR
