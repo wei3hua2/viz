@@ -55,6 +55,7 @@ class SecondSwap_StepVesting{
     vestingDeployer
     manager
     tokenIssuer
+    transferVesting()
 }
 class SecondSwap_MarketplaceSetting{ 
     buyerFee

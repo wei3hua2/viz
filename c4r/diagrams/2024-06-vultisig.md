@@ -31,7 +31,27 @@ class ILOManager{
     ILO_POOL_IMPLEMENTATION
     _cachedProject
     _initializedILOPools
+    initialize()
+	initProject()
+	🔍project()
+	initILOPool()
+	setPlatformFee()
+	setPerformanceFee()
+	setFeeTaker()
+	setILOPoolImplementation()
+	transferAdminProject()
+	setDefaultDeadlineOffset()
+	setRefundDeadlineForProject()
+	launch()
+	claimRefund()
 }
 class LiquidityManagement{
     addLiquidity(params)
+}
+class ILOWhitelist{
+    setOpenToAll()
+    isOpenToAll()
+    isWhitelisted()
+    batchWhitelist()
+    batchRemoveWhitelist()
 }

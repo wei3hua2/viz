@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.2.0/css/dataTables.dataTables.css" />
+    <!-- <link rel="stylesheet" href="https://cdn.datatables.net/select/3.0.0/css/select.dataTables.min.css" /> -->
+    
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js" integrity="sha512-WFN04846sdKMIP5LKNphMaWzU7YpMyCU245etK3g/2ARYbPK9Ub18eG+ljU96qKRCWh+quCY7yefSmlkQw1ANQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.24.1/cytoscape.min.js" integrity="sha512-gOLdh3sQWkoTw0DuAqdrkBhsza6oYMHwLQ7ajmdZ0iTT5hTAKTg88bEvPGLlEJEYmpYJa+vTtAMxKqpDnB89Ng==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="https://cdn.datatables.net/2.2.0/js/dataTables.js"></script>
+    <!-- <script src="https://cdn.datatables.net/select/3.0.0/js/dataTables.select.min.js"></script> -->
+    
+
+    <style>
+        .graph {
+          width:100%;
+          height:600px;
+          display: block;
+        }
+    </style>
+
+    <title>Viz - Abstract Interpretation</title>
+  </head>
+  <body>
+    
+
+    <div id="main" class="container mx-auto">
+        
+
+      <pre>
+  <b>Abstract Interpretation: Past, Present, and Future</b>
+1.  Abstraction
+2.  Scope
+3.  Static Analysis
+4.  Acceleration of fixpoint iteration
+5.  Semantics
+6.  Hierarchies of Semantics
+7.  Combination of semantics
+8.  Proof methods, verification & inference
+9.  Over-and Under approximation
+10. Abstract domains
+11. Refinement of abstract domains
+12. Combination of abstract domains 
+13. Equational design of abstract domains
+14. Galois connection for best abstractions
+15. In absence of best abstraction
+16. abstraction of syntax
+17. syntactic abstractions
+18. abstraction of programs vs languages, and the power of extrapolation operators
+19. Temporal abstraction
+20. Languages
+21. Control-flow analysis
+22. Parallelism
+23. Types
+24. Binary abstraction and hardware analysis
+25. Numerical abstractions
+26. Symbolic abstractions
+27. Simulations
+28. Probabilistic abstractions
+29. Program transformation
+30. Termination
+31. Modularity
+32. Gneralist vs domain-aware static analyzers
+33. Industrial Applications
+34. Security
+35. Unexpected Applications: Biology, SAT & SAT solvers
+36. Conclusion
+      </pre>
+
+
+
+      <hr/><br/>
+
+      <pre class="mermaid">
+---
+title: Transition Semantics
+---
+classDiagram
+    
+    class Concrete {
+      LabelState[] sequence
+      reachacble_states
+      least_fixed_point
+      semantic_functions
+      semantic_domains
+    } 
+    Concrete --> Abstract
+    
+    Algorithm <|-- WorklistAlgorithm
+    Algorithm <|-- BasicAlgorithm
+      </pre>
+
+
+      <pre>
+4.1 Semantics as State Transitions
+  4.1.1 Concrete Semantics
+  4.1.2 Recipe for Defining a Concrete Transitional Semantics
+
+4.2 Abstract Semantics as Abstract State Transitions
+  4.2.1 Abstraction of the Semantic Domain
+  4.2.2 Abstraction of Semantic Functions
+  4.2.3 Recipe for Defining an Abstract Transition Semantics
+        
+4.3 Analysis Algorithms Based on Global Iterations
+  4.3.1 Basic Algorithms
+  4.3.2 Worklist Algorithm
+
+4.4 Use Example of the Framework
+  4.4.1 Simple Imperative Language
+  4.4.2 Concrete State Transition Semantics
+  4.4.3 Abstract State
+  4.4.4 Abstract State Transition Semantics
+      </pre>
+    
+
+      <hr/>
+      <pre>
+Example 4.1 (Concrete transition sequence)
+Example 4.2 (Reachable states) 
+Example 4.3 (Step i operation)
+Theorem 4.1 (Least fixpoint)
+Definition 4.1 (Concrete semantics, the set of reachable states) 
+Definition 4.2 (Semantic domain and semantic function)
+      </pre>
+
+    </div>
+
+    <script type="module">
+      import {init} from "./scripts/ai.js";
+      import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+
+
+      $(document).ready(async function () {
+        await init();
+      });
+
+    </script>
+    
+  </body>
+</html>

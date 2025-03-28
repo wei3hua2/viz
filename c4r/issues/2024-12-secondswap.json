@@ -1,77 +1,77 @@
 [
     {
         "title": "[H-01] SecondSwap_Marketplace vesting listing order affects how much the vesting buyers can claim at a given step",
-        "contracts": [],
-        "fns": [],
+        "contracts": ["SecondSwap_VestingManager"],
+        "fns": ["_createVesting()"],
         "params": [],
         "details": ""
     },
     {
         "title": "[H-02] transferVesting creates an incorrect vesting for new users when they purchase a vesting, because stepsClaimed is the same for all sales, allowing an attacker to prematurely unlock too many tokens",
-        "contracts": [],
-        "fns": [],
+        "contracts": ["SecondSwap_StepVesting"],
+        "fns": ["transferVesting()"],
         "params": [],
         "details": ""
     },
     {
         "title": "[H-03] In transferVesting, the grantorVesting.releaseRate is calculated incorrectly, which leads to the sender being able to unlock more tokens than were initially locked.",
-        "contracts": [],
-        "fns": [],
+        "contracts": ["SecondSwap_StepVesting"],
+        "fns": ["transferVesting()"],
         "params": [],
         "details": ""
     },
     {
         "title": "[M-01] Incorrect listing type validation bypasses enforcement of minimum purchase amount",
-        "contracts": [],
-        "fns": [],
+        "contracts": ["SecondSwap_Marketplace"],
+        "fns": ["listVesting()"],
         "params": [],
         "details": ""
     },
     {
         "title": "[M-02] Listing potential can not be purchased with discounted price",
-        "contracts": [],
-        "fns": [],
+        "contracts": ["SecondSwap_Marketplace"],
+        "fns": ["spotPurchase()"],
         "params": [],
         "details": ""
     },
     {
         "title": "[M-03] Missing option to remove tokens from the isTokenSupport mapping can result in huge financial loss for users and the protocol",
-        "contracts": [],
-        "fns": [],
+        "contracts": ["SecondSwap_Marketplace"],
+        "fns": ["isTokenSupport"],
         "params": [],
         "details": ""
     },
     {
         "title": "[M-04] Creator of one vesting plan can affect vesting plans created by other users.",
-        "contracts": [],
+        "contracts": ["SecondSwap_VestingDeployer"],
         "fns": [],
         "params": [],
         "details": ""
     },
     {
         "title": "[M-05] Price Granularity Limited by Payment Token Decimals: Cannot List Tokens Cheaper than 0.000001 USDT",
-        "contracts": [],
+        "contracts": ["SecondSwap_Marketplace"],
         "fns": [],
-        "params": [],
+        "params": ["pricePerUnit"],
         "details": ""
     },
     {
         "title": "[M-06] Underflow in claimable DOSing claim Function",
-        "contracts": [],
+        "contracts": ["SecondSwap_StepVesting"],
         "fns": [],
         "params": [],
         "details": ""
     },
     {
         "title": "[M-07] buyFee And sellFee Should Be Known Before Purchase",
-        "contracts": [],
-        "fns": [],
+        "contracts": ["SecondSwap_Marketplace"],
+        "fns": ["buyFee","sellFee"],
         "params": [],
         "details": ""
     },
     {
         "title": "[M-08] Outdated penalty fee gets charged if the penalty fee has changed since listing",
-        "contracts": [],
+        "contracts": ["SecondSwap_Marketplace"],
         "fns": [],
         "params": [],
         "details": ""
@@ -79,83 +79,83 @@
     {
         "title": "[M-09] Users can prevent being reallocated by listing to marketplace",
         "contracts": [],
-        "fns": [],
+        "fns": ["transferVesting()","listVesting()"],
         "params": [],
         "details": ""
     },
     {
         "title": "[M-10] Tokens that have already been vested can be transferred from a user.",
-        "contracts": [],
+        "contracts": ["SecondSwap_StepVesting"],
         "fns": [],
         "params": [],
         "details": ""
     },
     {
         "title": "[M-11] maxSellPercent can be buypassed by selling previously bought vestings at a later time",
-        "contracts": [],
+        "contracts": ["SecondSwap_VestingManager"],
         "fns": [],
-        "params": [],
+        "params": ["maxSellPercent"],
         "details": ""
     },
     {
         "title": "[M-12] Unauthorized increase of maxSellPercent",
-        "contracts": [],
+        "contracts": ["SecondSwap_VestingManager"],
         "fns": [],
-        "params": [],
+        "params": ["maxSellPercent"],
         "details": ""
     },
     {
         "title": "[M-13] MarketPlace Change In Vesting Manager, Leads To Loss Of Previous MarketPlace Listing",
-        "contracts": [],
+        "contracts": ["SecondSwap_VestingManager"],
         "fns": [],
         "params": [],
         "details": ""
     },
     {
         "title": "[M-14] Incorrect referral fee calculations",
-        "contracts": [],
+        "contracts": ["SecondSwap_Marketplace"],
         "fns": [],
         "params": [],
         "details": ""
     },
     {
         "title": "[M-15] Missing sellable check in completePurchase will cause a user to buy a token marked as unsellable by S2ADMIN if it was listed beforehand",
-        "contracts": [],
+        "contracts": ["SecondSwap_VestingManager"],
         "fns": [],
         "params": [],
         "details": ""
     },
     {
         "title": "[M-16] Possible DoS scenario when transferring vests to another address",
-        "contracts": [],
+        "contracts": ["SecondSwap_StepVesting"],
         "fns": [],
         "params": [],
         "details": ""
     },
     {
         "title": "[M-17] Rounding error in stepDuration calculations.",
-        "contracts": [],
+        "contracts": ["SecondSwap_StepVesting"],
         "fns": [],
         "params": [],
         "details": ""
     },
     {
         "title": "[M-18] Unlisting a vesting after seller has claimed additional steps locks tokens which should have been claimable already",
-        "contracts": [],
+        "contracts": ["SecondSwap_VestingManager"],
         "fns": [],
         "params": [],
         "details": ""
     },
     {
         "title": "[M-19] Large number of steps in a vesting may lead to loss of beneficiary funds or uneven vesting distribution",
-        "contracts": [],
+        "contracts": ["SecondSwap_StepVesting"],
         "fns": [],
         "params": [],
         "details": ""
     },
     {
         "title": "[M-20] maxSellPercent will be broken when a vesting is delisted after a seller has claimed additional steps",
-        "contracts": [],
+        "contracts": ["SecondSwap_VestingManager"],
         "fns": [],
         "params": [],
         "details": ""

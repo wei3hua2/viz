@@ -95,6 +95,15 @@ export async function init () {
         console.error('no diagram found');
     }
 
+    /****** diagrams (svg) ******/
+    try {
+        const s1 = (await axios.get(`./diagrams/${id}-portfolio-factory-fail.svg`)).data;
+        $('#portfolio-factory').html(s1);
+
+    }catch(err) {
+        console.error('no svg  found');
+    }
+
 
     /****** notes ******/
     try {
