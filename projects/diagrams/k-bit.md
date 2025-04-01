@@ -8,6 +8,78 @@ PerpDex *-- PerpDexBotLib
 PerpDex *-- PerpDexPricesLib
 PerpDex *-- PerpDexAuthLib
 PerpDex *-- PerpDexLib
+class IPyth{
+	getUpdateFee()
+	getPriceNoOlderThan()
+	updatePriceFeeds()
+	parsePriceFeedUpdates()
+}
+class PerpDexAuthLib{
+	+🔍checkUser()
+	+🔍getOpenLimitOrderMsg()
+	+🔍getCloseLimitOrderMsg()
+	+🔍getOpenPositionMsg()
+	+🔍getClosePositionMsg()
+	+🔍getSetTpslMsg()
+	+🔍getChangeMarginMsg()
+	+_setAdmins()
+}
+class PerpDexBotLib{
+	+openPositionForLimitOrder()
+	+_executeLimitOrder()
+	#decreaseSizeAndCleanUpOnLiquidate()
+	+_liquidatePosition()
+	+_tpslClosePosition()
+}
+class PerpDexPricesLib{
+	+submitAndGetLatestPrice()
+	+submitAndGetBisonAIRoundId()
+	+🔍getPythPrice()
+	#🔍getBisonAIFeedName()
+	#🔍getPythFeedHashOrder()
+	#🔍checkPythPriceFeedOrder()
+	#🔍checkPriceDataOrder()
+	+getPreviousPriceAndTime()
+	+safeTransferFromAndCheckBalance()
+	+safeTransferAndCheckBalance()
+}
+class PerpDexLib{
+	+🔍checkExecutionForLimitOrder()
+	+🔍calculatePnlAndCloseFee()
+	+checkAndLiquidatePosition()
+	+🔍calculateOpenFee()
+	#🔍getFundingFeeScalingFactor()
+	+🔍calculateFundingFee()
+	+_addInitialTokenTotalSizes()
+	+_changeMaxTokenTotalSizes()
+	+updateTraderOpenPositionId()
+	#clearTraderOpenPositionId()
+	+🔍findPositionToMerge()
+	+cleanUpPosition()
+	+cleanUpLimitOrder()
+	+checkPositionSizeAndIncrease()
+	+decreaseTotalPositionSize()
+	+mergePosition()
+	#🔍createLimitOrder()
+	+createNewPosition()
+	#payAndRecordFee()
+	#giveAndRecordProfit()
+	#takeAndRecordLoss()
+	+_closePosition()
+	+_setTpslPrice()
+	+_changeMargin()
+	+updateFundingFeeState()
+	+_openPosition()
+	+_openLimitOrder()
+	+_closeLimitOrder()
+}
+class PerpDexBotLib{
+	openPositionForLimitOrder()
+	_executeLimitOrder()
+	decreaseSizeAndCleanUpOnLiquidate()
+	_liquidatePosition()
+	_tpslClosePosition()
+}
 class BisonAISubmissionProxy{
     submitStrict()
     submitSingleWithoutSupersedValidation()
