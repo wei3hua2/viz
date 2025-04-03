@@ -8,6 +8,10 @@ PerpDex *-- PerpDexBotLib
 PerpDex *-- PerpDexPricesLib
 PerpDex *-- PerpDexAuthLib
 PerpDex *-- PerpDexLib
+class IBisonAIRouter{
+	latestRoundData()
+	getRoundData()
+}
 class IPyth{
 	getUpdateFee()
 	getPriceNoOlderThan()
