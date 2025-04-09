@@ -96,13 +96,13 @@ export async function init () {
     }
 
     /****** diagrams (svg) ******/
-    try {
-        const s1 = (await axios.get(`./diagrams/${id}-portfolio-factory-fail.svg`)).data;
-        $('#portfolio-factory').html(s1);
+    // try {
+        // const s1 = (await axios.get(`./diagrams/${id}-portfolio-factory-fail.svg`)).data;
+        // $('#portfolio-factory').html(s1);
 
-    }catch(err) {
-        console.error('no svg  found');
-    }
+    // }catch(err) {
+    //     console.error('no svg  found');
+    // }
 
 
     /****** notes ******/
