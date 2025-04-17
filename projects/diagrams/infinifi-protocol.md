@@ -54,3 +54,14 @@ InfiniFiGatewayV1 ..> RedeemController : claimRedemption
 class LockingController {
 	buckets
 }
+class RedeemController {
+	redeem(to, receiptAmountIn)
+}
+class MintController {
+	mint(to, assetAmountIn)
+	assetToReceipt(amt)
+}
+class AllocationVoting {
+	vote(user, asset, unwindingEpochs, liquidVotes, illiquidVotes)
+}
+RedeemController ..> Accounting : price
