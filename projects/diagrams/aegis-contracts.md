@@ -5,9 +5,10 @@ AegisMinting --> AegisOracle
 class AegisMinting {
     +mint(order, signature)
     +requestRedeem(order, signature)
-	+approveRedeemRequest(requestId,amt)
+	+approveRedeemRequest(requestId, amt)
 	+rejectRedeemRequest(requestId)
 	+withdrawRedeemRequest(requestId)
+    +depositIncome(order, signature)
 }
 class AegisOracle {
     yusdUSDPrice()
@@ -19,4 +20,8 @@ class AegisRewards {
 class AegisConfig {
     operators
     whitelist
+}
+class sYUSD {
+    deposit()
+    withdraw()
 }
