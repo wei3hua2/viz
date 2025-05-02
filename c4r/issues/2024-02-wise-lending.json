@@ -1,0 +1,183 @@
+[
+    {
+        "title": "[H-01] Exploitation of the receive Function to Steal Funds",
+        "contracts": [
+            "WiseLending"
+        ],
+        "fns": [
+            "syncPool"
+        ],
+        "params": [
+            "sendingProgress"
+        ],
+        "details": "reentrant attacks"
+    },
+    {
+        "title": "[H-02] User can erase their position debt for free",
+        "contracts": [
+            "FeeManager"
+        ],
+        "fns": [
+            "paybackBadDebtNoReward()"
+        ],
+        "params": [
+            "poolToken"
+        ],
+        "details": ""
+    },
+    {
+        "title": "[H-03] Incorrect bad debt accounting can lead to a state where the claimFeesBeneficial function is permanently bricked and no new incentives can be distributed, potentially locking pending and future protocol fees in the FeeManager contract",
+        "contracts": [
+            "FeeManager"
+        ],
+        "fns": [
+            "claimFeesBeneficial()"
+        ],
+        "params": [
+            "totalBadDebtETH"
+        ],
+        "details": "beneficials are only able to claim fees if there is currently no global bad debt in the system"
+    },
+    {
+        "title": "[H-04] Liquidators can pay less than required to completely liquidate the private collateral balance of an uncollateralized position",
+        "contracts": [
+            "WiseSecurityHelper"
+        ],
+        "fns": [
+            ""
+        ],
+        "params": [],
+        "details": ""
+    },
+    {
+        "title": "[H-05] Wrong use of nftID to check if a PowerFarm position is an Aave position",
+        "contracts": [
+            "PendlePowerManager"
+        ],
+        "fns": [],
+        "params": [
+            "nftId",
+            "keyId"
+        ],
+        "details": ""
+    },
+    {
+        "title": "[M-01] Exiting a farm on mainnet assumes a peg of 1:1 when swapping stETH for ETH",
+        "contracts": [],
+        "fns": [],
+        "params": [],
+        "details": ""
+    },
+    {
+        "title": "[M-02] Chainlink Oracles may return stale prices or may be unusable when aggregator roundId is less than 50",
+        "contracts": [],
+        "fns": [],
+        "params": [],
+        "details": ""
+    },
+    {
+        "title": "[M-03] First depositor inflation attack in PendlePowerFarmToken",
+        "contracts": [],
+        "fns": [],
+        "params": [],
+        "details": ""
+    },
+    {
+        "title": "[M-04] Withdrawing uncollateralized deposits is possible even though the position is in liquidation mode",
+        "contracts": [],
+        "fns": [],
+        "params": [],
+        "details": ""
+    },
+    {
+        "title": "[M-05] The protocol allows borrowing small positions that can create bad debt",
+        "contracts": [],
+        "fns": [],
+        "params": [],
+        "details": ""
+    },
+    {
+        "title": "[M-06] Off-by-one bug prevents the _compareMinMax() from detecting Chainlink aggregators’ circuit-breaking events",
+        "contracts": [],
+        "fns": [],
+        "params": [],
+        "details": ""
+    },
+    {
+        "title": "[M-07] Unchecked return value bug on TransferHelper::_safeTransferFrom()",
+        "contracts": [],
+        "fns": [],
+        "params": [],
+        "details": ""
+    },
+    {
+        "title": "[M-08] Borrowers can DoS liquidations by repaying as little as 1 share.",
+        "contracts": [],
+        "fns": [],
+        "params": [],
+        "details": ""
+    },
+    {
+        "title": "[M-09] Liquidating chaining can be achieved by liquidating token collateral with the highest collateralFactor",
+        "contracts": [],
+        "fns": [],
+        "params": [],
+        "details": ""
+    },
+    {
+        "title": "[M-10] Lack of update when modifying pool fee",
+        "contracts": [],
+        "fns": [],
+        "params": [],
+        "details": ""
+    },
+    {
+        "title": "[M-11] PendlePowerManager is incompatible with PendleRouterV3",
+        "contracts": [],
+        "fns": [],
+        "params": [],
+        "details": ""
+    },
+    {
+        "title": "[M-12] PendlePowerFarmToken:: totalLpAssetsToDistribute may lead to temporary DOS due to price growth check being skipped during deposit",
+        "contracts": [],
+        "fns": [],
+        "params": [],
+        "details": ""
+    },
+    {
+        "title": "[M-13] Incorrect calculation of lending shares in _withdrawOrAllocateSharesLiquidation can lead to revert and failure to liquidate",
+        "contracts": [],
+        "fns": [],
+        "params": [],
+        "details": ""
+    },
+    {
+        "title": "[M-14] Current heartbeat implementation may lead to a prolonged DoS for Chainlink Oracles",
+        "contracts": [],
+        "fns": [],
+        "params": [],
+        "details": ""
+    },
+    {
+        "title": "[M-15] Precision loss in the calculation of the fee amounts and fee shares inside the _preparePool function of the MainHelper contract",
+        "contracts": [],
+        "fns": [],
+        "params": [],
+        "details": ""
+    },
+    {
+        "title": "[M-16] A user can lose more value than he specifies in the spread when he enters a PowerFarm",
+        "contracts": [],
+        "fns": [],
+        "params": [],
+        "details": ""
+    },
+    {
+        "title": "[M-17] User’s attempt to deposit & withdraw reverts due to the calculation style inside _calculateShares()",
+        "contracts": [],
+        "fns": [],
+        "params": [],
+        "details": ""
+    }
+]
