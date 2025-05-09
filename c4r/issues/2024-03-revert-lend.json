@@ -1,44 +1,276 @@
 [
     {
         "title": "[H-01] V3Vault.sol permit signature does not check receiving token address is USDC",
-        "contracts": ["V3Vault"],
-        "fns": ["_deposit"],
+        "contracts": [
+            "V3Vault"
+        ],
+        "fns": [
+            "_deposit"
+        ],
         "params": [],
-        "details": ""
+        "details": "",
+        "tags": ["validate"]
     },
     {
         "title": "[H-02] Risk of reentrancy onERC721Received function to manipulate collateral token configs shares",
-        "contracts": ["V3Vault"],
-        "fns": [],
+        "contracts": [
+            "V3Vault"
+        ],
+        "fns": ["onERC721Received"],
         "params": [],
+        "tags": ["reentrancy"],
         "details": ""
     },
     {
         "title": "[H-03] V3Vault::transform does not validate the data input and allows a depositor to exploit any position approved on the transformer",
-        "contracts": ["V3Vault"],
-        "fns": ["transform"],
+        "contracts": [
+            "V3Vault"
+        ],
+        "fns": [
+            "transform"
+        ],
         "params": [],
+        "tags": [],
         "details": ""
     },
     {
         "title": "[H-04] V3Utils.execute() does not have caller validation, leading to stolen NFT positions from users",
-        "contracts": [],
-        "fns": [],
+        "contracts": ["V3Utils"],
+        "fns": ["execute()"],
         "params": [],
-        "details": ""
+        "tags": [],
+        "details": "The entire liquidity of a specific UniswapV3 liquidity provision NFT can be stolen by a malicious actor, with zero cost."
     },
     {
         "title": "[H-05] _getReferencePoolPriceX96() will show incorrect price for negative tick deltas in current implementation cause it doesn’t round up for them",
-        "contracts": [],
+        "contracts": ["V3Oracle"],
         "fns": [],
         "params": [],
+        "tags": ["oracle"],
         "details": ""
     },
     {
         "title": "[H-06] Owner of a position can prevent liquidation due to the onERC721Received callback",
+        "contracts": ["V3Vault"],
+        "fns": ["onERC721Received"],
+        "params": [],
+        "tags": ["liquidate"],
+        "details": ""
+    },
+    {
+        "title": "[M-01] An attacker can easily bypass the collateral value limit factor checks",
+        "contracts": ["V3Vault"],
+        "fns": ["_updateAndCheckCollateral()"],
+        "params": [],
+        "tags": [],
+        "details": "can make calls from AutoRange revert"
+    },
+    {
+        "title": "[M-02] Protocol can be repeatedly gas griefed in AutoRange external call",
+        "contracts": ["AutoRange"],
+        "fns": ["onERC721Received()"],
+        "params": [],
+        "tags": [],
+        "details": ""
+    },
+    {
+        "title": "[M-03] No minLoanSize means liquidators will have no incentive to liquidate small positions",
+        "contracts": ["V3Vault"],
+        "fns": [],
+        "params": ["minLoanSize"],
+        "tags": ["bad-debt"],
+        "details": ""
+    },
+    {
+        "title": "[M-04] Due to interest rates update method, Interest-Free Loans are possible and the costs of DoS are reduced",
+        "contracts": ["V3Vault"],
+        "fns": ["_updateGlobalInterest()"],
+        "params": [],
+        "tags": ["DOS"],
+        "details": "no fees are paid when borrowing and repaying in the same block"
+    },
+    {
+        "title": "[M-05] setReserveFactor fails to update global interest before updating reserve factor",
+        "contracts": ["V3Vault"],
+        "fns": ["setReserveFactor()","_calculateGlobalInterest()"],
+        "params": [],
+        "tags": [],
+        "details": ""
+    },
+    {
+        "title": "[M-06] Users can lend and borrow above allowed limitations",
+        "contracts": [],
+        "fns": [],
+        "params": ["dailyLendIncreaseLimitMin","dailyDebtIncreaseLimitMin"],
+        "tags": [],
+        "details": ""
+    },
+    {
+        "title": "[M-07] Large decimal of referenceToken causes overflow at oracle price calculation",
+        "contracts": ["V3Oracle"],
+        "fns": [],
+        "params": [],
+        "tags": ["oracle"],
+        "details": ""
+    },
+    {
+        "title": "[M-08] DailyLendIncreaseLimitLeft and dailyDebtIncreaseLimitLeft are not adjusted accurately",
+        "contracts": ["V3Vault"],
+        "fns": ["_withdraw","_repay"],
+        "params": ["dailyLendIncreaseLimitLeft","dailyDebtIncreaseLimitLeft"],
+        "tags": [],
+        "details": ""
+    },
+    {
+        "title": "[M-09] Liquidation reward sent to msg.sender instead of recipient",
+        "contracts": [],
+        "fns": ["msg.sender"],
+        "params": [],
+        "tags": ["liquidate"],
+        "details": ""
+    },
+    {
+        "title": "[M-10] Users’s tokens stuck in AutoCompound after Vault is deactivated",
+        "contracts": ["AutoCompound"],
+        "fns": [],
+        "params": [],
+        "tags": [],
+        "details": ""
+    },
+    {
+        "title": "[M-11] Lack of safety buffer in _checkLoanIsHealthy could subject users who take out the max loan into a forced liquidation",
+        "contracts": ["V3Oracle"],
+        "fns": ["_checkLoanIsHealthy"],
+        "params": [],
+        "tags": ["oracle"],
+        "details": ""
+    },
+    {
+        "title": "[M-12] Wrong global lending limit check in _deposit function",
         "contracts": [],
         "fns": [],
         "params": [],
+        "tags": [],
+        "details": ""
+    },
+    {
+        "title": "[M-13] User might execute PositionToken of token set by previous token owner",
+        "contracts": ["AutoRange"],
+        "fns": [],
+        "params": [],
+        "tags": [],
+        "details": ""
+    },
+    {
+        "title": "[M-14] V3Vault is not ERC-4626 compliant",
+        "contracts": [],
+        "fns": [],
+        "params": [],
+        "tags": ["erc46626"],
+        "details": ""
+    },
+    {
+        "title": "[M-15] Users’ newly created positions can be prematurely closed and removed from the vault directly after they are created",
+        "contracts": ["V3Vault"],
+        "fns": ["create()"],
+        "params": [],
+        "tags": [],
+        "details": ""
+    },
+    {
+        "title": "[M-16] Repayments and liquidations can be forced to revert by an attacker that repays minuscule amount of shares",
+        "contracts": [],
+        "fns": ["repay()","liquidate()"],
+        "params": [],
+        "tags": ["liquidate","repay"],
+        "details": ""
+    },
+    {
+        "title": "[M-17] AutoExit could receive a reward calculated from the entire position’s fund even if onlyFee is true in AutoExit.execute()",
+        "contracts": ["AutoExit"],
+        "fns": [],
+        "params": [],
+        "tags": [],
+        "details": ""
+    },
+    {
+        "title": "[M-18] Users cannot stop loss in AutoRange and AutoExit",
+        "contracts": ["AutoRange","AutoExit"],
+        "fns": [],
+        "params": [],
+        "tags": [],
+        "details": ""
+    },
+    {
+        "title": "[M-19] V3Oracle susceptible to price manipulation",
+        "contracts": ["V3Oracle"],
+        "fns": ["getValue()"],
+        "params": [],
+        "tags": ["oracle"],
+        "details": ""
+    },
+    {
+        "title": "[M-20] Tokens can’t be removed as a collateral without breaking liquidations and other core functions",
+        "contracts": ["V3Vault"],
+        "fns": ["setTokenConfig()"],
+        "params": ["collateralFactor"],
+        "tags": [],
+        "details": ""
+    },
+    {
+        "title": "[M-21] Dangerous use of deadline parameter",
+        "contracts": ["AutoCompound"],
+        "fns": [],
+        "params": [],
+        "tags": [],
+        "details": ""
+    },
+    {
+        "title": "[M-22] dailyDebtIncreaseLimitLeft is not updated in liquidate()",
+        "contracts": [],
+        "fns": ["liquidate()"],
+        "params": ["dailyDebyIncreaseLimitLeft"],
+        "tags": [],
+        "details": ""
+    },
+    {
+        "title": "[M-23] AutoRange execution can be front-ran to avoid protocol fee, causing loss for protocol",
+        "contracts": [],
+        "fns": [],
+        "params": [],
+        "tags": [],
+        "details": ""
+    },
+    {
+        "title": "[M-24] Incorrect liquidation fee calculation during underwater liquidation, disincentivizing liquidators to participate",
+        "contracts": [],
+        "fns": [],
+        "params": ["fullValue"],
+        "tags": ["liquidate"],
+        "details": ""
+    },
+    {
+        "title": "[M-25] Asymmetric calculation of price difference",
+        "contracts": [],
+        "fns": [],
+        "params": [],
+        "tags": [],
+        "details": ""
+    },
+    {
+        "title": "[M-26] Some ERC20 can revert on a zero value transfer",
+        "contracts": [],
+        "fns": [],
+        "params": [],
+        "tags": ["erc20","compliant"],
+        "details": ""
+    },
+    {
+        "title": "[M-27] Missing L2 sequencer checks for Chainlink oracle",
+        "contracts": [],
+        "fns": [],
+        "params": [],
+        "tags": ["oracle"],
         "details": ""
     }
 ]

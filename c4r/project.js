@@ -111,7 +111,8 @@ export async function init () {
                 {data:'contracts'}, 
                 {data:'fns'},
                 {data:'params'},
-                {data:'details'}
+                {data:'details'},
+                {data:'tags'}
             ]
         });
     } catch(err) {
